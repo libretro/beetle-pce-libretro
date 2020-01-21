@@ -641,7 +641,9 @@ endif
 	$(CC) -c $(OBJOUT)$@ $< $(CPPFLAGS) $(CFLAGS)
 
 clean:
-	rm -f $(TARGET) $(OBJECTS)
+	@rm -f $(OBJECTS)
+	@echo rm -f *.o
+	rm -f $(TARGET)
 
 install:
 	install -D -m 755 $(TARGET) $(DESTDIR)$(libdir)/$(LIBRETRO_INSTALL_DIR)/$(TARGET)
