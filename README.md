@@ -1,11 +1,10 @@
 [![Build Status](https://travis-ci.org/libretro/beetle-pce-libretro.svg?branch=master)](https://travis-ci.org/libretro/beetle-pce-libretro)
-[![Build status](https://ci.appveyor.com/api/projects/status/6hii7ljchwjp80la/branch/master?svg=true)](https://ci.appveyor.com/project/bparker06/beetle-pce-fast-libretro/branch/master)
 
-# Beetle PC-Engine libretro
+# Beetle PC Engine libretro
 
-Beetle PC Engine is a port/fork of Mednafen's PC Engine (pce) module to the libretro API.
+Beetle PC Engine is a port/fork of Mednafen's PC Engine "pce" module to the libretro API. This core supports both CD-ROM<sup>2</sup> and SuperGrafx emulation.
 
-This core supports both the PC Engine/TurboGrafx-16 and SuperGrafx. It also has CD-ROM2 support and is your one-stop-core for accurate PC Engine emulation.
+This PC Engine module is more accurate than the Fast module, which trades away typically unneeded accuracy in favor of speed. Unlike [Beetle PCE Fast](https://github.com/libretro/beetle-pce-fast-libretro), Beetle PCE retains built-in SuperGrafx support. SuperGrafx support can alternatively be found in the [Beetle SuperGrafx core](https://github.com/libretro/beetle-supergrafx-libretro).
 
 Features:
 - Sub-instruction timing granularity (but greater than cycle granularity)
@@ -18,3 +17,17 @@ Features:
 - 6-button pad emulation.
 - Mouse emulation.
 - Working CD+G playback.
+
+## Building
+
+This core can be built with `make`.
+
+## Documentation
+
+TBD
+
+## Related Cores
+
+Beetle PC Engine Fast: https://github.com/libretro/beetle-pce-fast-libretro
+
+Beetle SuperGrafx: https://github.com/libretro/beetle-supergrafx-libretro
