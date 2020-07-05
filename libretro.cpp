@@ -1047,13 +1047,9 @@ static float get_aspect_ratio(unsigned width, unsigned height)
       return (float) width / (float) height * par;
    }
    else if(aspect_ratio == 1)
-   {
       return 6.0 / 5.0;
-   }
    else if(aspect_ratio == 2)
-   {
       return 4.0 / 3.0;
-   }
    else if(aspect_ratio == 3)
    {
       float aspect = (float) width / (float) height;
@@ -1072,6 +1068,7 @@ static float get_aspect_ratio(unsigned width, unsigned height)
 
       return aspect;
    }
+   return 4.0 / 3.0;
 }
 
 void update_geometry(unsigned width, unsigned height)

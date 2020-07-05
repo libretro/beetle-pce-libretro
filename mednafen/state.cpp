@@ -26,7 +26,7 @@
 #include "video.h"
 #include <compat/msvc.h>
 
-#define RLSB 		MDFNSTATE_RLSB	//0x80000000
+#define RLSB 		MDFNSTATE_RLSB	/* 0x80000000 */
 
 int32_t smem_read(StateMem *st, void *buffer, uint32_t len)
 {
@@ -115,7 +115,8 @@ int smem_read32le(StateMem *st, uint32_t *b)
 
 static bool SubWrite(StateMem *st, SFORMAT *sf, const char *name_prefix = NULL)
 {
-   while(sf->size || sf->name)	// Size can sometimes be zero, so also check for the text name.  These two should both be zero only at the end of a struct.
+   /* Size can sometimes be zero, so also check for the text name.  These two should both be zero only at the end of a struct. */
+   while(sf->size || sf->name)	
    {
       if(!sf->size || !sf->v)
       {
@@ -165,14 +166,16 @@ static bool SubWrite(StateMem *st, SFORMAT *sf, const char *name_prefix = NULL)
          Endian_V_NE_to_LE(sf->v, bytesize);
 #endif
 
-      // Special case for the evil bool type, to convert bool to 1-byte elements.
-      // Don't do it if we're only saving the raw data.
+      /* Special case for the evil bool type, 
+       * to convert bool to 1-byte elements.
+       * Don't do it if we're only saving the raw data. */
       if(sf->flags & MDFNSTATE_BOOL)
       {
-         for(int32_t bool_monster = 0; bool_monster < bytesize; bool_monster++)
+         int32_t bool_monster;
+
+         for(bool_monster = 0; bool_monster < bytesize; bool_monster++)
          {
             uint8_t tmp_bool = ((bool *)sf->v)[bool_monster];
-            //printf("Bool write: %.31s\n", sf->name);
             smem_write(st, &tmp_bool, 1);
          }
       }
@@ -204,18 +207,16 @@ static int WriteStateChunk(StateMem *st, const char *sname, SFORMAT *sf)
 {
    int32_t data_start_pos;
    int32_t end_pos;
-
    uint8_t sname_tmp[32];
+   size_t sname_len = strlen(sname);
 
    memset(sname_tmp, 0, sizeof(sname_tmp));
-   strncpy((char *)sname_tmp, sname, 32);
-
-   if(strlen(sname) > 32)
-      printf("Warning: section name is too long: %s\n", sname);
+   memcpy((char *)sname_tmp, sname, (sname_len < 32) ? sname_len : 32);
 
    smem_write(st, sname_tmp, 32);
 
-   smem_write32le(st, 0);                // We'll come back and write this later.
+   /* We'll come back and write this later. */
+   smem_write32le(st, 0);                
 
    data_start_pos = st->loc;
 
@@ -261,11 +262,13 @@ static SFORMAT *FindSF(const char *name, SFORMAT *sf)
    return NULL;
 }
 
-// Fast raw chunk reader
+/* Fast raw chunk reader */
 static void DOReadChunk(StateMem *st, SFORMAT *sf)
 {
-   while(sf->size || sf->name)       // Size can sometimes be zero, so also check for the text name.  
-      // These two should both be zero only at the end of a struct.
+   /* Size can sometimes be zero, 
+    * so also check for the text name.  
+    * These two should both be zero only at the end of a struct. */
+   while(sf->size || sf->name)
    {
       if(!sf->size || !sf->v)
       {
@@ -273,7 +276,7 @@ static void DOReadChunk(StateMem *st, SFORMAT *sf)
          continue;
       }
 
-      if(sf->size == (uint32_t) ~0) // Link to another SFORMAT struct
+      if(sf->size == (uint32_t) ~0) /* Link to another SFORMAT struct */
       {
          DOReadChunk(st, (SFORMAT *)sf->v);
          sf++;
@@ -282,9 +285,9 @@ static void DOReadChunk(StateMem *st, SFORMAT *sf)
 
       int32_t bytesize = sf->size;
 
-      // Loading raw data, bool types are stored as they appear in memory, not as single bytes in the full state format.
-      // In the SFORMAT structure, the size member for bool entries is the number of bool elements, not the total in-memory size,
-      // so we adjust it here.
+      /* Loading raw data, bool types are stored as they appear in memory, not as single bytes in the full state format.
+       * In the SFORMAT structure, the size member for bool entries is the number of bool elements, not the total in-memory size,
+       * so we adjust it here. */
       if(sf->flags & MDFNSTATE_BOOL)
          bytesize *= sizeof(bool);
 
@@ -299,8 +302,8 @@ static int ReadStateChunk(StateMem *st, SFORMAT *sf, int size)
 
    while (st->loc < (temp + size))
    {
-      uint32_t recorded_size;	// In bytes
-      uint8_t toa[1 + 256];	// Don't change to char unless cast toa[0] to unsigned to smem_read() and other places.
+      uint32_t recorded_size;	/* In bytes */
+      uint8_t toa[1 + 256];	/* Don't change to char unless cast toa[0] to unsigned to smem_read() and other places. */
 
       if(smem_read(st, toa, 1) != 1)
       {
@@ -322,7 +325,7 @@ static int ReadStateChunk(StateMem *st, SFORMAT *sf, int size)
 
       if(tmp)
       {
-         uint32_t expected_size = tmp->size;	// In bytes
+         uint32_t expected_size = tmp->size;	/* In bytes */
 
          if(recorded_size != expected_size)
          {
@@ -339,7 +342,7 @@ static int ReadStateChunk(StateMem *st, SFORMAT *sf, int size)
 
             if(tmp->flags & MDFNSTATE_BOOL)
             {
-               // Converting downwards is necessary for the case of sizeof(bool) > 1
+               /* Converting downwards is necessary for the case of sizeof(bool) > 1 */
                for(int32_t bool_monster = expected_size - 1; bool_monster >= 0; bool_monster--)
                {
                   ((bool *)tmp->v)[bool_monster] = ((uint8_t *)tmp->v)[bool_monster];
@@ -366,7 +369,7 @@ static int ReadStateChunk(StateMem *st, SFORMAT *sf, int size)
             return(0);
          }
       }
-   } // while(...)
+   }
 
    assert(st->loc == (temp + size));
    return 1;
@@ -392,7 +395,7 @@ static int MDFNSS_StateAction_internal(void *st_p, int load, int data_only, SSDe
 
          total += tmp_size + 32 + 4;
 
-         // Yay, we found the section
+         /* Yay, we found the section */
          if(!strncmp(sname, section->name, 32))
          {
             if(!ReadStateChunk(st, section->sf, tmp_size))
@@ -417,7 +420,7 @@ static int MDFNSS_StateAction_internal(void *st_p, int load, int data_only, SSDe
          puts("Reverse seek error");
          return(0);
       }
-      if(!found && !section->optional) // Not found.  We are sad!
+      if(!found && !section->optional) /* Not found.  We are sad! */
       {
          printf("Section missing:  %.32s\n", section->name);
          return(0);
