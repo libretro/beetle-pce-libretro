@@ -99,6 +99,17 @@ struct retro_core_option_definition option_defs_us[] = {
       "1"
    },
    {
+      "pce_palette",
+      "Colour Palette",
+      "Composite tries to recreate the original console output and can show more details in some games.",
+      {
+         { "RGB", NULL },
+         { "Composite", NULL },
+         { NULL, NULL},
+      },
+      "RGB"
+   },
+   {
       "pce_aspect_ratio",
       "Aspect Ratio",
       "Choose the preferred content aspect ratio. This will only apply when RetroArch's aspect ratio is set to 'Core provided' in the Video settings.",

@@ -598,7 +598,7 @@ void Emulate(EmulateSpecStruct *espec)
 	MDFNMP_ApplyPeriodicCheats();
 
 	if(espec->VideoFormatChanged)
-		vce->SetPixelFormat(NULL, 0); //espec->CustomPalette, espec->CustomPaletteNumEntries
+		vce->SetPixelFormat(espec->CustomPalette, espec->CustomPaletteNumEntries);
 
 	if(espec->SoundFormatChanged)
 		SetSoundRate(espec->SoundRate);

@@ -207,8 +207,6 @@ VCE::VCE(const bool want_sgfx, const uint32 vram_size)
 	memset(surf_clut, 0, sizeof(surf_clut));
 
 	SetShowHorizOS(false);
-	
-	SetPixelFormat(NULL, 0);
 }
 
 void VCE::SetVDCUnlimitedSprites(const bool nospritelimit)
