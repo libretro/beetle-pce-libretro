@@ -951,7 +951,7 @@ bool retro_load_game_special(unsigned, const struct retro_game_info *, size_t)
 
 #define MAX_PLAYERS 5
 #define MAX_BUTTONS 15
-static uint8_t input_buf[MAX_PLAYERS][2] = {0};
+static uint8_t input_buf[MAX_PLAYERS][2] = {{0}};
 static unsigned int input_type[MAX_PLAYERS] = {0};
 
 static int16_t mousedata[MAX_PLAYERS][3] = {{0}};
@@ -1669,20 +1669,44 @@ void retro_run(void)
    bool resolution_changed = false;
    rects[0] = ~0;
 
-   EmulateSpecStruct spec = {0};
+   EmulateSpecStruct spec;
+
    spec.surface = surf;
-   spec.SoundRate = 44100;
-   spec.SoundBuf = sound_buf;
+   spec.VideoFormatChanged = true;
+
+   spec.DisplayRect.x = 0;
+   spec.DisplayRect.y = 0;
+   spec.DisplayRect.w = 0;
+   spec.DisplayRect.h = 0;
+
    spec.LineWidths = rects;
-   spec.SoundBufMaxSize = sizeof(sound_buf) / 2;
-   spec.SoundVolume = 1.0;
-   spec.soundmultiplier = 1.0;
-   spec.SoundBufSize = 0;
    spec.CustomPalette = use_palette ? composite_palette : NULL;
    spec.CustomPaletteNumEntries = use_palette ? 512 : 0;
-   spec.VideoFormatChanged = true;
-   spec.SoundFormatChanged = false;
+
+   spec.IsFMV     = NULL;
+
+   spec.InterlaceOn = false;
+   spec.InterlaceField = false;
+
    spec.skip = false;
+
+   spec.SoundFormatChanged = false;
+
+   spec.SoundRate = 44100;
+
+   spec.SoundBuf = sound_buf;
+   spec.SoundBufMaxSize = sizeof(sound_buf) / 2;
+   spec.SoundBufSize = 0;
+   spec.SoundBufSizeALMS = 0;
+
+   spec.MasterCycles = 0;
+   spec.MasterCyclesALMS = 0;
+
+   spec.SoundVolume = 1.0;
+   spec.soundmultiplier = 1.0;
+
+   spec.NeedRewind = false;
+   spec.NeedSoundReverse = false;
 
    if (spec.SoundRate != last_sound_rate)
    {
