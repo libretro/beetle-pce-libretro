@@ -869,6 +869,8 @@ static retro_input_poll_t input_poll_cb;
 static retro_input_state_t input_state_cb;
 static double last_sound_rate;
 
+static bool libretro_supports_bitmasks = false;
+
 static MDFN_Surface *surf;
 
 static bool failed_init;
@@ -937,6 +939,9 @@ void retro_init(void)
    setting_pce_last_scanline = 242;
 
    check_system_specs();
+
+   if (environ_cb(RETRO_ENVIRONMENT_GET_INPUT_BITMASKS, NULL))
+      libretro_supports_bitmasks = true;
 }
 
 void retro_reset(void)
@@ -1423,6 +1428,9 @@ void retro_unload_game(void)
 
 static void update_input(void)
 {
+   unsigned i,j;
+   int16_t joy_bits[MAX_PLAYERS] = {0};
+
    static int turbo_map[]     = { -1,-1,-1,-1,-1,-1,-1,-1, 1, 0,-1,-1,-1,-1,-1 };
    static int turbo_map_alt[] = { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1, 1, 0 };
    static unsigned map[] = {
@@ -1443,7 +1451,18 @@ static void update_input(void)
       RETRO_DEVICE_ID_JOYPAD_R3
    };
 
-   for (unsigned j = 0; j < MAX_PLAYERS; j++)
+   for (j = 0; j < MAX_PLAYERS; j++)
+   {
+      if (libretro_supports_bitmasks)
+         joy_bits[j] = input_state_cb(j, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_MASK);
+      else
+	  {
+         for (i = 0; i < (RETRO_DEVICE_ID_JOYPAD_R3+1); i++)
+            joy_bits[j] |= input_state_cb(j, RETRO_DEVICE_JOYPAD, 0, i) ? (1 << i) : 0;
+      }
+   }
+
+   for (j = 0; j < MAX_PLAYERS; j++)
    {
       if (input_type[j] == RETRO_DEVICE_JOYPAD)             // Joypad
       {
@@ -1458,9 +1477,9 @@ static void update_input(void)
                if (turbo_counter[j][i] > (Turbo_Delay)) //When the counter exceeds turbo delay, fire and return to zero
                {
                   if(Turbo_Toggling == 2 && (i == 8 || i == 9) && !avpad6_enable[j])
-                     input_state |= input_state_cb(j, RETRO_DEVICE_JOYPAD, 0, map[i]) ? (1 << turbo_map[i]) : 0;
+                     input_state |= (joy_bits[j] & (1 << map[i])) ? (1 << turbo_map[i]) : 0;
                   else
-                     input_state |= input_state_cb(j, RETRO_DEVICE_JOYPAD, 0, map[i]) ? (1 << i) : 0;
+                     input_state |= (joy_bits[j] & (1 << map[i])) ? (1 << i) : 0;
 
                   turbo_counter[j][i] = 0;
                }
@@ -1507,7 +1526,7 @@ static void update_input(void)
                input_state |= avpad6_enable[j];
             }
             else
-               input_state |= input_state_cb(j, RETRO_DEVICE_JOYPAD, 0, map[i]) ? (1 << i) : 0;
+               input_state |= (joy_bits[j] & (1 << map[i])) ? (1 << i) : 0;
          }
 
          if (disable_softreset == true)
@@ -1787,6 +1806,8 @@ void retro_deinit()
       log_cb(RETRO_LOG_INFO, "[%s]: Estimated FPS: %.5f\n",
             MEDNAFEN_CORE_NAME, (double)video_frames * 44100 / audio_frames);
    }
+
+   libretro_supports_bitmasks = false;
 }
 
 unsigned retro_get_region(void)
