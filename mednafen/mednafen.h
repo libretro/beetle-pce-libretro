@@ -50,8 +50,6 @@ void MDFN_PrintError(const char *format, ...);
 void MDFN_printf(const char *format, ...);
 void MDFN_DispMessage(const char *format, ...);
 
-void MDFN_DebugPrintReal(const char *file, const int line, const char *format, ...);
-
 void MDFN_LoadGameCheats(void *override);
 void MDFN_FlushGameCheats(int nosave);
 

@@ -3,10 +3,6 @@
 
 #include <string>
 
-extern uint32 MDFN_RoundUpPow2(uint32);
-
-void GetFileBase(const char *f);
-
 // File-inclusion for-read-only path, for PSF and CUE/TOC sheet usage.
 bool MDFN_IsFIROPSafe(const std::string &path);
 
