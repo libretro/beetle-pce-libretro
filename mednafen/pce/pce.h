@@ -1,6 +1,8 @@
 #ifndef __MDFN_PCE_PCE_H
 #define __MDFN_PCE_PCE_H
 
+#include <vector>
+
 #include <mednafen/mednafen.h>
 #include <mednafen/state.h>
 #include <mednafen/general.h>

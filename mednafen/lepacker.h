@@ -1,6 +1,7 @@
 #ifndef __MDFN_LEPACKER_H
 #define __MDFN_LEPACKER_H
 
+#include <vector>
 #include "mednafen.h"
 
 /* Little-endian byte packer(and unpacker). */

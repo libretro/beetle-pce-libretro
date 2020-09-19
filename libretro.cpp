@@ -17,7 +17,6 @@
 #include "mednafen/pce/input.h"
 #include "mednafen/pce/huc.h"
 #include "mednafen/pce/vce.h"
-#include "mednafen/settings-driver.h"
 #include "mednafen/mempatcher.h"
 #include "mednafen/cdrom/cdromif.h"
 #include "mednafen/cdrom/CDUtility.h"
@@ -701,14 +700,6 @@ static MDFNGI *MDFNI_LoadCD(const char *devicename)
 
 static MDFNGI *MDFNI_LoadGame(const char *name)
 {
-   static const FileExtensionSpecStruct KnownExtensions[] =
-   {
-      { ".pce", "PC Engine ROM Image" },
-      { ".sgx", "SuperGrafx ROM Image" },
-      { NULL, NULL }
-   };
-
-   std::vector<FileExtensionSpecStruct> valid_iae;
    MDFNFILE *GameFile = NULL;
    MDFNGameInfo = &EmulatedPCE;
 
@@ -722,14 +713,6 @@ static MDFNGI *MDFNI_LoadGame(const char *name)
    MDFN_indent(1);
 
    // Construct a NULL-delimited list of known file extensions for MDFN_fopen()
-   const FileExtensionSpecStruct *curexts = KnownExtensions;
-
-   while(curexts->extension && curexts->description)
-   {
-      valid_iae.push_back(*curexts);
-      curexts++;
-   }
-
    GameFile = file_open(name);
 
    if(!GameFile)
@@ -817,7 +800,8 @@ void MDFN_printf(const char *format, ...)
    vsnprintf(temp, 4096, format_temp, ap);
    free(format_temp);
 
-   MDFND_Message(temp);
+   if (log_cb)
+      log_cb(RETRO_LOG_INFO, "%s\n", temp);
    free(temp);
 
    va_end(ap);
@@ -833,7 +817,8 @@ void MDFN_PrintError(const char *format, ...)
 
    temp = (char*)malloc(4096 * sizeof(char));
    vsnprintf(temp, 4096, format, ap);
-   MDFND_PrintError(temp);
+   if (log_cb)
+      log_cb(RETRO_LOG_ERROR, "%s\n", temp);
    free(temp);
 
    va_end(ap);
@@ -2040,18 +2025,6 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
    if (log_cb)
       log_cb(RETRO_LOG_INFO, "MDFN_MakeFName: %s\n", ret.c_str());
    return ret;
-}
-
-void MDFND_Message(const char *str)
-{
-   if (log_cb)
-      log_cb(RETRO_LOG_INFO, "%s\n", str);
-}
-
-void MDFND_PrintError(const char* err)
-{
-   if (log_cb)
-      log_cb(RETRO_LOG_ERROR, "%s\n", err);
 }
 
 /* forward declarations */

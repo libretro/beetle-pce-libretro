@@ -4,19 +4,13 @@
 #include <string>
 #include <libretro.h>
 
+#include "file.h"
+#include "state.h"
 #include "video.h"
 
 #if 0
 template<typename T> void showtype(T foo);
 #endif
-
-typedef struct
-{
- const char *extension; // Example ".nes"
- const char *description; // Example "iNES Format ROM Image"
-} FileExtensionSpecStruct;
-
-#include "file.h"
 
 enum
 {
@@ -44,9 +38,6 @@ typedef enum
  GMT_CDROM,	// PC Engine CD, PC-FX
  GMT_PLAYER	// Music player(NSF, HES, GSF)
 } GameMediumTypes;
-
-#include "state.h"
-#include "settings-common.h"
 
 typedef enum
 {
@@ -295,8 +286,6 @@ class CDIF;
 
 typedef struct
 {
- const MDFNSetting *Settings;
-
  // Time base for EmulateSpecStruct::MasterCycles
  int64 MasterClock;
 

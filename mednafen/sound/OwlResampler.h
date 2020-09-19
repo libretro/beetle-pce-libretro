@@ -4,6 +4,7 @@
 class OwlResampler;
 class RavenBuffer;
 
+#include <vector>
 #include <mednafen/state.h>
 
 class OwlBuffer

@@ -841,25 +841,5 @@ OwlResampler::OwlResampler(double input_rate, double output_rate, double rate_er
 
  MDFN_indent(-1);
 
- //abort();
-
- #if 0
- {
-  static float dummy_wave[1024];
-  static float dummy_coeffs[1024];
-  int32 dummy_out;
-  uint32 begin_time = MDFND_GetTime();
-
-  for(int i = 0; i < 1024 * 1024; i++)
-  {
-   DoMAC_AVX_32X(dummy_wave, dummy_coeffs, 1024, &dummy_out);
-   //DoMAC_SSE_16X(dummy_wave, dummy_coeffs, 1024, &dummy_out);
-  }
-
-  printf("%u\n", MDFND_GetTime() - begin_time);
-  abort();
- }
- #endif
- 
  delete[] FilterBuf;
 }

@@ -152,22 +152,3 @@ std::string MDFN_GetSettingS(const char *name)
    fprintf(stderr, "unhandled setting S: %s\n", name);
    return 0;
 }
-
-bool MDFNI_SetSetting(const char *name, const char *value, bool NetplayOverride)
-{
-   return false;
-}
-
-bool MDFNI_SetSettingB(const char *name, bool value)
-{
-   return false;
-}
-
-bool MDFNI_SetSettingUI(const char *name, uint64 value)
-{
-   return false;
-}
-
-void MDFNI_DumpSettingsDef(const char *path)
-{
-}
