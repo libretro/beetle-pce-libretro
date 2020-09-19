@@ -620,7 +620,7 @@ static bool ReadM3U(std::vector<std::string> &file_list, std::string path, unsig
 static std::vector<CDIF *> CDInterfaces;   // FIXME: Cleanup on error out.
 // TODO: LoadCommon()
 
-static MDFNGI *MDFNI_LoadCD(const char *devicename)
+static bool MDFNI_LoadCD(const char *devicename)
 {
    bool ret = false;
    log_cb(RETRO_LOG_INFO, "Loading %s...\n\n", devicename);
@@ -652,7 +652,7 @@ static MDFNGI *MDFNI_LoadCD(const char *devicename)
    if (!ret)
    {
       log_cb(RETRO_LOG_ERROR, "Error opening CD.\n");
-      return NULL;
+      return false;
    }
 
    /* Print out a track list for all discs. */
@@ -687,7 +687,8 @@ static MDFNGI *MDFNI_LoadCD(const char *devicename)
       CDInterfaces.clear();
 
       MDFNGameInfo = NULL;
-      return(0);
+
+      return false;
    }
 
    //MDFNI_SetLayerEnableMask(~0ULL);
@@ -695,18 +696,16 @@ static MDFNGI *MDFNI_LoadCD(const char *devicename)
    MDFN_LoadGameCheats(NULL);
    MDFNMP_InstallReadPatches();
 
-   return(MDFNGameInfo);
+   return true;
 }
 
-static MDFNGI *MDFNI_LoadGame(const char *name)
+static bool MDFNI_LoadGame(const char *name)
 {
    MDFNFILE *GameFile = NULL;
-   MDFNGameInfo = &EmulatedPCE;
+   MDFNGameInfo       = &EmulatedPCE;
 
    if(strlen(name) > 4 && (!strcasecmp(name + strlen(name) - 4, ".cue") || !strcasecmp(name + strlen(name) - 4, ".ccd") || !strcasecmp(name + strlen(name) - 4, ".chd") || !strcasecmp(name + strlen(name) - 4, ".toc") || !strcasecmp(name + strlen(name) - 4, ".m3u")))
-   {
-      return(MDFNI_LoadCD(name));
-   }
+      return MDFNI_LoadCD(name);
 
    MDFN_printf("Loading %s...\n",name);
 
@@ -736,13 +735,14 @@ static MDFNGI *MDFNI_LoadGame(const char *name)
 
    MDFN_indent(-2);
 
-   return(MDFNGameInfo);
+   return true;
 
 error:
    if (GameFile)
       file_close(GameFile);
    MDFNGameInfo = NULL;
-   return NULL;
+
+   return false;
 }
 
 static int curindent = 0;
@@ -823,8 +823,6 @@ void MDFN_PrintError(const char *format, ...)
 
    va_end(ap);
 }
-
-static MDFNGI *game;
 
 struct retro_perf_callback perf_cb;
 retro_get_cpu_features_t perf_get_cpu_features_cb = NULL;
@@ -1348,8 +1346,7 @@ bool retro_load_game(const struct retro_game_info *info)
 
    check_variables(false);
 
-   game = MDFNI_LoadGame(info->path);
-   if (!game)
+   if (!MDFNI_LoadGame(info->path))
       return false;
 
    surf = (MDFN_Surface*)calloc(1, sizeof(*surf));
@@ -1372,7 +1369,7 @@ bool retro_load_game(const struct retro_game_info *info)
    for (unsigned i = 0; i < MAX_PLAYERS; i++)
       PCEINPUT_SetInput(i, "gamepad", &input_buf[i][0]);
 
-   return game;
+   return true;
 }
 
 void retro_unload_game(void)
@@ -1644,8 +1641,6 @@ static void hires_blending(bpp_t *fb, int width, int height, int pitch)
 }
 void retro_run(void)
 {
-   MDFNGI *curgame = (MDFNGI*)game;
-
    input_poll_cb();
 
    update_input();
@@ -1703,7 +1698,8 @@ void retro_run(void)
 
    Emulate(&spec);
 
-   int16 *const SoundBuf = spec.SoundBuf + spec.SoundBufSizeALMS * curgame->soundchan;
+#define PCE_SOUNDCHANS 2
+   int16 *const SoundBuf = spec.SoundBuf + spec.SoundBufSizeALMS * PCE_SOUNDCHANS;
    int32 SoundBufSize = spec.SoundBufSize - spec.SoundBufSizeALMS;
    const int32 SoundBufMaxSize = spec.SoundBufMaxSize - spec.SoundBufSizeALMS;
 
@@ -1930,17 +1926,17 @@ void *retro_get_memory_data(unsigned type)
 {
    switch (type)
    {
-   case RETRO_MEMORY_SAVE_RAM:
-      if (IsPopulous)
-         return (uint8_t*)PopRAM;
+      case RETRO_MEMORY_SAVE_RAM:
+         if (IsPopulous)
+            return (uint8_t*)PopRAM;
 
-      return (uint8_t*)SaveRAM;
+         return (uint8_t*)SaveRAM;
 
-   case RETRO_MEMORY_SYSTEM_RAM:
-      return BaseRAM;
-       
-   default:
-      break;
+      case RETRO_MEMORY_SYSTEM_RAM:
+         return BaseRAM;
+
+      default:
+         break;
    }
 
    return NULL;
@@ -1985,11 +1981,10 @@ static void sanitize_path(std::string &path)
 // Use a simpler approach to make sure that things go right for libretro.
 std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
 {
-   char slash;
 #ifdef _WIN32
-   slash = '\\';
+   char slash = '\\';
 #else
-   slash = '/';
+   char slash = '/';
 #endif
    std::string ret;
    switch (type)
@@ -2009,9 +2004,6 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
       log_cb(RETRO_LOG_INFO, "MDFN_MakeFName: %s\n", ret.c_str());
    return ret;
 }
-
-/* forward declarations */
-extern void MDFND_DispMessage(unsigned char *str);
 
 void MDFND_DispMessage(unsigned char *str)
 {
@@ -2038,7 +2030,7 @@ void MDFN_DispMessage(const char *format, ...)
    strc = str;
 
    msg.frames = 180;
-   msg.msg = strc;
+   msg.msg    = strc;
 
    environ_cb(RETRO_ENVIRONMENT_SET_MESSAGE, &msg);
 }
