@@ -32,7 +32,7 @@
 #define MEDNAFEN_CORE_TIMING_FPS 7159090.90909090 / 455.0 / 263.0
 #define MEDNAFEN_CORE_GEOMETRY_BASE_W 256
 #define MEDNAFEN_CORE_GEOMETRY_BASE_H 224
-#define MEDNAFEN_CORE_GEOMETRY_MAX_W 1365+3
+#define MEDNAFEN_CORE_GEOMETRY_MAX_W (1365+3)
 #define MEDNAFEN_CORE_GEOMETRY_MAX_H 270
 #define MEDNAFEN_CORE_GEOMETRY_ASPECT_RATIO 6.0 / 5.0
 #define FB_WIDTH 1365
@@ -1356,8 +1356,8 @@ bool retro_load_game(const struct retro_game_info *info)
 
    surf->width  = FB_WIDTH;
    surf->height = FB_HEIGHT;
-   surf->pitch  = FB_WIDTH;
-   surf->pixels = (bpp_t*) calloc(sizeof(bpp_t), FB_WIDTH * FB_HEIGHT);
+   surf->pitch  = MEDNAFEN_CORE_GEOMETRY_MAX_W;
+   surf->pixels = (bpp_t*) calloc(sizeof(bpp_t), MEDNAFEN_CORE_GEOMETRY_MAX_W * FB_HEIGHT);
 
    if (!surf->pixels)
    {
@@ -1713,9 +1713,9 @@ void retro_run(void)
    
    bpp_t *fb = surf->pixels + spec.DisplayRect.x + surf->pitch * spec.DisplayRect.y;
    
-   hires_blending(fb, width, height, FB_WIDTH);
+   hires_blending(fb, width, height, MEDNAFEN_CORE_GEOMETRY_MAX_W);
 
-   video_cb(fb, width, height, FB_WIDTH * sizeof(bpp_t));
+   video_cb(fb, width, height, MEDNAFEN_CORE_GEOMETRY_MAX_W * sizeof(bpp_t));
    audio_batch_cb(spec.SoundBuf, spec.SoundBufSize);
 
    bool updated = false;
