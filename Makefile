@@ -486,6 +486,7 @@ CFLAGS   += -D_XBOX -D_XBOX1
 CXXFLAGS += -D_XBOX -D_XBOX1
 STATIC_LINKING=1
 HAVE_CHD = 0
+WINDOWS_VERSION=1
 
 # Windows MSVC 2003 x86
 else ifeq ($(platform), windows_msvc2003_x86)
