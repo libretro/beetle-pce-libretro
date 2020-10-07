@@ -6,7 +6,6 @@ DEBUG                    := 0
 FRONTEND_SUPPORTS_RGB565 := 1
 NEED_CD                  := 1
 NEED_BPP                 := 16
-WANT_NEW_API             := 1
 NEED_BLIP                := 1
 NEED_STEREO_SOUND        := 1
 NEED_THREADING           := 1
@@ -22,7 +21,7 @@ endif
 
 include $(CORE_DIR)/Makefile.common
 
-COREFLAGS := -funroll-loops $(INCFLAGS) -DMEDNAFEN_VERSION=\"0.9.48\" -DMEDNAFEN_VERSION_NUMERIC=948 -DPSS_STYLE=1 -D__LIBRETRO__ -D_LOW_ACCURACY_ -DINLINE="inline" $(FLAGS)
+COREFLAGS := -funroll-loops $(INCFLAGS) -DMEDNAFEN_VERSION=\"0.9.48\" -DMEDNAFEN_VERSION_NUMERIC=948 -D__LIBRETRO__ -D_LOW_ACCURACY_ -DINLINE="inline" $(FLAGS)
 COREFLAGS += -DWANT_PCE_FAST
 
 GIT_VERSION := " $(shell git rev-parse --short HEAD || echo unknown)"
