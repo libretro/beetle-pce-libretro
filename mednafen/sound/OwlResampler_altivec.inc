@@ -3,7 +3,7 @@
 //
 static INLINE void DoMAC_AltiVec(float* wave, float* coeffs, int32 count, int32* accum_output)
 {
- register vector float acc0, acc1, acc2, acc3;
+ vector float acc0, acc1, acc2, acc3;
 
  acc0 = (vector float)vec_splat_u8(0);
  acc1 = acc0;
@@ -15,7 +15,7 @@ static INLINE void DoMAC_AltiVec(float* wave, float* coeffs, int32 count, int32*
 
  if(!((uint64)wave & 0xF))
  {
-  register vector float w, c;
+  vector float w, c;
   do
   {
    w = vec_ld(0, wave);
@@ -40,17 +40,17 @@ static INLINE void DoMAC_AltiVec(float* wave, float* coeffs, int32 count, int32*
  }
  else
  {
-  register vector unsigned char lperm;
-  register vector float loado;
+  vector unsigned char lperm;
+  vector float loado;
 
   lperm = vec_lvsl(0, wave);
   loado = vec_ld(0, wave);
 
   do
   {
-   register vector float tl;
-   register vector float w;
-   register vector float c;
+   vector float tl;
+   vector float w;
+   vector float c;
 
    tl = vec_ld(15 + 0, wave);
    w = vec_perm(loado, tl, lperm);

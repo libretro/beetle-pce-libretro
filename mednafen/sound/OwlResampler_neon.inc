@@ -3,8 +3,7 @@
 //
 static INLINE void DoMAC_NEON(float* wave, float* coeffs, int32 count, int32* accum_output)
 {
- register float32x4_t acc0, acc1, acc2, acc3;
-
+ float32x4_t acc0, acc1, acc2, acc3;
  acc0 = acc1 = acc2 = acc3 = vdupq_n_f32(0);
 
  count >>= 4;
@@ -22,8 +21,8 @@ static INLINE void DoMAC_NEON(float* wave, float* coeffs, int32 count, int32* ac
  //
  //
  //
- register float32x4_t sum4;
- register float32x2_t sum2;
+ float32x4_t sum4;
+ float32x2_t sum2;
 
  sum4 = vaddq_f32(vaddq_f32(acc0, acc1), vaddq_f32(acc2, acc3));
  sum2 = vadd_f32(vget_high_f32(sum4), vget_low_f32(sum4));
