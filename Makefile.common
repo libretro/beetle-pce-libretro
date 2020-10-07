@@ -187,10 +187,10 @@ ifeq ($(HAVE_CHD), 1)
 	ifneq ($(STATIC_LINKING), 1)
 		ifeq ($(SYSTEM_ZLIB), 1)
 			INCFLAGS += $(shell pkg-config --cflags zlib)
-			INCFLAGS += -I$(LIBRETRO_COMM_DIR)/include/compat
 			LIBS += $(shell pkg-config --libs zlib)
 		else
 			INCFLAGS += $(ZLIB_INCFLAGS)
+			INCFLAGS += -I$(LIBRETRO_COMM_DIR)/include/compat
 			SOURCES_C += $(ZLIB_SOURCES_C)
 		endif
 	endif
