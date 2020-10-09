@@ -1,7 +1,7 @@
 SOURCES_CXX :=
 SOURCES_C   :=
 
-DEPS_DIR     	  := $(CORE_DIR)/deps
+DEPS_DIR     	   := $(CORE_DIR)/deps
 LIBRETRO_COMM_DIR := $(CORE_DIR)/libretro-common
 MEDNAFEN_DIR      := $(CORE_DIR)/mednafen
 CORE_EMU_DIR      := $(MEDNAFEN_DIR)/pce
@@ -184,16 +184,13 @@ ifeq ($(HAVE_CHD), 1)
 		endif
 	endif
 
-	ifneq ($(STATIC_LINKING), 1)
-		ifeq ($(SYSTEM_ZLIB), 1)
-			INCFLAGS += $(shell pkg-config --cflags zlib)
-			LIBS += $(shell pkg-config --libs zlib)
-		else
-			INCFLAGS += $(ZLIB_INCFLAGS)
-			INCFLAGS += -I$(LIBRETRO_COMM_DIR)/include/compat
-			SOURCES_C += $(ZLIB_SOURCES_C)
-		endif
-	endif
+    ifeq ($(SYSTEM_ZLIB), 1)
+       INCFLAGS += $(shell pkg-config --cflags zlib)
+       LIBS += $(shell pkg-config --libs zlib)
+    else
+       INCFLAGS += $(ZLIB_INCFLAGS)
+       SOURCES_C += $(ZLIB_SOURCES_C)
+    endif
 
     SOURCES_CXX += $(CDROM_DIR)/CDAccess_CHD.cpp
 endif
