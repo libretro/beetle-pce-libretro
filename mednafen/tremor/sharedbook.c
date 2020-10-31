@@ -22,6 +22,9 @@
 #include "misc.h"
 #include "ivorbiscodec.h"
 #include "codebook.h"
+#ifdef __CELLOS_LV2__
+#include <alloca.h>
+#endif
 
 /**** pack/unpack helpers ******************************************/
 int _ilog(unsigned int v){

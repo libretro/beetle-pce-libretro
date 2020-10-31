@@ -29,6 +29,9 @@
 #include "registry.h"
 #include "window.h"
 #include "misc.h"
+#ifdef __CELLOS_LV2__
+#include <alloca.h>
+#endif
 
 /* helpers */
 static void _v_readstring(oggpack_buffer *o,char *buf,int bytes){

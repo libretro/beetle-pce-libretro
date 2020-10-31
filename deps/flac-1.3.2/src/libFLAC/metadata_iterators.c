@@ -56,6 +56,11 @@
 /* Alias the first (in share/alloc.h) to the second (in src/libFLAC/memory.c). */
 #define safe_malloc_mul_2op_ safe_malloc_mul_2op_p
 
+#ifdef __CELLOS_LV2__
+#define ftello(x) (off_t)ftell(x)
+#define fseeko(x,y,z) fseek(x, (long int)y, z)
+#endif
+
 /****************************************************************************
  *
  * Local function declarations
@@ -3435,7 +3440,7 @@ void set_file_stats_(const char *filename, struct flac_stat_s *stats)
 	srctime.modtime = stats->st_mtime;
 	(void)flac_chmod(filename, stats->st_mode);
 	(void)flac_utime(filename, &srctime);
-#if !defined _MSC_VER && !defined __BORLANDC__ && !defined __MINGW32__
+#if !defined _MSC_VER && !defined __BORLANDC__ && !defined __MINGW32__ && !defined __CELLOS_LV2__
 	FLAC_CHECK_RETURN(chown(filename, stats->st_uid, -1));
 	FLAC_CHECK_RETURN(chown(filename, -1, stats->st_gid));
 #endif
