@@ -25,6 +25,9 @@
 #include "codebook.h"
 #include "misc.h"
 #include "block.h"
+#ifdef __CELLOS_LV2__
+#include <alloca.h>
+#endif
 
 #define LSP_FRACBITS 14
 

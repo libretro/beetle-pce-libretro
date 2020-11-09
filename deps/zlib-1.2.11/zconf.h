@@ -389,6 +389,8 @@
 
 #if !defined(__MACTYPES__)
 typedef unsigned char  Byte;  /* 8 bits */
+#else
+#include <config.h>
 #endif
 typedef unsigned int   uInt;  /* 16 bits or more */
 typedef unsigned long  uLong; /* 32 bits or more */

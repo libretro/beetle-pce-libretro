@@ -27,6 +27,9 @@
 #include "window.h"
 #include "registry.h"
 #include "misc.h"
+#ifdef __CELLOS_LV2__
+#include <alloca.h>
+#endif
 
 /* simplistic, wasteful way of doing this (unique lookup for each
    mode/submapping); there should be a central repository for

@@ -26,6 +26,9 @@
 #include "misc.h"
 #include "os.h"
 #include "block.h"
+#ifdef __CELLOS_LV2__
+#include <alloca.h>
+#endif
 
 typedef struct {
   vorbis_info_residue0 *info;

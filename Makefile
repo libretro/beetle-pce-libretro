@@ -206,7 +206,7 @@ else ifneq (,$(filter $(platform), ps3 sncps3 psl1ght))
       CC = $(CELL_SDK)/host-win32/ppu/bin/ppu-lv2-gcc.exe
       CXX = $(CELL_SDK)/host-win32/ppu/bin/ppu-lv2-g++.exe
       AR = $(CELL_SDK)/host-win32/ppu/bin/ppu-lv2-ar.exe
-      FLAGS += -DARCH_POWERPC_ALTIVEC
+      FLAGS += -DARCH_POWERPC_ALTIVEC -DHAVE_CONFIG_H -D__MACTYPES__
       OLD_GCC := 1
 
    # Lightweight PS3 Homebrew SDK

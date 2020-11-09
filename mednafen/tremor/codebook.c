@@ -22,6 +22,9 @@
 #include "ivorbiscodec.h"
 #include "codebook.h"
 #include "misc.h"
+#ifdef __CELLOS_LV2__
+#include <alloca.h>
+#endif
 
 /* unpacks a codebook from the packet buffer into the codebook struct,
    readies the codebook auxiliary structures for decode *************/
