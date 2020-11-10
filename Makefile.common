@@ -58,7 +58,7 @@ LIBCHDR_SOURCES_C = \
 	$(DEPS_DIR)/libchdr/src/libchdr_flac.c \
 	$(DEPS_DIR)/libchdr/src/libchdr_huffman.c
 
-ZLIB_INCFLAGS = -I$(DEPS_DIR)/zlib
+ZLIB_INCFLAGS = -I$(DEPS_DIR)/zlib-1.2.11
 ZLIB_SOURCES_C = \
 	$(DEPS_DIR)/zlib-1.2.11/adler32.c \
 	$(DEPS_DIR)/zlib-1.2.11/compress.c \
