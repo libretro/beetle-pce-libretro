@@ -539,14 +539,20 @@ ifeq ($(NO_GCC),1)
    WARNINGS :=
 endif
 
-OBJECTS := $(SOURCES_CXX:.cpp=.o) $(SOURCES_C:.c=.o)
-
-all: $(TARGET)
-
 ifeq ($(DEBUG),0)
    FLAGS += -O2 -DNDEBUG $(EXTRA_GCC_FLAGS)
 else
    FLAGS += -O0 -g
+endif
+
+ifneq (,$(findstring msvc,$(platform)))
+   ifeq ($(DEBUG), 1)
+      CFLAGS += -MTd
+      CXXFLAGS += -MTd
+   else
+      CFLAGS += -MT
+      CXXFLAGS += -MT
+   endif
 endif
 
 LDFLAGS += $(fpic) $(SHARED)
@@ -596,29 +602,17 @@ ifneq (,$(findstring msvc,$(platform)))
 ifeq ($(STATIC_LINKING),1)
 	LD ?= lib.exe
 	STATIC_LINKING=0
-
-	ifeq ($(DEBUG), 1)
-		CFLAGS += -MTd
-		CXXFLAGS += -MTd
-	else
-		CFLAGS += -MT
-		CXXFLAGS += -MT
-	endif
 else
 	LD = link.exe
-
-	ifeq ($(DEBUG), 1)
-		CFLAGS += -MDd
-		CXXFLAGS += -MDd
-	else
-		CFLAGS += -MD
-		CXXFLAGS += -MD
-	endif
 endif
 else
 	LD = $(CXX)
 endif
 
+
+OBJECTS := $(SOURCES_CXX:.cpp=.o) $(SOURCES_C:.c=.o)
+
+all: $(TARGET)
 $(TARGET): $(OBJECTS)
 ifeq ($(platform), emscripten)
 	$(CXX) $(CXXFLAGS) $(OBJOUT)$@ $^
@@ -635,14 +629,14 @@ endif
 	$(CC) -c $(OBJOUT)$@ $< $(CPPFLAGS) $(CFLAGS)
 
 clean:
-	@rm -f $(OBJECTS)
-	@echo rm -f *.o
-	rm -f $(TARGET)
+	$(RM) -f $(OBJECTS)
+	$(RM) -f *.o
+	$(RM) -f $(TARGET)
 
 install:
 	install -D -m 755 $(TARGET) $(DESTDIR)$(libdir)/$(LIBRETRO_INSTALL_DIR)/$(TARGET)
 
 uninstall:
-	rm $(DESTDIR)$(libdir)/$(LIBRETRO_INSTALL_DIR)/$(TARGET)
+	$(RM) $(DESTDIR)$(libdir)/$(LIBRETRO_INSTALL_DIR)/$(TARGET)
 
 .PHONY: clean
