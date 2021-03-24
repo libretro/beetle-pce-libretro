@@ -658,6 +658,7 @@ static bool MDFNI_LoadCD(const char *devicename)
       return false;
    }
 
+#ifdef DEBUG
    /* Print out a track list for all discs. */
    MDFN_indent(1);
    for(unsigned i = 0; i < CDInterfaces.size(); i++)
@@ -681,6 +682,7 @@ static bool MDFNI_LoadCD(const char *devicename)
    MDFN_indent(-1);
 
    MDFN_printf("Using module: pce.\n");
+#endif
 
    if(!(PCE_LoadCD(&CDInterfaces)))
    {
