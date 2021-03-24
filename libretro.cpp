@@ -38,7 +38,7 @@
 #define FB_WIDTH 1365
 #define FB_HEIGHT 270
 
-static bool old_cdimagecache = false;
+static bool cdimagecache = false;
 static bool show_advanced_input_settings = true;
 static bool use_palette = false;
 
@@ -48,6 +48,9 @@ MDFNGI *MDFNGameInfo = &EmulatedPCE;
 static int hires_blend = 0;
 static int blur_passes = 1;
 static int aspect_ratio = 0;
+
+static unsigned video_width = 0;
+static unsigned video_height = 0;
 
 /* Composite palette 2020/09/14
  * authors: Dshadoff, Turboxray, Furrtek, Kitrinx and others
@@ -634,13 +637,13 @@ static bool MDFNI_LoadCD(const char *devicename)
 
       for(unsigned i = 0; i < file_list.size(); i++)
       {
-         CDIF *cdif = CDIF_Open(file_list[i].c_str(), false);
+         CDIF *cdif = CDIF_Open(file_list[i].c_str(), cdimagecache);
          CDInterfaces.push_back(cdif);
       }
    }
    else
    {
-      CDIF *cdif = CDIF_Open(devicename, false);
+      CDIF *cdif = CDIF_Open(devicename, cdimagecache);
 
       if (cdif)
       {
@@ -833,13 +836,13 @@ static retro_audio_sample_batch_t audio_batch_cb;
 static retro_environment_t environ_cb;
 static retro_input_poll_t input_poll_cb;
 static retro_input_state_t input_state_cb;
-static double last_sound_rate;
+static double last_sound_rate = 0.0;
 
 static bool libretro_supports_bitmasks = false;
 
-static MDFN_Surface *surf;
+static MDFN_Surface *surf = NULL;
 
-static bool failed_init;
+static bool failed_init = false;
 
 std::string retro_base_directory;
 
@@ -947,44 +950,51 @@ static void check_variables(bool loaded)
 {
    struct retro_variable var = {0};
 
-   var.key = "pce_cdimagecache";
-
-   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+   if (!loaded)
    {
-      bool cdimage_cache = true;
+      var.key      = "pce_cdimagecache";
+      cdimagecache = false;
 
-      if (strcmp(var.value, "enabled") == 0)
-         cdimage_cache = true;
-      else if (strcmp(var.value, "disabled") == 0)
-         cdimage_cache = false;
+      if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+         if (strcmp(var.value, "enabled") == 0)
+            cdimagecache = true;
 
-      if (cdimage_cache != old_cdimagecache)
-         old_cdimagecache = cdimage_cache;
-   }
+      var.key = "pce_cdbios";
 
-   var.key = "pce_cdbios";
+      if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+      {
+         if (strcmp(var.value, "System Card 3") == 0)
+            setting_pce_cdbios = "syscard3.pce";
+         else if (strcmp(var.value, "System Card 2") == 0)
+            setting_pce_cdbios = "syscard2.pce";
+         else if (strcmp(var.value, "System Card 1") == 0)
+            setting_pce_cdbios = "syscard1.pce";
+         else if (strcmp(var.value, "Games Express") == 0)
+            setting_pce_cdbios = "gexpress.pce";
+         else if (strcmp(var.value, "System Card 3 US") == 0)
+            setting_pce_cdbios = "syscard3u.pce";
+         else if (strcmp(var.value, "System Card 2 US") == 0)
+            setting_pce_cdbios = "syscard2u.pce";
+      }
 
-   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
-   {
-      if (strcmp(var.value, "System Card 3") == 0)
-         setting_pce_cdbios = "syscard3.pce";
-      else if (strcmp(var.value, "System Card 2") == 0)
-         setting_pce_cdbios = "syscard2.pce";
-      else if (strcmp(var.value, "System Card 1") == 0)
-         setting_pce_cdbios = "syscard1.pce";
-      else if (strcmp(var.value, "Games Express") == 0)
-         setting_pce_cdbios = "gexpress.pce";
-      else if (strcmp(var.value, "System Card 3 US") == 0)
-         setting_pce_cdbios = "syscard3u.pce";
-      else if (strcmp(var.value, "System Card 2 US") == 0)
-         setting_pce_cdbios = "syscard2u.pce";
-   }
+      var.key = "pce_arcadecard";
 
-   var.key = "pce_arcadecard";
+      if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+      {
+         setting_pce_arcadecard = (strcmp(var.value, "enabled") == 0);
+      }
 
-   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
-   {
-      setting_pce_arcadecard = (strcmp(var.value, "enabled") == 0);
+      var.key = "pce_psgrevision";
+
+      if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+      {
+         if (strcmp(var.value, "auto") == 0)
+            setting_pce_psgrevision = 2;
+         else if (strcmp(var.value, "HuC6280") == 0)
+            setting_pce_psgrevision = 0;
+         else if (strcmp(var.value, "HuC6280A") == 0)
+            setting_pce_psgrevision = 1;
+      }
    }
 
    var.key = "pce_nospritelimit";
@@ -1054,18 +1064,6 @@ static void check_variables(bool loaded)
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
       setting_pce_last_scanline = atoi(var.value);
-   }
-
-   var.key = "pce_psgrevision";
-   
-   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
-   {
-      if (strcmp(var.value, "auto") == 0)
-         setting_pce_psgrevision = 2;
-      else if (strcmp(var.value, "HuC6280") == 0)
-         setting_pce_psgrevision = 0;
-      else if (strcmp(var.value, "HuC6280A") == 0)
-         setting_pce_psgrevision = 1;
    }
 
    var.key = "pce_cddavolume";
@@ -1276,7 +1274,7 @@ static void check_variables(bool loaded)
         if (strcmp(var.value, "disabled") == 0)
             show_advanced_input_settings = false;
 
-        if (show_advanced_input_settings != show_advanced_input_settings_prev)
+        if (!loaded || (show_advanced_input_settings != show_advanced_input_settings_prev))
         {
             size_t i;
             struct retro_core_option_display option_display;
@@ -1647,7 +1645,6 @@ void retro_run(void)
 
    static int16_t sound_buf[0x10000];
    static int32_t rects[FB_HEIGHT];
-   static unsigned width = 0, height = 0;
    bool resolution_changed = false;
    rects[0] = ~0;
 
@@ -1705,28 +1702,27 @@ void retro_run(void)
 
    spec.SoundBufSize = spec.SoundBufSizeALMS + SoundBufSize;
 
-   if (width != spec.DisplayRect.w || height != spec.DisplayRect.h)
+   if (video_width != spec.DisplayRect.w || video_height != spec.DisplayRect.h)
       resolution_changed = true;
 
-   width  = spec.DisplayRect.w;
-   height = spec.DisplayRect.h;
+   video_width  = spec.DisplayRect.w;
+   video_height = spec.DisplayRect.h;
    
    bpp_t *fb = surf->pixels + spec.DisplayRect.x + surf->pitch * spec.DisplayRect.y;
    
-   hires_blending(fb, width, height, FB_WIDTH);
+   hires_blending(fb, video_width, video_height, FB_WIDTH);
 
-   video_cb(fb, width, height, FB_WIDTH * sizeof(bpp_t));
+   video_cb(fb, video_width, video_height, FB_WIDTH * sizeof(bpp_t));
    audio_batch_cb(spec.SoundBuf, spec.SoundBufSize);
 
    bool updated = false;
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE_UPDATE, &updated) && updated)
    {
       check_variables(true);
-      update_geometry(width, height);
+      update_geometry(video_width, video_height);
    }
-
-   if (resolution_changed)
-      update_geometry(width, height);
+   else if (resolution_changed)
+      update_geometry(video_width, video_height);
 
    video_frames++;
    audio_frames += spec.SoundBufSize;
@@ -1759,6 +1755,10 @@ void retro_get_system_av_info(struct retro_system_av_info *info)
 
 void retro_deinit()
 {
+   if (surf->pixels)
+      free(surf->pixels);
+   surf->pixels = NULL;
+
    if (surf)
       free(surf);
    surf = NULL;
@@ -1772,6 +1772,12 @@ void retro_deinit()
    }
 
    libretro_supports_bitmasks = false;
+   video_width = 0;
+   video_height = 0;
+   curindent = 0;
+   lastchar = 0;
+   last_sound_rate = 0.0;
+   failed_init = false;
 }
 
 unsigned retro_get_region(void)

@@ -500,6 +500,7 @@ MDFN_COLD int PCE_LoadCD(std::vector<CDIF *> *CDInterfaces)
 		MDFN_printf("Warning: BRAM is disabled per pcfx.disable_bram_cd setting.  This is simulating a malfunction.\n");
 
 	HuC_Load(fp, disable_bram_cd, PCE_ACEnabled ? SYSCARD_ARCADE : SYSCARD_3);
+	file_close(fp);
 
 	ADPCMBuf = new RavenBuffer();
 	for(unsigned lr = 0; lr < 2; lr++)

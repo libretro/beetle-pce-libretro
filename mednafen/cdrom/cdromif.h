@@ -19,6 +19,7 @@
 #define __MDFN_CDROM_CDROMIF_H
 
 #include "CDUtility.h"
+#include "CDAccess.h"
 #include <mednafen/Stream.h>
 
 #include <queue>
@@ -27,7 +28,7 @@ class CDIF
 {
  public:
 
- CDIF();
+ CDIF(CDAccess *cda);
  virtual ~CDIF();
 
  static const int32_t LBA_Read_Minimum = -150;
@@ -57,6 +58,7 @@ class CDIF
  protected:
  bool UnrecoverableError;
  TOC disc_toc;
+ CDAccess *disc_cdaccess;
 };
 
 CDIF *CDIF_Open(const std::string& path, bool image_memcache);
