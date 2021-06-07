@@ -28,7 +28,7 @@
 #define MEDNAFEN_CORE_NAME_MODULE "pce"
 #define MEDNAFEN_CORE_NAME "Beetle PCE"
 #define MEDNAFEN_CORE_VERSION "v0.9.48"
-#define MEDNAFEN_CORE_EXTENSIONS "pce|cue|ccd|chd|sgx"
+#define MEDNAFEN_CORE_EXTENSIONS "pce|sgx|cue|ccd|chd|toc|m3u"
 #define MEDNAFEN_CORE_TIMING_FPS 7159090.90909090 / 455.0 / 263.0
 #define MEDNAFEN_CORE_GEOMETRY_BASE_W 256
 #define MEDNAFEN_CORE_GEOMETRY_BASE_H 224
@@ -621,16 +621,23 @@ end:
 static std::vector<CDIF *> CDInterfaces;   // FIXME: Cleanup on error out.
 // TODO: LoadCommon()
 
-static bool MDFNI_LoadCD(const char *devicename)
+static bool MDFNI_LoadCD(const char *path, const char *ext)
 {
    bool ret = false;
-   log_cb(RETRO_LOG_INFO, "Loading %s...\n\n", devicename);
 
-   if(devicename && strlen(devicename) > 4 && !strcasecmp(devicename + strlen(devicename) - 4, ".m3u"))
+   if (!path || !ext)
+   {
+      log_cb(RETRO_LOG_ERROR, "Error opening CD - invalid path\n");
+      return false;
+   }
+
+   log_cb(RETRO_LOG_INFO, "Loading %s...\n\n", path);
+
+   if (!strcasecmp(ext, "m3u"))
    {
       std::vector<std::string> file_list;
 
-      ReadM3U(file_list, devicename);
+      ReadM3U(file_list, path);
 
       for(unsigned i = 0; i < file_list.size(); i++)
       {
@@ -640,7 +647,7 @@ static bool MDFNI_LoadCD(const char *devicename)
    }
    else
    {
-      CDIF *cdif = CDIF_Open(devicename, cdimagecache);
+      CDIF *cdif = CDIF_Open(path, cdimagecache);
 
       if (cdif)
       {
@@ -701,39 +708,62 @@ static bool MDFNI_LoadCD(const char *devicename)
    return true;
 }
 
-static bool MDFNI_LoadGame(const char *name)
+static bool MDFNI_LoadGame(const char *path, const char *ext,
+      const uint8_t *data, size_t size)
 {
-   MDFNFILE *GameFile = NULL;
-   MDFNGameInfo       = &EmulatedPCE;
+   MDFNFILE *GameFile          = NULL;
+   MDFNGameInfo                = &EmulatedPCE;
+   const uint8_t *content_data = NULL;
+   size_t content_size         = 0;
 
-   if(strlen(name) > 4 && (!strcasecmp(name + strlen(name) - 4, ".cue") || !strcasecmp(name + strlen(name) - 4, ".ccd") || !strcasecmp(name + strlen(name) - 4, ".chd") || !strcasecmp(name + strlen(name) - 4, ".toc") || !strcasecmp(name + strlen(name) - 4, ".m3u")))
-      return MDFNI_LoadCD(name);
+   if(ext &&
+      (!strcasecmp(ext, "cue") ||
+       !strcasecmp(ext, "ccd") ||
+       !strcasecmp(ext, "chd") ||
+       !strcasecmp(ext, "toc") ||
+       !strcasecmp(ext, "m3u")))
+      return MDFNI_LoadCD(path, ext);
 
-   MDFN_printf("Loading %s...\n",name);
+   MDFN_printf("Loading %s...\n", path ? path : "content");
 
    MDFN_indent(1);
 
-   // Construct a NULL-delimited list of known file extensions for MDFN_fopen()
-   GameFile = file_open(name);
+   /* Check whether we already have a valid
+    * data buffer */
+   if (data)
+   {
+      content_data = data;
+      content_size = size;
+   }
+   else
+   {
+      if (!path)
+      {
+         log_cb(RETRO_LOG_ERROR, "Error loading content - invalid path\n");
+         goto error;
+      }
 
-   if(!GameFile)
-      goto error;
+      /* Load content from file */
+      GameFile = file_open(path);
+
+      if(!GameFile)
+         goto error;
+
+      content_data = GameFile->data;
+      content_size = GameFile->size;
+   }
 
    MDFN_printf("Using module: pce.\n\n");
    MDFN_indent(1);
 
-   //
-   // Load per-game settings
-   //
-   // Maybe we should make a "pgcfg" subdir, and automatically load all files in it?
-   // End load per-game settings
-   //
-
-   if(PCE_Load(GameFile) <= 0)
+   if(PCE_Load(content_data, content_size, ext) <= 0)
       goto error;
 
    MDFN_LoadGameCheats(NULL);
    MDFNMP_InstallReadPatches();
+
+   if (GameFile)
+      file_close(GameFile);
 
    MDFN_indent(-2);
 
@@ -1336,14 +1366,57 @@ bool retro_load_game(const struct retro_game_info *info)
       { 0 },
    };
 
-   if (!info || failed_init)
+   const struct retro_game_info_ext *info_ext = NULL;
+   const uint8_t *content_data                = NULL;
+   size_t content_size                        = 0;
+   const char *content_path                   = NULL;
+   char content_ext[8];
+
+   content_ext[0] = '\0';
+
+   if (failed_init)
       return false;
+
+   /* Attempt to fetch extended game info */
+   if (environ_cb(RETRO_ENVIRONMENT_GET_GAME_INFO_EXT, &info_ext))
+   {
+      content_data = (const uint8_t *)info_ext->data;
+      content_size = info_ext->size;
+
+      /* Content path information is only required
+       * if we do not have a valid data buffer */
+      if (!content_data)
+      {
+         content_path = info_ext->full_path;
+
+         strncpy(content_ext, info_ext->ext, sizeof(content_ext));
+         content_ext[sizeof(content_ext) - 1] = '\0';
+      }
+   }
+   else
+   {
+      const char *ext = NULL;
+
+      if (!info || !info->path)
+         return false;
+
+      content_data = NULL;
+      content_size = 0;
+      content_path = info->path;
+
+      if ((ext = strrchr(info->path, '.')))
+      {
+         strncpy(content_ext, ext + 1, sizeof(content_ext));
+         content_ext[sizeof(content_ext) - 1] = '\0';
+      }
+   }
 
    environ_cb(RETRO_ENVIRONMENT_SET_INPUT_DESCRIPTORS, desc);
 
    check_variables(false);
 
-   if (!MDFNI_LoadGame(info->path))
+   if (!MDFNI_LoadGame(content_path, content_ext,
+         content_data, content_size))
       return false;
 
    surf = (MDFN_Surface*)calloc(1, sizeof(*surf));
@@ -1827,8 +1900,18 @@ void retro_set_environment(retro_environment_t cb)
       { 0 },
    };
 
+   static const struct retro_system_content_info_override content_overrides[] = {
+      {
+         "pce|sgx", /* extensions */
+         false,     /* need_fullpath */
+         false      /* persistent_data */
+      },
+      { NULL, false, false }
+   };
+
    libretro_set_core_options(environ_cb);
    environ_cb(RETRO_ENVIRONMENT_SET_CONTROLLER_INFO, (void*)ports);
+   environ_cb(RETRO_ENVIRONMENT_SET_CONTENT_INFO_OVERRIDE, (void*)content_overrides);
 
    vfs_iface_info.required_interface_version = 1;
    vfs_iface_info.iface                      = NULL;

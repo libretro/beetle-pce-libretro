@@ -18,6 +18,8 @@
 #ifndef __MDFN_PCE_MCGENJIN_H
 #define __MDFN_PCE_MCGENJIN_H
 
+#include <stddef.h>
+
 class MCGenjin_CS_Device
 {
 	public:
@@ -43,7 +45,7 @@ class MCGenjin
 {
 	public:
 
-	MCGenjin(MDFNFILE* fp);
+	MCGenjin(const uint8_t *data, size_t size);
 	~MCGenjin();
 
 	void Power(void);

@@ -203,7 +203,7 @@ static void LoadSaveMemory(const std::string& path, uint8* const data, const uin
 #endif
 }
 
-uint32 HuC_Load(MDFNFILE* fp, bool DisableBRAM, SysCardType syscard)
+uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM, SysCardType syscard)
 {
 	uint32 crc = 0;
 	const uint32 sf2_threshold = 2048 * 1024;
@@ -213,24 +213,23 @@ uint32 HuC_Load(MDFNFILE* fp, bool DisableBRAM, SysCardType syscard)
 
 	uint64 len, m_len;
 
-	len = fp->size;
+	len = size;
 	if(len & 512)	// Skip copier header.
 	{
 		len &= ~512;
-		file_seek(fp, 512, SEEK_SET);
+		data += 512;
+		size -= 512;
 	}
 	m_len = (len + 8191) &~ 8191;
 
-	if(len >= 8192)
+	if(size >= 8192)
 	{
 		uint8 buf[8192];
 
-		file_read(fp, buf, 8192, 1);
+		memcpy(buf, data, 8192);
 
 		if(!memcmp(buf + 0x1FD0, "MCGENJIN", 8))
 			mcg_mapper = true;
-
-		file_seek(fp, -8192, SEEK_CUR);	// Seek backwards so we don't undo skip copier header.
 	}
 
 	if(!syscard && m_len >= sf2_threshold && !mcg_mapper)
@@ -273,7 +272,7 @@ uint32 HuC_Load(MDFNFILE* fp, bool DisableBRAM, SysCardType syscard)
 
 	if(mcg_mapper)
 	{
-		mcg = new MCGenjin(fp);
+		mcg = new MCGenjin(data, size);
 
 		for(unsigned i = 0; i < 128; i++)
 		{
@@ -303,7 +302,7 @@ uint32 HuC_Load(MDFNFILE* fp, bool DisableBRAM, SysCardType syscard)
 
 	HuCROM = new uint8[m_len];
 	memset(HuCROM, 0xFF, m_len);
-	file_read(fp, HuCROM, min_T<uint64>(m_len, len), 1);
+	memcpy(HuCROM, data, min_T<uint64>(m_len, size));
 	crc = encoding_crc32(0, HuCROM, min_T<uint64>(m_len, len));
 
 	if(syscard == SYSCARD_NONE)
