@@ -295,7 +295,7 @@ static const struct
 	{ 0, "" }
 };
 
-MDFN_COLD int PCE_Load(MDFNFILE *fp)
+MDFN_COLD int PCE_Load(const uint8_t *data, size_t size, const char *ext)
 {
 	IsSGX = false;
 
@@ -303,9 +303,9 @@ MDFN_COLD int PCE_Load(MDFNFILE *fp)
 
 	uint32 crc;
 
-	crc = HuC_Load(fp, MDFN_GetSettingB("pce.disable_bram_hucard"));
+	crc = HuC_Load(data, size, MDFN_GetSettingB("pce.disable_bram_hucard"));
 
-	if(!strcmp(fp->ext, "sgx"))
+	if(!strcmp(ext, "sgx"))
 		IsSGX = true;
 	else
 	{
@@ -499,7 +499,7 @@ MDFN_COLD int PCE_LoadCD(std::vector<CDIF *> *CDInterfaces)
 	if(disable_bram_cd)
 		MDFN_printf("Warning: BRAM is disabled per pcfx.disable_bram_cd setting.  This is simulating a malfunction.\n");
 
-	HuC_Load(fp, disable_bram_cd, PCE_ACEnabled ? SYSCARD_ARCADE : SYSCARD_3);
+	HuC_Load(fp->data, fp->size, disable_bram_cd, PCE_ACEnabled ? SYSCARD_ARCADE : SYSCARD_3);
 	file_close(fp);
 
 	ADPCMBuf = new RavenBuffer();

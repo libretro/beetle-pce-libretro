@@ -1,6 +1,8 @@
 #ifndef __MDFN_PCE_HUC_H
 #define __MDFN_PCE_HUC_H
 
+#include <stddef.h>
+
 typedef enum
 {
 	SYSCARD_NONE = 0,
@@ -10,7 +12,7 @@ typedef enum
 	SYSCARD_ARCADE		// 3.0 + extras
 } SysCardType;
 
-uint32 HuC_Load(MDFNFILE* fp, bool DisableBRAM = false, SysCardType syscard = SYSCARD_NONE) MDFN_COLD;
+uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM = false, SysCardType syscard = SYSCARD_NONE) MDFN_COLD;
 void HuC_SaveNV(void);
 void HuC_Kill(void) MDFN_COLD;
 

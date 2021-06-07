@@ -193,9 +193,9 @@ void MCGenjin::WriteNV(const unsigned di, const uint8 *buffer, uint32 offset, ui
 	cs[di]->WriteNV(buffer, offset, count);
 }
 
-MCGenjin::MCGenjin(MDFNFILE* fp)
+MCGenjin::MCGenjin(const uint8_t *data, size_t size)
 {
-	const uint64 rr_size = fp->size;
+	const uint64 rr_size = size;
 	uint8 revision, num256_pages, region, cs_di[2];
 
 	if(rr_size > 1024 * 1024 * 128)
@@ -211,7 +211,7 @@ MCGenjin::MCGenjin(MDFNFILE* fp)
 	}
 
 	rom.resize(round_up_pow2(rr_size));
-	file_read(fp, &rom[0], rr_size, 1);
+	memcpy(&rom[0], data, rr_size);
 
 	if(memcmp(&rom[0x1FD0], "MCGENJIN", 8))
 	{
