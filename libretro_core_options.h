@@ -7,6 +7,25 @@
 #include <libretro.h>
 #include <retro_inline.h>
 
+/*
+ ********************************
+ * VERSION: 2.0
+ ********************************
+ *
+ * - 2.0: Add support for core options v2 interface
+ * - 1.3: Move translations to libretro_core_options_intl.h
+ *        - libretro_core_options_intl.h includes BOM and utf-8
+ *          fix for MSVC 2010-2013
+ *        - Added HAVE_NO_LANGEXTRA flag to disable translations
+ *          on platforms/compilers without BOM support
+ * - 1.2: Use core options v1 interface when
+ *        RETRO_ENVIRONMENT_GET_CORE_OPTIONS_VERSION is >= 1
+ *        (previously required RETRO_ENVIRONMENT_GET_CORE_OPTIONS_VERSION == 1)
+ * - 1.1: Support generation of core options v0 retro_core_option_value
+ *        arrays containing options with a single value
+ * - 1.0: First commit
+*/
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -26,82 +45,38 @@ extern "C" {
  * - Will be used as a fallback for any missing entries in
  *   frontend language definition */
 
-struct retro_core_option_definition option_defs_us[] = {
+struct retro_core_option_v2_category option_cats_us[] = {
    {
-      "pce_cdimagecache",
-      "CD Image Cache (Restart)",
-      "Keep the CD image in memory.",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
+      "video",
+      "Video",
+      "Configure aspect ratio / display cropping / video filter / frame skipping parameters."
    },
    {
-      "pce_cdbios",
-      "CD Bios (Restart)",
-      "Most games can run on 'System Card 3'. 'Games Express' is needed for several unlicensed games.",
-      {
-         { "Games Express", NULL },
-         { "System Card 1", NULL },
-         { "System Card 2", NULL },
-         { "System Card 3", NULL },
-         { "System Card 2 US", NULL },
-         { "System Card 3 US", NULL },
-         { NULL, NULL},
-      },
-      "System Card 3"
+      "audio",
+      "Audio",
+      "Configure emulated audio devices."
    },
    {
-      "pce_arcadecard",
-      "Arcade Card (Restart)",
-      "Leave this option enabled to allow enhanced modes of ACD-enhanced SCD games.",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
+      "input",
+      "Input",
+      "Configure lightgun / mouse / controller input + turbo buttons."
    },
    {
-      "pce_nospritelimit",
-      "No Sprite Limit",
-      "Remove 16-sprites-per-scanline hardware limit. WARNING: May cause graphics glitching on some games (such as Bloody Wolf).",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
+      "hacks",
+      "Emulation hacks",
+      "Configure processor overclocking and emulation accuracy parameters affecting low-level performance and compatibility."
    },
-   {
-      "pce_ocmultiplier",
-      "CPU Overclock Multiplier",
-      "Higher values can reduce slowdowns in games. WARNING: Can cause glitches and crashes.",
-      {
-         { "1", NULL },
-         { "2", NULL },
-         { "3", NULL },
-         { "4", NULL },
-         { "5", NULL },
-         { "6", NULL },
-         { "7", NULL },
-         { "8", NULL },
-         { "9", NULL },
-         { "10", NULL },
-         { "20", NULL },
-         { "30", NULL },
-         { "40", NULL },
-         { "50", NULL },
-         { NULL, NULL},
-      },
-      "1"
-   },
+   { NULL, NULL, NULL },
+};
+
+struct retro_core_option_v2_definition option_defs_us[] = {
    {
       "pce_palette",
       "Colour Palette",
+      NULL,
       "Composite tries to recreate the original console output and can show more details in some games.",
+      NULL,
+      "video",
       {
          { "RGB", NULL },
          { "Composite", NULL },
@@ -112,7 +87,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_aspect_ratio",
       "Aspect Ratio",
+      NULL,
       "Choose the preferred content aspect ratio. This will only apply when RetroArch's aspect ratio is set to 'Core provided' in the Video settings.",
+      NULL, 
+      "video",
       {
          { "auto", NULL },
          { "6:5", NULL },
@@ -125,7 +103,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_scaling",
       "Resolution Scaling",
+      NULL,
       "'auto' will authorize resolution to switch. 'lores' can crush pixels. 'hires' will stay on the maximum width.",
+      NULL,
+      "video",
       {
          { "auto", NULL },
          { "lores", NULL },
@@ -137,7 +118,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_hires_blend",
       "Hires Blending Strength",
+      NULL,
       "Blend pixels together when in hires mode. Higher values will blur the picture more.",
+      NULL,
+      "video",
       {
          { "disabled", NULL },
          { "1", NULL },
@@ -155,7 +139,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_h_overscan",
       "Show Horizontal Overscan",
+      NULL,
       "Show or crop horizontal overscan. 'auto' will try to adapt to games, cropping empty areas.",
+      NULL,
+      "video",
       {
          { "auto", NULL },
          { "disabled", NULL },
@@ -167,7 +154,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_initial_scanline",
       "Initial Scanline",
+      NULL,
       "First rendered scanline. Higher values will crop the top of the screen.",
+      NULL,
+      "video",
       {
          { "0", NULL },
          { "1", NULL },
@@ -217,7 +207,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_last_scanline",
       "Last Scanline",
+      NULL,
       "Last rendered scanline. Lower values will crop the bottom of the screen.",
+      NULL,
+      "video",
       {
          { "208", NULL },
          { "209", NULL },
@@ -261,7 +254,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_psgrevision",
       "PSG Audio Chip (Restart)",
+      NULL,
       "HuC6280 as found in the original PC Engine. HuC6280A as found in the SuperGrafx and CoreGrafx I.",
+      NULL,
+      "audio",
       {
          { "auto", NULL },
          { "HuC6280", NULL },
@@ -273,7 +269,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_cddavolume",
       "(CD) CDDA Volume %",
+      NULL,
       "CD game only. Setting this volume control too high may cause sample clipping.",
+      NULL,
+      "audio",
       {
          { "0", NULL },
          { "10", NULL },
@@ -303,7 +302,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_adpcmvolume",
       "(CD) ADPCM Volume %",
+      NULL,
       "CD game only. Setting this volume control too high may cause sample clipping.",
+      NULL,
+      "audio",
       {
          { "0", NULL },
          { "10", NULL },
@@ -333,7 +335,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_cdpsgvolume",
       "(CD) CD PSG Volume %",
+      NULL,
       "CD game only. Setting this volume control too high may cause sample clipping.",
+      NULL,
+      "audio",
       {
          { "0", NULL },
          { "10", NULL },
@@ -361,22 +366,12 @@ struct retro_core_option_definition option_defs_us[] = {
       "100"
    },
    {
-      "pce_cdspeed",
-      "(CD) CD Speed",
-      "Faster loading times but can cause issues with a couple of games.",
-      {
-         { "1", NULL },
-         { "2", NULL },
-         { "4", NULL },
-         { "8", NULL },
-         { NULL, NULL},
-      },
-      "1"
-   },
-   {
       "pce_adpcmextraprec",
       "(CD) ADPCM precision",
+      NULL,
       "Full precision of 12-bits for the MSM5205 ADPCM predictor can reduce whining noise during ADPCM playback.",
+      NULL,
+      "audio",
       {
          { "10-bit", NULL },
          { "12-bit", NULL },
@@ -387,7 +382,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_resamp_quality",
       "Owl Resampler Quality",
+      NULL,
       "Higher values give better signal noise ratio and preservation of higher frequencies, but increased computation, a bit of latency and clipping if the volume is set too high.",
+      NULL,
+      "audio",
       {
          { "0", NULL },
          { "1", NULL },
@@ -401,20 +399,12 @@ struct retro_core_option_definition option_defs_us[] = {
       "3"
    },
    {
-      "pce_show_advanced_input_settings",
-      "Show Advanced Input/Turbo Settings",
-      "Show Multitap, Mouse, Turbo Buttons and advanced parameters. NOTE: You need to go back in game and re-enter the menu to refresh the list.",
-      {
-         { "enabled",  NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_mouse_sensitivity",
       "Mouse Sensitivity",
+      NULL,
       "Higher values will make the mouse cursor move faster.",
+      NULL,
+      "input",
       {
          { "0.125", NULL },
          { "0.250", NULL },
@@ -448,7 +438,10 @@ struct retro_core_option_definition option_defs_us[] = {
    {
       "pce_multitap",
       "Multitap 5-port Controller",
+      NULL,
       "Enable multitap (TurboTap) emulation.",
+      NULL,
+      "input",
       {
          { "enabled", NULL },
          { "disabled", NULL },
@@ -457,20 +450,12 @@ struct retro_core_option_definition option_defs_us[] = {
       "enabled"
    },
    {
-      "pce_disable_softreset",
-      "Disable Soft Reset (RUN+SELECT)",
-      "If set, when RUN+SEL are pressed simultaneously, disable both buttons temporarily.",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_up_down_allowed",
       "Allow UP+DOWN/LEFT+RIGHT",
+      NULL,
       "Enabling this will allow pressing / quickly alternating / holding both left and right (or up and down) directions at the same time. This may cause movement-based glitches.",
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -482,6 +467,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_Turbo_Delay",
       "Turbo Delay",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "Fast", NULL },
          { "Medium", NULL },
@@ -494,6 +482,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_Turbo_Toggling",
       "Turbo Hotkey",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "toggle", NULL },
@@ -506,6 +497,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_turbo_toggle_hotkey",
       "Alternate Turbo Hotkey",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -517,6 +511,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_p0_turbo_I_enable",
       "P1 Turbo I",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -528,6 +525,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_p0_turbo_II_enable",
       "P1 Turbo II",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -539,6 +539,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_p1_turbo_I_enable",
       "P2 Turbo I",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -550,6 +553,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_p1_turbo_II_enable",
       "P2 Turbo II",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -561,6 +567,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_p2_turbo_I_enable",
       "P3 Turbo I",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -572,6 +581,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_p2_turbo_II_enable",
       "P3 Turbo II",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -583,6 +595,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_p3_turbo_I_enable",
       "P4 Turbo I",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -594,6 +609,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_p3_turbo_II_enable",
       "P4 Turbo II",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -605,6 +623,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_p4_turbo_I_enable",
       "P5 Turbo I",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -616,6 +637,9 @@ struct retro_core_option_definition option_defs_us[] = {
       "pce_p4_turbo_II_enable",
       "P5 Turbo II",
       NULL,
+      NULL,
+      NULL,
+      "input",
       {
          { "disabled", NULL },
          { "enabled", NULL },
@@ -623,7 +647,142 @@ struct retro_core_option_definition option_defs_us[] = {
       },
       "disabled"
    },
-   { NULL, NULL, NULL, {{0}}, NULL },
+   {
+      "pce_disable_softreset",
+      "Disable Soft Reset (RUN+SELECT)",
+      NULL,
+      "If set, when RUN+SEL are pressed simultaneously, disable both buttons temporarily.",
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_nospritelimit",
+      "No Sprite Limit",
+      NULL,
+      "Remove 16-sprites-per-scanline hardware limit. WARNING: May cause graphics glitching on some games (such as Bloody Wolf).",
+      NULL,
+      "hacks",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_ocmultiplier",
+      "CPU Overclock Multiplier",
+      NULL,
+      "Higher values can reduce slowdowns in games. WARNING: Can cause glitches and crashes.",
+      NULL,
+      NULL,
+      {
+         { "1", NULL },
+         { "2", NULL },
+         { "3", NULL },
+         { "4", NULL },
+         { "5", NULL },
+         { "6", NULL },
+         { "7", NULL },
+         { "8", NULL },
+         { "9", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { NULL, NULL},
+      },
+      "1"
+   },
+   {
+      "pce_cdimagecache",
+      "CD Image Cache (Restart)",
+      NULL,
+      "Keep the CD image in memory.",
+      NULL,
+      NULL,
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_cdbios",
+      "CD Bios (Restart)",
+      NULL,
+      "Most games can run on 'System Card 3'. 'Games Express' is needed for several unlicensed games.",
+      NULL,
+      NULL,
+      {
+         { "Games Express", NULL },
+         { "System Card 1", NULL },
+         { "System Card 2", NULL },
+         { "System Card 3", NULL },
+         { "System Card 2 US", NULL },
+         { "System Card 3 US", NULL },
+         { NULL, NULL},
+      },
+      "System Card 3"
+   },
+   {
+      "pce_arcadecard",
+      "Arcade Card (Restart)",
+      NULL,
+      "Leave this option enabled to allow enhanced modes of ACD-enhanced SCD games.",
+      NULL,
+      NULL,
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
+      "pce_cdspeed",
+      "(CD) CD Speed",
+      NULL,
+      "Faster loading times but can cause issues with a couple of games.",
+      NULL,
+      NULL,
+      {
+         { "1", NULL },
+         { "2", NULL },
+         { "4", NULL },
+         { "8", NULL },
+         { NULL, NULL},
+      },
+      "1"
+   },
+   {
+      "pce_show_advanced_input_settings",
+      "Show Advanced Input/Turbo Settings",
+      NULL,
+      "Show Multitap, Mouse, Turbo Buttons and advanced parameters. NOTE: You need to go back in game and re-enter the menu to refresh the list.",
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   { NULL, NULL, NULL, NULL, NULL, NULL, {{0}}, NULL },
+};
+
+struct retro_core_options_v2 options_us = {
+   option_cats_us,
+   option_defs_us
 };
 
 /* RETRO_LANGUAGE_JAPANESE */
@@ -668,8 +827,9 @@ struct retro_core_option_definition option_defs_us[] = {
  ********************************
 */
 
-struct retro_core_option_definition *option_defs_intl[RETRO_LANGUAGE_LAST] = {
-   option_defs_us, /* RETRO_LANGUAGE_ENGLISH */
+#ifndef HAVE_NO_LANGEXTRA
+struct retro_core_options_v2 *options_intl[RETRO_LANGUAGE_LAST] = {
+   &options_us,    /* RETRO_LANGUAGE_ENGLISH */
    NULL,           /* RETRO_LANGUAGE_JAPANESE */
    NULL,           /* RETRO_LANGUAGE_FRENCH */
    NULL,           /* RETRO_LANGUAGE_SPANISH */
@@ -689,6 +849,7 @@ struct retro_core_option_definition *option_defs_intl[RETRO_LANGUAGE_LAST] = {
    NULL,           /* RETRO_LANGUAGE_GREEK */
    NULL,           /* RETRO_LANGUAGE_TURKISH */
 };
+#endif
 
 /*
  ********************************
@@ -703,41 +864,61 @@ struct retro_core_option_definition *option_defs_intl[RETRO_LANGUAGE_LAST] = {
  *   be as painless as possible for core devs)
  */
 
-static INLINE void libretro_set_core_options(retro_environment_t environ_cb)
+static INLINE void libretro_set_core_options(retro_environment_t environ_cb,
+      bool *categories_supported)
 {
-   unsigned version = 0;
+   unsigned version  = 0;
+#ifndef HAVE_NO_LANGEXTRA
+   unsigned language = 0;
+#endif
 
-   if (!environ_cb)
+   if (!environ_cb || !categories_supported)
       return;
 
-   if (environ_cb(RETRO_ENVIRONMENT_GET_CORE_OPTIONS_VERSION, &version) && (version == 1))
-   {
-      struct retro_core_options_intl core_options_intl;
-      unsigned language = 0;
+   *categories_supported = false;
 
-      core_options_intl.us    = option_defs_us;
+   if (!environ_cb(RETRO_ENVIRONMENT_GET_CORE_OPTIONS_VERSION, &version))
+      version = 0;
+
+   if (version >= 2)
+   {
+#ifndef HAVE_NO_LANGEXTRA
+      struct retro_core_options_v2_intl core_options_intl;
+
+      core_options_intl.us    = &options_us;
       core_options_intl.local = NULL;
 
       if (environ_cb(RETRO_ENVIRONMENT_GET_LANGUAGE, &language) &&
           (language < RETRO_LANGUAGE_LAST) && (language != RETRO_LANGUAGE_ENGLISH))
-         core_options_intl.local = option_defs_intl[language];
+         core_options_intl.local = options_intl[language];
 
-      environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_INTL, &core_options_intl);
+      *categories_supported = environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2_INTL,
+            &core_options_intl);
+#else
+      *categories_supported = environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2,
+            &options_us);
+#endif
    }
    else
    {
-      size_t i;
+      size_t i, j;
       size_t option_index              = 0;
       size_t num_options               = 0;
+      struct retro_core_option_definition
+            *option_v1_defs_us         = NULL;
+#ifndef HAVE_NO_LANGEXTRA
+      size_t num_options_intl          = 0;
+      struct retro_core_option_v2_definition
+            *option_defs_intl          = NULL;
+      struct retro_core_option_definition
+            *option_v1_defs_intl       = NULL;
+      struct retro_core_options_intl
+            core_options_v1_intl;
+#endif
       struct retro_variable *variables = NULL;
       char **values_buf                = NULL;
 
-      /* Determine number of options
-       * > Note: We are going to skip a number of irrelevant
-       *   core options when building the retro_variable array,
-       *   but we'll allocate space for all of them. The difference
-       *   in resource usage is negligible, and this allows us to
-       *   keep the code 'cleaner' */
+      /* Determine total number of options */
       while (true)
       {
          if (option_defs_us[num_options].key)
@@ -746,92 +927,187 @@ static INLINE void libretro_set_core_options(retro_environment_t environ_cb)
             break;
       }
 
-      /* Allocate arrays */
-      variables  = (struct retro_variable *)calloc(num_options + 1, sizeof(struct retro_variable));
-      values_buf = (char **)calloc(num_options, sizeof(char *));
-
-      if (!variables || !values_buf)
-         goto error;
-
-      /* Copy parameters from option_defs_us array */
-      for (i = 0; i < num_options; i++)
+      if (version >= 1)
       {
-         const char *key                        = option_defs_us[i].key;
-         const char *desc                       = option_defs_us[i].desc;
-         const char *default_value              = option_defs_us[i].default_value;
-         struct retro_core_option_value *values = option_defs_us[i].values;
-         size_t buf_len                         = 3;
-         size_t default_index                   = 0;
+         /* Allocate US array */
+         option_v1_defs_us = (struct retro_core_option_definition *)
+               calloc(num_options + 1, sizeof(struct retro_core_option_definition));
 
-         values_buf[i] = NULL;
-
-         /* Skip options that are irrelevant when using the
-          * old style core options interface */
-         if (strcmp(key, "pce_show_advanced_input_settings") == 0)
-            continue;
-
-         if (desc)
+         /* Copy parameters from option_defs_us array */
+         for (i = 0; i < num_options; i++)
          {
-            size_t num_values = 0;
+            struct retro_core_option_v2_definition *option_def_us = &option_defs_us[i];
+            struct retro_core_option_value *option_values         = option_def_us->values;
+            struct retro_core_option_definition *option_v1_def_us = &option_v1_defs_us[i];
+            struct retro_core_option_value *option_v1_values      = option_v1_def_us->values;
 
-            /* Determine number of values */
+            option_v1_def_us->key           = option_def_us->key;
+            option_v1_def_us->desc          = option_def_us->desc;
+            option_v1_def_us->info          = option_def_us->info;
+            option_v1_def_us->default_value = option_def_us->default_value;
+
+            /* Values must be copied individually... */
+            while (option_values->value)
+            {
+               option_v1_values->value = option_values->value;
+               option_v1_values->label = option_values->label;
+
+               option_values++;
+               option_v1_values++;
+            }
+         }
+
+#ifndef HAVE_NO_LANGEXTRA
+         if (environ_cb(RETRO_ENVIRONMENT_GET_LANGUAGE, &language) &&
+             (language < RETRO_LANGUAGE_LAST) && (language != RETRO_LANGUAGE_ENGLISH) &&
+             options_intl[language])
+            option_defs_intl = options_intl[language]->definitions;
+
+         if (option_defs_intl)
+         {
+            /* Determine number of intl options */
             while (true)
             {
-               if (values[num_values].value)
-               {
-                  /* Check if this is the default value */
-                  if (default_value)
-                     if (strcmp(values[num_values].value, default_value) == 0)
-                        default_index = num_values;
-
-                  buf_len += strlen(values[num_values].value);
-                  num_values++;
-               }
+               if (option_defs_intl[num_options_intl].key)
+                  num_options_intl++;
                else
                   break;
             }
 
-            /* Build values string */
-            if (num_values > 1)
+            /* Allocate intl array */
+            option_v1_defs_intl = (struct retro_core_option_definition *)
+                  calloc(num_options_intl + 1, sizeof(struct retro_core_option_definition));
+
+            /* Copy parameters from option_defs_intl array */
+            for (i = 0; i < num_options_intl; i++)
             {
-               size_t j;
+               struct retro_core_option_v2_definition *option_def_intl = &option_defs_intl[i];
+               struct retro_core_option_value *option_values           = option_def_intl->values;
+               struct retro_core_option_definition *option_v1_def_intl = &option_v1_defs_intl[i];
+               struct retro_core_option_value *option_v1_values        = option_v1_def_intl->values;
 
-               buf_len += num_values - 1;
-               buf_len += strlen(desc);
+               option_v1_def_intl->key           = option_def_intl->key;
+               option_v1_def_intl->desc          = option_def_intl->desc;
+               option_v1_def_intl->info          = option_def_intl->info;
+               option_v1_def_intl->default_value = option_def_intl->default_value;
 
-               values_buf[i] = (char *)calloc(buf_len, sizeof(char));
-               if (!values_buf[i])
-                  goto error;
-
-               strcpy(values_buf[i], desc);
-               strcat(values_buf[i], "; ");
-
-               /* Default value goes first */
-               strcat(values_buf[i], values[default_index].value);
-
-               /* Add remaining values */
-               for (j = 0; j < num_values; j++)
+               /* Values must be copied individually... */
+               while (option_values->value)
                {
-                  if (j != default_index)
-                  {
-                     strcat(values_buf[i], "|");
-                     strcat(values_buf[i], values[j].value);
-                  }
+                  option_v1_values->value = option_values->value;
+                  option_v1_values->label = option_values->label;
+
+                  option_values++;
+                  option_v1_values++;
                }
             }
          }
 
-         variables[option_index].key   = key;
-         variables[option_index].value = values_buf[i];
-         option_index++;
+         core_options_v1_intl.us    = option_v1_defs_us;
+         core_options_v1_intl.local = option_v1_defs_intl;
+
+         environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_INTL, &core_options_v1_intl);
+#else
+         environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS, option_v1_defs_us);
+#endif
       }
-      
-      /* Set variables */
-      environ_cb(RETRO_ENVIRONMENT_SET_VARIABLES, variables);
+      else
+      {
+         /* Allocate arrays */
+         variables  = (struct retro_variable *)calloc(num_options + 1,
+               sizeof(struct retro_variable));
+         values_buf = (char **)calloc(num_options, sizeof(char *));
+
+         if (!variables || !values_buf)
+            goto error;
+
+         /* Copy parameters from option_defs_us array */
+         for (i = 0; i < num_options; i++)
+         {
+            const char *key                        = option_defs_us[i].key;
+            const char *desc                       = option_defs_us[i].desc;
+            const char *default_value              = option_defs_us[i].default_value;
+            struct retro_core_option_value *values = option_defs_us[i].values;
+            size_t buf_len                         = 3;
+            size_t default_index                   = 0;
+
+            values_buf[i] = NULL;
+
+            if (desc)
+            {
+               size_t num_values = 0;
+
+               /* Determine number of values */
+               while (true)
+               {
+                  if (values[num_values].value)
+                  {
+                     /* Check if this is the default value */
+                     if (default_value)
+                        if (strcmp(values[num_values].value, default_value) == 0)
+                           default_index = num_values;
+
+                     buf_len += strlen(values[num_values].value);
+                     num_values++;
+                  }
+                  else
+                     break;
+               }
+
+               /* Build values string */
+               if (num_values > 0)
+               {
+                  buf_len += num_values - 1;
+                  buf_len += strlen(desc);
+
+                  values_buf[i] = (char *)calloc(buf_len, sizeof(char));
+                  if (!values_buf[i])
+                     goto error;
+
+                  strcpy(values_buf[i], desc);
+                  strcat(values_buf[i], "; ");
+
+                  /* Default value goes first */
+                  strcat(values_buf[i], values[default_index].value);
+
+                  /* Add remaining values */
+                  for (j = 0; j < num_values; j++)
+                  {
+                     if (j != default_index)
+                     {
+                        strcat(values_buf[i], "|");
+                        strcat(values_buf[i], values[j].value);
+                     }
+                  }
+               }
+            }
+
+            variables[option_index].key   = key;
+            variables[option_index].value = values_buf[i];
+            option_index++;
+         }
+
+         /* Set variables */
+         environ_cb(RETRO_ENVIRONMENT_SET_VARIABLES, variables);
+      }
 
 error:
-
       /* Clean up */
+
+      if (option_v1_defs_us)
+      {
+         free(option_v1_defs_us);
+         option_v1_defs_us = NULL;
+      }
+
+#ifndef HAVE_NO_LANGEXTRA
+      if (option_v1_defs_intl)
+      {
+         free(option_v1_defs_intl);
+         option_v1_defs_intl = NULL;
+      }
+#endif
+
       if (values_buf)
       {
          for (i = 0; i < num_options; i++)

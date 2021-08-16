@@ -867,6 +867,7 @@ static retro_input_poll_t input_poll_cb;
 static retro_input_state_t input_state_cb;
 static double last_sound_rate = 0.0;
 
+static bool libretro_supports_option_categories = false;
 static bool libretro_supports_bitmasks = false;
 
 static MDFN_Surface *surf = NULL;
@@ -938,6 +939,7 @@ void retro_init(void)
 
    check_system_specs();
 
+   libretro_supports_bitmasks = false;
    if (environ_cb(RETRO_ENVIRONMENT_GET_INPUT_BITMASKS, NULL))
       libretro_supports_bitmasks = true;
 }
@@ -1843,6 +1845,7 @@ void retro_deinit()
             MEDNAFEN_CORE_NAME, (double)video_frames * 44100 / audio_frames);
    }
 
+   libretro_supports_option_categories = false;
    libretro_supports_bitmasks = false;
    video_width = 0;
    video_height = 0;
@@ -1909,7 +1912,10 @@ void retro_set_environment(retro_environment_t cb)
       { NULL, false, false }
    };
 
-   libretro_set_core_options(environ_cb);
+   libretro_supports_option_categories = false;
+   libretro_set_core_options(environ_cb,
+         &libretro_supports_option_categories);
+
    environ_cb(RETRO_ENVIRONMENT_SET_CONTROLLER_INFO, (void*)ports);
    environ_cb(RETRO_ENVIRONMENT_SET_CONTENT_INFO_OVERRIDE, (void*)content_overrides);
 
