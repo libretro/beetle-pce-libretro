@@ -82,7 +82,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "Composite", NULL },
          { NULL, NULL},
       },
-      "RGB"
+      "RGB",
+      NULL
    },
    {
       "pce_aspect_ratio",
@@ -98,7 +99,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "uncorrected", NULL },
          { NULL, NULL},
       },
-      "auto"
+      "auto",
+      NULL
    },
    {
       "pce_scaling",
@@ -113,7 +115,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "hires", NULL },
          { NULL, NULL},
       },
-      "auto"
+      "auto",
+      NULL
    },
    {
       "pce_hires_blend",
@@ -134,7 +137,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "8", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      NULL
    },
    {
       "pce_h_overscan",
@@ -149,7 +153,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "auto"
+      "auto",
+      NULL
    },
    {
       "pce_initial_scanline",
@@ -202,7 +207,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "40", NULL },
          { NULL, NULL},
       },
-      "3"
+      "3",
+      "int"
    },
    {
       "pce_last_scanline",
@@ -249,7 +255,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "242", NULL },
          { NULL, NULL},
       },
-      "242"
+      "242",
+      "int"
    },
    {
       "pce_psgrevision",
@@ -264,7 +271,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "HuC6280A", NULL },
          { NULL, NULL},
       },
-      "HuC6280A"
+      "HuC6280A",
+      NULL
    },
    {
       "pce_cddavolume",
@@ -297,7 +305,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "200", NULL },
          { NULL, NULL},
       },
-      "100"
+      "100",
+      "int"
    },
    {
       "pce_adpcmvolume",
@@ -330,7 +339,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "200", NULL },
          { NULL, NULL},
       },
-      "100"
+      "100",
+      "int"
    },
    {
       "pce_cdpsgvolume",
@@ -363,7 +373,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "200", NULL },
          { NULL, NULL},
       },
-      "100"
+      "100",
+      "int"
    },
    {
       "pce_adpcmextraprec",
@@ -377,7 +388,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "12-bit", NULL },
          { NULL, NULL},
       },
-      "10-bit"
+      "10-bit",
+      NULL
    },
    {
       "pce_resamp_quality",
@@ -396,7 +408,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "3",
+      "int"
    },
    {
       "pce_mouse_sensitivity",
@@ -433,7 +446,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "5.00", NULL },
          { NULL, NULL},
       },
-      "1.25"
+      "1.25",
+      "float"
    },
    {
       "pce_multitap",
@@ -447,7 +461,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "disabled", NULL },
          { NULL, NULL},
       },
-      "enabled"
+      "enabled",
+      "bool"
    },
    {
       "pce_up_down_allowed",
@@ -461,7 +476,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_Turbo_Delay",
@@ -476,7 +492,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "Slow", NULL },
          { NULL, NULL},
       },
-      "Fast"
+      "Fast",
+      NULL
    },
    {
       "pce_Turbo_Toggling",
@@ -491,7 +508,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "always", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_turbo_toggle_hotkey",
@@ -505,7 +523,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -519,7 +538,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_p0_turbo_II_enable",
@@ -533,7 +553,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_p1_turbo_I_enable",
@@ -547,7 +568,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_p1_turbo_II_enable",
@@ -561,7 +583,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_p2_turbo_I_enable",
@@ -575,7 +598,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_p2_turbo_II_enable",
@@ -589,7 +613,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_p3_turbo_I_enable",
@@ -603,7 +628,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_p3_turbo_II_enable",
@@ -617,7 +643,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_p4_turbo_I_enable",
@@ -631,7 +658,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_p4_turbo_II_enable",
@@ -645,7 +673,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_disable_softreset",
@@ -659,7 +688,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_nospritelimit",
@@ -673,7 +703,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_ocmultiplier",
@@ -699,7 +730,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "50", NULL },
          { NULL, NULL},
       },
-      "1"
+      "1",
+      "int"
    },
    {
       "pce_cdimagecache",
@@ -713,7 +745,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "enabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
    {
       "pce_cdbios",
@@ -731,7 +764,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "System Card 3 US", NULL },
          { NULL, NULL},
       },
-      "System Card 3"
+      "System Card 3",
+      NULL
    },
    {
       "pce_arcadecard",
@@ -745,7 +779,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "disabled", NULL },
          { NULL, NULL},
       },
-      "enabled"
+      "enabled",
+      "bool"
    },
    {
       "pce_cdspeed",
@@ -761,7 +796,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "8", NULL },
          { NULL, NULL},
       },
-      "1"
+      "1",
+      "int"
    },
    {
       "pce_show_advanced_input_settings",
@@ -775,9 +811,10 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "disabled", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "disabled",
+      "bool"
    },
-   { NULL, NULL, NULL, NULL, NULL, NULL, {{0}}, NULL },
+   { NULL, NULL, NULL, NULL, NULL, NULL, {{0}}, NULL, NULL },
 };
 
 struct retro_core_options_v2 options_us = {
