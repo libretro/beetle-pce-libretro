@@ -712,7 +712,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       NULL,
       "Higher values can reduce slowdowns in games. WARNING: Can cause glitches and crashes.",
       NULL,
-      NULL,
+      "hacks",
       {
          { "1", NULL },
          { "2", NULL },
