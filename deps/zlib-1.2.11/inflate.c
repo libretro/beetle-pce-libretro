@@ -85,14 +85,20 @@
 #include "inflate.h"
 #include "inffast.h"
 
-#define BUILDFIXED
+#ifdef MAKEFIXED
+#  ifndef BUILDFIXED
+#    define BUILDFIXED
+#  endif
+#endif
 
 /* function prototypes */
 local int inflateStateCheck OF((z_streamp strm));
 local void fixedtables OF((struct inflate_state FAR *state));
 local int updatewindow OF((z_streamp strm, const unsigned char FAR *end,
                            unsigned copy));
-void makefixed OF((void));
+#ifdef BUILDFIXED
+   void makefixed OF((void));
+#endif
 local unsigned syncsearch OF((unsigned FAR *have, const unsigned char FAR *buf,
                               unsigned len));
 
@@ -131,6 +137,7 @@ z_streamp strm;
     state->lencode = state->distcode = state->next = state->codes;
     state->sane = 1;
     state->back = -1;
+    Tracev((stderr, "inflate: reset\n"));
     return Z_OK;
 }
 
@@ -200,13 +207,23 @@ int stream_size;
     if (strm == Z_NULL) return Z_STREAM_ERROR;
     strm->msg = Z_NULL;                 /* in case we return an error */
     if (strm->zalloc == (alloc_func)0) {
+#ifdef Z_SOLO
         return Z_STREAM_ERROR;
+#else
+        strm->zalloc = zcalloc;
+        strm->opaque = (voidpf)0;
+#endif
     }
     if (strm->zfree == (free_func)0)
+#ifdef Z_SOLO
         return Z_STREAM_ERROR;
+#else
+        strm->zfree = zcfree;
+#endif
     state = (struct inflate_state FAR *)
             ZALLOC(strm, 1, sizeof(struct inflate_state));
     if (state == Z_NULL) return Z_MEM_ERROR;
+    Tracev((stderr, "inflate: allocated\n"));
     strm->state = (struct internal_state FAR *)state;
     state->strm = strm;
     state->window = Z_NULL;
@@ -261,6 +278,7 @@ int value;
 local void fixedtables(state)
 struct inflate_state FAR *state;
 {
+#ifdef BUILDFIXED
     static int virgin = 1;
     static code *lenfix, *distfix;
     static code fixed[544];
@@ -291,11 +309,75 @@ struct inflate_state FAR *state;
         /* do this just once */
         virgin = 0;
     }
+#else /* !BUILDFIXED */
+#   include "inffixed.h"
+#endif /* BUILDFIXED */
     state->lencode = lenfix;
     state->lenbits = 9;
     state->distcode = distfix;
     state->distbits = 5;
 }
+
+#ifdef MAKEFIXED
+#include <stdio.h>
+
+/*
+   Write out the inffixed.h that is #include'd above.  Defining MAKEFIXED also
+   defines BUILDFIXED, so the tables are built on the fly.  makefixed() writes
+   those tables to stdout, which would be piped to inffixed.h.  A small program
+   can simply call makefixed to do this:
+
+    void makefixed(void);
+
+    int main(void)
+    {
+        makefixed();
+        return 0;
+    }
+
+   Then that can be linked with zlib built with MAKEFIXED defined and run:
+
+    a.out > inffixed.h
+ */
+void makefixed()
+{
+    unsigned low, size;
+    struct inflate_state state;
+
+    fixedtables(&state);
+    puts("    /* inffixed.h -- table for decoding fixed codes");
+    puts("     * Generated automatically by makefixed().");
+    puts("     */");
+    puts("");
+    puts("    /* WARNING: this file should *not* be used by applications.");
+    puts("       It is part of the implementation of this library and is");
+    puts("       subject to change. Applications should only use zlib.h.");
+    puts("     */");
+    puts("");
+    size = 1U << 9;
+    printf("    static const code lenfix[%u] = {", size);
+    low = 0;
+    for (;;) {
+        if ((low % 7) == 0) printf("\n        ");
+        printf("{%u,%u,%d}", (low & 127) == 99 ? 64 : state.lencode[low].op,
+               state.lencode[low].bits, state.lencode[low].val);
+        if (++low == size) break;
+        putchar(',');
+    }
+    puts("\n    };");
+    size = 1U << 5;
+    printf("\n    static const code distfix[%u] = {", size);
+    low = 0;
+    for (;;) {
+        if ((low % 6) == 0) printf("\n        ");
+        printf("{%u,%u,%d}", state.distcode[low].op, state.distcode[low].bits,
+               state.distcode[low].val);
+        if (++low == size) break;
+        putchar(',');
+    }
+    puts("\n    };");
+}
+#endif /* MAKEFIXED */
 
 /*
    Update the window with the last wsize (normally 32K) bytes written before
@@ -615,6 +697,7 @@ int flush;
                 break;
             }
             state->dmax = 1U << len;
+            Tracev((stderr, "inflate:   zlib header ok\n"));
             strm->adler = state->check = adler32(0L, Z_NULL, 0);
             state->mode = hold & 0x200 ? DICTID : TYPE;
             INITBITS();
@@ -776,10 +859,14 @@ int flush;
             DROPBITS(1);
             switch (BITS(2)) {
             case 0:                             /* stored block */
+                Tracev((stderr, "inflate:     stored block%s\n",
+                        state->last ? " (last)" : ""));
                 state->mode = STORED;
                 break;
             case 1:                             /* fixed block */
                 fixedtables(state);
+                Tracev((stderr, "inflate:     fixed codes block%s\n",
+                        state->last ? " (last)" : ""));
                 state->mode = LEN_;             /* decode codes */
                 if (flush == Z_TREES) {
                     DROPBITS(2);
@@ -787,6 +874,8 @@ int flush;
                 }
                 break;
             case 2:                             /* dynamic block */
+                Tracev((stderr, "inflate:     dynamic codes block%s\n",
+                        state->last ? " (last)" : ""));
                 state->mode = TABLE;
                 break;
             case 3:
@@ -804,6 +893,8 @@ int flush;
                 break;
             }
             state->length = (unsigned)hold & 0xffff;
+            Tracev((stderr, "inflate:       stored length %u\n",
+                    state->length));
             INITBITS();
             state->mode = COPY_;
             if (flush == Z_TREES) goto inf_leave;
@@ -823,6 +914,7 @@ int flush;
                 state->length -= copy;
                 break;
             }
+            Tracev((stderr, "inflate:       stored end\n"));
             state->mode = TYPE;
             break;
         case TABLE:
@@ -840,6 +932,7 @@ int flush;
                 break;
             }
 #endif
+            Tracev((stderr, "inflate:       table sizes ok\n"));
             state->have = 0;
             state->mode = LENLENS;
         case LENLENS:
@@ -860,6 +953,7 @@ int flush;
                 state->mode = BAD;
                 break;
             }
+            Tracev((stderr, "inflate:       code lengths ok\n"));
             state->have = 0;
             state->mode = CODELENS;
         case CODELENS:
@@ -942,6 +1036,7 @@ int flush;
                 state->mode = BAD;
                 break;
             }
+            Tracev((stderr, "inflate:       codes ok\n"));
             state->mode = LEN_;
             if (flush == Z_TREES) goto inf_leave;
         case LEN_:
@@ -976,10 +1071,14 @@ int flush;
             state->back += here.bits;
             state->length = (unsigned)here.val;
             if ((int)(here.op) == 0) {
+                Tracevv((stderr, here.val >= 0x20 && here.val < 0x7f ?
+                        "inflate:         literal '%c'\n" :
+                        "inflate:         literal 0x%02x\n", here.val));
                 state->mode = LIT;
                 break;
             }
             if (here.op & 32) {
+                Tracevv((stderr, "inflate:         end of block\n"));
                 state->back = -1;
                 state->mode = TYPE;
                 break;
@@ -998,6 +1097,7 @@ int flush;
                 DROPBITS(state->extra);
                 state->back += state->extra;
             }
+            Tracevv((stderr, "inflate:         length %u\n", state->length));
             state->was = state->length;
             state->mode = DIST;
         case DIST:
@@ -1041,6 +1141,7 @@ int flush;
                 break;
             }
 #endif
+            Tracevv((stderr, "inflate:         distance %u\n", state->offset));
             state->mode = MATCH;
         case MATCH:
             if (left == 0) goto inf_leave;
@@ -1054,6 +1155,7 @@ int flush;
                         break;
                     }
 #ifdef INFLATE_ALLOW_INVALID_DISTANCE_TOOFAR_ARRR
+                    Trace((stderr, "inflate.c too far\n"));
                     copy -= state->whave;
                     if (copy > state->length) copy = state->length;
                     if (copy > left) copy = left;
@@ -1112,6 +1214,7 @@ int flush;
                     break;
                 }
                 INITBITS();
+                Tracev((stderr, "inflate:   check matches trailer\n"));
             }
 #ifdef GUNZIP
             state->mode = LENGTH;
@@ -1124,6 +1227,7 @@ int flush;
                     break;
                 }
                 INITBITS();
+                Tracev((stderr, "inflate:   length matches trailer\n"));
             }
 #endif
             state->mode = DONE;
@@ -1180,6 +1284,7 @@ z_streamp strm;
     if (state->window != Z_NULL) ZFREE(strm, state->window);
     ZFREE(strm, strm->state);
     strm->state = Z_NULL;
+    Tracev((stderr, "inflate: end\n"));
     return Z_OK;
 }
 
@@ -1237,6 +1342,7 @@ uInt dictLength;
         return Z_MEM_ERROR;
     }
     state->havedict = 1;
+    Tracev((stderr, "inflate:   dictionary set\n"));
     return Z_OK;
 }
 
