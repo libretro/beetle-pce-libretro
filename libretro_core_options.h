@@ -7,6 +7,10 @@
 #include <libretro.h>
 #include <retro_inline.h>
 
+#ifndef HAVE_NO_LANGEXTRA
+#include "libretro_core_options_intl.h"
+#endif
+
 /*
  ********************************
  * VERSION: 2.0
@@ -49,7 +53,7 @@ struct retro_core_option_v2_category option_cats_us[] = {
    {
       "video",
       "Video",
-      "Configure aspect ratio / display cropping / video filter / frame skipping parameters."
+      "Configure aspect ratio, display cropping and other image output parameters."
    },
    {
       "audio",
@@ -59,12 +63,17 @@ struct retro_core_option_v2_category option_cats_us[] = {
    {
       "input",
       "Input",
-      "Configure lightgun / mouse / controller input + turbo buttons."
+      "Configure light gun, mouse and controller input."
    },
    {
       "hacks",
       "Emulation hacks",
       "Configure processor overclocking and emulation accuracy parameters affecting low-level performance and compatibility."
+   },
+   {
+      "cd",
+      "PC Engine CD",
+      "Configure settings related to the PC Engine CD emulation."
    },
    { NULL, NULL, NULL },
 };
@@ -72,7 +81,7 @@ struct retro_core_option_v2_category option_cats_us[] = {
 struct retro_core_option_v2_definition option_defs_us[] = {
    {
       "pce_palette",
-      "Colour Palette",
+      "Color Palette",
       NULL,
       "Composite tries to recreate the original console output and can show more details in some games.",
       NULL,
@@ -92,10 +101,10 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       NULL, 
       "video",
       {
-         { "auto", NULL },
+         { "auto", "Auto" },
          { "6:5", NULL },
          { "4:3", NULL },
-         { "uncorrected", NULL },
+         { "uncorrected", "Uncorrected" },
          { NULL, NULL},
       },
       "auto"
@@ -104,22 +113,22 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "pce_scaling",
       "Resolution Scaling",
       NULL,
-      "'auto' will authorize resolution to switch. 'lores' can crush pixels. 'hires' will stay on the maximum width.",
+      "'Auto' will allow the resolution to change. 'Low Resolution' can crush pixels. 'High Resolution' will stay on the maximum width.",
       NULL,
       "video",
       {
-         { "auto", NULL },
-         { "lores", NULL },
-         { "hires", NULL },
+         { "auto", "Auto" },
+         { "lores", "Low Resolution" },
+         { "hires", "High Resolution" },
          { NULL, NULL},
       },
       "auto"
    },
    {
       "pce_hires_blend",
-      "Hires Blending Strength",
+      "High Resolution Blending Strength",
       NULL,
-      "Blend pixels together when in hires mode. Higher values will blur the picture more.",
+      "Blend pixels together when in High Resolution mode. Higher values will blur the picture more.",
       NULL,
       "video",
       {
@@ -140,11 +149,11 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "pce_h_overscan",
       "Show Horizontal Overscan",
       NULL,
-      "Show or crop horizontal overscan. 'auto' will try to adapt to games, cropping empty areas.",
+      "'Auto' will try to adapt to games, cropping empty areas.",
       NULL,
       "video",
       {
-         { "auto", NULL },
+         { "auto", "Auto" },
          { "disabled", NULL },
          { "enabled", NULL },
          { NULL, NULL},
@@ -162,7 +171,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "0", NULL },
          { "1", NULL },
          { "2", NULL },
-         { "3", NULL },
+         { "3", "3 (Default)" },
          { "4", NULL },
          { "5", NULL },
          { "6", NULL },
@@ -246,151 +255,38 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "239", NULL },
          { "240", NULL },
          { "241", NULL },
-         { "242", NULL },
+         { "242", "242 (Default)" },
          { NULL, NULL},
       },
       "242"
    },
    {
       "pce_psgrevision",
-      "PSG Audio Chip (Restart)",
+      "PSG Audio Chip (Restart Required)",
       NULL,
-      "HuC6280 as found in the original PC Engine. HuC6280A as found in the SuperGrafx and CoreGrafx I.",
+      "HuC6280 represents the original PC Engine, HuC6280A the SuperGrafx and CoreGrafx I.",
       NULL,
       "audio",
       {
-         { "auto", NULL },
          { "HuC6280", NULL },
          { "HuC6280A", NULL },
+         { "auto", "Auto" },
          { NULL, NULL},
       },
       "HuC6280A"
    },
    {
-      "pce_cddavolume",
-      "(CD) CDDA Volume %",
-      NULL,
-      "CD game only. Setting this volume control too high may cause sample clipping.",
-      NULL,
-      "audio",
-      {
-         { "0", NULL },
-         { "10", NULL },
-         { "20", NULL },
-         { "30", NULL },
-         { "40", NULL },
-         { "50", NULL },
-         { "60", NULL },
-         { "70", NULL },
-         { "80", NULL },
-         { "90", NULL },
-         { "100", NULL },
-         { "110", NULL },
-         { "120", NULL },
-         { "130", NULL },
-         { "140", NULL },
-         { "150", NULL },
-         { "160", NULL },
-         { "170", NULL },
-         { "180", NULL },
-         { "190", NULL },
-         { "200", NULL },
-         { NULL, NULL},
-      },
-      "100"
-   },
-   {
-      "pce_adpcmvolume",
-      "(CD) ADPCM Volume %",
-      NULL,
-      "CD game only. Setting this volume control too high may cause sample clipping.",
-      NULL,
-      "audio",
-      {
-         { "0", NULL },
-         { "10", NULL },
-         { "20", NULL },
-         { "30", NULL },
-         { "40", NULL },
-         { "50", NULL },
-         { "60", NULL },
-         { "70", NULL },
-         { "80", NULL },
-         { "90", NULL },
-         { "100", NULL },
-         { "110", NULL },
-         { "120", NULL },
-         { "130", NULL },
-         { "140", NULL },
-         { "150", NULL },
-         { "160", NULL },
-         { "170", NULL },
-         { "180", NULL },
-         { "190", NULL },
-         { "200", NULL },
-         { NULL, NULL},
-      },
-      "100"
-   },
-   {
-      "pce_cdpsgvolume",
-      "(CD) CD PSG Volume %",
-      NULL,
-      "CD game only. Setting this volume control too high may cause sample clipping.",
-      NULL,
-      "audio",
-      {
-         { "0", NULL },
-         { "10", NULL },
-         { "20", NULL },
-         { "30", NULL },
-         { "40", NULL },
-         { "50", NULL },
-         { "60", NULL },
-         { "70", NULL },
-         { "80", NULL },
-         { "90", NULL },
-         { "100", NULL },
-         { "110", NULL },
-         { "120", NULL },
-         { "130", NULL },
-         { "140", NULL },
-         { "150", NULL },
-         { "160", NULL },
-         { "170", NULL },
-         { "180", NULL },
-         { "190", NULL },
-         { "200", NULL },
-         { NULL, NULL},
-      },
-      "100"
-   },
-   {
-      "pce_adpcmextraprec",
-      "(CD) ADPCM precision",
-      NULL,
-      "Full precision of 12-bits for the MSM5205 ADPCM predictor can reduce whining noise during ADPCM playback.",
-      NULL,
-      "audio",
-      {
-         { "10-bit", NULL },
-         { "12-bit", NULL },
-         { NULL, NULL},
-      },
-      "10-bit"
-   },
-   {
       "pce_resamp_quality",
       "Owl Resampler Quality",
       NULL,
-      "Higher values give better signal noise ratio and preservation of higher frequencies, but increased computation, a bit of latency and clipping if the volume is set too high.",
+      "Higher values give better signal noise ratio and preservation of higher frequencies but increase the computation cost and may cause higher latency and clipping if the volume is set too high.",
       NULL,
       "audio",
       {
          { "0", NULL },
          { "1", NULL },
          { "2", NULL },
-         { "3", NULL },
+         { "3", "3 (Default)" },
          { "4", NULL },
          { "5", NULL },
          { "6", NULL },
@@ -436,22 +332,8 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      "Multitap 5-port Controller",
-      NULL,
-      "Enable multitap (TurboTap) emulation.",
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
-      "Allow UP+DOWN/LEFT+RIGHT",
+      "Allow Opposing Directions",
       NULL,
       "Enabling this will allow pressing / quickly alternating / holding both left and right (or up and down) directions at the same time. This may cause movement-based glitches.",
       NULL,
@@ -464,10 +346,81 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      "Disable Soft Reset (RUN+SELECT)",
+      NULL,
+      "When RUN and SELECT are pressed simultaneously, disable both buttons temporarily instead of resetting.",
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      "Multitap 5-port Controller",
+      NULL,
+      "Enable up to 5-player multitap emulation. Disabling this is only needed in some cases (e.g. Cho Aniki).",
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
+      "pce_show_advanced_input_settings",
+      "Show Advanced Input/Turbo Settings",
+      NULL,
+      "Show Multitap, Mouse, Turbo Buttons and advanced parameters. NOTE: You need to go back in game and re-enter the menu to refresh the list.",
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      "Turbo Hotkey Mode",
+      NULL,
+      "Enable turbo buttons. Hotkeys (buttons III and IV) can behave as either toggle switches or dedicated (hold to use) turbo buttons.",
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", "Toggle" },
+         { "always", "Dedicated" },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      "Alternate Turbo Hotkey",
+      NULL,
+      "Assign RetroPad's L3/R3 buttons as turbo hotkeys instead of buttons III and IV. Works only in 'Toggle' mode and only as long as nothing is assigned to the L3/R3 buttons. You can avoid remapping buttons III and IV when switching to 6-button controller mode with this.",
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_Turbo_Delay",
-      "Turbo Delay",
+      "Turbo Speed",
       NULL,
-      NULL,
+      "Choose how fast button presses are repeated.",
       NULL,
       "input",
       {
@@ -477,35 +430,6 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      "Turbo Hotkey",
-      NULL,
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", NULL },
-         { "always", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      "Alternate Turbo Hotkey",
-      NULL,
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -648,18 +572,179 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      "Disable Soft Reset (RUN+SELECT)",
+      "pce_cdimagecache",
+      "CD Image Cache (Restart Required)",
       NULL,
-      "If set, when RUN+SEL are pressed simultaneously, disable both buttons temporarily.",
+      "Load the complete image into memory at startup. Can potentially decrease loading times at the cost of an increased startup time.",
       NULL,
-      "input",
+      "cd",
       {
          { "disabled", NULL },
          { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
+   },
+   {
+      "pce_cdbios",
+      "CD Bios (Restart Required)",
+      NULL,
+      "Most games can run on 'System Card 3'. 'Games Express' is needed for several unlicensed games.",
+      NULL,
+      "cd",
+      {
+         { "Games Express", NULL },
+         { "System Card 1", NULL },
+         { "System Card 2", NULL },
+         { "System Card 3", NULL },
+         { "System Card 2 US", NULL },
+         { "System Card 3 US", NULL },
+         { NULL, NULL},
+      },
+      "System Card 3"
+   },
+   {
+      "pce_arcadecard",
+      "Arcade Card (Restart Required)",
+      NULL,
+      "Leave this option enabled to allow enhanced modes of ACD-enhanced SCD games.",
+      NULL,
+      "cd",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
+      "pce_cdspeed",
+      "(CD) CD Speed",
+      "CD Speed",
+      "Higher values enable faster loading times but can cause issues with a couple of games.",
+      NULL,
+      "cd",
+      {
+         { "1", NULL },
+         { "2", NULL },
+         { "4", NULL },
+         { "8", NULL },
+         { NULL, NULL},
+      },
+      "1"
+   },
+   {
+      "pce_adpcmextraprec",
+      "(CD) ADPCM precision",
+      "ADPCM precision",
+      "Full precision of 12-bits for the MSM5205 ADPCM predictor can reduce whining noise during ADPCM playback.",
+      NULL,
+      "cd",
+      {
+         { "10-bit", NULL },
+         { "12-bit", NULL },
+         { NULL, NULL},
+      },
+      "10-bit"
+   },
+   {
+      "pce_adpcmvolume",
+      "(CD) ADPCM Volume %",
+      "ADPCM Volume %",
+      "CD game only. Setting this volume control too high may cause sample clipping.",
+      "Setting this volume control too high may cause sample clipping.",
+      "cd",
+      {
+         { "0", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { "60", NULL },
+         { "70", NULL },
+         { "80", NULL },
+         { "90", NULL },
+         { "100", NULL },
+         { "110", NULL },
+         { "120", NULL },
+         { "130", NULL },
+         { "140", NULL },
+         { "150", NULL },
+         { "160", NULL },
+         { "170", NULL },
+         { "180", NULL },
+         { "190", NULL },
+         { "200", NULL },
+         { NULL, NULL},
+      },
+      "100"
+   },
+   {
+      "pce_cddavolume",
+      "(CD) CDDA Volume %",
+      "CDDA Volume %",
+      "CD game only. Setting this volume control too high may cause sample clipping.",
+      "Setting this volume control too high may cause sample clipping.",
+      "cd",
+      {
+         { "0", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { "60", NULL },
+         { "70", NULL },
+         { "80", NULL },
+         { "90", NULL },
+         { "100", NULL },
+         { "110", NULL },
+         { "120", NULL },
+         { "130", NULL },
+         { "140", NULL },
+         { "150", NULL },
+         { "160", NULL },
+         { "170", NULL },
+         { "180", NULL },
+         { "190", NULL },
+         { "200", NULL },
+         { NULL, NULL},
+      },
+      "100"
+   },
+   {
+      "pce_cdpsgvolume",
+      "(CD) CD PSG Volume %",
+      "CD PSG Volume %",
+      "CD game only. Setting this volume control too high may cause sample clipping.",
+      "Setting this volume control too high may cause sample clipping.",
+      "cd",
+      {
+         { "0", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { "60", NULL },
+         { "70", NULL },
+         { "80", NULL },
+         { "90", NULL },
+         { "100", NULL },
+         { "110", NULL },
+         { "120", NULL },
+         { "130", NULL },
+         { "140", NULL },
+         { "150", NULL },
+         { "160", NULL },
+         { "170", NULL },
+         { "180", NULL },
+         { "190", NULL },
+         { "200", NULL },
+         { NULL, NULL},
+      },
+      "100"
    },
    {
       "pce_nospritelimit",
@@ -700,82 +785,6 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { NULL, NULL},
       },
       "1"
-   },
-   {
-      "pce_cdimagecache",
-      "CD Image Cache (Restart)",
-      NULL,
-      "Keep the CD image in memory.",
-      NULL,
-      NULL,
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_cdbios",
-      "CD Bios (Restart)",
-      NULL,
-      "Most games can run on 'System Card 3'. 'Games Express' is needed for several unlicensed games.",
-      NULL,
-      NULL,
-      {
-         { "Games Express", NULL },
-         { "System Card 1", NULL },
-         { "System Card 2", NULL },
-         { "System Card 3", NULL },
-         { "System Card 2 US", NULL },
-         { "System Card 3 US", NULL },
-         { NULL, NULL},
-      },
-      "System Card 3"
-   },
-   {
-      "pce_arcadecard",
-      "Arcade Card (Restart)",
-      NULL,
-      "Leave this option enabled to allow enhanced modes of ACD-enhanced SCD games.",
-      NULL,
-      NULL,
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
-      "pce_cdspeed",
-      "(CD) CD Speed",
-      NULL,
-      "Faster loading times but can cause issues with a couple of games.",
-      NULL,
-      NULL,
-      {
-         { "1", NULL },
-         { "2", NULL },
-         { "4", NULL },
-         { "8", NULL },
-         { NULL, NULL},
-      },
-      "1"
-   },
-   {
-      "pce_show_advanced_input_settings",
-      "Show Advanced Input/Turbo Settings",
-      NULL,
-      "Show Multitap, Mouse, Turbo Buttons and advanced parameters. NOTE: You need to go back in game and re-enter the menu to refresh the list.",
-      NULL,
-      NULL,
-      {
-         { "enabled",  NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    { NULL, NULL, NULL, NULL, NULL, NULL, {{0}}, NULL },
 };
@@ -830,24 +839,29 @@ struct retro_core_options_v2 options_us = {
 #ifndef HAVE_NO_LANGEXTRA
 struct retro_core_options_v2 *options_intl[RETRO_LANGUAGE_LAST] = {
    &options_us,    /* RETRO_LANGUAGE_ENGLISH */
-   NULL,           /* RETRO_LANGUAGE_JAPANESE */
-   NULL,           /* RETRO_LANGUAGE_FRENCH */
-   NULL,           /* RETRO_LANGUAGE_SPANISH */
-   NULL,           /* RETRO_LANGUAGE_GERMAN */
-   NULL,           /* RETRO_LANGUAGE_ITALIAN */
-   NULL,           /* RETRO_LANGUAGE_DUTCH */
-   NULL,           /* RETRO_LANGUAGE_PORTUGUESE_BRAZIL */
-   NULL,           /* RETRO_LANGUAGE_PORTUGUESE_PORTUGAL */
-   NULL,           /* RETRO_LANGUAGE_RUSSIAN */
-   NULL,           /* RETRO_LANGUAGE_KOREAN */
-   NULL,           /* RETRO_LANGUAGE_CHINESE_TRADITIONAL */
-   NULL,           /* RETRO_LANGUAGE_CHINESE_SIMPLIFIED */
-   NULL,           /* RETRO_LANGUAGE_ESPERANTO */
-   NULL,           /* RETRO_LANGUAGE_POLISH */
-   NULL,           /* RETRO_LANGUAGE_VIETNAMESE */
-   NULL,           /* RETRO_LANGUAGE_ARABIC */
-   NULL,           /* RETRO_LANGUAGE_GREEK */
-   NULL,           /* RETRO_LANGUAGE_TURKISH */
+   &options_ja,      /* RETRO_LANGUAGE_JAPANESE */
+   &options_fr,      /* RETRO_LANGUAGE_FRENCH */
+   &options_es,      /* RETRO_LANGUAGE_SPANISH */
+   &options_de,      /* RETRO_LANGUAGE_GERMAN */
+   &options_it,      /* RETRO_LANGUAGE_ITALIAN */
+   &options_nl,      /* RETRO_LANGUAGE_DUTCH */
+   &options_pt_br,   /* RETRO_LANGUAGE_PORTUGUESE_BRAZIL */
+   &options_pt_pt,   /* RETRO_LANGUAGE_PORTUGUESE_PORTUGAL */
+   &options_ru,      /* RETRO_LANGUAGE_RUSSIAN */
+   &options_ko,      /* RETRO_LANGUAGE_KOREAN */
+   &options_cht,     /* RETRO_LANGUAGE_CHINESE_TRADITIONAL */
+   &options_chs,     /* RETRO_LANGUAGE_CHINESE_SIMPLIFIED */
+   &options_eo,      /* RETRO_LANGUAGE_ESPERANTO */
+   &options_pl,      /* RETRO_LANGUAGE_POLISH */
+   &options_vn,      /* RETRO_LANGUAGE_VIETNAMESE */
+   &options_ar,      /* RETRO_LANGUAGE_ARABIC */
+   &options_el,      /* RETRO_LANGUAGE_GREEK */
+   &options_tr,      /* RETRO_LANGUAGE_TURKISH */
+   &options_sv,      /* RETRO_LANGUAGE_SLOVAK */
+   &options_fa,      /* RETRO_LANGUAGE_PERSIAN */
+   &options_he,      /* RETRO_LANGUAGE_HEBREW */
+   &options_ast,     /* RETRO_LANGUAGE_ASTURIAN */
+   &options_fi,      /* RETRO_LANGUAGE_FINNISH */
 };
 #endif
 
