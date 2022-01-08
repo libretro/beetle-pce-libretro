@@ -67,7 +67,7 @@ struct retro_core_option_v2_category option_cats_us[] = {
    },
    {
       "hacks",
-      "Emulation hacks",
+      "Emulation Hacks",
       "Configure processor overclocking and emulation accuracy parameters affecting low-level performance and compatibility."
    },
    {
@@ -164,7 +164,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "pce_initial_scanline",
       "Initial Scanline",
       NULL,
-      "First rendered scanline. Higher values will crop the top of the screen.",
+      "First rendered scanline. Higher values will crop the top of the image.",
       NULL,
       "video",
       {
@@ -217,7 +217,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "pce_last_scanline",
       "Last Scanline",
       NULL,
-      "Last rendered scanline. Lower values will crop the bottom of the screen.",
+      "Last rendered scanline. Lower values will crop the bottom of the image.",
       NULL,
       "video",
       {
@@ -793,42 +793,6 @@ struct retro_core_options_v2 options_us = {
    option_cats_us,
    option_defs_us
 };
-
-/* RETRO_LANGUAGE_JAPANESE */
-
-/* RETRO_LANGUAGE_FRENCH */
-
-/* RETRO_LANGUAGE_SPANISH */
-
-/* RETRO_LANGUAGE_GERMAN */
-
-/* RETRO_LANGUAGE_ITALIAN */
-
-/* RETRO_LANGUAGE_DUTCH */
-
-/* RETRO_LANGUAGE_PORTUGUESE_BRAZIL */
-
-/* RETRO_LANGUAGE_PORTUGUESE_PORTUGAL */
-
-/* RETRO_LANGUAGE_RUSSIAN */
-
-/* RETRO_LANGUAGE_KOREAN */
-
-/* RETRO_LANGUAGE_CHINESE_TRADITIONAL */
-
-/* RETRO_LANGUAGE_CHINESE_SIMPLIFIED */
-
-/* RETRO_LANGUAGE_ESPERANTO */
-
-/* RETRO_LANGUAGE_POLISH */
-
-/* RETRO_LANGUAGE_VIETNAMESE */
-
-/* RETRO_LANGUAGE_ARABIC */
-
-/* RETRO_LANGUAGE_GREEK */
-
-/* RETRO_LANGUAGE_TURKISH */
 
 /*
  ********************************
