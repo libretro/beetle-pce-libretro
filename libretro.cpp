@@ -980,6 +980,7 @@ static int turbo_toggle_down[MAX_PLAYERS][MAX_BUTTONS] = {};
 static void check_variables(bool loaded)
 {
    struct retro_variable var = {0};
+   struct retro_core_option_display option_display;
 
    if (!loaded)
    {
@@ -1294,50 +1295,53 @@ static void check_variables(bool loaded)
       up_down_allowed = (strcmp(var.value, "enabled") == 0);
    }
 
+   /* 'Show Advanced Input/Turbo Settings' is only needed if catgegories aren't supported */
+   option_display.key = "pce_show_advanced_input_settings";
+   option_display.visible = !libretro_supports_option_categories;
+   environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_DISPLAY, &option_display);
+
+   /* decide if input/turbo settings should be shown */
    var.key = "pce_show_advanced_input_settings";
-    var.value = NULL;
+   var.value = NULL;
+   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+   {
+      bool show_advanced_input_settings_prev = show_advanced_input_settings;
 
-    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
-    {
-        bool show_advanced_input_settings_prev = show_advanced_input_settings;
+      show_advanced_input_settings = (strcmp(var.value, "enabled") == 0)
+                                     || libretro_supports_option_categories;
 
-        show_advanced_input_settings = true;
-        if (strcmp(var.value, "disabled") == 0)
-            show_advanced_input_settings = false;
+      if (!loaded || (show_advanced_input_settings != show_advanced_input_settings_prev))
+      {
+         size_t i;
+         const char av_keys[17][32] = {
+            "pce_multitap",
+            "pce_mouse_sensitivity",
+            "pce_disable_softreset",
+            "pce_up_down_allowed",
+            "pce_Turbo_Delay",
+            "pce_Turbo_Toggling",
+            "pce_turbo_toggle_hotkey",
+            "pce_p0_turbo_I_enable",
+            "pce_p0_turbo_II_enable",
+            "pce_p1_turbo_I_enable",
+            "pce_p1_turbo_II_enable",
+            "pce_p2_turbo_I_enable",
+            "pce_p2_turbo_II_enable",
+            "pce_p3_turbo_I_enable",
+            "pce_p3_turbo_II_enable",
+            "pce_p4_turbo_I_enable",
+            "pce_p4_turbo_II_enable",
+         };
 
-        if (!loaded || (show_advanced_input_settings != show_advanced_input_settings_prev))
-        {
-            size_t i;
-            struct retro_core_option_display option_display;
-            char av_keys[17][32] = {
-                "pce_multitap",
-                "pce_mouse_sensitivity",
-                "pce_disable_softreset",
-                "pce_up_down_allowed",
-                "pce_Turbo_Delay",
-                "pce_Turbo_Toggling",
-                "pce_turbo_toggle_hotkey",
-                "pce_p0_turbo_I_enable",
-                "pce_p0_turbo_II_enable",
-                "pce_p1_turbo_I_enable",
-                "pce_p1_turbo_II_enable",
-                "pce_p2_turbo_I_enable",
-                "pce_p2_turbo_II_enable",
-                "pce_p3_turbo_I_enable",
-                "pce_p3_turbo_II_enable",
-                "pce_p4_turbo_I_enable",
-                "pce_p4_turbo_II_enable",
-            };
+         option_display.visible = show_advanced_input_settings;
 
-            option_display.visible = show_advanced_input_settings;
-
-            for (i = 0; i < 17; i++)
-            {
-                option_display.key = av_keys[i];
-                environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_DISPLAY, &option_display);
-            }
-        }
-    }
+         for (i = 0; i < 17; i++)
+         {
+            option_display.key = av_keys[i];
+            environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_DISPLAY, &option_display);
+         }
+      }
+   }
    if (loaded)
       SettingsChanged();
 }
@@ -1505,7 +1509,7 @@ static void update_input(void)
       {
          uint16_t input_state = 0;
 
-         for (unsigned i = 0; i < MAX_BUTTONS; i++)
+         for (i = 0; i < MAX_BUTTONS; i++)
          {
             if (turbo_enable[j][i] == 1) //Check whether a given button is turbo-capable
             {
