@@ -14,11 +14,11 @@ extern "C" {
 #endif
 /* RETRO_LANGUAGE_AR */
 
-#define CATEGORY_VIDEO_LABEL_AR NULL
+#define CATEGORY_VIDEO_LABEL_AR "فيديو"
 #define CATEGORY_VIDEO_INFO_0_AR NULL
-#define CATEGORY_AUDIO_LABEL_AR NULL
+#define CATEGORY_AUDIO_LABEL_AR "نظام تشغيل الصوت"
 #define CATEGORY_AUDIO_INFO_0_AR NULL
-#define CATEGORY_INPUT_LABEL_AR NULL
+#define CATEGORY_INPUT_LABEL_AR "الإدخال"
 #define CATEGORY_INPUT_INFO_0_AR NULL
 #define CATEGORY_HACKS_LABEL_AR NULL
 #define CATEGORY_HACKS_INFO_0_AR NULL
@@ -28,9 +28,9 @@ extern "C" {
 #define PCE_PALETTE_INFO_0_AR NULL
 #define OPTION_VAL_RGB_AR NULL
 #define OPTION_VAL_COMPOSITE_AR NULL
-#define PCE_ASPECT_RATIO_LABEL_AR NULL
+#define PCE_ASPECT_RATIO_LABEL_AR "نسبة الجانب"
 #define PCE_ASPECT_RATIO_INFO_0_AR NULL
-#define OPTION_VAL_AUTO_AR NULL
+#define OPTION_VAL_AUTO_AR "تلقائي"
 #define OPTION_VAL_6_5_AR NULL
 #define OPTION_VAL_4_3_AR NULL
 #define OPTION_VAL_UNCORRECTED_AR NULL
@@ -81,21 +81,25 @@ extern "C" {
 #define OPTION_VAL_4_50_AR NULL
 #define OPTION_VAL_4_75_AR NULL
 #define OPTION_VAL_5_00_AR NULL
-#define PCE_MULTITAP_LABEL_AR NULL
-#define PCE_MULTITAP_INFO_0_AR NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_AR NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_AR NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_AR NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_AR NULL
+#define PCE_MULTITAP_LABEL_AR NULL
+#define PCE_MULTITAP_INFO_0_AR NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AR NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_AR NULL
-#define PCE_TURBO_DELAY_LABEL_AR NULL
-#define PCE_TURBO_DELAY_INFO_0_AR NULL
-#define OPTION_VAL_FAST_AR NULL
-#define OPTION_VAL_MEDIUM_AR NULL
-#define OPTION_VAL_SLOW_AR NULL
 #define PCE_TURBO_TOGGLING_LABEL_AR NULL
+#define PCE_TURBO_TOGGLING_INFO_0_AR NULL
 #define OPTION_VAL_TOGGLE_AR NULL
 #define OPTION_VAL_ALWAYS_AR NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_AR NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_AR NULL
+#define PCE_TURBO_DELAY_LABEL_AR NULL
+#define PCE_TURBO_DELAY_INFO_0_AR NULL
+#define OPTION_VAL_FAST_AR "سريع"
+#define OPTION_VAL_MEDIUM_AR NULL
+#define OPTION_VAL_SLOW_AR NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_AR NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_AR NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_AR NULL
@@ -106,8 +110,6 @@ extern "C" {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_AR NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_AR NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_AR NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_AR NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_AR NULL
 #define PCE_CDIMAGECACHE_LABEL_AR NULL
 #define PCE_CDIMAGECACHE_INFO_0_AR NULL
 #define PCE_CDBIOS_LABEL_AR NULL
@@ -128,12 +130,12 @@ extern "C" {
 #define PCE_ADPCMEXTRAPREC_INFO_0_AR NULL
 #define OPTION_VAL_10_BIT_AR NULL
 #define OPTION_VAL_12_BIT_AR NULL
-#define PCE_CDDAVOLUME_LABEL_AR NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_AR NULL
-#define PCE_CDDAVOLUME_INFO_0_AR NULL
-#define PCE_CDDAVOLUME_INFO_1_AR NULL
 #define PCE_ADPCMVOLUME_LABEL_AR NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_AR NULL
+#define PCE_ADPCMVOLUME_INFO_0_AR NULL
+#define PCE_ADPCMVOLUME_INFO_1_AR NULL
+#define PCE_CDDAVOLUME_LABEL_AR NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_AR NULL
 #define PCE_CDPSGVOLUME_LABEL_AR NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_AR NULL
 #define PCE_NOSPRITELIMIT_LABEL_AR NULL
@@ -204,7 +206,6 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_AR,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_AR,
       NULL,
       "video",
@@ -424,20 +425,6 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_AR,
-      NULL,
-      PCE_MULTITAP_INFO_0_AR,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_AR,
       NULL,
@@ -452,6 +439,34 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_AR,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_AR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_AR,
+      NULL,
+      PCE_MULTITAP_INFO_0_AR,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AR,
       NULL,
@@ -461,6 +476,35 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_AR,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_AR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_AR },
+         { "always", OPTION_VAL_ALWAYS_AR },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_AR,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_AR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -479,37 +523,6 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_AR,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_AR },
-         { "always", OPTION_VAL_ALWAYS_AR },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_AR,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -652,20 +665,6 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_AR,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_AR,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_AR,
       NULL,
@@ -742,11 +741,11 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_AR,
-      PCE_CDDAVOLUME_LABEL_CAT_AR,
-      PCE_CDDAVOLUME_INFO_0_AR,
-      PCE_CDDAVOLUME_INFO_1_AR,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_AR,
+      PCE_ADPCMVOLUME_LABEL_CAT_AR,
+      PCE_ADPCMVOLUME_INFO_0_AR,
+      PCE_ADPCMVOLUME_INFO_1_AR,
       "cd",
       {
          { "0", NULL },
@@ -775,11 +774,11 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_AR,
-      PCE_ADPCMVOLUME_LABEL_CAT_AR,
-      PCE_CDDAVOLUME_INFO_0_AR,
-      PCE_CDDAVOLUME_INFO_1_AR,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_AR,
+      PCE_CDDAVOLUME_LABEL_CAT_AR,
+      PCE_ADPCMVOLUME_INFO_0_AR,
+      PCE_ADPCMVOLUME_INFO_1_AR,
       "cd",
       {
          { "0", NULL },
@@ -811,8 +810,8 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_AR,
       PCE_CDPSGVOLUME_LABEL_CAT_AR,
-      PCE_CDDAVOLUME_INFO_0_AR,
-      PCE_CDDAVOLUME_INFO_1_AR,
+      PCE_ADPCMVOLUME_INFO_0_AR,
+      PCE_ADPCMVOLUME_INFO_1_AR,
       "cd",
       {
          { "0", NULL },
@@ -889,11 +888,11 @@ struct retro_core_options_v2 options_ar = {
 
 /* RETRO_LANGUAGE_AST */
 
-#define CATEGORY_VIDEO_LABEL_AST NULL
+#define CATEGORY_VIDEO_LABEL_AST "Videu"
 #define CATEGORY_VIDEO_INFO_0_AST NULL
-#define CATEGORY_AUDIO_LABEL_AST NULL
+#define CATEGORY_AUDIO_LABEL_AST "Audiu"
 #define CATEGORY_AUDIO_INFO_0_AST NULL
-#define CATEGORY_INPUT_LABEL_AST NULL
+#define CATEGORY_INPUT_LABEL_AST "Entrada"
 #define CATEGORY_INPUT_INFO_0_AST NULL
 #define CATEGORY_HACKS_LABEL_AST NULL
 #define CATEGORY_HACKS_INFO_0_AST NULL
@@ -903,7 +902,7 @@ struct retro_core_options_v2 options_ar = {
 #define PCE_PALETTE_INFO_0_AST NULL
 #define OPTION_VAL_RGB_AST NULL
 #define OPTION_VAL_COMPOSITE_AST NULL
-#define PCE_ASPECT_RATIO_LABEL_AST NULL
+#define PCE_ASPECT_RATIO_LABEL_AST "Proporción d'aspeutu"
 #define PCE_ASPECT_RATIO_INFO_0_AST NULL
 #define OPTION_VAL_AUTO_AST NULL
 #define OPTION_VAL_6_5_AST NULL
@@ -919,17 +918,17 @@ struct retro_core_options_v2 options_ar = {
 #define PCE_H_OVERSCAN_INFO_0_AST NULL
 #define PCE_INITIAL_SCANLINE_LABEL_AST NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_AST NULL
-#define OPTION_VAL_3_AST NULL
+#define OPTION_VAL_3_AST "3 (Por defeutu)"
 #define PCE_LAST_SCANLINE_LABEL_AST NULL
 #define PCE_LAST_SCANLINE_INFO_0_AST NULL
-#define OPTION_VAL_242_AST NULL
+#define OPTION_VAL_242_AST "242 (Por defeutu)"
 #define PCE_PSGREVISION_LABEL_AST NULL
 #define PCE_PSGREVISION_INFO_0_AST NULL
 #define OPTION_VAL_HUC6280_AST NULL
 #define OPTION_VAL_HUC6280A_AST NULL
 #define PCE_RESAMP_QUALITY_LABEL_AST NULL
 #define PCE_RESAMP_QUALITY_INFO_0_AST NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_AST NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_AST "Sensibilidá del mur"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_AST NULL
 #define OPTION_VAL_0_125_AST NULL
 #define OPTION_VAL_0_250_AST NULL
@@ -941,36 +940,40 @@ struct retro_core_options_v2 options_ar = {
 #define OPTION_VAL_1_000_AST NULL
 #define OPTION_VAL_1_125_AST NULL
 #define OPTION_VAL_1_25_AST NULL
-#define OPTION_VAL_1_50_AST NULL
-#define OPTION_VAL_1_75_AST NULL
-#define OPTION_VAL_2_00_AST NULL
-#define OPTION_VAL_2_25_AST NULL
-#define OPTION_VAL_2_50_AST NULL
-#define OPTION_VAL_2_75_AST NULL
-#define OPTION_VAL_3_00_AST NULL
-#define OPTION_VAL_3_25_AST NULL
-#define OPTION_VAL_3_50_AST NULL
-#define OPTION_VAL_3_75_AST NULL
-#define OPTION_VAL_4_00_AST NULL
-#define OPTION_VAL_4_25_AST NULL
-#define OPTION_VAL_4_50_AST NULL
-#define OPTION_VAL_4_75_AST NULL
-#define OPTION_VAL_5_00_AST NULL
-#define PCE_MULTITAP_LABEL_AST NULL
-#define PCE_MULTITAP_INFO_0_AST NULL
+#define OPTION_VAL_1_50_AST "1,50"
+#define OPTION_VAL_1_75_AST "1,75"
+#define OPTION_VAL_2_00_AST "2,00"
+#define OPTION_VAL_2_25_AST "2,25"
+#define OPTION_VAL_2_50_AST "2,50"
+#define OPTION_VAL_2_75_AST "2,75"
+#define OPTION_VAL_3_00_AST "3,00"
+#define OPTION_VAL_3_25_AST "3,25"
+#define OPTION_VAL_3_50_AST "3,50"
+#define OPTION_VAL_3_75_AST "3,75"
+#define OPTION_VAL_4_00_AST "4,00"
+#define OPTION_VAL_4_25_AST "4,25"
+#define OPTION_VAL_4_50_AST "4,50"
+#define OPTION_VAL_4_75_AST "4,75"
+#define OPTION_VAL_5_00_AST "5,00"
 #define PCE_UP_DOWN_ALLOWED_LABEL_AST NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_AST NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_AST NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_AST NULL
+#define PCE_MULTITAP_LABEL_AST NULL
+#define PCE_MULTITAP_INFO_0_AST NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AST NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_AST NULL
+#define PCE_TURBO_TOGGLING_LABEL_AST NULL
+#define PCE_TURBO_TOGGLING_INFO_0_AST NULL
+#define OPTION_VAL_TOGGLE_AST NULL
+#define OPTION_VAL_ALWAYS_AST NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_AST NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_AST NULL
 #define PCE_TURBO_DELAY_LABEL_AST NULL
 #define PCE_TURBO_DELAY_INFO_0_AST NULL
 #define OPTION_VAL_FAST_AST NULL
 #define OPTION_VAL_MEDIUM_AST NULL
 #define OPTION_VAL_SLOW_AST NULL
-#define PCE_TURBO_TOGGLING_LABEL_AST NULL
-#define OPTION_VAL_TOGGLE_AST NULL
-#define OPTION_VAL_ALWAYS_AST NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_AST NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_AST NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_AST NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_AST NULL
@@ -981,8 +984,6 @@ struct retro_core_options_v2 options_ar = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_AST NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_AST NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_AST NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_AST NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_AST NULL
 #define PCE_CDIMAGECACHE_LABEL_AST NULL
 #define PCE_CDIMAGECACHE_INFO_0_AST NULL
 #define PCE_CDBIOS_LABEL_AST NULL
@@ -1003,12 +1004,12 @@ struct retro_core_options_v2 options_ar = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_AST NULL
 #define OPTION_VAL_10_BIT_AST NULL
 #define OPTION_VAL_12_BIT_AST NULL
-#define PCE_CDDAVOLUME_LABEL_AST NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_AST NULL
-#define PCE_CDDAVOLUME_INFO_0_AST NULL
-#define PCE_CDDAVOLUME_INFO_1_AST NULL
 #define PCE_ADPCMVOLUME_LABEL_AST NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_AST NULL
+#define PCE_ADPCMVOLUME_INFO_0_AST NULL
+#define PCE_ADPCMVOLUME_INFO_1_AST NULL
+#define PCE_CDDAVOLUME_LABEL_AST NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_AST NULL
 #define PCE_CDPSGVOLUME_LABEL_AST NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_AST NULL
 #define PCE_NOSPRITELIMIT_LABEL_AST NULL
@@ -1079,7 +1080,6 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_AST,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_AST,
       NULL,
       "video",
@@ -1299,20 +1299,6 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_AST,
-      NULL,
-      PCE_MULTITAP_INFO_0_AST,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_AST,
       NULL,
@@ -1327,6 +1313,34 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_AST,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_AST,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_AST,
+      NULL,
+      PCE_MULTITAP_INFO_0_AST,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AST,
       NULL,
@@ -1336,6 +1350,35 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_AST,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_AST,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_AST },
+         { "always", OPTION_VAL_ALWAYS_AST },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_AST,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_AST,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -1354,37 +1397,6 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_AST,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_AST },
-         { "always", OPTION_VAL_ALWAYS_AST },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_AST,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -1527,20 +1539,6 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_AST,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_AST,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_AST,
       NULL,
@@ -1617,11 +1615,11 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_AST,
-      PCE_CDDAVOLUME_LABEL_CAT_AST,
-      PCE_CDDAVOLUME_INFO_0_AST,
-      PCE_CDDAVOLUME_INFO_1_AST,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_AST,
+      PCE_ADPCMVOLUME_LABEL_CAT_AST,
+      PCE_ADPCMVOLUME_INFO_0_AST,
+      PCE_ADPCMVOLUME_INFO_1_AST,
       "cd",
       {
          { "0", NULL },
@@ -1650,11 +1648,11 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_AST,
-      PCE_ADPCMVOLUME_LABEL_CAT_AST,
-      PCE_CDDAVOLUME_INFO_0_AST,
-      PCE_CDDAVOLUME_INFO_1_AST,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_AST,
+      PCE_CDDAVOLUME_LABEL_CAT_AST,
+      PCE_ADPCMVOLUME_INFO_0_AST,
+      PCE_ADPCMVOLUME_INFO_1_AST,
       "cd",
       {
          { "0", NULL },
@@ -1686,8 +1684,8 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_AST,
       PCE_CDPSGVOLUME_LABEL_CAT_AST,
-      PCE_CDDAVOLUME_INFO_0_AST,
-      PCE_CDDAVOLUME_INFO_1_AST,
+      PCE_ADPCMVOLUME_INFO_0_AST,
+      PCE_ADPCMVOLUME_INFO_1_AST,
       "cd",
       {
          { "0", NULL },
@@ -1831,21 +1829,25 @@ struct retro_core_options_v2 options_ast = {
 #define OPTION_VAL_4_50_CA NULL
 #define OPTION_VAL_4_75_CA NULL
 #define OPTION_VAL_5_00_CA NULL
-#define PCE_MULTITAP_LABEL_CA NULL
-#define PCE_MULTITAP_INFO_0_CA NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_CA NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_CA NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_CA NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_CA NULL
+#define PCE_MULTITAP_LABEL_CA NULL
+#define PCE_MULTITAP_INFO_0_CA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CA NULL
+#define PCE_TURBO_TOGGLING_LABEL_CA NULL
+#define PCE_TURBO_TOGGLING_INFO_0_CA NULL
+#define OPTION_VAL_TOGGLE_CA NULL
+#define OPTION_VAL_ALWAYS_CA NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CA NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CA NULL
 #define PCE_TURBO_DELAY_LABEL_CA NULL
 #define PCE_TURBO_DELAY_INFO_0_CA NULL
 #define OPTION_VAL_FAST_CA NULL
 #define OPTION_VAL_MEDIUM_CA NULL
 #define OPTION_VAL_SLOW_CA NULL
-#define PCE_TURBO_TOGGLING_LABEL_CA NULL
-#define OPTION_VAL_TOGGLE_CA NULL
-#define OPTION_VAL_ALWAYS_CA NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CA NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_CA NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_CA NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_CA NULL
@@ -1856,8 +1858,6 @@ struct retro_core_options_v2 options_ast = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_CA NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_CA NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_CA NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_CA NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_CA NULL
 #define PCE_CDIMAGECACHE_LABEL_CA NULL
 #define PCE_CDIMAGECACHE_INFO_0_CA NULL
 #define PCE_CDBIOS_LABEL_CA NULL
@@ -1878,12 +1878,12 @@ struct retro_core_options_v2 options_ast = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_CA NULL
 #define OPTION_VAL_10_BIT_CA NULL
 #define OPTION_VAL_12_BIT_CA NULL
-#define PCE_CDDAVOLUME_LABEL_CA NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_CA NULL
-#define PCE_CDDAVOLUME_INFO_0_CA NULL
-#define PCE_CDDAVOLUME_INFO_1_CA NULL
 #define PCE_ADPCMVOLUME_LABEL_CA NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_CA NULL
+#define PCE_ADPCMVOLUME_INFO_0_CA NULL
+#define PCE_ADPCMVOLUME_INFO_1_CA NULL
+#define PCE_CDDAVOLUME_LABEL_CA NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_CA NULL
 #define PCE_CDPSGVOLUME_LABEL_CA NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_CA NULL
 #define PCE_NOSPRITELIMIT_LABEL_CA NULL
@@ -1954,7 +1954,6 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_CA,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_CA,
       NULL,
       "video",
@@ -2174,20 +2173,6 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_CA,
-      NULL,
-      PCE_MULTITAP_INFO_0_CA,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_CA,
       NULL,
@@ -2202,6 +2187,34 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_CA,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_CA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_CA,
+      NULL,
+      PCE_MULTITAP_INFO_0_CA,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CA,
       NULL,
@@ -2211,6 +2224,35 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_CA,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_CA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_CA },
+         { "always", OPTION_VAL_ALWAYS_CA },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_CA,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -2229,37 +2271,6 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_CA,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_CA },
-         { "always", OPTION_VAL_ALWAYS_CA },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_CA,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -2402,20 +2413,6 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_CA,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_CA,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_CA,
       NULL,
@@ -2492,11 +2489,11 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_CA,
-      PCE_CDDAVOLUME_LABEL_CAT_CA,
-      PCE_CDDAVOLUME_INFO_0_CA,
-      PCE_CDDAVOLUME_INFO_1_CA,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_CA,
+      PCE_ADPCMVOLUME_LABEL_CAT_CA,
+      PCE_ADPCMVOLUME_INFO_0_CA,
+      PCE_ADPCMVOLUME_INFO_1_CA,
       "cd",
       {
          { "0", NULL },
@@ -2525,11 +2522,11 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_CA,
-      PCE_ADPCMVOLUME_LABEL_CAT_CA,
-      PCE_CDDAVOLUME_INFO_0_CA,
-      PCE_CDDAVOLUME_INFO_1_CA,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_CA,
+      PCE_CDDAVOLUME_LABEL_CAT_CA,
+      PCE_ADPCMVOLUME_INFO_0_CA,
+      PCE_ADPCMVOLUME_INFO_1_CA,
       "cd",
       {
          { "0", NULL },
@@ -2561,8 +2558,8 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_CA,
       PCE_CDPSGVOLUME_LABEL_CAT_CA,
-      PCE_CDDAVOLUME_INFO_0_CA,
-      PCE_CDDAVOLUME_INFO_1_CA,
+      PCE_ADPCMVOLUME_INFO_0_CA,
+      PCE_ADPCMVOLUME_INFO_1_CA,
       "cd",
       {
          { "0", NULL },
@@ -2639,47 +2636,47 @@ struct retro_core_options_v2 options_ca = {
 
 /* RETRO_LANGUAGE_CHS */
 
-#define CATEGORY_VIDEO_LABEL_CHS NULL
+#define CATEGORY_VIDEO_LABEL_CHS "视频"
 #define CATEGORY_VIDEO_INFO_0_CHS NULL
-#define CATEGORY_AUDIO_LABEL_CHS NULL
+#define CATEGORY_AUDIO_LABEL_CHS "音频"
 #define CATEGORY_AUDIO_INFO_0_CHS NULL
-#define CATEGORY_INPUT_LABEL_CHS NULL
+#define CATEGORY_INPUT_LABEL_CHS "输入"
 #define CATEGORY_INPUT_INFO_0_CHS NULL
-#define CATEGORY_HACKS_LABEL_CHS NULL
-#define CATEGORY_HACKS_INFO_0_CHS NULL
+#define CATEGORY_HACKS_LABEL_CHS "模拟修改"
+#define CATEGORY_HACKS_INFO_0_CHS "配置处理器超时和模拟精确参数，影响低级性能和兼容性。"
 #define CATEGORY_CD_LABEL_CHS NULL
 #define CATEGORY_CD_INFO_0_CHS NULL
-#define PCE_PALETTE_LABEL_CHS NULL
+#define PCE_PALETTE_LABEL_CHS "色板"
 #define PCE_PALETTE_INFO_0_CHS NULL
 #define OPTION_VAL_RGB_CHS NULL
-#define OPTION_VAL_COMPOSITE_CHS NULL
-#define PCE_ASPECT_RATIO_LABEL_CHS NULL
-#define PCE_ASPECT_RATIO_INFO_0_CHS NULL
-#define OPTION_VAL_AUTO_CHS NULL
+#define OPTION_VAL_COMPOSITE_CHS "合成"
+#define PCE_ASPECT_RATIO_LABEL_CHS "纵横比"
+#define PCE_ASPECT_RATIO_INFO_0_CHS "选择首选内容宽高比。这只适用于RetroArch的宽高比设置为视频设置中的“核心提供”。"
+#define OPTION_VAL_AUTO_CHS "自动"
 #define OPTION_VAL_6_5_CHS NULL
 #define OPTION_VAL_4_3_CHS NULL
 #define OPTION_VAL_UNCORRECTED_CHS NULL
 #define PCE_SCALING_LABEL_CHS NULL
 #define PCE_SCALING_INFO_0_CHS NULL
 #define OPTION_VAL_LORES_CHS NULL
-#define OPTION_VAL_HIRES_CHS NULL
+#define OPTION_VAL_HIRES_CHS "高分辨率"
 #define PCE_HIRES_BLEND_LABEL_CHS NULL
 #define PCE_HIRES_BLEND_INFO_0_CHS NULL
 #define PCE_H_OVERSCAN_LABEL_CHS NULL
 #define PCE_H_OVERSCAN_INFO_0_CHS NULL
 #define PCE_INITIAL_SCANLINE_LABEL_CHS NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_CHS NULL
-#define OPTION_VAL_3_CHS NULL
+#define OPTION_VAL_3_CHS "3 (默认)"
 #define PCE_LAST_SCANLINE_LABEL_CHS NULL
 #define PCE_LAST_SCANLINE_INFO_0_CHS NULL
-#define OPTION_VAL_242_CHS NULL
+#define OPTION_VAL_242_CHS "242 (默认)"
 #define PCE_PSGREVISION_LABEL_CHS NULL
 #define PCE_PSGREVISION_INFO_0_CHS NULL
 #define OPTION_VAL_HUC6280_CHS NULL
 #define OPTION_VAL_HUC6280A_CHS NULL
 #define PCE_RESAMP_QUALITY_LABEL_CHS NULL
 #define PCE_RESAMP_QUALITY_INFO_0_CHS NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_CHS NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_CHS "鼠标灵敏度"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_CHS NULL
 #define OPTION_VAL_0_125_CHS NULL
 #define OPTION_VAL_0_250_CHS NULL
@@ -2706,21 +2703,25 @@ struct retro_core_options_v2 options_ca = {
 #define OPTION_VAL_4_50_CHS NULL
 #define OPTION_VAL_4_75_CHS NULL
 #define OPTION_VAL_5_00_CHS NULL
-#define PCE_MULTITAP_LABEL_CHS NULL
-#define PCE_MULTITAP_INFO_0_CHS NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_CHS NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_CHS NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_CHS NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_CHS NULL
+#define PCE_MULTITAP_LABEL_CHS NULL
+#define PCE_MULTITAP_INFO_0_CHS NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHS NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHS NULL
-#define PCE_TURBO_DELAY_LABEL_CHS NULL
-#define PCE_TURBO_DELAY_INFO_0_CHS NULL
-#define OPTION_VAL_FAST_CHS NULL
-#define OPTION_VAL_MEDIUM_CHS NULL
-#define OPTION_VAL_SLOW_CHS NULL
 #define PCE_TURBO_TOGGLING_LABEL_CHS NULL
-#define OPTION_VAL_TOGGLE_CHS NULL
+#define PCE_TURBO_TOGGLING_INFO_0_CHS NULL
+#define OPTION_VAL_TOGGLE_CHS "切换"
 #define OPTION_VAL_ALWAYS_CHS NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CHS NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CHS NULL
+#define PCE_TURBO_DELAY_LABEL_CHS NULL
+#define PCE_TURBO_DELAY_INFO_0_CHS NULL
+#define OPTION_VAL_FAST_CHS "快"
+#define OPTION_VAL_MEDIUM_CHS "中等"
+#define OPTION_VAL_SLOW_CHS "慢"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_CHS NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_CHS NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_CHS NULL
@@ -2731,8 +2732,6 @@ struct retro_core_options_v2 options_ca = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_CHS NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_CHS NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_CHS NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_CHS NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_CHS NULL
 #define PCE_CDIMAGECACHE_LABEL_CHS NULL
 #define PCE_CDIMAGECACHE_INFO_0_CHS NULL
 #define PCE_CDBIOS_LABEL_CHS NULL
@@ -2751,14 +2750,14 @@ struct retro_core_options_v2 options_ca = {
 #define PCE_ADPCMEXTRAPREC_LABEL_CHS NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_CHS NULL
 #define PCE_ADPCMEXTRAPREC_INFO_0_CHS NULL
-#define OPTION_VAL_10_BIT_CHS NULL
-#define OPTION_VAL_12_BIT_CHS NULL
-#define PCE_CDDAVOLUME_LABEL_CHS NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_CHS NULL
-#define PCE_CDDAVOLUME_INFO_0_CHS NULL
-#define PCE_CDDAVOLUME_INFO_1_CHS NULL
+#define OPTION_VAL_10_BIT_CHS "10 位"
+#define OPTION_VAL_12_BIT_CHS "12 位"
 #define PCE_ADPCMVOLUME_LABEL_CHS NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_CHS NULL
+#define PCE_ADPCMVOLUME_INFO_0_CHS NULL
+#define PCE_ADPCMVOLUME_INFO_1_CHS NULL
+#define PCE_CDDAVOLUME_LABEL_CHS NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_CHS NULL
 #define PCE_CDPSGVOLUME_LABEL_CHS NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_CHS NULL
 #define PCE_NOSPRITELIMIT_LABEL_CHS NULL
@@ -2829,7 +2828,6 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_CHS,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_CHS,
       NULL,
       "video",
@@ -3049,20 +3047,6 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_CHS,
-      NULL,
-      PCE_MULTITAP_INFO_0_CHS,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_CHS,
       NULL,
@@ -3077,6 +3061,34 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_CHS,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_CHS,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_CHS,
+      NULL,
+      PCE_MULTITAP_INFO_0_CHS,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHS,
       NULL,
@@ -3086,6 +3098,35 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_CHS,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_CHS,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_CHS },
+         { "always", OPTION_VAL_ALWAYS_CHS },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_CHS,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CHS,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -3104,37 +3145,6 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_CHS,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_CHS },
-         { "always", OPTION_VAL_ALWAYS_CHS },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_CHS,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -3277,20 +3287,6 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_CHS,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_CHS,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_CHS,
       NULL,
@@ -3367,11 +3363,11 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_CHS,
-      PCE_CDDAVOLUME_LABEL_CAT_CHS,
-      PCE_CDDAVOLUME_INFO_0_CHS,
-      PCE_CDDAVOLUME_INFO_1_CHS,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_CHS,
+      PCE_ADPCMVOLUME_LABEL_CAT_CHS,
+      PCE_ADPCMVOLUME_INFO_0_CHS,
+      PCE_ADPCMVOLUME_INFO_1_CHS,
       "cd",
       {
          { "0", NULL },
@@ -3400,11 +3396,11 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_CHS,
-      PCE_ADPCMVOLUME_LABEL_CAT_CHS,
-      PCE_CDDAVOLUME_INFO_0_CHS,
-      PCE_CDDAVOLUME_INFO_1_CHS,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_CHS,
+      PCE_CDDAVOLUME_LABEL_CAT_CHS,
+      PCE_ADPCMVOLUME_INFO_0_CHS,
+      PCE_ADPCMVOLUME_INFO_1_CHS,
       "cd",
       {
          { "0", NULL },
@@ -3436,8 +3432,8 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_CHS,
       PCE_CDPSGVOLUME_LABEL_CAT_CHS,
-      PCE_CDDAVOLUME_INFO_0_CHS,
-      PCE_CDDAVOLUME_INFO_1_CHS,
+      PCE_ADPCMVOLUME_INFO_0_CHS,
+      PCE_ADPCMVOLUME_INFO_1_CHS,
       "cd",
       {
          { "0", NULL },
@@ -3514,11 +3510,11 @@ struct retro_core_options_v2 options_chs = {
 
 /* RETRO_LANGUAGE_CHT */
 
-#define CATEGORY_VIDEO_LABEL_CHT NULL
+#define CATEGORY_VIDEO_LABEL_CHT "視訊"
 #define CATEGORY_VIDEO_INFO_0_CHT NULL
-#define CATEGORY_AUDIO_LABEL_CHT NULL
+#define CATEGORY_AUDIO_LABEL_CHT "音訊"
 #define CATEGORY_AUDIO_INFO_0_CHT NULL
-#define CATEGORY_INPUT_LABEL_CHT NULL
+#define CATEGORY_INPUT_LABEL_CHT "輸入"
 #define CATEGORY_INPUT_INFO_0_CHT NULL
 #define CATEGORY_HACKS_LABEL_CHT NULL
 #define CATEGORY_HACKS_INFO_0_CHT NULL
@@ -3528,9 +3524,9 @@ struct retro_core_options_v2 options_chs = {
 #define PCE_PALETTE_INFO_0_CHT NULL
 #define OPTION_VAL_RGB_CHT NULL
 #define OPTION_VAL_COMPOSITE_CHT NULL
-#define PCE_ASPECT_RATIO_LABEL_CHT NULL
+#define PCE_ASPECT_RATIO_LABEL_CHT "長寬比"
 #define PCE_ASPECT_RATIO_INFO_0_CHT NULL
-#define OPTION_VAL_AUTO_CHT NULL
+#define OPTION_VAL_AUTO_CHT "自動"
 #define OPTION_VAL_6_5_CHT NULL
 #define OPTION_VAL_4_3_CHT NULL
 #define OPTION_VAL_UNCORRECTED_CHT NULL
@@ -3581,21 +3577,25 @@ struct retro_core_options_v2 options_chs = {
 #define OPTION_VAL_4_50_CHT NULL
 #define OPTION_VAL_4_75_CHT NULL
 #define OPTION_VAL_5_00_CHT NULL
-#define PCE_MULTITAP_LABEL_CHT NULL
-#define PCE_MULTITAP_INFO_0_CHT NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_CHT NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_CHT NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_CHT NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_CHT NULL
+#define PCE_MULTITAP_LABEL_CHT NULL
+#define PCE_MULTITAP_INFO_0_CHT NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHT NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHT NULL
+#define PCE_TURBO_TOGGLING_LABEL_CHT NULL
+#define PCE_TURBO_TOGGLING_INFO_0_CHT NULL
+#define OPTION_VAL_TOGGLE_CHT NULL
+#define OPTION_VAL_ALWAYS_CHT NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CHT NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CHT NULL
 #define PCE_TURBO_DELAY_LABEL_CHT NULL
 #define PCE_TURBO_DELAY_INFO_0_CHT NULL
 #define OPTION_VAL_FAST_CHT NULL
 #define OPTION_VAL_MEDIUM_CHT NULL
 #define OPTION_VAL_SLOW_CHT NULL
-#define PCE_TURBO_TOGGLING_LABEL_CHT NULL
-#define OPTION_VAL_TOGGLE_CHT NULL
-#define OPTION_VAL_ALWAYS_CHT NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CHT NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_CHT NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_CHT NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_CHT NULL
@@ -3606,8 +3606,6 @@ struct retro_core_options_v2 options_chs = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_CHT NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_CHT NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_CHT NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_CHT NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_CHT NULL
 #define PCE_CDIMAGECACHE_LABEL_CHT NULL
 #define PCE_CDIMAGECACHE_INFO_0_CHT NULL
 #define PCE_CDBIOS_LABEL_CHT NULL
@@ -3628,12 +3626,12 @@ struct retro_core_options_v2 options_chs = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_CHT NULL
 #define OPTION_VAL_10_BIT_CHT NULL
 #define OPTION_VAL_12_BIT_CHT NULL
-#define PCE_CDDAVOLUME_LABEL_CHT NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_CHT NULL
-#define PCE_CDDAVOLUME_INFO_0_CHT NULL
-#define PCE_CDDAVOLUME_INFO_1_CHT NULL
 #define PCE_ADPCMVOLUME_LABEL_CHT NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_CHT NULL
+#define PCE_ADPCMVOLUME_INFO_0_CHT NULL
+#define PCE_ADPCMVOLUME_INFO_1_CHT NULL
+#define PCE_CDDAVOLUME_LABEL_CHT NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_CHT NULL
 #define PCE_CDPSGVOLUME_LABEL_CHT NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_CHT NULL
 #define PCE_NOSPRITELIMIT_LABEL_CHT NULL
@@ -3704,7 +3702,6 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_CHT,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_CHT,
       NULL,
       "video",
@@ -3924,20 +3921,6 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_CHT,
-      NULL,
-      PCE_MULTITAP_INFO_0_CHT,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_CHT,
       NULL,
@@ -3952,6 +3935,34 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_CHT,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_CHT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_CHT,
+      NULL,
+      PCE_MULTITAP_INFO_0_CHT,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHT,
       NULL,
@@ -3961,6 +3972,35 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_CHT,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_CHT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_CHT },
+         { "always", OPTION_VAL_ALWAYS_CHT },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_CHT,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CHT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -3979,37 +4019,6 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_CHT,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_CHT },
-         { "always", OPTION_VAL_ALWAYS_CHT },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_CHT,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -4152,20 +4161,6 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_CHT,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_CHT,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_CHT,
       NULL,
@@ -4242,11 +4237,11 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_CHT,
-      PCE_CDDAVOLUME_LABEL_CAT_CHT,
-      PCE_CDDAVOLUME_INFO_0_CHT,
-      PCE_CDDAVOLUME_INFO_1_CHT,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_CHT,
+      PCE_ADPCMVOLUME_LABEL_CAT_CHT,
+      PCE_ADPCMVOLUME_INFO_0_CHT,
+      PCE_ADPCMVOLUME_INFO_1_CHT,
       "cd",
       {
          { "0", NULL },
@@ -4275,11 +4270,11 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_CHT,
-      PCE_ADPCMVOLUME_LABEL_CAT_CHT,
-      PCE_CDDAVOLUME_INFO_0_CHT,
-      PCE_CDDAVOLUME_INFO_1_CHT,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_CHT,
+      PCE_CDDAVOLUME_LABEL_CAT_CHT,
+      PCE_ADPCMVOLUME_INFO_0_CHT,
+      PCE_ADPCMVOLUME_INFO_1_CHT,
       "cd",
       {
          { "0", NULL },
@@ -4311,8 +4306,8 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_CHT,
       PCE_CDPSGVOLUME_LABEL_CAT_CHT,
-      PCE_CDDAVOLUME_INFO_0_CHT,
-      PCE_CDDAVOLUME_INFO_1_CHT,
+      PCE_ADPCMVOLUME_INFO_0_CHT,
+      PCE_ADPCMVOLUME_INFO_1_CHT,
       "cd",
       {
          { "0", NULL },
@@ -4391,9 +4386,9 @@ struct retro_core_options_v2 options_cht = {
 
 #define CATEGORY_VIDEO_LABEL_CS NULL
 #define CATEGORY_VIDEO_INFO_0_CS NULL
-#define CATEGORY_AUDIO_LABEL_CS NULL
+#define CATEGORY_AUDIO_LABEL_CS "Zvuk"
 #define CATEGORY_AUDIO_INFO_0_CS NULL
-#define CATEGORY_INPUT_LABEL_CS NULL
+#define CATEGORY_INPUT_LABEL_CS "Vstup"
 #define CATEGORY_INPUT_INFO_0_CS NULL
 #define CATEGORY_HACKS_LABEL_CS NULL
 #define CATEGORY_HACKS_INFO_0_CS NULL
@@ -4403,7 +4398,7 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_PALETTE_INFO_0_CS NULL
 #define OPTION_VAL_RGB_CS NULL
 #define OPTION_VAL_COMPOSITE_CS NULL
-#define PCE_ASPECT_RATIO_LABEL_CS NULL
+#define PCE_ASPECT_RATIO_LABEL_CS "Poměr stran"
 #define PCE_ASPECT_RATIO_INFO_0_CS NULL
 #define OPTION_VAL_AUTO_CS NULL
 #define OPTION_VAL_6_5_CS NULL
@@ -4456,21 +4451,25 @@ struct retro_core_options_v2 options_cht = {
 #define OPTION_VAL_4_50_CS NULL
 #define OPTION_VAL_4_75_CS NULL
 #define OPTION_VAL_5_00_CS NULL
-#define PCE_MULTITAP_LABEL_CS NULL
-#define PCE_MULTITAP_INFO_0_CS NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_CS NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_CS NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_CS NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_CS NULL
+#define PCE_MULTITAP_LABEL_CS NULL
+#define PCE_MULTITAP_INFO_0_CS NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CS NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CS NULL
+#define PCE_TURBO_TOGGLING_LABEL_CS NULL
+#define PCE_TURBO_TOGGLING_INFO_0_CS NULL
+#define OPTION_VAL_TOGGLE_CS NULL
+#define OPTION_VAL_ALWAYS_CS NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CS NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CS NULL
 #define PCE_TURBO_DELAY_LABEL_CS NULL
 #define PCE_TURBO_DELAY_INFO_0_CS NULL
 #define OPTION_VAL_FAST_CS NULL
 #define OPTION_VAL_MEDIUM_CS NULL
 #define OPTION_VAL_SLOW_CS NULL
-#define PCE_TURBO_TOGGLING_LABEL_CS NULL
-#define OPTION_VAL_TOGGLE_CS NULL
-#define OPTION_VAL_ALWAYS_CS NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CS NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_CS NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_CS NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_CS NULL
@@ -4481,8 +4480,6 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_CS NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_CS NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_CS NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_CS NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_CS NULL
 #define PCE_CDIMAGECACHE_LABEL_CS NULL
 #define PCE_CDIMAGECACHE_INFO_0_CS NULL
 #define PCE_CDBIOS_LABEL_CS NULL
@@ -4503,12 +4500,12 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_CS NULL
 #define OPTION_VAL_10_BIT_CS NULL
 #define OPTION_VAL_12_BIT_CS NULL
-#define PCE_CDDAVOLUME_LABEL_CS NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_CS NULL
-#define PCE_CDDAVOLUME_INFO_0_CS NULL
-#define PCE_CDDAVOLUME_INFO_1_CS NULL
 #define PCE_ADPCMVOLUME_LABEL_CS NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_CS NULL
+#define PCE_ADPCMVOLUME_INFO_0_CS NULL
+#define PCE_ADPCMVOLUME_INFO_1_CS NULL
+#define PCE_CDDAVOLUME_LABEL_CS NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_CS NULL
 #define PCE_CDPSGVOLUME_LABEL_CS NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_CS NULL
 #define PCE_NOSPRITELIMIT_LABEL_CS NULL
@@ -4579,7 +4576,6 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_CS,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_CS,
       NULL,
       "video",
@@ -4799,20 +4795,6 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_CS,
-      NULL,
-      PCE_MULTITAP_INFO_0_CS,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_CS,
       NULL,
@@ -4827,6 +4809,34 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_CS,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_CS,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_CS,
+      NULL,
+      PCE_MULTITAP_INFO_0_CS,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CS,
       NULL,
@@ -4836,6 +4846,35 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_CS,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_CS,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_CS },
+         { "always", OPTION_VAL_ALWAYS_CS },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_CS,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CS,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -4854,37 +4893,6 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_CS,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_CS },
-         { "always", OPTION_VAL_ALWAYS_CS },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_CS,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -5027,20 +5035,6 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_CS,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_CS,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_CS,
       NULL,
@@ -5117,11 +5111,11 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_CS,
-      PCE_CDDAVOLUME_LABEL_CAT_CS,
-      PCE_CDDAVOLUME_INFO_0_CS,
-      PCE_CDDAVOLUME_INFO_1_CS,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_CS,
+      PCE_ADPCMVOLUME_LABEL_CAT_CS,
+      PCE_ADPCMVOLUME_INFO_0_CS,
+      PCE_ADPCMVOLUME_INFO_1_CS,
       "cd",
       {
          { "0", NULL },
@@ -5150,11 +5144,11 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_CS,
-      PCE_ADPCMVOLUME_LABEL_CAT_CS,
-      PCE_CDDAVOLUME_INFO_0_CS,
-      PCE_CDDAVOLUME_INFO_1_CS,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_CS,
+      PCE_CDDAVOLUME_LABEL_CAT_CS,
+      PCE_ADPCMVOLUME_INFO_0_CS,
+      PCE_ADPCMVOLUME_INFO_1_CS,
       "cd",
       {
          { "0", NULL },
@@ -5186,8 +5180,8 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_CS,
       PCE_CDPSGVOLUME_LABEL_CAT_CS,
-      PCE_CDDAVOLUME_INFO_0_CS,
-      PCE_CDDAVOLUME_INFO_1_CS,
+      PCE_ADPCMVOLUME_INFO_0_CS,
+      PCE_ADPCMVOLUME_INFO_1_CS,
       "cd",
       {
          { "0", NULL },
@@ -5268,7 +5262,7 @@ struct retro_core_options_v2 options_cs = {
 #define CATEGORY_VIDEO_INFO_0_CY NULL
 #define CATEGORY_AUDIO_LABEL_CY NULL
 #define CATEGORY_AUDIO_INFO_0_CY NULL
-#define CATEGORY_INPUT_LABEL_CY NULL
+#define CATEGORY_INPUT_LABEL_CY "Mewnbwn"
 #define CATEGORY_INPUT_INFO_0_CY NULL
 #define CATEGORY_HACKS_LABEL_CY NULL
 #define CATEGORY_HACKS_INFO_0_CY NULL
@@ -5331,21 +5325,25 @@ struct retro_core_options_v2 options_cs = {
 #define OPTION_VAL_4_50_CY NULL
 #define OPTION_VAL_4_75_CY NULL
 #define OPTION_VAL_5_00_CY NULL
-#define PCE_MULTITAP_LABEL_CY NULL
-#define PCE_MULTITAP_INFO_0_CY NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_CY NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_CY NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_CY NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_CY NULL
+#define PCE_MULTITAP_LABEL_CY NULL
+#define PCE_MULTITAP_INFO_0_CY NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CY NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CY NULL
+#define PCE_TURBO_TOGGLING_LABEL_CY NULL
+#define PCE_TURBO_TOGGLING_INFO_0_CY NULL
+#define OPTION_VAL_TOGGLE_CY NULL
+#define OPTION_VAL_ALWAYS_CY NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CY NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CY NULL
 #define PCE_TURBO_DELAY_LABEL_CY NULL
 #define PCE_TURBO_DELAY_INFO_0_CY NULL
 #define OPTION_VAL_FAST_CY NULL
 #define OPTION_VAL_MEDIUM_CY NULL
 #define OPTION_VAL_SLOW_CY NULL
-#define PCE_TURBO_TOGGLING_LABEL_CY NULL
-#define OPTION_VAL_TOGGLE_CY NULL
-#define OPTION_VAL_ALWAYS_CY NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CY NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_CY NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_CY NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_CY NULL
@@ -5356,8 +5354,6 @@ struct retro_core_options_v2 options_cs = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_CY NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_CY NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_CY NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_CY NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_CY NULL
 #define PCE_CDIMAGECACHE_LABEL_CY NULL
 #define PCE_CDIMAGECACHE_INFO_0_CY NULL
 #define PCE_CDBIOS_LABEL_CY NULL
@@ -5378,12 +5374,12 @@ struct retro_core_options_v2 options_cs = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_CY NULL
 #define OPTION_VAL_10_BIT_CY NULL
 #define OPTION_VAL_12_BIT_CY NULL
-#define PCE_CDDAVOLUME_LABEL_CY NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_CY NULL
-#define PCE_CDDAVOLUME_INFO_0_CY NULL
-#define PCE_CDDAVOLUME_INFO_1_CY NULL
 #define PCE_ADPCMVOLUME_LABEL_CY NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_CY NULL
+#define PCE_ADPCMVOLUME_INFO_0_CY NULL
+#define PCE_ADPCMVOLUME_INFO_1_CY NULL
+#define PCE_CDDAVOLUME_LABEL_CY NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_CY NULL
 #define PCE_CDPSGVOLUME_LABEL_CY NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_CY NULL
 #define PCE_NOSPRITELIMIT_LABEL_CY NULL
@@ -5454,7 +5450,6 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_CY,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_CY,
       NULL,
       "video",
@@ -5674,20 +5669,6 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_CY,
-      NULL,
-      PCE_MULTITAP_INFO_0_CY,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_CY,
       NULL,
@@ -5702,6 +5683,34 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_CY,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_CY,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_CY,
+      NULL,
+      PCE_MULTITAP_INFO_0_CY,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CY,
       NULL,
@@ -5711,6 +5720,35 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_CY,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_CY,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_CY },
+         { "always", OPTION_VAL_ALWAYS_CY },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_CY,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CY,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -5729,37 +5767,6 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_CY,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_CY },
-         { "always", OPTION_VAL_ALWAYS_CY },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_CY,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -5902,20 +5909,6 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_CY,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_CY,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_CY,
       NULL,
@@ -5992,11 +5985,11 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_CY,
-      PCE_CDDAVOLUME_LABEL_CAT_CY,
-      PCE_CDDAVOLUME_INFO_0_CY,
-      PCE_CDDAVOLUME_INFO_1_CY,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_CY,
+      PCE_ADPCMVOLUME_LABEL_CAT_CY,
+      PCE_ADPCMVOLUME_INFO_0_CY,
+      PCE_ADPCMVOLUME_INFO_1_CY,
       "cd",
       {
          { "0", NULL },
@@ -6025,11 +6018,11 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_CY,
-      PCE_ADPCMVOLUME_LABEL_CAT_CY,
-      PCE_CDDAVOLUME_INFO_0_CY,
-      PCE_CDDAVOLUME_INFO_1_CY,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_CY,
+      PCE_CDDAVOLUME_LABEL_CAT_CY,
+      PCE_ADPCMVOLUME_INFO_0_CY,
+      PCE_ADPCMVOLUME_INFO_1_CY,
       "cd",
       {
          { "0", NULL },
@@ -6061,8 +6054,8 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_CY,
       PCE_CDPSGVOLUME_LABEL_CAT_CY,
-      PCE_CDDAVOLUME_INFO_0_CY,
-      PCE_CDDAVOLUME_INFO_1_CY,
+      PCE_ADPCMVOLUME_INFO_0_CY,
+      PCE_ADPCMVOLUME_INFO_1_CY,
       "cd",
       {
          { "0", NULL },
@@ -6141,7 +6134,7 @@ struct retro_core_options_v2 options_cy = {
 
 #define CATEGORY_VIDEO_LABEL_DA NULL
 #define CATEGORY_VIDEO_INFO_0_DA NULL
-#define CATEGORY_AUDIO_LABEL_DA NULL
+#define CATEGORY_AUDIO_LABEL_DA "Lyd"
 #define CATEGORY_AUDIO_INFO_0_DA NULL
 #define CATEGORY_INPUT_LABEL_DA NULL
 #define CATEGORY_INPUT_INFO_0_DA NULL
@@ -6206,21 +6199,25 @@ struct retro_core_options_v2 options_cy = {
 #define OPTION_VAL_4_50_DA NULL
 #define OPTION_VAL_4_75_DA NULL
 #define OPTION_VAL_5_00_DA NULL
-#define PCE_MULTITAP_LABEL_DA NULL
-#define PCE_MULTITAP_INFO_0_DA NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_DA NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_DA NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_DA NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_DA NULL
+#define PCE_MULTITAP_LABEL_DA NULL
+#define PCE_MULTITAP_INFO_0_DA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_DA NULL
+#define PCE_TURBO_TOGGLING_LABEL_DA NULL
+#define PCE_TURBO_TOGGLING_INFO_0_DA NULL
+#define OPTION_VAL_TOGGLE_DA NULL
+#define OPTION_VAL_ALWAYS_DA NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_DA NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_DA NULL
 #define PCE_TURBO_DELAY_LABEL_DA NULL
 #define PCE_TURBO_DELAY_INFO_0_DA NULL
 #define OPTION_VAL_FAST_DA NULL
 #define OPTION_VAL_MEDIUM_DA NULL
 #define OPTION_VAL_SLOW_DA NULL
-#define PCE_TURBO_TOGGLING_LABEL_DA NULL
-#define OPTION_VAL_TOGGLE_DA NULL
-#define OPTION_VAL_ALWAYS_DA NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_DA NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_DA NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_DA NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_DA NULL
@@ -6231,8 +6228,6 @@ struct retro_core_options_v2 options_cy = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_DA NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_DA NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_DA NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_DA NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_DA NULL
 #define PCE_CDIMAGECACHE_LABEL_DA NULL
 #define PCE_CDIMAGECACHE_INFO_0_DA NULL
 #define PCE_CDBIOS_LABEL_DA NULL
@@ -6253,12 +6248,12 @@ struct retro_core_options_v2 options_cy = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_DA NULL
 #define OPTION_VAL_10_BIT_DA NULL
 #define OPTION_VAL_12_BIT_DA NULL
-#define PCE_CDDAVOLUME_LABEL_DA NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_DA NULL
-#define PCE_CDDAVOLUME_INFO_0_DA NULL
-#define PCE_CDDAVOLUME_INFO_1_DA NULL
 #define PCE_ADPCMVOLUME_LABEL_DA NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_DA NULL
+#define PCE_ADPCMVOLUME_INFO_0_DA NULL
+#define PCE_ADPCMVOLUME_INFO_1_DA NULL
+#define PCE_CDDAVOLUME_LABEL_DA NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_DA NULL
 #define PCE_CDPSGVOLUME_LABEL_DA NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_DA NULL
 #define PCE_NOSPRITELIMIT_LABEL_DA NULL
@@ -6329,7 +6324,6 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_DA,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_DA,
       NULL,
       "video",
@@ -6549,20 +6543,6 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_DA,
-      NULL,
-      PCE_MULTITAP_INFO_0_DA,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_DA,
       NULL,
@@ -6577,6 +6557,34 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_DA,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_DA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_DA,
+      NULL,
+      PCE_MULTITAP_INFO_0_DA,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DA,
       NULL,
@@ -6586,6 +6594,35 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_DA,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_DA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_DA },
+         { "always", OPTION_VAL_ALWAYS_DA },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_DA,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_DA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -6604,37 +6641,6 @@ struct retro_core_option_v2_definition option_defs_da[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_DA,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_DA },
-         { "always", OPTION_VAL_ALWAYS_DA },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_DA,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -6777,20 +6783,6 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_DA,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_DA,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_DA,
       NULL,
@@ -6867,11 +6859,11 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_DA,
-      PCE_CDDAVOLUME_LABEL_CAT_DA,
-      PCE_CDDAVOLUME_INFO_0_DA,
-      PCE_CDDAVOLUME_INFO_1_DA,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_DA,
+      PCE_ADPCMVOLUME_LABEL_CAT_DA,
+      PCE_ADPCMVOLUME_INFO_0_DA,
+      PCE_ADPCMVOLUME_INFO_1_DA,
       "cd",
       {
          { "0", NULL },
@@ -6900,11 +6892,11 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_DA,
-      PCE_ADPCMVOLUME_LABEL_CAT_DA,
-      PCE_CDDAVOLUME_INFO_0_DA,
-      PCE_CDDAVOLUME_INFO_1_DA,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_DA,
+      PCE_CDDAVOLUME_LABEL_CAT_DA,
+      PCE_ADPCMVOLUME_INFO_0_DA,
+      PCE_ADPCMVOLUME_INFO_1_DA,
       "cd",
       {
          { "0", NULL },
@@ -6936,8 +6928,8 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_DA,
       PCE_CDPSGVOLUME_LABEL_CAT_DA,
-      PCE_CDDAVOLUME_INFO_0_DA,
-      PCE_CDDAVOLUME_INFO_1_DA,
+      PCE_ADPCMVOLUME_INFO_0_DA,
+      PCE_ADPCMVOLUME_INFO_1_DA,
       "cd",
       {
          { "0", NULL },
@@ -7020,20 +7012,20 @@ struct retro_core_options_v2 options_da = {
 #define CATEGORY_AUDIO_INFO_0_DE NULL
 #define CATEGORY_INPUT_LABEL_DE NULL
 #define CATEGORY_INPUT_INFO_0_DE NULL
-#define CATEGORY_HACKS_LABEL_DE NULL
-#define CATEGORY_HACKS_INFO_0_DE NULL
+#define CATEGORY_HACKS_LABEL_DE "Emulations-Hacks"
+#define CATEGORY_HACKS_INFO_0_DE "Parameter für Prozessorübertaktung und Emulationsgenauigkeit, die sich auf die Low-Level-Leistung und Kompatibilität auswirken, anpassen."
 #define CATEGORY_CD_LABEL_DE NULL
 #define CATEGORY_CD_INFO_0_DE NULL
-#define PCE_PALETTE_LABEL_DE NULL
+#define PCE_PALETTE_LABEL_DE "Farbpalette"
 #define PCE_PALETTE_INFO_0_DE NULL
 #define OPTION_VAL_RGB_DE NULL
 #define OPTION_VAL_COMPOSITE_DE NULL
-#define PCE_ASPECT_RATIO_LABEL_DE NULL
+#define PCE_ASPECT_RATIO_LABEL_DE "Bildseitenverhältnis"
 #define PCE_ASPECT_RATIO_INFO_0_DE NULL
-#define OPTION_VAL_AUTO_DE NULL
+#define OPTION_VAL_AUTO_DE "Automatisch"
 #define OPTION_VAL_6_5_DE NULL
 #define OPTION_VAL_4_3_DE NULL
-#define OPTION_VAL_UNCORRECTED_DE NULL
+#define OPTION_VAL_UNCORRECTED_DE "Unkorrigiert"
 #define PCE_SCALING_LABEL_DE NULL
 #define PCE_SCALING_INFO_0_DE NULL
 #define OPTION_VAL_LORES_DE NULL
@@ -7044,17 +7036,17 @@ struct retro_core_options_v2 options_da = {
 #define PCE_H_OVERSCAN_INFO_0_DE NULL
 #define PCE_INITIAL_SCANLINE_LABEL_DE NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_DE NULL
-#define OPTION_VAL_3_DE NULL
+#define OPTION_VAL_3_DE "3 (Standard)"
 #define PCE_LAST_SCANLINE_LABEL_DE NULL
 #define PCE_LAST_SCANLINE_INFO_0_DE NULL
-#define OPTION_VAL_242_DE NULL
+#define OPTION_VAL_242_DE "242 (Standard)"
 #define PCE_PSGREVISION_LABEL_DE NULL
 #define PCE_PSGREVISION_INFO_0_DE NULL
 #define OPTION_VAL_HUC6280_DE NULL
 #define OPTION_VAL_HUC6280A_DE NULL
 #define PCE_RESAMP_QUALITY_LABEL_DE NULL
 #define PCE_RESAMP_QUALITY_INFO_0_DE NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_DE NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_DE "Mausempfindlichkeit"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_DE NULL
 #define OPTION_VAL_0_125_DE NULL
 #define OPTION_VAL_0_250_DE NULL
@@ -7081,21 +7073,25 @@ struct retro_core_options_v2 options_da = {
 #define OPTION_VAL_4_50_DE NULL
 #define OPTION_VAL_4_75_DE NULL
 #define OPTION_VAL_5_00_DE NULL
-#define PCE_MULTITAP_LABEL_DE NULL
-#define PCE_MULTITAP_INFO_0_DE NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_DE NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_DE NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_DE NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_DE NULL
+#define PCE_MULTITAP_LABEL_DE NULL
+#define PCE_MULTITAP_INFO_0_DE NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DE NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_DE NULL
-#define PCE_TURBO_DELAY_LABEL_DE NULL
-#define PCE_TURBO_DELAY_INFO_0_DE NULL
-#define OPTION_VAL_FAST_DE NULL
-#define OPTION_VAL_MEDIUM_DE NULL
-#define OPTION_VAL_SLOW_DE NULL
 #define PCE_TURBO_TOGGLING_LABEL_DE NULL
+#define PCE_TURBO_TOGGLING_INFO_0_DE NULL
 #define OPTION_VAL_TOGGLE_DE NULL
 #define OPTION_VAL_ALWAYS_DE NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_DE NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_DE NULL
+#define PCE_TURBO_DELAY_LABEL_DE NULL
+#define PCE_TURBO_DELAY_INFO_0_DE NULL
+#define OPTION_VAL_FAST_DE "Schnell"
+#define OPTION_VAL_MEDIUM_DE NULL
+#define OPTION_VAL_SLOW_DE NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_DE NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_DE NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_DE NULL
@@ -7106,8 +7102,6 @@ struct retro_core_options_v2 options_da = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_DE NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_DE NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_DE NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_DE NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_DE NULL
 #define PCE_CDIMAGECACHE_LABEL_DE NULL
 #define PCE_CDIMAGECACHE_INFO_0_DE NULL
 #define PCE_CDBIOS_LABEL_DE NULL
@@ -7128,12 +7122,12 @@ struct retro_core_options_v2 options_da = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_DE NULL
 #define OPTION_VAL_10_BIT_DE NULL
 #define OPTION_VAL_12_BIT_DE NULL
-#define PCE_CDDAVOLUME_LABEL_DE NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_DE NULL
-#define PCE_CDDAVOLUME_INFO_0_DE NULL
-#define PCE_CDDAVOLUME_INFO_1_DE NULL
 #define PCE_ADPCMVOLUME_LABEL_DE NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_DE NULL
+#define PCE_ADPCMVOLUME_INFO_0_DE NULL
+#define PCE_ADPCMVOLUME_INFO_1_DE NULL
+#define PCE_CDDAVOLUME_LABEL_DE NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_DE NULL
 #define PCE_CDPSGVOLUME_LABEL_DE NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_DE NULL
 #define PCE_NOSPRITELIMIT_LABEL_DE NULL
@@ -7204,7 +7198,6 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_DE,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_DE,
       NULL,
       "video",
@@ -7424,20 +7417,6 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_DE,
-      NULL,
-      PCE_MULTITAP_INFO_0_DE,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_DE,
       NULL,
@@ -7452,6 +7431,34 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_DE,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_DE,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_DE,
+      NULL,
+      PCE_MULTITAP_INFO_0_DE,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DE,
       NULL,
@@ -7461,6 +7468,35 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_DE,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_DE,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_DE },
+         { "always", OPTION_VAL_ALWAYS_DE },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_DE,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_DE,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -7479,37 +7515,6 @@ struct retro_core_option_v2_definition option_defs_de[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_DE,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_DE },
-         { "always", OPTION_VAL_ALWAYS_DE },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_DE,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -7652,20 +7657,6 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_DE,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_DE,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_DE,
       NULL,
@@ -7742,11 +7733,11 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_DE,
-      PCE_CDDAVOLUME_LABEL_CAT_DE,
-      PCE_CDDAVOLUME_INFO_0_DE,
-      PCE_CDDAVOLUME_INFO_1_DE,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_DE,
+      PCE_ADPCMVOLUME_LABEL_CAT_DE,
+      PCE_ADPCMVOLUME_INFO_0_DE,
+      PCE_ADPCMVOLUME_INFO_1_DE,
       "cd",
       {
          { "0", NULL },
@@ -7775,11 +7766,11 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_DE,
-      PCE_ADPCMVOLUME_LABEL_CAT_DE,
-      PCE_CDDAVOLUME_INFO_0_DE,
-      PCE_CDDAVOLUME_INFO_1_DE,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_DE,
+      PCE_CDDAVOLUME_LABEL_CAT_DE,
+      PCE_ADPCMVOLUME_INFO_0_DE,
+      PCE_ADPCMVOLUME_INFO_1_DE,
       "cd",
       {
          { "0", NULL },
@@ -7811,8 +7802,8 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_DE,
       PCE_CDPSGVOLUME_LABEL_CAT_DE,
-      PCE_CDDAVOLUME_INFO_0_DE,
-      PCE_CDDAVOLUME_INFO_1_DE,
+      PCE_ADPCMVOLUME_INFO_0_DE,
+      PCE_ADPCMVOLUME_INFO_1_DE,
       "cd",
       {
          { "0", NULL },
@@ -7889,23 +7880,23 @@ struct retro_core_options_v2 options_de = {
 
 /* RETRO_LANGUAGE_EL */
 
-#define CATEGORY_VIDEO_LABEL_EL NULL
+#define CATEGORY_VIDEO_LABEL_EL "Οδηγός Βίντεο"
 #define CATEGORY_VIDEO_INFO_0_EL NULL
-#define CATEGORY_AUDIO_LABEL_EL NULL
+#define CATEGORY_AUDIO_LABEL_EL "Οδηγός Ήχου"
 #define CATEGORY_AUDIO_INFO_0_EL NULL
-#define CATEGORY_INPUT_LABEL_EL NULL
+#define CATEGORY_INPUT_LABEL_EL "Οδηγός Εισαγωγής"
 #define CATEGORY_INPUT_INFO_0_EL NULL
 #define CATEGORY_HACKS_LABEL_EL NULL
 #define CATEGORY_HACKS_INFO_0_EL NULL
 #define CATEGORY_CD_LABEL_EL NULL
 #define CATEGORY_CD_INFO_0_EL NULL
-#define PCE_PALETTE_LABEL_EL NULL
+#define PCE_PALETTE_LABEL_EL "Παλέτα Χρωμάτων"
 #define PCE_PALETTE_INFO_0_EL NULL
 #define OPTION_VAL_RGB_EL NULL
 #define OPTION_VAL_COMPOSITE_EL NULL
-#define PCE_ASPECT_RATIO_LABEL_EL NULL
+#define PCE_ASPECT_RATIO_LABEL_EL "Αναλογία Οθόνης"
 #define PCE_ASPECT_RATIO_INFO_0_EL NULL
-#define OPTION_VAL_AUTO_EL NULL
+#define OPTION_VAL_AUTO_EL "Αυτόματο"
 #define OPTION_VAL_6_5_EL NULL
 #define OPTION_VAL_4_3_EL NULL
 #define OPTION_VAL_UNCORRECTED_EL NULL
@@ -7956,21 +7947,25 @@ struct retro_core_options_v2 options_de = {
 #define OPTION_VAL_4_50_EL NULL
 #define OPTION_VAL_4_75_EL NULL
 #define OPTION_VAL_5_00_EL NULL
-#define PCE_MULTITAP_LABEL_EL NULL
-#define PCE_MULTITAP_INFO_0_EL NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_EL NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_EL NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_EL NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_EL NULL
+#define PCE_MULTITAP_LABEL_EL NULL
+#define PCE_MULTITAP_INFO_0_EL NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EL NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EL NULL
-#define PCE_TURBO_DELAY_LABEL_EL NULL
-#define PCE_TURBO_DELAY_INFO_0_EL NULL
-#define OPTION_VAL_FAST_EL NULL
-#define OPTION_VAL_MEDIUM_EL NULL
-#define OPTION_VAL_SLOW_EL NULL
 #define PCE_TURBO_TOGGLING_LABEL_EL NULL
+#define PCE_TURBO_TOGGLING_INFO_0_EL NULL
 #define OPTION_VAL_TOGGLE_EL NULL
 #define OPTION_VAL_ALWAYS_EL NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_EL NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_EL NULL
+#define PCE_TURBO_DELAY_LABEL_EL NULL
+#define PCE_TURBO_DELAY_INFO_0_EL NULL
+#define OPTION_VAL_FAST_EL "Γρήγορη Ταχύτητα"
+#define OPTION_VAL_MEDIUM_EL NULL
+#define OPTION_VAL_SLOW_EL NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_EL NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_EL NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_EL NULL
@@ -7981,8 +7976,6 @@ struct retro_core_options_v2 options_de = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_EL NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_EL NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_EL NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_EL NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_EL NULL
 #define PCE_CDIMAGECACHE_LABEL_EL NULL
 #define PCE_CDIMAGECACHE_INFO_0_EL NULL
 #define PCE_CDBIOS_LABEL_EL NULL
@@ -8003,12 +7996,12 @@ struct retro_core_options_v2 options_de = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_EL NULL
 #define OPTION_VAL_10_BIT_EL NULL
 #define OPTION_VAL_12_BIT_EL NULL
-#define PCE_CDDAVOLUME_LABEL_EL NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_EL NULL
-#define PCE_CDDAVOLUME_INFO_0_EL NULL
-#define PCE_CDDAVOLUME_INFO_1_EL NULL
 #define PCE_ADPCMVOLUME_LABEL_EL NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_EL NULL
+#define PCE_ADPCMVOLUME_INFO_0_EL NULL
+#define PCE_ADPCMVOLUME_INFO_1_EL NULL
+#define PCE_CDDAVOLUME_LABEL_EL NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_EL NULL
 #define PCE_CDPSGVOLUME_LABEL_EL NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_EL NULL
 #define PCE_NOSPRITELIMIT_LABEL_EL NULL
@@ -8079,7 +8072,6 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_EL,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_EL,
       NULL,
       "video",
@@ -8299,20 +8291,6 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_EL,
-      NULL,
-      PCE_MULTITAP_INFO_0_EL,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_EL,
       NULL,
@@ -8327,6 +8305,34 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_EL,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_EL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_EL,
+      NULL,
+      PCE_MULTITAP_INFO_0_EL,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EL,
       NULL,
@@ -8336,6 +8342,35 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_EL,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_EL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_EL },
+         { "always", OPTION_VAL_ALWAYS_EL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_EL,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_EL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -8354,37 +8389,6 @@ struct retro_core_option_v2_definition option_defs_el[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_EL,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_EL },
-         { "always", OPTION_VAL_ALWAYS_EL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_EL,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -8527,20 +8531,6 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_EL,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_EL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_EL,
       NULL,
@@ -8617,11 +8607,11 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_EL,
-      PCE_CDDAVOLUME_LABEL_CAT_EL,
-      PCE_CDDAVOLUME_INFO_0_EL,
-      PCE_CDDAVOLUME_INFO_1_EL,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_EL,
+      PCE_ADPCMVOLUME_LABEL_CAT_EL,
+      PCE_ADPCMVOLUME_INFO_0_EL,
+      PCE_ADPCMVOLUME_INFO_1_EL,
       "cd",
       {
          { "0", NULL },
@@ -8650,11 +8640,11 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_EL,
-      PCE_ADPCMVOLUME_LABEL_CAT_EL,
-      PCE_CDDAVOLUME_INFO_0_EL,
-      PCE_CDDAVOLUME_INFO_1_EL,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_EL,
+      PCE_CDDAVOLUME_LABEL_CAT_EL,
+      PCE_ADPCMVOLUME_INFO_0_EL,
+      PCE_ADPCMVOLUME_INFO_1_EL,
       "cd",
       {
          { "0", NULL },
@@ -8686,8 +8676,8 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_EL,
       PCE_CDPSGVOLUME_LABEL_CAT_EL,
-      PCE_CDDAVOLUME_INFO_0_EL,
-      PCE_CDDAVOLUME_INFO_1_EL,
+      PCE_ADPCMVOLUME_INFO_0_EL,
+      PCE_ADPCMVOLUME_INFO_1_EL,
       "cd",
       {
          { "0", NULL },
@@ -8764,11 +8754,11 @@ struct retro_core_options_v2 options_el = {
 
 /* RETRO_LANGUAGE_EO */
 
-#define CATEGORY_VIDEO_LABEL_EO NULL
+#define CATEGORY_VIDEO_LABEL_EO "Video Driver"
 #define CATEGORY_VIDEO_INFO_0_EO NULL
-#define CATEGORY_AUDIO_LABEL_EO NULL
+#define CATEGORY_AUDIO_LABEL_EO "Audio Driver"
 #define CATEGORY_AUDIO_INFO_0_EO NULL
-#define CATEGORY_INPUT_LABEL_EO NULL
+#define CATEGORY_INPUT_LABEL_EO "Input Driver"
 #define CATEGORY_INPUT_INFO_0_EO NULL
 #define CATEGORY_HACKS_LABEL_EO NULL
 #define CATEGORY_HACKS_INFO_0_EO NULL
@@ -8831,21 +8821,25 @@ struct retro_core_options_v2 options_el = {
 #define OPTION_VAL_4_50_EO NULL
 #define OPTION_VAL_4_75_EO NULL
 #define OPTION_VAL_5_00_EO NULL
-#define PCE_MULTITAP_LABEL_EO NULL
-#define PCE_MULTITAP_INFO_0_EO NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_EO NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_EO NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_EO NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_EO NULL
+#define PCE_MULTITAP_LABEL_EO NULL
+#define PCE_MULTITAP_INFO_0_EO NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EO NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EO NULL
+#define PCE_TURBO_TOGGLING_LABEL_EO NULL
+#define PCE_TURBO_TOGGLING_INFO_0_EO NULL
+#define OPTION_VAL_TOGGLE_EO NULL
+#define OPTION_VAL_ALWAYS_EO NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_EO NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_EO NULL
 #define PCE_TURBO_DELAY_LABEL_EO NULL
 #define PCE_TURBO_DELAY_INFO_0_EO NULL
 #define OPTION_VAL_FAST_EO NULL
 #define OPTION_VAL_MEDIUM_EO NULL
 #define OPTION_VAL_SLOW_EO NULL
-#define PCE_TURBO_TOGGLING_LABEL_EO NULL
-#define OPTION_VAL_TOGGLE_EO NULL
-#define OPTION_VAL_ALWAYS_EO NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_EO NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_EO NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_EO NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_EO NULL
@@ -8856,8 +8850,6 @@ struct retro_core_options_v2 options_el = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_EO NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_EO NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_EO NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_EO NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_EO NULL
 #define PCE_CDIMAGECACHE_LABEL_EO NULL
 #define PCE_CDIMAGECACHE_INFO_0_EO NULL
 #define PCE_CDBIOS_LABEL_EO NULL
@@ -8878,12 +8870,12 @@ struct retro_core_options_v2 options_el = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_EO NULL
 #define OPTION_VAL_10_BIT_EO NULL
 #define OPTION_VAL_12_BIT_EO NULL
-#define PCE_CDDAVOLUME_LABEL_EO NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_EO NULL
-#define PCE_CDDAVOLUME_INFO_0_EO NULL
-#define PCE_CDDAVOLUME_INFO_1_EO NULL
 #define PCE_ADPCMVOLUME_LABEL_EO NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_EO NULL
+#define PCE_ADPCMVOLUME_INFO_0_EO NULL
+#define PCE_ADPCMVOLUME_INFO_1_EO NULL
+#define PCE_CDDAVOLUME_LABEL_EO NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_EO NULL
 #define PCE_CDPSGVOLUME_LABEL_EO NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_EO NULL
 #define PCE_NOSPRITELIMIT_LABEL_EO NULL
@@ -8954,7 +8946,6 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_EO,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_EO,
       NULL,
       "video",
@@ -9174,20 +9165,6 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_EO,
-      NULL,
-      PCE_MULTITAP_INFO_0_EO,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_EO,
       NULL,
@@ -9202,6 +9179,34 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_EO,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_EO,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_EO,
+      NULL,
+      PCE_MULTITAP_INFO_0_EO,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EO,
       NULL,
@@ -9211,6 +9216,35 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_EO,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_EO,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_EO },
+         { "always", OPTION_VAL_ALWAYS_EO },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_EO,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_EO,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -9229,37 +9263,6 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_EO,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_EO },
-         { "always", OPTION_VAL_ALWAYS_EO },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_EO,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -9402,20 +9405,6 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_EO,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_EO,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_EO,
       NULL,
@@ -9492,11 +9481,11 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_EO,
-      PCE_CDDAVOLUME_LABEL_CAT_EO,
-      PCE_CDDAVOLUME_INFO_0_EO,
-      PCE_CDDAVOLUME_INFO_1_EO,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_EO,
+      PCE_ADPCMVOLUME_LABEL_CAT_EO,
+      PCE_ADPCMVOLUME_INFO_0_EO,
+      PCE_ADPCMVOLUME_INFO_1_EO,
       "cd",
       {
          { "0", NULL },
@@ -9525,11 +9514,11 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_EO,
-      PCE_ADPCMVOLUME_LABEL_CAT_EO,
-      PCE_CDDAVOLUME_INFO_0_EO,
-      PCE_CDDAVOLUME_INFO_1_EO,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_EO,
+      PCE_CDDAVOLUME_LABEL_CAT_EO,
+      PCE_ADPCMVOLUME_INFO_0_EO,
+      PCE_ADPCMVOLUME_INFO_1_EO,
       "cd",
       {
          { "0", NULL },
@@ -9561,8 +9550,8 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_EO,
       PCE_CDPSGVOLUME_LABEL_CAT_EO,
-      PCE_CDDAVOLUME_INFO_0_EO,
-      PCE_CDDAVOLUME_INFO_1_EO,
+      PCE_ADPCMVOLUME_INFO_0_EO,
+      PCE_ADPCMVOLUME_INFO_1_EO,
       "cd",
       {
          { "0", NULL },
@@ -9639,132 +9628,134 @@ struct retro_core_options_v2 options_eo = {
 
 /* RETRO_LANGUAGE_ES */
 
-#define CATEGORY_VIDEO_LABEL_ES NULL
-#define CATEGORY_VIDEO_INFO_0_ES NULL
+#define CATEGORY_VIDEO_LABEL_ES "Vídeo"
+#define CATEGORY_VIDEO_INFO_0_ES "Cambia las opciones de relación de aspecto, recorte de imagen y salida de imagen."
 #define CATEGORY_AUDIO_LABEL_ES NULL
-#define CATEGORY_AUDIO_INFO_0_ES NULL
-#define CATEGORY_INPUT_LABEL_ES NULL
-#define CATEGORY_INPUT_INFO_0_ES NULL
-#define CATEGORY_HACKS_LABEL_ES NULL
-#define CATEGORY_HACKS_INFO_0_ES NULL
-#define CATEGORY_CD_LABEL_ES NULL
-#define CATEGORY_CD_INFO_0_ES NULL
-#define PCE_PALETTE_LABEL_ES NULL
-#define PCE_PALETTE_INFO_0_ES NULL
+#define CATEGORY_AUDIO_INFO_0_ES "Configura los dispositivos de audio emulados."
+#define CATEGORY_INPUT_LABEL_ES "Entrada"
+#define CATEGORY_INPUT_INFO_0_ES "Configura la entrada de las pistolas de luz, el ratón o el mando."
+#define CATEGORY_HACKS_LABEL_ES "Arreglos de emulación"
+#define CATEGORY_HACKS_INFO_0_ES "Cambia las opciones de velocidad del procesador y de precisión de la emulación que afectan al rendimiento a bajo nivel y a la compatibilidad."
+#define CATEGORY_CD_LABEL_ES "CD para PC Engine"
+#define CATEGORY_CD_INFO_0_ES "Cambia los ajustes relacionados con la emulación de la unidad de CD para PC Engine."
+#define PCE_PALETTE_LABEL_ES "Paleta de colores"
+#define PCE_PALETTE_INFO_0_ES "«Vídeo compuesto» intentará recrear la salida de vídeo original de la consola, mostrando más detalles en algunos juegos."
 #define OPTION_VAL_RGB_ES NULL
-#define OPTION_VAL_COMPOSITE_ES NULL
-#define PCE_ASPECT_RATIO_LABEL_ES NULL
-#define PCE_ASPECT_RATIO_INFO_0_ES NULL
-#define OPTION_VAL_AUTO_ES NULL
+#define OPTION_VAL_COMPOSITE_ES "Vídeo compuesto"
+#define PCE_ASPECT_RATIO_LABEL_ES "Relación de aspecto"
+#define PCE_ASPECT_RATIO_INFO_0_ES "Selecciona la relación de aspecto del contenido. Esta opción solo surtirá efecto cuando la opción general de RetroArch, en el apartado de Vídeo de los ajustes, esté configurada como «Asignada por el núcleo»."
+#define OPTION_VAL_AUTO_ES "Selección automática"
 #define OPTION_VAL_6_5_ES NULL
 #define OPTION_VAL_4_3_ES NULL
-#define OPTION_VAL_UNCORRECTED_ES NULL
-#define PCE_SCALING_LABEL_ES NULL
-#define PCE_SCALING_INFO_0_ES NULL
-#define OPTION_VAL_LORES_ES NULL
-#define OPTION_VAL_HIRES_ES NULL
-#define PCE_HIRES_BLEND_LABEL_ES NULL
-#define PCE_HIRES_BLEND_INFO_0_ES NULL
-#define PCE_H_OVERSCAN_LABEL_ES NULL
-#define PCE_H_OVERSCAN_INFO_0_ES NULL
-#define PCE_INITIAL_SCANLINE_LABEL_ES NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_ES NULL
-#define OPTION_VAL_3_ES NULL
-#define PCE_LAST_SCANLINE_LABEL_ES NULL
-#define PCE_LAST_SCANLINE_INFO_0_ES NULL
-#define OPTION_VAL_242_ES NULL
-#define PCE_PSGREVISION_LABEL_ES NULL
-#define PCE_PSGREVISION_INFO_0_ES NULL
+#define OPTION_VAL_UNCORRECTED_ES "Sin corregir"
+#define PCE_SCALING_LABEL_ES "Escalar resolución"
+#define PCE_SCALING_INFO_0_ES "«Selección automática» permitirá que se cambie la resolución. «Baja resolución» puede provocar pérdida de píxeles. «Alta resolución» mantendrá el ancho máximo."
+#define OPTION_VAL_LORES_ES "Baja resolución"
+#define OPTION_VAL_HIRES_ES "Alta resolución"
+#define PCE_HIRES_BLEND_LABEL_ES "Fuerza de la fusión en alta resolución"
+#define PCE_HIRES_BLEND_INFO_0_ES "Fusiona los píxeles entre sí al utilizar el modo en alta resolución. Un valor alto difuminará más la imagen."
+#define PCE_H_OVERSCAN_LABEL_ES "Mostrar sobrebarrido horizontal"
+#define PCE_H_OVERSCAN_INFO_0_ES "«Selección automática» intentará recortar las zonas vacías según cada juego."
+#define PCE_INITIAL_SCANLINE_LABEL_ES "Línea de barrido inicial"
+#define PCE_INITIAL_SCANLINE_INFO_0_ES "Indica la primera línea de barrido que se renderizará. Un valor muy alto recortará la parte superior de la imagen."
+#define OPTION_VAL_3_ES "3 (por defecto)"
+#define PCE_LAST_SCANLINE_LABEL_ES "Línea de barrido final"
+#define PCE_LAST_SCANLINE_INFO_0_ES "Indica la última línea de barrido que se renderizará. Un valor muy bajo recortará la parte inferior de la imagen."
+#define OPTION_VAL_242_ES "242 (por defecto)"
+#define PCE_PSGREVISION_LABEL_ES "Chip de audio PSG (es necesario reiniciar)"
+#define PCE_PSGREVISION_INFO_0_ES "HuC6280 representa a la PC Engine original, mientras que HuC6280A representa a la SuperGrafx y la CoreGrafx I."
 #define OPTION_VAL_HUC6280_ES NULL
 #define OPTION_VAL_HUC6280A_ES NULL
-#define PCE_RESAMP_QUALITY_LABEL_ES NULL
-#define PCE_RESAMP_QUALITY_INFO_0_ES NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_ES NULL
-#define PCE_MOUSE_SENSITIVITY_INFO_0_ES NULL
-#define OPTION_VAL_0_125_ES NULL
-#define OPTION_VAL_0_250_ES NULL
-#define OPTION_VAL_0_375_ES NULL
-#define OPTION_VAL_0_500_ES NULL
-#define OPTION_VAL_0_625_ES NULL
-#define OPTION_VAL_0_750_ES NULL
-#define OPTION_VAL_0_875_ES NULL
-#define OPTION_VAL_1_000_ES NULL
-#define OPTION_VAL_1_125_ES NULL
-#define OPTION_VAL_1_25_ES NULL
-#define OPTION_VAL_1_50_ES NULL
-#define OPTION_VAL_1_75_ES NULL
-#define OPTION_VAL_2_00_ES NULL
-#define OPTION_VAL_2_25_ES NULL
-#define OPTION_VAL_2_50_ES NULL
-#define OPTION_VAL_2_75_ES NULL
-#define OPTION_VAL_3_00_ES NULL
-#define OPTION_VAL_3_25_ES NULL
-#define OPTION_VAL_3_50_ES NULL
-#define OPTION_VAL_3_75_ES NULL
-#define OPTION_VAL_4_00_ES NULL
-#define OPTION_VAL_4_25_ES NULL
-#define OPTION_VAL_4_50_ES NULL
-#define OPTION_VAL_4_75_ES NULL
-#define OPTION_VAL_5_00_ES NULL
-#define PCE_MULTITAP_LABEL_ES NULL
-#define PCE_MULTITAP_INFO_0_ES NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_ES NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_ES NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ES NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ES NULL
-#define PCE_TURBO_DELAY_LABEL_ES NULL
-#define PCE_TURBO_DELAY_INFO_0_ES NULL
-#define OPTION_VAL_FAST_ES NULL
-#define OPTION_VAL_MEDIUM_ES NULL
-#define OPTION_VAL_SLOW_ES NULL
-#define PCE_TURBO_TOGGLING_LABEL_ES NULL
-#define OPTION_VAL_TOGGLE_ES NULL
-#define OPTION_VAL_ALWAYS_ES NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_ES NULL
-#define PCE_P0_TURBO_I_ENABLE_LABEL_ES NULL
-#define PCE_P0_TURBO_II_ENABLE_LABEL_ES NULL
-#define PCE_P1_TURBO_I_ENABLE_LABEL_ES NULL
-#define PCE_P1_TURBO_II_ENABLE_LABEL_ES NULL
-#define PCE_P2_TURBO_I_ENABLE_LABEL_ES NULL
-#define PCE_P2_TURBO_II_ENABLE_LABEL_ES NULL
-#define PCE_P3_TURBO_I_ENABLE_LABEL_ES NULL
-#define PCE_P3_TURBO_II_ENABLE_LABEL_ES NULL
-#define PCE_P4_TURBO_I_ENABLE_LABEL_ES NULL
-#define PCE_P4_TURBO_II_ENABLE_LABEL_ES NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_ES NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_ES NULL
-#define PCE_CDIMAGECACHE_LABEL_ES NULL
-#define PCE_CDIMAGECACHE_INFO_0_ES NULL
-#define PCE_CDBIOS_LABEL_ES NULL
-#define PCE_CDBIOS_INFO_0_ES NULL
+#define PCE_RESAMP_QUALITY_LABEL_ES "Calidad del remuestrador Owl"
+#define PCE_RESAMP_QUALITY_INFO_0_ES "Un valor alto producirá una mejor relación señal/ruido y conservará las frecuencias agudas, pero aumentará el coste de rendimiento y podría provocar una mayor latencia y ruidos si el volumen está demasiado alto."
+#define PCE_MOUSE_SENSITIVITY_LABEL_ES "Sensibilidad del ratón"
+#define PCE_MOUSE_SENSITIVITY_INFO_0_ES "Un valor más alto hará que el cursor del ratón se desplace más rápido."
+#define OPTION_VAL_0_125_ES "0,125"
+#define OPTION_VAL_0_250_ES "0,250"
+#define OPTION_VAL_0_375_ES "0,375"
+#define OPTION_VAL_0_500_ES "0,500"
+#define OPTION_VAL_0_625_ES "0,625"
+#define OPTION_VAL_0_750_ES "0,750"
+#define OPTION_VAL_0_875_ES "0,875"
+#define OPTION_VAL_1_000_ES "1,000"
+#define OPTION_VAL_1_125_ES "1,125"
+#define OPTION_VAL_1_25_ES "1,25"
+#define OPTION_VAL_1_50_ES "1,50"
+#define OPTION_VAL_1_75_ES "1,75"
+#define OPTION_VAL_2_00_ES "2,00"
+#define OPTION_VAL_2_25_ES "2,25"
+#define OPTION_VAL_2_50_ES "2,50"
+#define OPTION_VAL_2_75_ES "2,75"
+#define OPTION_VAL_3_00_ES "3,00"
+#define OPTION_VAL_3_25_ES "3,25"
+#define OPTION_VAL_3_50_ES "3,50"
+#define OPTION_VAL_3_75_ES "3,75"
+#define OPTION_VAL_4_00_ES "4,00"
+#define OPTION_VAL_4_25_ES "4,25"
+#define OPTION_VAL_4_50_ES "4,50"
+#define OPTION_VAL_4_75_ES "4,75"
+#define OPTION_VAL_5_00_ES "5,00"
+#define PCE_UP_DOWN_ALLOWED_LABEL_ES "Permitir direcciones opuestas"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_ES "Esta opción permitirá pulsar, alternar rápidamente o mantener las direcciones izquierda y derecha (o arriba y abajo) al mismo tiempo. Podría provocar fallos de movimiento."
+#define PCE_DISABLE_SOFTRESET_LABEL_ES "Desactivar reinicio por software (RUN+SELECT)"
+#define PCE_DISABLE_SOFTRESET_INFO_0_ES "Cuando se pulsen a la vez los botones RUN y SELECT, esta opción desactivará los dos botones temporalmente en vez de provocar un reinicio del sistema."
+#define PCE_MULTITAP_LABEL_ES "Multitap para cinco mandos"
+#define PCE_MULTITAP_INFO_0_ES "Activa la emulación de un Multitap para hasta cinco jugadores. Solo es necesario desactivar esta opción en casos concretos (p. ej.: Cho Aniki)."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ES "Mostrar ajustes avanzados de entrada/turbo"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ES "Muestra los ajustes del multitap, del ratón, de los botones turbo y otros parámetros avanzados. NOTA: es necesario salir y volver a entrar del menú rápido para que este ajuste surta efecto."
+#define PCE_TURBO_TOGGLING_LABEL_ES "Modo de la tecla rápida del turbo"
+#define PCE_TURBO_TOGGLING_INFO_0_ES "Activa los botones con turbo. Las teclas rápidas (los botones III y IV) pueden hacer de conmutadores o de botones de turbo dedicados (mantenlos pulsados para usarlos)."
+#define OPTION_VAL_TOGGLE_ES "Activación manual"
+#define OPTION_VAL_ALWAYS_ES "Dedicado"
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_ES "Teclas rápidas alternativas para el turbo"
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_ES "Asigna los botones L3/R3 del RetroPad como teclas rápidas de turbo en vez de usar los botones III y IV. Solo funciona en el modo «Alternar» y mientras no haya otra acción asignada a los botones L3/R3. Con esta opción no tendrás que reasignar los botones III y IV cuando cambies al modo de mando de 6 botones."
+#define PCE_TURBO_DELAY_LABEL_ES "Velocidad del turbo"
+#define PCE_TURBO_DELAY_INFO_0_ES "Indica la velocidad con la que se repetirán las pulsaciones de los botones."
+#define OPTION_VAL_FAST_ES "Rápida"
+#define OPTION_VAL_MEDIUM_ES "Media"
+#define OPTION_VAL_SLOW_ES "Lenta"
+#define PCE_P0_TURBO_I_ENABLE_LABEL_ES "Turbo del botón I del J1"
+#define PCE_P0_TURBO_II_ENABLE_LABEL_ES "Turbo del botón II del J1"
+#define PCE_P1_TURBO_I_ENABLE_LABEL_ES "Turbo del botón I del J2"
+#define PCE_P1_TURBO_II_ENABLE_LABEL_ES "Turbo del botón II del J2"
+#define PCE_P2_TURBO_I_ENABLE_LABEL_ES "Turbo del botón I del J3"
+#define PCE_P2_TURBO_II_ENABLE_LABEL_ES "Turbo del botón II del J3"
+#define PCE_P3_TURBO_I_ENABLE_LABEL_ES "Turbo del botón I del J4"
+#define PCE_P3_TURBO_II_ENABLE_LABEL_ES "Turbo del botón II del J4"
+#define PCE_P4_TURBO_I_ENABLE_LABEL_ES "Turbo del botón I del J5"
+#define PCE_P4_TURBO_II_ENABLE_LABEL_ES "Turbo del botón II del J5"
+#define PCE_CDIMAGECACHE_LABEL_ES "Cachear imagen de CD (es necesario reiniciar)"
+#define PCE_CDIMAGECACHE_INFO_0_ES "Carga la imagen de CD entera en la memoria al arrancar. Podría reducir los tiempos de carga a costa de aumentar el tiempo de arranque."
+#define PCE_CDBIOS_LABEL_ES "BIOS para CD (es necesario reiniciar)"
+#define PCE_CDBIOS_INFO_0_ES "La mayoría de juegos pueden ejecutarse con «System Card 3». «Games Express» es necesario para varios juegos sin licencia."
 #define OPTION_VAL_GAMES_EXPRESS_ES NULL
 #define OPTION_VAL_SYSTEM_CARD_1_ES NULL
 #define OPTION_VAL_SYSTEM_CARD_2_ES NULL
 #define OPTION_VAL_SYSTEM_CARD_3_ES NULL
-#define OPTION_VAL_SYSTEM_CARD_2_US_ES NULL
-#define OPTION_VAL_SYSTEM_CARD_3_US_ES NULL
-#define PCE_ARCADECARD_LABEL_ES NULL
-#define PCE_ARCADECARD_INFO_0_ES NULL
-#define PCE_CDSPEED_LABEL_ES NULL
-#define PCE_CDSPEED_LABEL_CAT_ES NULL
-#define PCE_CDSPEED_INFO_0_ES NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_ES NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CAT_ES NULL
-#define PCE_ADPCMEXTRAPREC_INFO_0_ES NULL
-#define OPTION_VAL_10_BIT_ES NULL
-#define OPTION_VAL_12_BIT_ES NULL
-#define PCE_CDDAVOLUME_LABEL_ES NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_ES NULL
-#define PCE_CDDAVOLUME_INFO_0_ES NULL
-#define PCE_CDDAVOLUME_INFO_1_ES NULL
-#define PCE_ADPCMVOLUME_LABEL_ES NULL
-#define PCE_ADPCMVOLUME_LABEL_CAT_ES NULL
-#define PCE_CDPSGVOLUME_LABEL_ES NULL
-#define PCE_CDPSGVOLUME_LABEL_CAT_ES NULL
-#define PCE_NOSPRITELIMIT_LABEL_ES NULL
-#define PCE_NOSPRITELIMIT_INFO_0_ES NULL
-#define PCE_OCMULTIPLIER_LABEL_ES NULL
-#define PCE_OCMULTIPLIER_INFO_0_ES NULL
+#define OPTION_VAL_SYSTEM_CARD_2_US_ES "System Card 2 (EE. UU.)"
+#define OPTION_VAL_SYSTEM_CARD_3_US_ES "System Card 3 (EE. UU.)"
+#define PCE_ARCADECARD_LABEL_ES "Arcade Card (es necesario reiniciar)"
+#define PCE_ARCADECARD_INFO_0_ES "Deja esta opción activada para que se inicien los modos mejorados de los juegos SCD (Super CD-ROM²) con soporte para ACD (Arcade CD-ROM²)."
+#define PCE_CDSPEED_LABEL_ES "(CD) Velocidad del CD"
+#define PCE_CDSPEED_LABEL_CAT_ES "Velocidad del CD"
+#define PCE_CDSPEED_INFO_0_ES "Un valor alto acelerará los tiempos de carga, pero dará problemas con un par de juegos."
+#define PCE_ADPCMEXTRAPREC_LABEL_ES "(CD) Precisión de ADPCM"
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_ES "Precisión de ADPCM"
+#define PCE_ADPCMEXTRAPREC_INFO_0_ES "Activar la precisión total (12 bits) del sistema predictivo ADPCM del MSM5202 puede reducir los chirridos al reproducir sonido ADPCM."
+#define OPTION_VAL_10_BIT_ES "10 bits"
+#define OPTION_VAL_12_BIT_ES "12 bits"
+#define PCE_ADPCMVOLUME_LABEL_ES "(CD) Volumen de ADPCM (%)"
+#define PCE_ADPCMVOLUME_LABEL_CAT_ES "Volumen de ADPCM (%)"
+#define PCE_ADPCMVOLUME_INFO_0_ES "Solo para juegos en CD. Un volumen muy elevado podría saturar las muestras de audio."
+#define PCE_ADPCMVOLUME_INFO_1_ES "Un volumen muy elevado podría saturar las muestras de audio."
+#define PCE_CDDAVOLUME_LABEL_ES "(CD) Volumen de CDDA (%)"
+#define PCE_CDDAVOLUME_LABEL_CAT_ES "Volumen de CDDA (%)"
+#define PCE_CDPSGVOLUME_LABEL_ES "(CD) Volumen del PSG de CD (%)"
+#define PCE_CDPSGVOLUME_LABEL_CAT_ES "Volumen del PSG de CD (%)"
+#define PCE_NOSPRITELIMIT_LABEL_ES "Desactivar límite de sprites"
+#define PCE_NOSPRITELIMIT_INFO_0_ES "Elimina el límite de 16 sprites por línea de barrido que tenía el hardware original. ADVERTENCIA: puede provocar fallos gráficos en algunos juegos (como Bloody Wolf)."
+#define PCE_OCMULTIPLIER_LABEL_ES "Multiplicador de velocidad de la CPU"
+#define PCE_OCMULTIPLIER_INFO_0_ES "Un valor alto puede evitar las ralentizaciones de los juegos. ADVERTENCIA: puede producir fallos gráficos y cuelgues."
 
 struct retro_core_option_v2_category option_cats_es[] = {
    {
@@ -9829,7 +9820,6 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_ES,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_ES,
       NULL,
       "video",
@@ -10049,20 +10039,6 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_ES,
-      NULL,
-      PCE_MULTITAP_INFO_0_ES,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_ES,
       NULL,
@@ -10077,6 +10053,34 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_ES,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_ES,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_ES,
+      NULL,
+      PCE_MULTITAP_INFO_0_ES,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ES,
       NULL,
@@ -10086,6 +10090,35 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_ES,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_ES,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_ES },
+         { "always", OPTION_VAL_ALWAYS_ES },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_ES,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_ES,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -10104,37 +10137,6 @@ struct retro_core_option_v2_definition option_defs_es[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_ES,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_ES },
-         { "always", OPTION_VAL_ALWAYS_ES },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_ES,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -10277,20 +10279,6 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_ES,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_ES,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_ES,
       NULL,
@@ -10367,11 +10355,11 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_ES,
-      PCE_CDDAVOLUME_LABEL_CAT_ES,
-      PCE_CDDAVOLUME_INFO_0_ES,
-      PCE_CDDAVOLUME_INFO_1_ES,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_ES,
+      PCE_ADPCMVOLUME_LABEL_CAT_ES,
+      PCE_ADPCMVOLUME_INFO_0_ES,
+      PCE_ADPCMVOLUME_INFO_1_ES,
       "cd",
       {
          { "0", NULL },
@@ -10400,11 +10388,11 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_ES,
-      PCE_ADPCMVOLUME_LABEL_CAT_ES,
-      PCE_CDDAVOLUME_INFO_0_ES,
-      PCE_CDDAVOLUME_INFO_1_ES,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_ES,
+      PCE_CDDAVOLUME_LABEL_CAT_ES,
+      PCE_ADPCMVOLUME_INFO_0_ES,
+      PCE_ADPCMVOLUME_INFO_1_ES,
       "cd",
       {
          { "0", NULL },
@@ -10436,8 +10424,8 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_ES,
       PCE_CDPSGVOLUME_LABEL_CAT_ES,
-      PCE_CDDAVOLUME_INFO_0_ES,
-      PCE_CDDAVOLUME_INFO_1_ES,
+      PCE_ADPCMVOLUME_INFO_0_ES,
+      PCE_ADPCMVOLUME_INFO_1_ES,
       "cd",
       {
          { "0", NULL },
@@ -10514,11 +10502,11 @@ struct retro_core_options_v2 options_es = {
 
 /* RETRO_LANGUAGE_FA */
 
-#define CATEGORY_VIDEO_LABEL_FA NULL
+#define CATEGORY_VIDEO_LABEL_FA "ویدیو"
 #define CATEGORY_VIDEO_INFO_0_FA NULL
-#define CATEGORY_AUDIO_LABEL_FA NULL
+#define CATEGORY_AUDIO_LABEL_FA "صدا"
 #define CATEGORY_AUDIO_INFO_0_FA NULL
-#define CATEGORY_INPUT_LABEL_FA NULL
+#define CATEGORY_INPUT_LABEL_FA "داده"
 #define CATEGORY_INPUT_INFO_0_FA NULL
 #define CATEGORY_HACKS_LABEL_FA NULL
 #define CATEGORY_HACKS_INFO_0_FA NULL
@@ -10581,21 +10569,25 @@ struct retro_core_options_v2 options_es = {
 #define OPTION_VAL_4_50_FA NULL
 #define OPTION_VAL_4_75_FA NULL
 #define OPTION_VAL_5_00_FA NULL
-#define PCE_MULTITAP_LABEL_FA NULL
-#define PCE_MULTITAP_INFO_0_FA NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_FA NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_FA NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_FA NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_FA NULL
+#define PCE_MULTITAP_LABEL_FA NULL
+#define PCE_MULTITAP_INFO_0_FA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FA NULL
+#define PCE_TURBO_TOGGLING_LABEL_FA NULL
+#define PCE_TURBO_TOGGLING_INFO_0_FA NULL
+#define OPTION_VAL_TOGGLE_FA NULL
+#define OPTION_VAL_ALWAYS_FA NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_FA NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_FA NULL
 #define PCE_TURBO_DELAY_LABEL_FA NULL
 #define PCE_TURBO_DELAY_INFO_0_FA NULL
 #define OPTION_VAL_FAST_FA NULL
 #define OPTION_VAL_MEDIUM_FA NULL
 #define OPTION_VAL_SLOW_FA NULL
-#define PCE_TURBO_TOGGLING_LABEL_FA NULL
-#define OPTION_VAL_TOGGLE_FA NULL
-#define OPTION_VAL_ALWAYS_FA NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_FA NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_FA NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_FA NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_FA NULL
@@ -10606,8 +10598,6 @@ struct retro_core_options_v2 options_es = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_FA NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_FA NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_FA NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_FA NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_FA NULL
 #define PCE_CDIMAGECACHE_LABEL_FA NULL
 #define PCE_CDIMAGECACHE_INFO_0_FA NULL
 #define PCE_CDBIOS_LABEL_FA NULL
@@ -10628,12 +10618,12 @@ struct retro_core_options_v2 options_es = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_FA NULL
 #define OPTION_VAL_10_BIT_FA NULL
 #define OPTION_VAL_12_BIT_FA NULL
-#define PCE_CDDAVOLUME_LABEL_FA NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_FA NULL
-#define PCE_CDDAVOLUME_INFO_0_FA NULL
-#define PCE_CDDAVOLUME_INFO_1_FA NULL
 #define PCE_ADPCMVOLUME_LABEL_FA NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_FA NULL
+#define PCE_ADPCMVOLUME_INFO_0_FA NULL
+#define PCE_ADPCMVOLUME_INFO_1_FA NULL
+#define PCE_CDDAVOLUME_LABEL_FA NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_FA NULL
 #define PCE_CDPSGVOLUME_LABEL_FA NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_FA NULL
 #define PCE_NOSPRITELIMIT_LABEL_FA NULL
@@ -10704,7 +10694,6 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_FA,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_FA,
       NULL,
       "video",
@@ -10924,20 +10913,6 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_FA,
-      NULL,
-      PCE_MULTITAP_INFO_0_FA,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_FA,
       NULL,
@@ -10952,6 +10927,34 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_FA,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_FA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_FA,
+      NULL,
+      PCE_MULTITAP_INFO_0_FA,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FA,
       NULL,
@@ -10961,6 +10964,35 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_FA,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_FA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_FA },
+         { "always", OPTION_VAL_ALWAYS_FA },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_FA,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_FA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -10979,37 +11011,6 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_FA,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_FA },
-         { "always", OPTION_VAL_ALWAYS_FA },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_FA,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -11152,20 +11153,6 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_FA,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_FA,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_FA,
       NULL,
@@ -11242,11 +11229,11 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_FA,
-      PCE_CDDAVOLUME_LABEL_CAT_FA,
-      PCE_CDDAVOLUME_INFO_0_FA,
-      PCE_CDDAVOLUME_INFO_1_FA,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_FA,
+      PCE_ADPCMVOLUME_LABEL_CAT_FA,
+      PCE_ADPCMVOLUME_INFO_0_FA,
+      PCE_ADPCMVOLUME_INFO_1_FA,
       "cd",
       {
          { "0", NULL },
@@ -11275,11 +11262,11 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_FA,
-      PCE_ADPCMVOLUME_LABEL_CAT_FA,
-      PCE_CDDAVOLUME_INFO_0_FA,
-      PCE_CDDAVOLUME_INFO_1_FA,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_FA,
+      PCE_CDDAVOLUME_LABEL_CAT_FA,
+      PCE_ADPCMVOLUME_INFO_0_FA,
+      PCE_ADPCMVOLUME_INFO_1_FA,
       "cd",
       {
          { "0", NULL },
@@ -11311,8 +11298,8 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_FA,
       PCE_CDPSGVOLUME_LABEL_CAT_FA,
-      PCE_CDDAVOLUME_INFO_0_FA,
-      PCE_CDDAVOLUME_INFO_1_FA,
+      PCE_ADPCMVOLUME_INFO_0_FA,
+      PCE_ADPCMVOLUME_INFO_1_FA,
       "cd",
       {
          { "0", NULL },
@@ -11391,21 +11378,21 @@ struct retro_core_options_v2 options_fa = {
 
 #define CATEGORY_VIDEO_LABEL_FI NULL
 #define CATEGORY_VIDEO_INFO_0_FI NULL
-#define CATEGORY_AUDIO_LABEL_FI NULL
-#define CATEGORY_AUDIO_INFO_0_FI NULL
-#define CATEGORY_INPUT_LABEL_FI NULL
+#define CATEGORY_AUDIO_LABEL_FI "Ääni"
+#define CATEGORY_AUDIO_INFO_0_FI "Määritä emuloidut äänentoistolaitteet."
+#define CATEGORY_INPUT_LABEL_FI "Syöte"
 #define CATEGORY_INPUT_INFO_0_FI NULL
-#define CATEGORY_HACKS_LABEL_FI NULL
-#define CATEGORY_HACKS_INFO_0_FI NULL
+#define CATEGORY_HACKS_LABEL_FI "Emulointikikat"
+#define CATEGORY_HACKS_INFO_0_FI "Määritä prosessorin ylikellotus- ja emuloinnin tarkkuuden asetukset, jotka vaikuttavat matalan tason suorituskykyyn ja yhteensopivuuteen."
 #define CATEGORY_CD_LABEL_FI NULL
 #define CATEGORY_CD_INFO_0_FI NULL
-#define PCE_PALETTE_LABEL_FI NULL
+#define PCE_PALETTE_LABEL_FI "Väripaletti"
 #define PCE_PALETTE_INFO_0_FI NULL
 #define OPTION_VAL_RGB_FI NULL
-#define OPTION_VAL_COMPOSITE_FI NULL
-#define PCE_ASPECT_RATIO_LABEL_FI NULL
+#define OPTION_VAL_COMPOSITE_FI "Komposiitti"
+#define PCE_ASPECT_RATIO_LABEL_FI "Kuvasuhde"
 #define PCE_ASPECT_RATIO_INFO_0_FI NULL
-#define OPTION_VAL_AUTO_FI NULL
+#define OPTION_VAL_AUTO_FI "Automaattinen"
 #define OPTION_VAL_6_5_FI NULL
 #define OPTION_VAL_4_3_FI NULL
 #define OPTION_VAL_UNCORRECTED_FI NULL
@@ -11415,21 +11402,21 @@ struct retro_core_options_v2 options_fa = {
 #define OPTION_VAL_HIRES_FI NULL
 #define PCE_HIRES_BLEND_LABEL_FI NULL
 #define PCE_HIRES_BLEND_INFO_0_FI NULL
-#define PCE_H_OVERSCAN_LABEL_FI NULL
+#define PCE_H_OVERSCAN_LABEL_FI "Näytä vaakasuora yliskannaus"
 #define PCE_H_OVERSCAN_INFO_0_FI NULL
 #define PCE_INITIAL_SCANLINE_LABEL_FI NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_FI NULL
-#define OPTION_VAL_3_FI NULL
+#define OPTION_VAL_3_FI "3 (Oletus)"
 #define PCE_LAST_SCANLINE_LABEL_FI NULL
 #define PCE_LAST_SCANLINE_INFO_0_FI NULL
-#define OPTION_VAL_242_FI NULL
+#define OPTION_VAL_242_FI "242 (Oletus)"
 #define PCE_PSGREVISION_LABEL_FI NULL
 #define PCE_PSGREVISION_INFO_0_FI NULL
 #define OPTION_VAL_HUC6280_FI NULL
 #define OPTION_VAL_HUC6280A_FI NULL
 #define PCE_RESAMP_QUALITY_LABEL_FI NULL
 #define PCE_RESAMP_QUALITY_INFO_0_FI NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_FI NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_FI "Hiiren herkkyys"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_FI NULL
 #define OPTION_VAL_0_125_FI NULL
 #define OPTION_VAL_0_250_FI NULL
@@ -11456,21 +11443,25 @@ struct retro_core_options_v2 options_fa = {
 #define OPTION_VAL_4_50_FI NULL
 #define OPTION_VAL_4_75_FI NULL
 #define OPTION_VAL_5_00_FI NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_FI "Salli vastakkaiset suunnat"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_FI "Tämän käyttöönotto sallii painamaan / nopeasti vaihtelemaan / pitämään sekä vasemmalle että oikealle (tai ylös ja alas) samanaikaisesti. Tämä voi aiheuttaa liikkeisiin perustuvia virheitä."
+#define PCE_DISABLE_SOFTRESET_LABEL_FI NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_FI NULL
 #define PCE_MULTITAP_LABEL_FI NULL
 #define PCE_MULTITAP_INFO_0_FI NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_FI NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_FI NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FI NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FI NULL
-#define PCE_TURBO_DELAY_LABEL_FI NULL
-#define PCE_TURBO_DELAY_INFO_0_FI NULL
-#define OPTION_VAL_FAST_FI NULL
-#define OPTION_VAL_MEDIUM_FI NULL
-#define OPTION_VAL_SLOW_FI NULL
 #define PCE_TURBO_TOGGLING_LABEL_FI NULL
+#define PCE_TURBO_TOGGLING_INFO_0_FI NULL
 #define OPTION_VAL_TOGGLE_FI NULL
 #define OPTION_VAL_ALWAYS_FI NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_FI NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_FI NULL
+#define PCE_TURBO_DELAY_LABEL_FI NULL
+#define PCE_TURBO_DELAY_INFO_0_FI NULL
+#define OPTION_VAL_FAST_FI "Nopea"
+#define OPTION_VAL_MEDIUM_FI NULL
+#define OPTION_VAL_SLOW_FI NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_FI NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_FI NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_FI NULL
@@ -11481,8 +11472,6 @@ struct retro_core_options_v2 options_fa = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_FI NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_FI NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_FI NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_FI NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_FI NULL
 #define PCE_CDIMAGECACHE_LABEL_FI NULL
 #define PCE_CDIMAGECACHE_INFO_0_FI NULL
 #define PCE_CDBIOS_LABEL_FI NULL
@@ -11496,22 +11485,22 @@ struct retro_core_options_v2 options_fa = {
 #define PCE_ARCADECARD_LABEL_FI NULL
 #define PCE_ARCADECARD_INFO_0_FI NULL
 #define PCE_CDSPEED_LABEL_FI NULL
-#define PCE_CDSPEED_LABEL_CAT_FI NULL
+#define PCE_CDSPEED_LABEL_CAT_FI "CD-nopeus"
 #define PCE_CDSPEED_INFO_0_FI NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_FI NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_FI NULL
 #define PCE_ADPCMEXTRAPREC_INFO_0_FI NULL
 #define OPTION_VAL_10_BIT_FI NULL
 #define OPTION_VAL_12_BIT_FI NULL
-#define PCE_CDDAVOLUME_LABEL_FI NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_FI NULL
-#define PCE_CDDAVOLUME_INFO_0_FI NULL
-#define PCE_CDDAVOLUME_INFO_1_FI NULL
 #define PCE_ADPCMVOLUME_LABEL_FI NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_FI NULL
+#define PCE_ADPCMVOLUME_INFO_0_FI NULL
+#define PCE_ADPCMVOLUME_INFO_1_FI NULL
+#define PCE_CDDAVOLUME_LABEL_FI NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_FI NULL
 #define PCE_CDPSGVOLUME_LABEL_FI NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_FI NULL
-#define PCE_NOSPRITELIMIT_LABEL_FI NULL
+#define PCE_NOSPRITELIMIT_LABEL_FI "Poista sprite-rajoitus"
 #define PCE_NOSPRITELIMIT_INFO_0_FI NULL
 #define PCE_OCMULTIPLIER_LABEL_FI NULL
 #define PCE_OCMULTIPLIER_INFO_0_FI NULL
@@ -11579,7 +11568,6 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_FI,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_FI,
       NULL,
       "video",
@@ -11799,20 +11787,6 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_FI,
-      NULL,
-      PCE_MULTITAP_INFO_0_FI,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_FI,
       NULL,
@@ -11827,6 +11801,34 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_FI,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_FI,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_FI,
+      NULL,
+      PCE_MULTITAP_INFO_0_FI,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FI,
       NULL,
@@ -11836,6 +11838,35 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_FI,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_FI,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_FI },
+         { "always", OPTION_VAL_ALWAYS_FI },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_FI,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_FI,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -11854,37 +11885,6 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_FI,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_FI },
-         { "always", OPTION_VAL_ALWAYS_FI },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_FI,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -12027,20 +12027,6 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_FI,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_FI,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_FI,
       NULL,
@@ -12117,11 +12103,11 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_FI,
-      PCE_CDDAVOLUME_LABEL_CAT_FI,
-      PCE_CDDAVOLUME_INFO_0_FI,
-      PCE_CDDAVOLUME_INFO_1_FI,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_FI,
+      PCE_ADPCMVOLUME_LABEL_CAT_FI,
+      PCE_ADPCMVOLUME_INFO_0_FI,
+      PCE_ADPCMVOLUME_INFO_1_FI,
       "cd",
       {
          { "0", NULL },
@@ -12150,11 +12136,11 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_FI,
-      PCE_ADPCMVOLUME_LABEL_CAT_FI,
-      PCE_CDDAVOLUME_INFO_0_FI,
-      PCE_CDDAVOLUME_INFO_1_FI,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_FI,
+      PCE_CDDAVOLUME_LABEL_CAT_FI,
+      PCE_ADPCMVOLUME_INFO_0_FI,
+      PCE_ADPCMVOLUME_INFO_1_FI,
       "cd",
       {
          { "0", NULL },
@@ -12186,8 +12172,8 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_FI,
       PCE_CDPSGVOLUME_LABEL_CAT_FI,
-      PCE_CDDAVOLUME_INFO_0_FI,
-      PCE_CDDAVOLUME_INFO_1_FI,
+      PCE_ADPCMVOLUME_INFO_0_FI,
+      PCE_ADPCMVOLUME_INFO_1_FI,
       "cd",
       {
          { "0", NULL },
@@ -12264,132 +12250,134 @@ struct retro_core_options_v2 options_fi = {
 
 /* RETRO_LANGUAGE_FR */
 
-#define CATEGORY_VIDEO_LABEL_FR NULL
-#define CATEGORY_VIDEO_INFO_0_FR NULL
+#define CATEGORY_VIDEO_LABEL_FR "Vidéo"
+#define CATEGORY_VIDEO_INFO_0_FR "Configurer les paramètres de rapport d'aspect, du rognage de l'affichage et autres pour la sortie vidéo."
 #define CATEGORY_AUDIO_LABEL_FR NULL
-#define CATEGORY_AUDIO_INFO_0_FR NULL
-#define CATEGORY_INPUT_LABEL_FR NULL
-#define CATEGORY_INPUT_INFO_0_FR NULL
-#define CATEGORY_HACKS_LABEL_FR NULL
-#define CATEGORY_HACKS_INFO_0_FR NULL
-#define CATEGORY_CD_LABEL_FR NULL
-#define CATEGORY_CD_INFO_0_FR NULL
-#define PCE_PALETTE_LABEL_FR NULL
-#define PCE_PALETTE_INFO_0_FR NULL
-#define OPTION_VAL_RGB_FR NULL
+#define CATEGORY_AUDIO_INFO_0_FR "Configurer les périphériques audio émulés."
+#define CATEGORY_INPUT_LABEL_FR "Entrées"
+#define CATEGORY_INPUT_INFO_0_FR "Configurer les entrées du pistolet, de la souris et des manettes."
+#define CATEGORY_HACKS_LABEL_FR "Hacks d'émulation"
+#define CATEGORY_HACKS_INFO_0_FR "Configurer les paramètres d'overclocking du processeur et de la précision d'émulation qui affectent les performances de bas niveau et la compatibilité."
+#define CATEGORY_CD_LABEL_FR "CD PC-Engine"
+#define CATEGORY_CD_INFO_0_FR "Configurer les réglages relatifs à l'émulation CD de la PC-Engine."
+#define PCE_PALETTE_LABEL_FR "Palette de couleurs"
+#define PCE_PALETTE_INFO_0_FR "Composite tente de recréer la sortie de la console originale et peut afficher plus de détails dans certains jeux."
+#define OPTION_VAL_RGB_FR "RVB"
 #define OPTION_VAL_COMPOSITE_FR NULL
-#define PCE_ASPECT_RATIO_LABEL_FR NULL
-#define PCE_ASPECT_RATIO_INFO_0_FR NULL
+#define PCE_ASPECT_RATIO_LABEL_FR "Rapport d'aspect"
+#define PCE_ASPECT_RATIO_INFO_0_FR "Choisir le rapport d'aspect préféré pour le contenu. Cela ne s'applique que lorsque le rapport d'aspect de RetroArch est réglé sur 'Fourni par le cœur' (Core provided) dans les paramètres vidéo."
 #define OPTION_VAL_AUTO_FR NULL
 #define OPTION_VAL_6_5_FR NULL
 #define OPTION_VAL_4_3_FR NULL
-#define OPTION_VAL_UNCORRECTED_FR NULL
-#define PCE_SCALING_LABEL_FR NULL
-#define PCE_SCALING_INFO_0_FR NULL
-#define OPTION_VAL_LORES_FR NULL
-#define OPTION_VAL_HIRES_FR NULL
-#define PCE_HIRES_BLEND_LABEL_FR NULL
-#define PCE_HIRES_BLEND_INFO_0_FR NULL
-#define PCE_H_OVERSCAN_LABEL_FR NULL
-#define PCE_H_OVERSCAN_INFO_0_FR NULL
-#define PCE_INITIAL_SCANLINE_LABEL_FR NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_FR NULL
-#define OPTION_VAL_3_FR NULL
-#define PCE_LAST_SCANLINE_LABEL_FR NULL
-#define PCE_LAST_SCANLINE_INFO_0_FR NULL
-#define OPTION_VAL_242_FR NULL
-#define PCE_PSGREVISION_LABEL_FR NULL
-#define PCE_PSGREVISION_INFO_0_FR NULL
+#define OPTION_VAL_UNCORRECTED_FR "Non corrigé"
+#define PCE_SCALING_LABEL_FR "Échelle de la résolution"
+#define PCE_SCALING_INFO_0_FR "'Auto' permettra à la résolution de changer. 'Basse résolution' peut écraser les pixels. 'Haute résolution' restera sur la largeur maximale."
+#define OPTION_VAL_LORES_FR "Basse résolution"
+#define OPTION_VAL_HIRES_FR "Haute résolution"
+#define PCE_HIRES_BLEND_LABEL_FR "Niveau de mélange en haute résolution"
+#define PCE_HIRES_BLEND_INFO_0_FR "Mélanger les pixels ensemble en mode haute résolution. Des valeurs plus élevées rendront l'image plus floue."
+#define PCE_H_OVERSCAN_LABEL_FR "Afficher le surbalayage horizontal"
+#define PCE_H_OVERSCAN_INFO_0_FR "'Auto' va essayer de s'adapter aux jeux, recadrant les zones vides."
+#define PCE_INITIAL_SCANLINE_LABEL_FR "Ligne de balayage initiale"
+#define PCE_INITIAL_SCANLINE_INFO_0_FR "Première ligne de balayage rendue. Des valeurs plus élevées recadreront le haut de l'image."
+#define OPTION_VAL_3_FR "3 (par défaut)"
+#define PCE_LAST_SCANLINE_LABEL_FR "Dernière ligne de balayage"
+#define PCE_LAST_SCANLINE_INFO_0_FR "Dernière ligne de balayage rendue. Des valeurs moins élevées recadreront le bas de l'image."
+#define OPTION_VAL_242_FR "242 (par défaut)"
+#define PCE_PSGREVISION_LABEL_FR "Puce audio PSG (Redémarrage requis)"
+#define PCE_PSGREVISION_INFO_0_FR "HuC6280 représente la PC-Engine originale, HuC6280A la SuperGrafx et CoreGrafx I."
 #define OPTION_VAL_HUC6280_FR NULL
 #define OPTION_VAL_HUC6280A_FR NULL
-#define PCE_RESAMP_QUALITY_LABEL_FR NULL
-#define PCE_RESAMP_QUALITY_INFO_0_FR NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_FR NULL
-#define PCE_MOUSE_SENSITIVITY_INFO_0_FR NULL
-#define OPTION_VAL_0_125_FR NULL
-#define OPTION_VAL_0_250_FR NULL
-#define OPTION_VAL_0_375_FR NULL
-#define OPTION_VAL_0_500_FR NULL
-#define OPTION_VAL_0_625_FR NULL
-#define OPTION_VAL_0_750_FR NULL
-#define OPTION_VAL_0_875_FR NULL
-#define OPTION_VAL_1_000_FR NULL
-#define OPTION_VAL_1_125_FR NULL
-#define OPTION_VAL_1_25_FR NULL
-#define OPTION_VAL_1_50_FR NULL
-#define OPTION_VAL_1_75_FR NULL
-#define OPTION_VAL_2_00_FR NULL
-#define OPTION_VAL_2_25_FR NULL
-#define OPTION_VAL_2_50_FR NULL
-#define OPTION_VAL_2_75_FR NULL
-#define OPTION_VAL_3_00_FR NULL
-#define OPTION_VAL_3_25_FR NULL
-#define OPTION_VAL_3_50_FR NULL
-#define OPTION_VAL_3_75_FR NULL
-#define OPTION_VAL_4_00_FR NULL
-#define OPTION_VAL_4_25_FR NULL
-#define OPTION_VAL_4_50_FR NULL
-#define OPTION_VAL_4_75_FR NULL
-#define OPTION_VAL_5_00_FR NULL
-#define PCE_MULTITAP_LABEL_FR NULL
-#define PCE_MULTITAP_INFO_0_FR NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_FR NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_FR NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FR NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FR NULL
-#define PCE_TURBO_DELAY_LABEL_FR NULL
-#define PCE_TURBO_DELAY_INFO_0_FR NULL
-#define OPTION_VAL_FAST_FR NULL
-#define OPTION_VAL_MEDIUM_FR NULL
-#define OPTION_VAL_SLOW_FR NULL
-#define PCE_TURBO_TOGGLING_LABEL_FR NULL
-#define OPTION_VAL_TOGGLE_FR NULL
-#define OPTION_VAL_ALWAYS_FR NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_FR NULL
-#define PCE_P0_TURBO_I_ENABLE_LABEL_FR NULL
-#define PCE_P0_TURBO_II_ENABLE_LABEL_FR NULL
-#define PCE_P1_TURBO_I_ENABLE_LABEL_FR NULL
-#define PCE_P1_TURBO_II_ENABLE_LABEL_FR NULL
-#define PCE_P2_TURBO_I_ENABLE_LABEL_FR NULL
-#define PCE_P2_TURBO_II_ENABLE_LABEL_FR NULL
-#define PCE_P3_TURBO_I_ENABLE_LABEL_FR NULL
-#define PCE_P3_TURBO_II_ENABLE_LABEL_FR NULL
-#define PCE_P4_TURBO_I_ENABLE_LABEL_FR NULL
-#define PCE_P4_TURBO_II_ENABLE_LABEL_FR NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_FR NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_FR NULL
-#define PCE_CDIMAGECACHE_LABEL_FR NULL
-#define PCE_CDIMAGECACHE_INFO_0_FR NULL
-#define PCE_CDBIOS_LABEL_FR NULL
-#define PCE_CDBIOS_INFO_0_FR NULL
+#define PCE_RESAMP_QUALITY_LABEL_FR "Qualité du rééchantillonneur Owl"
+#define PCE_RESAMP_QUALITY_INFO_0_FR "Des valeurs plus élevées donnent un meilleur rapport de signal sur bruit et la préservation de fréquences plus élevées, mais augmentent le coût de calcul et peuvent entraîner une latence plus élevée et un écrêtement (clipping) si le volume est défini trop haut."
+#define PCE_MOUSE_SENSITIVITY_LABEL_FR "Sensibilité de la souris"
+#define PCE_MOUSE_SENSITIVITY_INFO_0_FR "Des valeurs plus élevées rendront le curseur de la souris plus rapide."
+#define OPTION_VAL_0_125_FR "0,125"
+#define OPTION_VAL_0_250_FR "0,250"
+#define OPTION_VAL_0_375_FR "0,375"
+#define OPTION_VAL_0_500_FR "0,500"
+#define OPTION_VAL_0_625_FR "0,625"
+#define OPTION_VAL_0_750_FR "0,750"
+#define OPTION_VAL_0_875_FR "0,875"
+#define OPTION_VAL_1_000_FR "1,000"
+#define OPTION_VAL_1_125_FR "1,125"
+#define OPTION_VAL_1_25_FR "1,25"
+#define OPTION_VAL_1_50_FR "1,50"
+#define OPTION_VAL_1_75_FR "1,75"
+#define OPTION_VAL_2_00_FR "2,00"
+#define OPTION_VAL_2_25_FR "2,25"
+#define OPTION_VAL_2_50_FR "2,50"
+#define OPTION_VAL_2_75_FR "2,75"
+#define OPTION_VAL_3_00_FR "3,00"
+#define OPTION_VAL_3_25_FR "3,25"
+#define OPTION_VAL_3_50_FR "3,50"
+#define OPTION_VAL_3_75_FR "3,75"
+#define OPTION_VAL_4_00_FR "4,00"
+#define OPTION_VAL_4_25_FR "4,25"
+#define OPTION_VAL_4_50_FR "4,50"
+#define OPTION_VAL_4_75_FR "4,75"
+#define OPTION_VAL_5_00_FR "5,00"
+#define PCE_UP_DOWN_ALLOWED_LABEL_FR "Autoriser les directions opposées"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_FR "L'activation de cette option permettra d'appuyer / d'alterner rapidement / de maintenir les directions gauche et droite (ou haut et bas) en même temps. Cela peut causer des bugs liés au mouvement."
+#define PCE_DISABLE_SOFTRESET_LABEL_FR "Désactiver la réinitialisation logicielle (RUN+SELECT)"
+#define PCE_DISABLE_SOFTRESET_INFO_0_FR "Lorsque RUN et SELECT sont appuyés simultanément, désactiver temporairement les deux touches au lieu de réinitialiser."
+#define PCE_MULTITAP_LABEL_FR "Contrôleur multitap à 5 ports"
+#define PCE_MULTITAP_INFO_0_FR "Activer l'émulation multitap jusqu'à 5 joueurs. Désactiver ceci n'est nécessaire que dans certains cas (Cho Aniki par exemple)."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FR "Afficher options d'entrées/de turbo avancées"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FR "Afficher les paramètres de multitap, de souris, des touches turbo et les paramètres avancés. REMARQUE : Vous devez revenir en jeu et réouvrir le menu pour actualiser la liste."
+#define PCE_TURBO_TOGGLING_LABEL_FR "Mode des touches de raccourci du turbo"
+#define PCE_TURBO_TOGGLING_INFO_0_FR "Activer les touches turbo. Les raccourcis (touches III et IV) peuvent se comporter comme des interrupteurs ou des touches turbo dédiées (maintenir enfoncées)."
+#define OPTION_VAL_TOGGLE_FR "Activer/désactiver"
+#define OPTION_VAL_ALWAYS_FR "Dédiées"
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_FR "Touche de raccourci turbo alternative"
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_FR "Affecter les touches L3/R3 de la RetroManette comme raccourcis turbo au lieu des touches III et IV. Fonctionne uniquement en mode 'Activer/désactiver' et seulement tant que rien n'est assigné aux touches L3/R3. Vous pouvez éviter de remapper les touches III et IV lorsque vous passez en mode manette à 6 boutons avec cette option."
+#define PCE_TURBO_DELAY_LABEL_FR "Vitesse du turbo"
+#define PCE_TURBO_DELAY_INFO_0_FR "Choisir à quelle vitesse les touches sont répétées."
+#define OPTION_VAL_FAST_FR "Rapide"
+#define OPTION_VAL_MEDIUM_FR "Moyenne"
+#define OPTION_VAL_SLOW_FR "Lente"
+#define PCE_P0_TURBO_I_ENABLE_LABEL_FR "J1 turbo I"
+#define PCE_P0_TURBO_II_ENABLE_LABEL_FR "J1 turbo II"
+#define PCE_P1_TURBO_I_ENABLE_LABEL_FR "J2 turbo I"
+#define PCE_P1_TURBO_II_ENABLE_LABEL_FR "J2 turbo II"
+#define PCE_P2_TURBO_I_ENABLE_LABEL_FR "J3 turbo I"
+#define PCE_P2_TURBO_II_ENABLE_LABEL_FR "J3 turbo II"
+#define PCE_P3_TURBO_I_ENABLE_LABEL_FR "J4 turbo I"
+#define PCE_P3_TURBO_II_ENABLE_LABEL_FR "J4 turbo II"
+#define PCE_P4_TURBO_I_ENABLE_LABEL_FR "J5 turbo I"
+#define PCE_P4_TURBO_II_ENABLE_LABEL_FR "J5 turbo II"
+#define PCE_CDIMAGECACHE_LABEL_FR "Mise en cache des images CD (Redémarrage requis)"
+#define PCE_CDIMAGECACHE_INFO_0_FR "Charger l'image disque complète dans la mémoire au démarrage. Peut potentiellement diminuer le temps de chargement au prix d'une augmentation du temps de démarrage."
+#define PCE_CDBIOS_LABEL_FR "BIOS CD (Redémarrage requis)"
+#define PCE_CDBIOS_INFO_0_FR "La plupart des jeux peuvent s'exécuter sur 'System Card 3'. 'Games Express' est nécessaire pour plusieurs jeux sans licence."
 #define OPTION_VAL_GAMES_EXPRESS_FR NULL
 #define OPTION_VAL_SYSTEM_CARD_1_FR NULL
 #define OPTION_VAL_SYSTEM_CARD_2_FR NULL
 #define OPTION_VAL_SYSTEM_CARD_3_FR NULL
 #define OPTION_VAL_SYSTEM_CARD_2_US_FR NULL
 #define OPTION_VAL_SYSTEM_CARD_3_US_FR NULL
-#define PCE_ARCADECARD_LABEL_FR NULL
-#define PCE_ARCADECARD_INFO_0_FR NULL
-#define PCE_CDSPEED_LABEL_FR NULL
-#define PCE_CDSPEED_LABEL_CAT_FR NULL
-#define PCE_CDSPEED_INFO_0_FR NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_FR NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CAT_FR NULL
-#define PCE_ADPCMEXTRAPREC_INFO_0_FR NULL
-#define OPTION_VAL_10_BIT_FR NULL
-#define OPTION_VAL_12_BIT_FR NULL
-#define PCE_CDDAVOLUME_LABEL_FR NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_FR NULL
-#define PCE_CDDAVOLUME_INFO_0_FR NULL
-#define PCE_CDDAVOLUME_INFO_1_FR NULL
-#define PCE_ADPCMVOLUME_LABEL_FR NULL
-#define PCE_ADPCMVOLUME_LABEL_CAT_FR NULL
-#define PCE_CDPSGVOLUME_LABEL_FR NULL
-#define PCE_CDPSGVOLUME_LABEL_CAT_FR NULL
-#define PCE_NOSPRITELIMIT_LABEL_FR NULL
-#define PCE_NOSPRITELIMIT_INFO_0_FR NULL
-#define PCE_OCMULTIPLIER_LABEL_FR NULL
-#define PCE_OCMULTIPLIER_INFO_0_FR NULL
+#define PCE_ARCADECARD_LABEL_FR "Carte arcade (Redémarrage requis)"
+#define PCE_ARCADECARD_INFO_0_FR "Laisser cette option activée pour permettre des modes améliorés pour les jeux SCD (Super CD-ROM²) optimisés pour ACD (Arcade CD-ROM²)."
+#define PCE_CDSPEED_LABEL_FR "(CD) Vitesse du CD"
+#define PCE_CDSPEED_LABEL_CAT_FR "Vitesse du CD"
+#define PCE_CDSPEED_INFO_0_FR "Des valeurs plus élevées permettent des temps de chargement plus rapides, mais peuvent causer des problèmes avec certains jeux."
+#define PCE_ADPCMEXTRAPREC_LABEL_FR "(CD) Précision ADPCM"
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_FR "Précision ADPCM"
+#define PCE_ADPCMEXTRAPREC_INFO_0_FR "Une précision complète de 12 bits pour le prédicteur ADPCM MSM5205 peut réduire le bruit de sifflement lors de la lecture ADPCM."
+#define OPTION_VAL_10_BIT_FR "10 bits"
+#define OPTION_VAL_12_BIT_FR "12 bits"
+#define PCE_ADPCMVOLUME_LABEL_FR "(CD) Volume ADPCM (%)"
+#define PCE_ADPCMVOLUME_LABEL_CAT_FR "Volume ADPCM (%)"
+#define PCE_ADPCMVOLUME_INFO_0_FR "Jeux CD uniquement. Définir ce contrôle de volume trop élevé peut causer un écrêtement (clipping) de signal."
+#define PCE_ADPCMVOLUME_INFO_1_FR "Définir ce contrôle de volume trop élevé peut causer un écrêtement (clipping) de signal."
+#define PCE_CDDAVOLUME_LABEL_FR "(CD) Volume CDDA (%)"
+#define PCE_CDDAVOLUME_LABEL_CAT_FR "Volume CDDA (%)"
+#define PCE_CDPSGVOLUME_LABEL_FR "(CD) Volume PSG CD (%)"
+#define PCE_CDPSGVOLUME_LABEL_CAT_FR "Volume PSG CD %"
+#define PCE_NOSPRITELIMIT_LABEL_FR "Aucune limite de sprites"
+#define PCE_NOSPRITELIMIT_INFO_0_FR "Supprimer la limite matérielle de 16 sprites par ligne de balayage. ATTENTION : peut causer des problèmes graphiques sur certains jeux (tels que Bloody Wolf)."
+#define PCE_OCMULTIPLIER_LABEL_FR "Multiplicateur d'overclocking du processeur"
+#define PCE_OCMULTIPLIER_INFO_0_FR "Des valeurs plus élevées peuvent réduire les ralentissements dans les jeux. ATTENTION : peut causer des bugs et des plantages."
 
 struct retro_core_option_v2_category option_cats_fr[] = {
    {
@@ -12454,7 +12442,6 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_FR,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_FR,
       NULL,
       "video",
@@ -12674,20 +12661,6 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_FR,
-      NULL,
-      PCE_MULTITAP_INFO_0_FR,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_FR,
       NULL,
@@ -12702,6 +12675,34 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_FR,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_FR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_FR,
+      NULL,
+      PCE_MULTITAP_INFO_0_FR,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FR,
       NULL,
@@ -12711,6 +12712,35 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_FR,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_FR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_FR },
+         { "always", OPTION_VAL_ALWAYS_FR },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_FR,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_FR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -12729,37 +12759,6 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_FR,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_FR },
-         { "always", OPTION_VAL_ALWAYS_FR },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_FR,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -12902,20 +12901,6 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_FR,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_FR,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_FR,
       NULL,
@@ -12992,11 +12977,11 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_FR,
-      PCE_CDDAVOLUME_LABEL_CAT_FR,
-      PCE_CDDAVOLUME_INFO_0_FR,
-      PCE_CDDAVOLUME_INFO_1_FR,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_FR,
+      PCE_ADPCMVOLUME_LABEL_CAT_FR,
+      PCE_ADPCMVOLUME_INFO_0_FR,
+      PCE_ADPCMVOLUME_INFO_1_FR,
       "cd",
       {
          { "0", NULL },
@@ -13025,11 +13010,11 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_FR,
-      PCE_ADPCMVOLUME_LABEL_CAT_FR,
-      PCE_CDDAVOLUME_INFO_0_FR,
-      PCE_CDDAVOLUME_INFO_1_FR,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_FR,
+      PCE_CDDAVOLUME_LABEL_CAT_FR,
+      PCE_ADPCMVOLUME_INFO_0_FR,
+      PCE_ADPCMVOLUME_INFO_1_FR,
       "cd",
       {
          { "0", NULL },
@@ -13061,8 +13046,8 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_FR,
       PCE_CDPSGVOLUME_LABEL_CAT_FR,
-      PCE_CDDAVOLUME_INFO_0_FR,
-      PCE_CDDAVOLUME_INFO_1_FR,
+      PCE_ADPCMVOLUME_INFO_0_FR,
+      PCE_ADPCMVOLUME_INFO_1_FR,
       "cd",
       {
          { "0", NULL },
@@ -13139,14 +13124,14 @@ struct retro_core_options_v2 options_fr = {
 
 /* RETRO_LANGUAGE_GL */
 
-#define CATEGORY_VIDEO_LABEL_GL NULL
+#define CATEGORY_VIDEO_LABEL_GL "Vídeo"
 #define CATEGORY_VIDEO_INFO_0_GL NULL
-#define CATEGORY_AUDIO_LABEL_GL NULL
+#define CATEGORY_AUDIO_LABEL_GL "Son"
 #define CATEGORY_AUDIO_INFO_0_GL NULL
-#define CATEGORY_INPUT_LABEL_GL NULL
+#define CATEGORY_INPUT_LABEL_GL "Entrada"
 #define CATEGORY_INPUT_INFO_0_GL NULL
-#define CATEGORY_HACKS_LABEL_GL NULL
-#define CATEGORY_HACKS_INFO_0_GL NULL
+#define CATEGORY_HACKS_LABEL_GL "Hacks de emulación"
+#define CATEGORY_HACKS_INFO_0_GL "Configurar os parámetros do overclocking e a precisión da emulación do procesador que afecten ó rendemento e á compatibilidade de baixo nivel."
 #define CATEGORY_CD_LABEL_GL NULL
 #define CATEGORY_CD_INFO_0_GL NULL
 #define PCE_PALETTE_LABEL_GL NULL
@@ -13206,21 +13191,25 @@ struct retro_core_options_v2 options_fr = {
 #define OPTION_VAL_4_50_GL NULL
 #define OPTION_VAL_4_75_GL NULL
 #define OPTION_VAL_5_00_GL NULL
-#define PCE_MULTITAP_LABEL_GL NULL
-#define PCE_MULTITAP_INFO_0_GL NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_GL NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_GL NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_GL NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_GL NULL
+#define PCE_MULTITAP_LABEL_GL NULL
+#define PCE_MULTITAP_INFO_0_GL NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_GL NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_GL NULL
+#define PCE_TURBO_TOGGLING_LABEL_GL NULL
+#define PCE_TURBO_TOGGLING_INFO_0_GL NULL
+#define OPTION_VAL_TOGGLE_GL NULL
+#define OPTION_VAL_ALWAYS_GL NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_GL NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_GL NULL
 #define PCE_TURBO_DELAY_LABEL_GL NULL
 #define PCE_TURBO_DELAY_INFO_0_GL NULL
 #define OPTION_VAL_FAST_GL NULL
 #define OPTION_VAL_MEDIUM_GL NULL
 #define OPTION_VAL_SLOW_GL NULL
-#define PCE_TURBO_TOGGLING_LABEL_GL NULL
-#define OPTION_VAL_TOGGLE_GL NULL
-#define OPTION_VAL_ALWAYS_GL NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_GL NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_GL NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_GL NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_GL NULL
@@ -13231,8 +13220,6 @@ struct retro_core_options_v2 options_fr = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_GL NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_GL NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_GL NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_GL NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_GL NULL
 #define PCE_CDIMAGECACHE_LABEL_GL NULL
 #define PCE_CDIMAGECACHE_INFO_0_GL NULL
 #define PCE_CDBIOS_LABEL_GL NULL
@@ -13253,12 +13240,12 @@ struct retro_core_options_v2 options_fr = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_GL NULL
 #define OPTION_VAL_10_BIT_GL NULL
 #define OPTION_VAL_12_BIT_GL NULL
-#define PCE_CDDAVOLUME_LABEL_GL NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_GL NULL
-#define PCE_CDDAVOLUME_INFO_0_GL NULL
-#define PCE_CDDAVOLUME_INFO_1_GL NULL
 #define PCE_ADPCMVOLUME_LABEL_GL NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_GL NULL
+#define PCE_ADPCMVOLUME_INFO_0_GL NULL
+#define PCE_ADPCMVOLUME_INFO_1_GL NULL
+#define PCE_CDDAVOLUME_LABEL_GL NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_GL NULL
 #define PCE_CDPSGVOLUME_LABEL_GL NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_GL NULL
 #define PCE_NOSPRITELIMIT_LABEL_GL NULL
@@ -13329,7 +13316,6 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_GL,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_GL,
       NULL,
       "video",
@@ -13549,20 +13535,6 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_GL,
-      NULL,
-      PCE_MULTITAP_INFO_0_GL,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_GL,
       NULL,
@@ -13577,6 +13549,34 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_GL,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_GL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_GL,
+      NULL,
+      PCE_MULTITAP_INFO_0_GL,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_GL,
       NULL,
@@ -13586,6 +13586,35 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_GL,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_GL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_GL },
+         { "always", OPTION_VAL_ALWAYS_GL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_GL,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_GL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -13604,37 +13633,6 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_GL,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_GL },
-         { "always", OPTION_VAL_ALWAYS_GL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_GL,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -13777,20 +13775,6 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_GL,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_GL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_GL,
       NULL,
@@ -13867,11 +13851,11 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_GL,
-      PCE_CDDAVOLUME_LABEL_CAT_GL,
-      PCE_CDDAVOLUME_INFO_0_GL,
-      PCE_CDDAVOLUME_INFO_1_GL,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_GL,
+      PCE_ADPCMVOLUME_LABEL_CAT_GL,
+      PCE_ADPCMVOLUME_INFO_0_GL,
+      PCE_ADPCMVOLUME_INFO_1_GL,
       "cd",
       {
          { "0", NULL },
@@ -13900,11 +13884,11 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_GL,
-      PCE_ADPCMVOLUME_LABEL_CAT_GL,
-      PCE_CDDAVOLUME_INFO_0_GL,
-      PCE_CDDAVOLUME_INFO_1_GL,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_GL,
+      PCE_CDDAVOLUME_LABEL_CAT_GL,
+      PCE_ADPCMVOLUME_INFO_0_GL,
+      PCE_ADPCMVOLUME_INFO_1_GL,
       "cd",
       {
          { "0", NULL },
@@ -13936,8 +13920,8 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_GL,
       PCE_CDPSGVOLUME_LABEL_CAT_GL,
-      PCE_CDDAVOLUME_INFO_0_GL,
-      PCE_CDDAVOLUME_INFO_1_GL,
+      PCE_ADPCMVOLUME_INFO_0_GL,
+      PCE_ADPCMVOLUME_INFO_1_GL,
       "cd",
       {
          { "0", NULL },
@@ -14014,11 +13998,11 @@ struct retro_core_options_v2 options_gl = {
 
 /* RETRO_LANGUAGE_HE */
 
-#define CATEGORY_VIDEO_LABEL_HE NULL
+#define CATEGORY_VIDEO_LABEL_HE "וידאו"
 #define CATEGORY_VIDEO_INFO_0_HE NULL
-#define CATEGORY_AUDIO_LABEL_HE NULL
+#define CATEGORY_AUDIO_LABEL_HE "שמע"
 #define CATEGORY_AUDIO_INFO_0_HE NULL
-#define CATEGORY_INPUT_LABEL_HE NULL
+#define CATEGORY_INPUT_LABEL_HE "קלט"
 #define CATEGORY_INPUT_INFO_0_HE NULL
 #define CATEGORY_HACKS_LABEL_HE NULL
 #define CATEGORY_HACKS_INFO_0_HE NULL
@@ -14028,7 +14012,7 @@ struct retro_core_options_v2 options_gl = {
 #define PCE_PALETTE_INFO_0_HE NULL
 #define OPTION_VAL_RGB_HE NULL
 #define OPTION_VAL_COMPOSITE_HE NULL
-#define PCE_ASPECT_RATIO_LABEL_HE NULL
+#define PCE_ASPECT_RATIO_LABEL_HE "יחס גובה-רוחב"
 #define PCE_ASPECT_RATIO_INFO_0_HE NULL
 #define OPTION_VAL_AUTO_HE NULL
 #define OPTION_VAL_6_5_HE NULL
@@ -14081,21 +14065,25 @@ struct retro_core_options_v2 options_gl = {
 #define OPTION_VAL_4_50_HE NULL
 #define OPTION_VAL_4_75_HE NULL
 #define OPTION_VAL_5_00_HE NULL
-#define PCE_MULTITAP_LABEL_HE NULL
-#define PCE_MULTITAP_INFO_0_HE NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_HE NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_HE NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_HE NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_HE NULL
+#define PCE_MULTITAP_LABEL_HE NULL
+#define PCE_MULTITAP_INFO_0_HE NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HE NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HE NULL
+#define PCE_TURBO_TOGGLING_LABEL_HE NULL
+#define PCE_TURBO_TOGGLING_INFO_0_HE NULL
+#define OPTION_VAL_TOGGLE_HE NULL
+#define OPTION_VAL_ALWAYS_HE NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_HE NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_HE NULL
 #define PCE_TURBO_DELAY_LABEL_HE NULL
 #define PCE_TURBO_DELAY_INFO_0_HE NULL
 #define OPTION_VAL_FAST_HE NULL
 #define OPTION_VAL_MEDIUM_HE NULL
 #define OPTION_VAL_SLOW_HE NULL
-#define PCE_TURBO_TOGGLING_LABEL_HE NULL
-#define OPTION_VAL_TOGGLE_HE NULL
-#define OPTION_VAL_ALWAYS_HE NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_HE NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_HE NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_HE NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_HE NULL
@@ -14106,8 +14094,6 @@ struct retro_core_options_v2 options_gl = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_HE NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_HE NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_HE NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_HE NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_HE NULL
 #define PCE_CDIMAGECACHE_LABEL_HE NULL
 #define PCE_CDIMAGECACHE_INFO_0_HE NULL
 #define PCE_CDBIOS_LABEL_HE NULL
@@ -14128,12 +14114,12 @@ struct retro_core_options_v2 options_gl = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_HE NULL
 #define OPTION_VAL_10_BIT_HE NULL
 #define OPTION_VAL_12_BIT_HE NULL
-#define PCE_CDDAVOLUME_LABEL_HE NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_HE NULL
-#define PCE_CDDAVOLUME_INFO_0_HE NULL
-#define PCE_CDDAVOLUME_INFO_1_HE NULL
 #define PCE_ADPCMVOLUME_LABEL_HE NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_HE NULL
+#define PCE_ADPCMVOLUME_INFO_0_HE NULL
+#define PCE_ADPCMVOLUME_INFO_1_HE NULL
+#define PCE_CDDAVOLUME_LABEL_HE NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_HE NULL
 #define PCE_CDPSGVOLUME_LABEL_HE NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_HE NULL
 #define PCE_NOSPRITELIMIT_LABEL_HE NULL
@@ -14204,7 +14190,6 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_HE,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_HE,
       NULL,
       "video",
@@ -14424,20 +14409,6 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_HE,
-      NULL,
-      PCE_MULTITAP_INFO_0_HE,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_HE,
       NULL,
@@ -14452,6 +14423,34 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_HE,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_HE,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_HE,
+      NULL,
+      PCE_MULTITAP_INFO_0_HE,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HE,
       NULL,
@@ -14461,6 +14460,35 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_HE,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_HE,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_HE },
+         { "always", OPTION_VAL_ALWAYS_HE },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_HE,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_HE,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -14479,37 +14507,6 @@ struct retro_core_option_v2_definition option_defs_he[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_HE,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_HE },
-         { "always", OPTION_VAL_ALWAYS_HE },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_HE,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -14652,20 +14649,6 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_HE,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_HE,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_HE,
       NULL,
@@ -14742,11 +14725,11 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_HE,
-      PCE_CDDAVOLUME_LABEL_CAT_HE,
-      PCE_CDDAVOLUME_INFO_0_HE,
-      PCE_CDDAVOLUME_INFO_1_HE,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_HE,
+      PCE_ADPCMVOLUME_LABEL_CAT_HE,
+      PCE_ADPCMVOLUME_INFO_0_HE,
+      PCE_ADPCMVOLUME_INFO_1_HE,
       "cd",
       {
          { "0", NULL },
@@ -14775,11 +14758,11 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_HE,
-      PCE_ADPCMVOLUME_LABEL_CAT_HE,
-      PCE_CDDAVOLUME_INFO_0_HE,
-      PCE_CDDAVOLUME_INFO_1_HE,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_HE,
+      PCE_CDDAVOLUME_LABEL_CAT_HE,
+      PCE_ADPCMVOLUME_INFO_0_HE,
+      PCE_ADPCMVOLUME_INFO_1_HE,
       "cd",
       {
          { "0", NULL },
@@ -14811,8 +14794,8 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_HE,
       PCE_CDPSGVOLUME_LABEL_CAT_HE,
-      PCE_CDDAVOLUME_INFO_0_HE,
-      PCE_CDDAVOLUME_INFO_1_HE,
+      PCE_ADPCMVOLUME_INFO_0_HE,
+      PCE_ADPCMVOLUME_INFO_1_HE,
       "cd",
       {
          { "0", NULL },
@@ -14889,11 +14872,11 @@ struct retro_core_options_v2 options_he = {
 
 /* RETRO_LANGUAGE_HU */
 
-#define CATEGORY_VIDEO_LABEL_HU NULL
+#define CATEGORY_VIDEO_LABEL_HU "Videó"
 #define CATEGORY_VIDEO_INFO_0_HU NULL
-#define CATEGORY_AUDIO_LABEL_HU NULL
+#define CATEGORY_AUDIO_LABEL_HU "Hang"
 #define CATEGORY_AUDIO_INFO_0_HU NULL
-#define CATEGORY_INPUT_LABEL_HU NULL
+#define CATEGORY_INPUT_LABEL_HU "Bevitel"
 #define CATEGORY_INPUT_INFO_0_HU NULL
 #define CATEGORY_HACKS_LABEL_HU NULL
 #define CATEGORY_HACKS_INFO_0_HU NULL
@@ -14903,7 +14886,7 @@ struct retro_core_options_v2 options_he = {
 #define PCE_PALETTE_INFO_0_HU NULL
 #define OPTION_VAL_RGB_HU NULL
 #define OPTION_VAL_COMPOSITE_HU NULL
-#define PCE_ASPECT_RATIO_LABEL_HU NULL
+#define PCE_ASPECT_RATIO_LABEL_HU "Képarány"
 #define PCE_ASPECT_RATIO_INFO_0_HU NULL
 #define OPTION_VAL_AUTO_HU NULL
 #define OPTION_VAL_6_5_HU NULL
@@ -14956,21 +14939,25 @@ struct retro_core_options_v2 options_he = {
 #define OPTION_VAL_4_50_HU NULL
 #define OPTION_VAL_4_75_HU NULL
 #define OPTION_VAL_5_00_HU NULL
-#define PCE_MULTITAP_LABEL_HU NULL
-#define PCE_MULTITAP_INFO_0_HU NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_HU NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_HU NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_HU NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_HU NULL
+#define PCE_MULTITAP_LABEL_HU NULL
+#define PCE_MULTITAP_INFO_0_HU NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HU NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HU NULL
-#define PCE_TURBO_DELAY_LABEL_HU NULL
-#define PCE_TURBO_DELAY_INFO_0_HU NULL
-#define OPTION_VAL_FAST_HU NULL
-#define OPTION_VAL_MEDIUM_HU NULL
-#define OPTION_VAL_SLOW_HU NULL
 #define PCE_TURBO_TOGGLING_LABEL_HU NULL
+#define PCE_TURBO_TOGGLING_INFO_0_HU NULL
 #define OPTION_VAL_TOGGLE_HU NULL
 #define OPTION_VAL_ALWAYS_HU NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_HU NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_HU NULL
+#define PCE_TURBO_DELAY_LABEL_HU NULL
+#define PCE_TURBO_DELAY_INFO_0_HU NULL
+#define OPTION_VAL_FAST_HU "Gyors"
+#define OPTION_VAL_MEDIUM_HU NULL
+#define OPTION_VAL_SLOW_HU NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_HU NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_HU NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_HU NULL
@@ -14981,8 +14968,6 @@ struct retro_core_options_v2 options_he = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_HU NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_HU NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_HU NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_HU NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_HU NULL
 #define PCE_CDIMAGECACHE_LABEL_HU NULL
 #define PCE_CDIMAGECACHE_INFO_0_HU NULL
 #define PCE_CDBIOS_LABEL_HU NULL
@@ -15003,12 +14988,12 @@ struct retro_core_options_v2 options_he = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_HU NULL
 #define OPTION_VAL_10_BIT_HU NULL
 #define OPTION_VAL_12_BIT_HU NULL
-#define PCE_CDDAVOLUME_LABEL_HU NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_HU NULL
-#define PCE_CDDAVOLUME_INFO_0_HU NULL
-#define PCE_CDDAVOLUME_INFO_1_HU NULL
 #define PCE_ADPCMVOLUME_LABEL_HU NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_HU NULL
+#define PCE_ADPCMVOLUME_INFO_0_HU NULL
+#define PCE_ADPCMVOLUME_INFO_1_HU NULL
+#define PCE_CDDAVOLUME_LABEL_HU NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_HU NULL
 #define PCE_CDPSGVOLUME_LABEL_HU NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_HU NULL
 #define PCE_NOSPRITELIMIT_LABEL_HU NULL
@@ -15079,7 +15064,6 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_HU,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_HU,
       NULL,
       "video",
@@ -15299,20 +15283,6 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_HU,
-      NULL,
-      PCE_MULTITAP_INFO_0_HU,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_HU,
       NULL,
@@ -15327,6 +15297,34 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_HU,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_HU,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_HU,
+      NULL,
+      PCE_MULTITAP_INFO_0_HU,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HU,
       NULL,
@@ -15336,6 +15334,35 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_HU,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_HU,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_HU },
+         { "always", OPTION_VAL_ALWAYS_HU },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_HU,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_HU,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -15354,37 +15381,6 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_HU,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_HU },
-         { "always", OPTION_VAL_ALWAYS_HU },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_HU,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -15527,20 +15523,6 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_HU,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_HU,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_HU,
       NULL,
@@ -15617,11 +15599,11 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_HU,
-      PCE_CDDAVOLUME_LABEL_CAT_HU,
-      PCE_CDDAVOLUME_INFO_0_HU,
-      PCE_CDDAVOLUME_INFO_1_HU,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_HU,
+      PCE_ADPCMVOLUME_LABEL_CAT_HU,
+      PCE_ADPCMVOLUME_INFO_0_HU,
+      PCE_ADPCMVOLUME_INFO_1_HU,
       "cd",
       {
          { "0", NULL },
@@ -15650,11 +15632,11 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_HU,
-      PCE_ADPCMVOLUME_LABEL_CAT_HU,
-      PCE_CDDAVOLUME_INFO_0_HU,
-      PCE_CDDAVOLUME_INFO_1_HU,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_HU,
+      PCE_CDDAVOLUME_LABEL_CAT_HU,
+      PCE_ADPCMVOLUME_INFO_0_HU,
+      PCE_ADPCMVOLUME_INFO_1_HU,
       "cd",
       {
          { "0", NULL },
@@ -15686,8 +15668,8 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_HU,
       PCE_CDPSGVOLUME_LABEL_CAT_HU,
-      PCE_CDDAVOLUME_INFO_0_HU,
-      PCE_CDDAVOLUME_INFO_1_HU,
+      PCE_ADPCMVOLUME_INFO_0_HU,
+      PCE_ADPCMVOLUME_INFO_1_HU,
       "cd",
       {
          { "0", NULL },
@@ -15766,9 +15748,9 @@ struct retro_core_options_v2 options_hu = {
 
 #define CATEGORY_VIDEO_LABEL_ID NULL
 #define CATEGORY_VIDEO_INFO_0_ID NULL
-#define CATEGORY_AUDIO_LABEL_ID NULL
+#define CATEGORY_AUDIO_LABEL_ID "Suara"
 #define CATEGORY_AUDIO_INFO_0_ID NULL
-#define CATEGORY_INPUT_LABEL_ID NULL
+#define CATEGORY_INPUT_LABEL_ID "Masukan"
 #define CATEGORY_INPUT_INFO_0_ID NULL
 #define CATEGORY_HACKS_LABEL_ID NULL
 #define CATEGORY_HACKS_INFO_0_ID NULL
@@ -15778,7 +15760,7 @@ struct retro_core_options_v2 options_hu = {
 #define PCE_PALETTE_INFO_0_ID NULL
 #define OPTION_VAL_RGB_ID NULL
 #define OPTION_VAL_COMPOSITE_ID NULL
-#define PCE_ASPECT_RATIO_LABEL_ID NULL
+#define PCE_ASPECT_RATIO_LABEL_ID "Rasio Aspek"
 #define PCE_ASPECT_RATIO_INFO_0_ID NULL
 #define OPTION_VAL_AUTO_ID NULL
 #define OPTION_VAL_6_5_ID NULL
@@ -15831,21 +15813,25 @@ struct retro_core_options_v2 options_hu = {
 #define OPTION_VAL_4_50_ID NULL
 #define OPTION_VAL_4_75_ID NULL
 #define OPTION_VAL_5_00_ID NULL
-#define PCE_MULTITAP_LABEL_ID NULL
-#define PCE_MULTITAP_INFO_0_ID NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_ID NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_ID NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_ID NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_ID NULL
+#define PCE_MULTITAP_LABEL_ID NULL
+#define PCE_MULTITAP_INFO_0_ID NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ID NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ID NULL
+#define PCE_TURBO_TOGGLING_LABEL_ID NULL
+#define PCE_TURBO_TOGGLING_INFO_0_ID NULL
+#define OPTION_VAL_TOGGLE_ID NULL
+#define OPTION_VAL_ALWAYS_ID NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_ID NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_ID NULL
 #define PCE_TURBO_DELAY_LABEL_ID NULL
 #define PCE_TURBO_DELAY_INFO_0_ID NULL
 #define OPTION_VAL_FAST_ID NULL
 #define OPTION_VAL_MEDIUM_ID NULL
 #define OPTION_VAL_SLOW_ID NULL
-#define PCE_TURBO_TOGGLING_LABEL_ID NULL
-#define OPTION_VAL_TOGGLE_ID NULL
-#define OPTION_VAL_ALWAYS_ID NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_ID NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_ID NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_ID NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_ID NULL
@@ -15856,8 +15842,6 @@ struct retro_core_options_v2 options_hu = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_ID NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_ID NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_ID NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_ID NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_ID NULL
 #define PCE_CDIMAGECACHE_LABEL_ID NULL
 #define PCE_CDIMAGECACHE_INFO_0_ID NULL
 #define PCE_CDBIOS_LABEL_ID NULL
@@ -15878,12 +15862,12 @@ struct retro_core_options_v2 options_hu = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_ID NULL
 #define OPTION_VAL_10_BIT_ID NULL
 #define OPTION_VAL_12_BIT_ID NULL
-#define PCE_CDDAVOLUME_LABEL_ID NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_ID NULL
-#define PCE_CDDAVOLUME_INFO_0_ID NULL
-#define PCE_CDDAVOLUME_INFO_1_ID NULL
 #define PCE_ADPCMVOLUME_LABEL_ID NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_ID NULL
+#define PCE_ADPCMVOLUME_INFO_0_ID NULL
+#define PCE_ADPCMVOLUME_INFO_1_ID NULL
+#define PCE_CDDAVOLUME_LABEL_ID NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_ID NULL
 #define PCE_CDPSGVOLUME_LABEL_ID NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_ID NULL
 #define PCE_NOSPRITELIMIT_LABEL_ID NULL
@@ -15954,7 +15938,6 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_ID,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_ID,
       NULL,
       "video",
@@ -16174,20 +16157,6 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_ID,
-      NULL,
-      PCE_MULTITAP_INFO_0_ID,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_ID,
       NULL,
@@ -16202,6 +16171,34 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_ID,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_ID,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_ID,
+      NULL,
+      PCE_MULTITAP_INFO_0_ID,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ID,
       NULL,
@@ -16211,6 +16208,35 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_ID,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_ID,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_ID },
+         { "always", OPTION_VAL_ALWAYS_ID },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_ID,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_ID,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -16229,37 +16255,6 @@ struct retro_core_option_v2_definition option_defs_id[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_ID,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_ID },
-         { "always", OPTION_VAL_ALWAYS_ID },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_ID,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -16402,20 +16397,6 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_ID,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_ID,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_ID,
       NULL,
@@ -16492,11 +16473,11 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_ID,
-      PCE_CDDAVOLUME_LABEL_CAT_ID,
-      PCE_CDDAVOLUME_INFO_0_ID,
-      PCE_CDDAVOLUME_INFO_1_ID,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_ID,
+      PCE_ADPCMVOLUME_LABEL_CAT_ID,
+      PCE_ADPCMVOLUME_INFO_0_ID,
+      PCE_ADPCMVOLUME_INFO_1_ID,
       "cd",
       {
          { "0", NULL },
@@ -16525,11 +16506,11 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_ID,
-      PCE_ADPCMVOLUME_LABEL_CAT_ID,
-      PCE_CDDAVOLUME_INFO_0_ID,
-      PCE_CDDAVOLUME_INFO_1_ID,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_ID,
+      PCE_CDDAVOLUME_LABEL_CAT_ID,
+      PCE_ADPCMVOLUME_INFO_0_ID,
+      PCE_ADPCMVOLUME_INFO_1_ID,
       "cd",
       {
          { "0", NULL },
@@ -16561,8 +16542,8 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_ID,
       PCE_CDPSGVOLUME_LABEL_CAT_ID,
-      PCE_CDDAVOLUME_INFO_0_ID,
-      PCE_CDDAVOLUME_INFO_1_ID,
+      PCE_ADPCMVOLUME_INFO_0_ID,
+      PCE_ADPCMVOLUME_INFO_1_ID,
       "cd",
       {
          { "0", NULL },
@@ -16640,47 +16621,47 @@ struct retro_core_options_v2 options_id = {
 /* RETRO_LANGUAGE_IT */
 
 #define CATEGORY_VIDEO_LABEL_IT NULL
-#define CATEGORY_VIDEO_INFO_0_IT NULL
+#define CATEGORY_VIDEO_INFO_0_IT "Configura proporzioni, visualizza il ritaglio e altri parametri di output dell'immagine."
 #define CATEGORY_AUDIO_LABEL_IT NULL
-#define CATEGORY_AUDIO_INFO_0_IT NULL
+#define CATEGORY_AUDIO_INFO_0_IT "Configurare i dispositivi audio emulati."
 #define CATEGORY_INPUT_LABEL_IT NULL
-#define CATEGORY_INPUT_INFO_0_IT NULL
-#define CATEGORY_HACKS_LABEL_IT NULL
-#define CATEGORY_HACKS_INFO_0_IT NULL
+#define CATEGORY_INPUT_INFO_0_IT "Configura la pistola luminosa, il mouse e l'input del regolatore."
+#define CATEGORY_HACKS_LABEL_IT "Hack di Emulazione"
+#define CATEGORY_HACKS_INFO_0_IT "Configura i parametri di precisione di overclocking e emulazione del processore che influenzano prestazioni e compatibilità di basso livello."
 #define CATEGORY_CD_LABEL_IT NULL
-#define CATEGORY_CD_INFO_0_IT NULL
-#define PCE_PALETTE_LABEL_IT NULL
-#define PCE_PALETTE_INFO_0_IT NULL
+#define CATEGORY_CD_INFO_0_IT "Configurare le impostazioni relative all'emulazione del CD del motore del PC."
+#define PCE_PALETTE_LABEL_IT "Tavolozza Colore"
+#define PCE_PALETTE_INFO_0_IT "Composito cerca di ricreare l'output originale della console e può mostrare maggiori dettagli in alcuni giochi."
 #define OPTION_VAL_RGB_IT NULL
-#define OPTION_VAL_COMPOSITE_IT NULL
-#define PCE_ASPECT_RATIO_LABEL_IT NULL
-#define PCE_ASPECT_RATIO_INFO_0_IT NULL
+#define OPTION_VAL_COMPOSITE_IT "Composito"
+#define PCE_ASPECT_RATIO_LABEL_IT "Rapporto Dimensioni"
+#define PCE_ASPECT_RATIO_INFO_0_IT "Scegli le proporzioni preferite del contenuto. Questo si applicherà solo quando le proporzioni di RetroArc sono impostate su 'Core fornito' nelle impostazioni del video."
 #define OPTION_VAL_AUTO_IT NULL
 #define OPTION_VAL_6_5_IT NULL
 #define OPTION_VAL_4_3_IT NULL
-#define OPTION_VAL_UNCORRECTED_IT NULL
-#define PCE_SCALING_LABEL_IT NULL
-#define PCE_SCALING_INFO_0_IT NULL
-#define OPTION_VAL_LORES_IT NULL
-#define OPTION_VAL_HIRES_IT NULL
-#define PCE_HIRES_BLEND_LABEL_IT NULL
-#define PCE_HIRES_BLEND_INFO_0_IT NULL
+#define OPTION_VAL_UNCORRECTED_IT "Non Corretto"
+#define PCE_SCALING_LABEL_IT "Scala Risoluzione"
+#define PCE_SCALING_INFO_0_IT "'Auto' permetterà alla risoluzione di cambiare. 'Bassa Risoluzione' può frantumare i pixel. 'Alta Risoluzione' resterà sulla larghezza massima."
+#define OPTION_VAL_LORES_IT "Bassa Risoluzione"
+#define OPTION_VAL_HIRES_IT "Alta Risoluzione"
+#define PCE_HIRES_BLEND_LABEL_IT "Forza Di Miscelazione Ad Alta Risoluzione"
+#define PCE_HIRES_BLEND_INFO_0_IT "Sfuma i pixel insieme quando in modalità alta risoluzione. Valori più alti sfoceranno ulteriormente l'immagine."
 #define PCE_H_OVERSCAN_LABEL_IT NULL
-#define PCE_H_OVERSCAN_INFO_0_IT NULL
-#define PCE_INITIAL_SCANLINE_LABEL_IT NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_IT NULL
-#define OPTION_VAL_3_IT NULL
-#define PCE_LAST_SCANLINE_LABEL_IT NULL
-#define PCE_LAST_SCANLINE_INFO_0_IT NULL
-#define OPTION_VAL_242_IT NULL
-#define PCE_PSGREVISION_LABEL_IT NULL
-#define PCE_PSGREVISION_INFO_0_IT NULL
+#define PCE_H_OVERSCAN_INFO_0_IT "'Auto' cercherà di adattarsi ai giochi, ritagliando aree vuote."
+#define PCE_INITIAL_SCANLINE_LABEL_IT "Scanline Iniziale"
+#define PCE_INITIAL_SCANLINE_INFO_0_IT "Prima scanline renderizzata. Valori più alti ritaglieranno la parte superiore dell'immagine."
+#define OPTION_VAL_3_IT "3 (Predefinito)"
+#define PCE_LAST_SCANLINE_LABEL_IT "Ultima Scanline"
+#define PCE_LAST_SCANLINE_INFO_0_IT "Ultima scanline renderizzata. I valori più bassi ritaglieranno la parte inferiore dell'immagine."
+#define OPTION_VAL_242_IT "242 (predefinito)"
+#define PCE_PSGREVISION_LABEL_IT "PSG Audio Chip (Riavvio Richiesto)"
+#define PCE_PSGREVISION_INFO_0_IT "HuC6280 rappresenta il motore PC originale, HuC6280A il SuperGrafx e CoreGrafx I."
 #define OPTION_VAL_HUC6280_IT NULL
 #define OPTION_VAL_HUC6280A_IT NULL
-#define PCE_RESAMP_QUALITY_LABEL_IT NULL
-#define PCE_RESAMP_QUALITY_INFO_0_IT NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_IT NULL
-#define PCE_MOUSE_SENSITIVITY_INFO_0_IT NULL
+#define PCE_RESAMP_QUALITY_LABEL_IT "Qualità Del Owl Resampler"
+#define PCE_RESAMP_QUALITY_INFO_0_IT "Valori più alti danno un migliore rapporto rumore segnale e la conservazione di frequenze più elevate, ma aumentare il costo di calcolo e può causare una maggiore latenza e ritaglio se il volume è impostato troppo alto."
+#define PCE_MOUSE_SENSITIVITY_LABEL_IT "Sensibilità Mouse"
+#define PCE_MOUSE_SENSITIVITY_INFO_0_IT "Valori più alti renderanno il cursore del mouse più veloce."
 #define OPTION_VAL_0_125_IT NULL
 #define OPTION_VAL_0_250_IT NULL
 #define OPTION_VAL_0_375_IT NULL
@@ -16706,21 +16687,25 @@ struct retro_core_options_v2 options_id = {
 #define OPTION_VAL_4_50_IT NULL
 #define OPTION_VAL_4_75_IT NULL
 #define OPTION_VAL_5_00_IT NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_IT "Permetti Direzioni Opposte"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_IT "Abilitando questa opzione sarà possibile premere / alternare rapidamente / tenere contemporaneamente sia le direzioni sinistra che destra (o su e giù). Ciò può causare problemi di movimento."
+#define PCE_DISABLE_SOFTRESET_LABEL_IT "Disabilita Soft Reset (RUN+SELECT)"
+#define PCE_DISABLE_SOFTRESET_INFO_0_IT "Quando RUN e SELECT vengono premuti contemporaneamente, disabilitare temporaneamente entrambi i pulsanti invece di reimpostare."
 #define PCE_MULTITAP_LABEL_IT NULL
-#define PCE_MULTITAP_INFO_0_IT NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_IT NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_IT NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_IT NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_IT NULL
-#define PCE_TURBO_DELAY_LABEL_IT NULL
-#define PCE_TURBO_DELAY_INFO_0_IT NULL
-#define OPTION_VAL_FAST_IT NULL
-#define OPTION_VAL_MEDIUM_IT NULL
-#define OPTION_VAL_SLOW_IT NULL
-#define PCE_TURBO_TOGGLING_LABEL_IT NULL
-#define OPTION_VAL_TOGGLE_IT NULL
-#define OPTION_VAL_ALWAYS_IT NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_IT NULL
+#define PCE_MULTITAP_INFO_0_IT "Abilita l'emulazione multitap fino a 5 giocatori. Disabilitarla è necessaria solo in alcuni casi (ad esempio Cho Aniki)."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_IT "Mostra Impostazioni Avanzate Di Ingresso/Turbo"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_IT "Mostra Multitap, Mouse, Turbo Buttons e parametri avanzati. NOTA: È necessario tornare in gioco e reinserire il menu per aggiornare l'elenco."
+#define PCE_TURBO_TOGGLING_LABEL_IT "Modalità Scorciatoia Turbo"
+#define PCE_TURBO_TOGGLING_INFO_0_IT "Abilita i pulsanti turbo. I tasti di scelta rapida (pulsanti III e IV) possono comportarsi come interruttori o pulsanti turbo dedicati (tenere premuto per usare)."
+#define OPTION_VAL_TOGGLE_IT "Interrutore"
+#define OPTION_VAL_ALWAYS_IT "Dedicato"
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_IT "Scorciatoia Turbo Alternativa"
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_IT "Assegnare i pulsanti RetroPad's L3/R3 come tasti di scelta rapida turbo invece dei pulsanti III e IV. Funziona solo in modalità 'Interruttore' e solo finché non viene assegnato nulla ai pulsanti L3/R3. È possibile evitare di remapping i pulsanti III e IV quando si passa alla modalità controller a 6 pulsanti con questo."
+#define PCE_TURBO_DELAY_LABEL_IT "Velocità Turbo"
+#define PCE_TURBO_DELAY_INFO_0_IT "Scegli quanto velocemente vengono ripetute le pressioni dei pulsanti."
+#define OPTION_VAL_FAST_IT "Veloce"
+#define OPTION_VAL_MEDIUM_IT "Medio"
+#define OPTION_VAL_SLOW_IT "Lento"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_IT NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_IT NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_IT NULL
@@ -16731,40 +16716,38 @@ struct retro_core_options_v2 options_id = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_IT NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_IT NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_IT NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_IT NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_IT NULL
-#define PCE_CDIMAGECACHE_LABEL_IT NULL
-#define PCE_CDIMAGECACHE_INFO_0_IT NULL
-#define PCE_CDBIOS_LABEL_IT NULL
-#define PCE_CDBIOS_INFO_0_IT NULL
+#define PCE_CDIMAGECACHE_LABEL_IT "Cache Immagine CD (Riavvio Richiesto)"
+#define PCE_CDIMAGECACHE_INFO_0_IT "Carica l'immagine completa in memoria all'avvio. Può potenzialmente diminuire i tempi di caricamento al costo di un aumento del tempo di avvio."
+#define PCE_CDBIOS_LABEL_IT "Bios Cd (Riavvio Richiesto)"
+#define PCE_CDBIOS_INFO_0_IT "La maggior parte dei giochi può essere eseguita su 'System Card 3'. 'Games Express' è necessario per diversi giochi senza licenza."
 #define OPTION_VAL_GAMES_EXPRESS_IT NULL
-#define OPTION_VAL_SYSTEM_CARD_1_IT NULL
-#define OPTION_VAL_SYSTEM_CARD_2_IT NULL
-#define OPTION_VAL_SYSTEM_CARD_3_IT NULL
-#define OPTION_VAL_SYSTEM_CARD_2_US_IT NULL
-#define OPTION_VAL_SYSTEM_CARD_3_US_IT NULL
-#define PCE_ARCADECARD_LABEL_IT NULL
-#define PCE_ARCADECARD_INFO_0_IT NULL
-#define PCE_CDSPEED_LABEL_IT NULL
-#define PCE_CDSPEED_LABEL_CAT_IT NULL
-#define PCE_CDSPEED_INFO_0_IT NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_IT NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CAT_IT NULL
-#define PCE_ADPCMEXTRAPREC_INFO_0_IT NULL
+#define OPTION_VAL_SYSTEM_CARD_1_IT "Scheda Di Sistema 1"
+#define OPTION_VAL_SYSTEM_CARD_2_IT "Scheda Di Sistema 2"
+#define OPTION_VAL_SYSTEM_CARD_3_IT "Scheda Di Sistema 3"
+#define OPTION_VAL_SYSTEM_CARD_2_US_IT "Scheda Di Sistema 2 US"
+#define OPTION_VAL_SYSTEM_CARD_3_US_IT "Scheda Di Sistema 3 US"
+#define PCE_ARCADECARD_LABEL_IT "Carta Arcade (Riavvio Richiesto)"
+#define PCE_ARCADECARD_INFO_0_IT "Lascia questa opzione abilitata per consentire modalità migliorate di giochi SCD migliorati con ACD."
+#define PCE_CDSPEED_LABEL_IT "(CD) Velocità CD"
+#define PCE_CDSPEED_LABEL_CAT_IT "Velocità CD"
+#define PCE_CDSPEED_INFO_0_IT "Valori più elevati consentono tempi di caricamento più rapidi, ma possono causare problemi con un paio di giochi."
+#define PCE_ADPCMEXTRAPREC_LABEL_IT "(CD) Precisione ADPCM"
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_IT "Precisione ADPCM"
+#define PCE_ADPCMEXTRAPREC_INFO_0_IT "La massima precisione di 12 bit per il predicatore ADPCM MSM5205 può ridurre il rumore pieni durante la riproduzione ADPCM."
 #define OPTION_VAL_10_BIT_IT NULL
 #define OPTION_VAL_12_BIT_IT NULL
-#define PCE_CDDAVOLUME_LABEL_IT NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_IT NULL
-#define PCE_CDDAVOLUME_INFO_0_IT NULL
-#define PCE_CDDAVOLUME_INFO_1_IT NULL
-#define PCE_ADPCMVOLUME_LABEL_IT NULL
-#define PCE_ADPCMVOLUME_LABEL_CAT_IT NULL
+#define PCE_ADPCMVOLUME_LABEL_IT "(CD) Volume ADPCM %"
+#define PCE_ADPCMVOLUME_LABEL_CAT_IT "Volume ADPCM %"
+#define PCE_ADPCMVOLUME_INFO_0_IT "Solo gioco di CD. Impostare questo controllo del volume troppo alto può causare ritaglio di campione."
+#define PCE_ADPCMVOLUME_INFO_1_IT "Impostare questo controllo del volume troppo alto può causare clip di campione."
+#define PCE_CDDAVOLUME_LABEL_IT "(CD) Volume CDDA %"
+#define PCE_CDDAVOLUME_LABEL_CAT_IT "Volume CDDA %"
 #define PCE_CDPSGVOLUME_LABEL_IT NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_IT NULL
-#define PCE_NOSPRITELIMIT_LABEL_IT NULL
-#define PCE_NOSPRITELIMIT_INFO_0_IT NULL
-#define PCE_OCMULTIPLIER_LABEL_IT NULL
-#define PCE_OCMULTIPLIER_INFO_0_IT NULL
+#define PCE_NOSPRITELIMIT_LABEL_IT "Nessun Limite Sprite"
+#define PCE_NOSPRITELIMIT_INFO_0_IT "Rimuovi il limite hardware di 16 sprites per linea. ATTENZIONE: Potrebbe causare glitch grafici in qualche gioco (come Bloody Wolf)."
+#define PCE_OCMULTIPLIER_LABEL_IT "Moltiplicatore Overclock CPU"
+#define PCE_OCMULTIPLIER_INFO_0_IT "Valori più alti possono ridurre i rallentamenti dei giochi. ATTENZIONE: può causare problemi e crash."
 
 struct retro_core_option_v2_category option_cats_it[] = {
    {
@@ -16829,7 +16812,6 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_IT,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_IT,
       NULL,
       "video",
@@ -17049,20 +17031,6 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_IT,
-      NULL,
-      PCE_MULTITAP_INFO_0_IT,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_IT,
       NULL,
@@ -17077,6 +17045,34 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_IT,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_IT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_IT,
+      NULL,
+      PCE_MULTITAP_INFO_0_IT,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_IT,
       NULL,
@@ -17086,6 +17082,35 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_IT,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_IT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_IT },
+         { "always", OPTION_VAL_ALWAYS_IT },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_IT,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_IT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -17104,37 +17129,6 @@ struct retro_core_option_v2_definition option_defs_it[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_IT,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_IT },
-         { "always", OPTION_VAL_ALWAYS_IT },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_IT,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -17277,20 +17271,6 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_IT,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_IT,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_IT,
       NULL,
@@ -17367,11 +17347,11 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_IT,
-      PCE_CDDAVOLUME_LABEL_CAT_IT,
-      PCE_CDDAVOLUME_INFO_0_IT,
-      PCE_CDDAVOLUME_INFO_1_IT,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_IT,
+      PCE_ADPCMVOLUME_LABEL_CAT_IT,
+      PCE_ADPCMVOLUME_INFO_0_IT,
+      PCE_ADPCMVOLUME_INFO_1_IT,
       "cd",
       {
          { "0", NULL },
@@ -17400,11 +17380,11 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_IT,
-      PCE_ADPCMVOLUME_LABEL_CAT_IT,
-      PCE_CDDAVOLUME_INFO_0_IT,
-      PCE_CDDAVOLUME_INFO_1_IT,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_IT,
+      PCE_CDDAVOLUME_LABEL_CAT_IT,
+      PCE_ADPCMVOLUME_INFO_0_IT,
+      PCE_ADPCMVOLUME_INFO_1_IT,
       "cd",
       {
          { "0", NULL },
@@ -17436,8 +17416,8 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_IT,
       PCE_CDPSGVOLUME_LABEL_CAT_IT,
-      PCE_CDDAVOLUME_INFO_0_IT,
-      PCE_CDDAVOLUME_INFO_1_IT,
+      PCE_ADPCMVOLUME_INFO_0_IT,
+      PCE_ADPCMVOLUME_INFO_1_IT,
       "cd",
       {
          { "0", NULL },
@@ -17514,13 +17494,13 @@ struct retro_core_options_v2 options_it = {
 
 /* RETRO_LANGUAGE_JA */
 
-#define CATEGORY_VIDEO_LABEL_JA NULL
+#define CATEGORY_VIDEO_LABEL_JA "ビデオのドライバ"
 #define CATEGORY_VIDEO_INFO_0_JA NULL
-#define CATEGORY_AUDIO_LABEL_JA NULL
+#define CATEGORY_AUDIO_LABEL_JA "オーディオのドライバ"
 #define CATEGORY_AUDIO_INFO_0_JA NULL
-#define CATEGORY_INPUT_LABEL_JA NULL
+#define CATEGORY_INPUT_LABEL_JA "入力"
 #define CATEGORY_INPUT_INFO_0_JA NULL
-#define CATEGORY_HACKS_LABEL_JA NULL
+#define CATEGORY_HACKS_LABEL_JA "エミュレーションハック"
 #define CATEGORY_HACKS_INFO_0_JA NULL
 #define CATEGORY_CD_LABEL_JA NULL
 #define CATEGORY_CD_INFO_0_JA NULL
@@ -17528,9 +17508,9 @@ struct retro_core_options_v2 options_it = {
 #define PCE_PALETTE_INFO_0_JA NULL
 #define OPTION_VAL_RGB_JA NULL
 #define OPTION_VAL_COMPOSITE_JA NULL
-#define PCE_ASPECT_RATIO_LABEL_JA NULL
+#define PCE_ASPECT_RATIO_LABEL_JA "アスペクト比"
 #define PCE_ASPECT_RATIO_INFO_0_JA NULL
-#define OPTION_VAL_AUTO_JA NULL
+#define OPTION_VAL_AUTO_JA "自動"
 #define OPTION_VAL_6_5_JA NULL
 #define OPTION_VAL_4_3_JA NULL
 #define OPTION_VAL_UNCORRECTED_JA NULL
@@ -17581,21 +17561,25 @@ struct retro_core_options_v2 options_it = {
 #define OPTION_VAL_4_50_JA NULL
 #define OPTION_VAL_4_75_JA NULL
 #define OPTION_VAL_5_00_JA NULL
-#define PCE_MULTITAP_LABEL_JA NULL
-#define PCE_MULTITAP_INFO_0_JA NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_JA NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_JA NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_JA NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_JA NULL
+#define PCE_MULTITAP_LABEL_JA NULL
+#define PCE_MULTITAP_INFO_0_JA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_JA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_JA NULL
-#define PCE_TURBO_DELAY_LABEL_JA NULL
-#define PCE_TURBO_DELAY_INFO_0_JA NULL
-#define OPTION_VAL_FAST_JA NULL
-#define OPTION_VAL_MEDIUM_JA NULL
-#define OPTION_VAL_SLOW_JA NULL
 #define PCE_TURBO_TOGGLING_LABEL_JA NULL
+#define PCE_TURBO_TOGGLING_INFO_0_JA NULL
 #define OPTION_VAL_TOGGLE_JA NULL
 #define OPTION_VAL_ALWAYS_JA NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_JA NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_JA NULL
+#define PCE_TURBO_DELAY_LABEL_JA NULL
+#define PCE_TURBO_DELAY_INFO_0_JA NULL
+#define OPTION_VAL_FAST_JA "高速"
+#define OPTION_VAL_MEDIUM_JA NULL
+#define OPTION_VAL_SLOW_JA NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_JA NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_JA NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_JA NULL
@@ -17606,8 +17590,6 @@ struct retro_core_options_v2 options_it = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_JA NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_JA NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_JA NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_JA NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_JA NULL
 #define PCE_CDIMAGECACHE_LABEL_JA NULL
 #define PCE_CDIMAGECACHE_INFO_0_JA NULL
 #define PCE_CDBIOS_LABEL_JA NULL
@@ -17628,12 +17610,12 @@ struct retro_core_options_v2 options_it = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_JA NULL
 #define OPTION_VAL_10_BIT_JA NULL
 #define OPTION_VAL_12_BIT_JA NULL
-#define PCE_CDDAVOLUME_LABEL_JA NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_JA NULL
-#define PCE_CDDAVOLUME_INFO_0_JA NULL
-#define PCE_CDDAVOLUME_INFO_1_JA NULL
 #define PCE_ADPCMVOLUME_LABEL_JA NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_JA NULL
+#define PCE_ADPCMVOLUME_INFO_0_JA NULL
+#define PCE_ADPCMVOLUME_INFO_1_JA NULL
+#define PCE_CDDAVOLUME_LABEL_JA NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_JA NULL
 #define PCE_CDPSGVOLUME_LABEL_JA NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_JA NULL
 #define PCE_NOSPRITELIMIT_LABEL_JA NULL
@@ -17704,7 +17686,6 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_JA,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_JA,
       NULL,
       "video",
@@ -17924,20 +17905,6 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_JA,
-      NULL,
-      PCE_MULTITAP_INFO_0_JA,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_JA,
       NULL,
@@ -17952,6 +17919,34 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_JA,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_JA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_JA,
+      NULL,
+      PCE_MULTITAP_INFO_0_JA,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_JA,
       NULL,
@@ -17961,6 +17956,35 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_JA,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_JA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_JA },
+         { "always", OPTION_VAL_ALWAYS_JA },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_JA,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_JA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -17979,37 +18003,6 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_JA,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_JA },
-         { "always", OPTION_VAL_ALWAYS_JA },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_JA,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -18152,20 +18145,6 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_JA,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_JA,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_JA,
       NULL,
@@ -18242,11 +18221,11 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_JA,
-      PCE_CDDAVOLUME_LABEL_CAT_JA,
-      PCE_CDDAVOLUME_INFO_0_JA,
-      PCE_CDDAVOLUME_INFO_1_JA,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_JA,
+      PCE_ADPCMVOLUME_LABEL_CAT_JA,
+      PCE_ADPCMVOLUME_INFO_0_JA,
+      PCE_ADPCMVOLUME_INFO_1_JA,
       "cd",
       {
          { "0", NULL },
@@ -18275,11 +18254,11 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_JA,
-      PCE_ADPCMVOLUME_LABEL_CAT_JA,
-      PCE_CDDAVOLUME_INFO_0_JA,
-      PCE_CDDAVOLUME_INFO_1_JA,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_JA,
+      PCE_CDDAVOLUME_LABEL_CAT_JA,
+      PCE_ADPCMVOLUME_INFO_0_JA,
+      PCE_ADPCMVOLUME_INFO_1_JA,
       "cd",
       {
          { "0", NULL },
@@ -18311,8 +18290,8 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_JA,
       PCE_CDPSGVOLUME_LABEL_CAT_JA,
-      PCE_CDDAVOLUME_INFO_0_JA,
-      PCE_CDDAVOLUME_INFO_1_JA,
+      PCE_ADPCMVOLUME_INFO_0_JA,
+      PCE_ADPCMVOLUME_INFO_1_JA,
       "cd",
       {
          { "0", NULL },
@@ -18389,47 +18368,47 @@ struct retro_core_options_v2 options_ja = {
 
 /* RETRO_LANGUAGE_KO */
 
-#define CATEGORY_VIDEO_LABEL_KO NULL
+#define CATEGORY_VIDEO_LABEL_KO "비디오"
 #define CATEGORY_VIDEO_INFO_0_KO NULL
-#define CATEGORY_AUDIO_LABEL_KO NULL
-#define CATEGORY_AUDIO_INFO_0_KO NULL
-#define CATEGORY_INPUT_LABEL_KO NULL
+#define CATEGORY_AUDIO_LABEL_KO "오디오"
+#define CATEGORY_AUDIO_INFO_0_KO "에뮬레이트되는 오디오 장치를 설정합니다."
+#define CATEGORY_INPUT_LABEL_KO "입력"
 #define CATEGORY_INPUT_INFO_0_KO NULL
-#define CATEGORY_HACKS_LABEL_KO NULL
-#define CATEGORY_HACKS_INFO_0_KO NULL
+#define CATEGORY_HACKS_LABEL_KO "에뮬레이션 핵"
+#define CATEGORY_HACKS_INFO_0_KO "성능과 호환성에 영향을 끼치는 프로세서 오버클러킹 및 에뮬레이션 정확도 옵션 등을 설정합니다."
 #define CATEGORY_CD_LABEL_KO NULL
 #define CATEGORY_CD_INFO_0_KO NULL
-#define PCE_PALETTE_LABEL_KO NULL
+#define PCE_PALETTE_LABEL_KO "색상 팔레트"
 #define PCE_PALETTE_INFO_0_KO NULL
 #define OPTION_VAL_RGB_KO NULL
-#define OPTION_VAL_COMPOSITE_KO NULL
-#define PCE_ASPECT_RATIO_LABEL_KO NULL
-#define PCE_ASPECT_RATIO_INFO_0_KO NULL
-#define OPTION_VAL_AUTO_KO NULL
+#define OPTION_VAL_COMPOSITE_KO "컴포지트"
+#define PCE_ASPECT_RATIO_LABEL_KO "화면비"
+#define PCE_ASPECT_RATIO_INFO_0_KO "선호하는 컨텐츠 화면비를 선택합니다. RetroArch의 비디오 설정에서 화면비가 'Core provided'로 설정되어 있어야 적용됩니다."
+#define OPTION_VAL_AUTO_KO "자동"
 #define OPTION_VAL_6_5_KO NULL
 #define OPTION_VAL_4_3_KO NULL
-#define OPTION_VAL_UNCORRECTED_KO NULL
+#define OPTION_VAL_UNCORRECTED_KO "교정 안 됨"
 #define PCE_SCALING_LABEL_KO NULL
 #define PCE_SCALING_INFO_0_KO NULL
 #define OPTION_VAL_LORES_KO NULL
 #define OPTION_VAL_HIRES_KO NULL
 #define PCE_HIRES_BLEND_LABEL_KO NULL
 #define PCE_HIRES_BLEND_INFO_0_KO NULL
-#define PCE_H_OVERSCAN_LABEL_KO NULL
+#define PCE_H_OVERSCAN_LABEL_KO "가로 오버스캔 표시하기"
 #define PCE_H_OVERSCAN_INFO_0_KO NULL
 #define PCE_INITIAL_SCANLINE_LABEL_KO NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_KO NULL
-#define OPTION_VAL_3_KO NULL
+#define OPTION_VAL_3_KO "3 (기본)"
 #define PCE_LAST_SCANLINE_LABEL_KO NULL
 #define PCE_LAST_SCANLINE_INFO_0_KO NULL
-#define OPTION_VAL_242_KO NULL
+#define OPTION_VAL_242_KO "242 (기본)"
 #define PCE_PSGREVISION_LABEL_KO NULL
 #define PCE_PSGREVISION_INFO_0_KO NULL
 #define OPTION_VAL_HUC6280_KO NULL
 #define OPTION_VAL_HUC6280A_KO NULL
 #define PCE_RESAMP_QUALITY_LABEL_KO NULL
 #define PCE_RESAMP_QUALITY_INFO_0_KO NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_KO NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_KO "마우스 감도"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_KO NULL
 #define OPTION_VAL_0_125_KO NULL
 #define OPTION_VAL_0_250_KO NULL
@@ -18456,21 +18435,25 @@ struct retro_core_options_v2 options_ja = {
 #define OPTION_VAL_4_50_KO NULL
 #define OPTION_VAL_4_75_KO NULL
 #define OPTION_VAL_5_00_KO NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_KO "반대 방향 동시 입력 허용"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_KO "이 옵션을 활성화하면 왼쪽과 오른쪽 (또는 위쪽과 아래쪽) 방향 입력을 동시에 누르거나 빠르게 번갈아 누르는 것을 허용합니다. 이는 움직임 관련 버그를 일으킬 수 있습니다."
+#define PCE_DISABLE_SOFTRESET_LABEL_KO NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_KO NULL
 #define PCE_MULTITAP_LABEL_KO NULL
 #define PCE_MULTITAP_INFO_0_KO NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_KO NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_KO NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_KO NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_KO NULL
-#define PCE_TURBO_DELAY_LABEL_KO NULL
-#define PCE_TURBO_DELAY_INFO_0_KO NULL
-#define OPTION_VAL_FAST_KO NULL
-#define OPTION_VAL_MEDIUM_KO NULL
-#define OPTION_VAL_SLOW_KO NULL
 #define PCE_TURBO_TOGGLING_LABEL_KO NULL
+#define PCE_TURBO_TOGGLING_INFO_0_KO NULL
 #define OPTION_VAL_TOGGLE_KO NULL
 #define OPTION_VAL_ALWAYS_KO NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_KO NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_KO NULL
+#define PCE_TURBO_DELAY_LABEL_KO NULL
+#define PCE_TURBO_DELAY_INFO_0_KO NULL
+#define OPTION_VAL_FAST_KO "빠르게"
+#define OPTION_VAL_MEDIUM_KO NULL
+#define OPTION_VAL_SLOW_KO NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_KO NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_KO NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_KO NULL
@@ -18481,8 +18464,6 @@ struct retro_core_options_v2 options_ja = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_KO NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_KO NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_KO NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_KO NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_KO NULL
 #define PCE_CDIMAGECACHE_LABEL_KO NULL
 #define PCE_CDIMAGECACHE_INFO_0_KO NULL
 #define PCE_CDBIOS_LABEL_KO NULL
@@ -18503,15 +18484,15 @@ struct retro_core_options_v2 options_ja = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_KO NULL
 #define OPTION_VAL_10_BIT_KO NULL
 #define OPTION_VAL_12_BIT_KO NULL
-#define PCE_CDDAVOLUME_LABEL_KO NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_KO NULL
-#define PCE_CDDAVOLUME_INFO_0_KO NULL
-#define PCE_CDDAVOLUME_INFO_1_KO NULL
 #define PCE_ADPCMVOLUME_LABEL_KO NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_KO NULL
+#define PCE_ADPCMVOLUME_INFO_0_KO NULL
+#define PCE_ADPCMVOLUME_INFO_1_KO NULL
+#define PCE_CDDAVOLUME_LABEL_KO NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_KO NULL
 #define PCE_CDPSGVOLUME_LABEL_KO NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_KO NULL
-#define PCE_NOSPRITELIMIT_LABEL_KO NULL
+#define PCE_NOSPRITELIMIT_LABEL_KO "스프라이트 제한 해제"
 #define PCE_NOSPRITELIMIT_INFO_0_KO NULL
 #define PCE_OCMULTIPLIER_LABEL_KO NULL
 #define PCE_OCMULTIPLIER_INFO_0_KO NULL
@@ -18579,7 +18560,6 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_KO,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_KO,
       NULL,
       "video",
@@ -18799,20 +18779,6 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_KO,
-      NULL,
-      PCE_MULTITAP_INFO_0_KO,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_KO,
       NULL,
@@ -18827,6 +18793,34 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_KO,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_KO,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_KO,
+      NULL,
+      PCE_MULTITAP_INFO_0_KO,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_KO,
       NULL,
@@ -18836,6 +18830,35 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_KO,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_KO,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_KO },
+         { "always", OPTION_VAL_ALWAYS_KO },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_KO,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_KO,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -18854,37 +18877,6 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_KO,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_KO },
-         { "always", OPTION_VAL_ALWAYS_KO },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_KO,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -19027,20 +19019,6 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_KO,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_KO,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_KO,
       NULL,
@@ -19117,11 +19095,11 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_KO,
-      PCE_CDDAVOLUME_LABEL_CAT_KO,
-      PCE_CDDAVOLUME_INFO_0_KO,
-      PCE_CDDAVOLUME_INFO_1_KO,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_KO,
+      PCE_ADPCMVOLUME_LABEL_CAT_KO,
+      PCE_ADPCMVOLUME_INFO_0_KO,
+      PCE_ADPCMVOLUME_INFO_1_KO,
       "cd",
       {
          { "0", NULL },
@@ -19150,11 +19128,11 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_KO,
-      PCE_ADPCMVOLUME_LABEL_CAT_KO,
-      PCE_CDDAVOLUME_INFO_0_KO,
-      PCE_CDDAVOLUME_INFO_1_KO,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_KO,
+      PCE_CDDAVOLUME_LABEL_CAT_KO,
+      PCE_ADPCMVOLUME_INFO_0_KO,
+      PCE_ADPCMVOLUME_INFO_1_KO,
       "cd",
       {
          { "0", NULL },
@@ -19186,8 +19164,8 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_KO,
       PCE_CDPSGVOLUME_LABEL_CAT_KO,
-      PCE_CDDAVOLUME_INFO_0_KO,
-      PCE_CDDAVOLUME_INFO_1_KO,
+      PCE_ADPCMVOLUME_INFO_0_KO,
+      PCE_ADPCMVOLUME_INFO_1_KO,
       "cd",
       {
          { "0", NULL },
@@ -19331,21 +19309,25 @@ struct retro_core_options_v2 options_ko = {
 #define OPTION_VAL_4_50_MT NULL
 #define OPTION_VAL_4_75_MT NULL
 #define OPTION_VAL_5_00_MT NULL
-#define PCE_MULTITAP_LABEL_MT NULL
-#define PCE_MULTITAP_INFO_0_MT NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_MT NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_MT NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_MT NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_MT NULL
+#define PCE_MULTITAP_LABEL_MT NULL
+#define PCE_MULTITAP_INFO_0_MT NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_MT NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_MT NULL
+#define PCE_TURBO_TOGGLING_LABEL_MT NULL
+#define PCE_TURBO_TOGGLING_INFO_0_MT NULL
+#define OPTION_VAL_TOGGLE_MT NULL
+#define OPTION_VAL_ALWAYS_MT NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_MT NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_MT NULL
 #define PCE_TURBO_DELAY_LABEL_MT NULL
 #define PCE_TURBO_DELAY_INFO_0_MT NULL
 #define OPTION_VAL_FAST_MT NULL
 #define OPTION_VAL_MEDIUM_MT NULL
 #define OPTION_VAL_SLOW_MT NULL
-#define PCE_TURBO_TOGGLING_LABEL_MT NULL
-#define OPTION_VAL_TOGGLE_MT NULL
-#define OPTION_VAL_ALWAYS_MT NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_MT NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_MT NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_MT NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_MT NULL
@@ -19356,8 +19338,6 @@ struct retro_core_options_v2 options_ko = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_MT NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_MT NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_MT NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_MT NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_MT NULL
 #define PCE_CDIMAGECACHE_LABEL_MT NULL
 #define PCE_CDIMAGECACHE_INFO_0_MT NULL
 #define PCE_CDBIOS_LABEL_MT NULL
@@ -19378,12 +19358,12 @@ struct retro_core_options_v2 options_ko = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_MT NULL
 #define OPTION_VAL_10_BIT_MT NULL
 #define OPTION_VAL_12_BIT_MT NULL
-#define PCE_CDDAVOLUME_LABEL_MT NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_MT NULL
-#define PCE_CDDAVOLUME_INFO_0_MT NULL
-#define PCE_CDDAVOLUME_INFO_1_MT NULL
 #define PCE_ADPCMVOLUME_LABEL_MT NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_MT NULL
+#define PCE_ADPCMVOLUME_INFO_0_MT NULL
+#define PCE_ADPCMVOLUME_INFO_1_MT NULL
+#define PCE_CDDAVOLUME_LABEL_MT NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_MT NULL
 #define PCE_CDPSGVOLUME_LABEL_MT NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_MT NULL
 #define PCE_NOSPRITELIMIT_LABEL_MT NULL
@@ -19454,7 +19434,6 @@ struct retro_core_option_v2_definition option_defs_mt[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_MT,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_MT,
       NULL,
       "video",
@@ -19674,20 +19653,6 @@ struct retro_core_option_v2_definition option_defs_mt[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_MT,
-      NULL,
-      PCE_MULTITAP_INFO_0_MT,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_MT,
       NULL,
@@ -19702,6 +19667,34 @@ struct retro_core_option_v2_definition option_defs_mt[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_MT,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_MT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_MT,
+      NULL,
+      PCE_MULTITAP_INFO_0_MT,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_MT,
       NULL,
@@ -19711,6 +19704,35 @@ struct retro_core_option_v2_definition option_defs_mt[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_MT,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_MT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_MT },
+         { "always", OPTION_VAL_ALWAYS_MT },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_MT,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_MT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -19729,37 +19751,6 @@ struct retro_core_option_v2_definition option_defs_mt[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_MT,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_MT },
-         { "always", OPTION_VAL_ALWAYS_MT },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_MT,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -19902,20 +19893,6 @@ struct retro_core_option_v2_definition option_defs_mt[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_MT,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_MT,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_MT,
       NULL,
@@ -19992,11 +19969,11 @@ struct retro_core_option_v2_definition option_defs_mt[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_MT,
-      PCE_CDDAVOLUME_LABEL_CAT_MT,
-      PCE_CDDAVOLUME_INFO_0_MT,
-      PCE_CDDAVOLUME_INFO_1_MT,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_MT,
+      PCE_ADPCMVOLUME_LABEL_CAT_MT,
+      PCE_ADPCMVOLUME_INFO_0_MT,
+      PCE_ADPCMVOLUME_INFO_1_MT,
       "cd",
       {
          { "0", NULL },
@@ -20025,11 +20002,11 @@ struct retro_core_option_v2_definition option_defs_mt[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_MT,
-      PCE_ADPCMVOLUME_LABEL_CAT_MT,
-      PCE_CDDAVOLUME_INFO_0_MT,
-      PCE_CDDAVOLUME_INFO_1_MT,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_MT,
+      PCE_CDDAVOLUME_LABEL_CAT_MT,
+      PCE_ADPCMVOLUME_INFO_0_MT,
+      PCE_ADPCMVOLUME_INFO_1_MT,
       "cd",
       {
          { "0", NULL },
@@ -20061,8 +20038,8 @@ struct retro_core_option_v2_definition option_defs_mt[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_MT,
       PCE_CDPSGVOLUME_LABEL_CAT_MT,
-      PCE_CDDAVOLUME_INFO_0_MT,
-      PCE_CDDAVOLUME_INFO_1_MT,
+      PCE_ADPCMVOLUME_INFO_0_MT,
+      PCE_ADPCMVOLUME_INFO_1_MT,
       "cd",
       {
          { "0", NULL },
@@ -20141,9 +20118,9 @@ struct retro_core_options_v2 options_mt = {
 
 #define CATEGORY_VIDEO_LABEL_NL NULL
 #define CATEGORY_VIDEO_INFO_0_NL NULL
-#define CATEGORY_AUDIO_LABEL_NL NULL
+#define CATEGORY_AUDIO_LABEL_NL "Geluid"
 #define CATEGORY_AUDIO_INFO_0_NL NULL
-#define CATEGORY_INPUT_LABEL_NL NULL
+#define CATEGORY_INPUT_LABEL_NL "Invoer"
 #define CATEGORY_INPUT_INFO_0_NL NULL
 #define CATEGORY_HACKS_LABEL_NL NULL
 #define CATEGORY_HACKS_INFO_0_NL NULL
@@ -20153,9 +20130,9 @@ struct retro_core_options_v2 options_mt = {
 #define PCE_PALETTE_INFO_0_NL NULL
 #define OPTION_VAL_RGB_NL NULL
 #define OPTION_VAL_COMPOSITE_NL NULL
-#define PCE_ASPECT_RATIO_LABEL_NL NULL
+#define PCE_ASPECT_RATIO_LABEL_NL "Beeldverhouding"
 #define PCE_ASPECT_RATIO_INFO_0_NL NULL
-#define OPTION_VAL_AUTO_NL NULL
+#define OPTION_VAL_AUTO_NL "Automatisch"
 #define OPTION_VAL_6_5_NL NULL
 #define OPTION_VAL_4_3_NL NULL
 #define OPTION_VAL_UNCORRECTED_NL NULL
@@ -20206,21 +20183,25 @@ struct retro_core_options_v2 options_mt = {
 #define OPTION_VAL_4_50_NL NULL
 #define OPTION_VAL_4_75_NL NULL
 #define OPTION_VAL_5_00_NL NULL
-#define PCE_MULTITAP_LABEL_NL NULL
-#define PCE_MULTITAP_INFO_0_NL NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_NL NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_NL NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_NL NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_NL NULL
+#define PCE_MULTITAP_LABEL_NL NULL
+#define PCE_MULTITAP_INFO_0_NL NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_NL NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_NL NULL
+#define PCE_TURBO_TOGGLING_LABEL_NL NULL
+#define PCE_TURBO_TOGGLING_INFO_0_NL NULL
+#define OPTION_VAL_TOGGLE_NL NULL
+#define OPTION_VAL_ALWAYS_NL NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_NL NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_NL NULL
 #define PCE_TURBO_DELAY_LABEL_NL NULL
 #define PCE_TURBO_DELAY_INFO_0_NL NULL
 #define OPTION_VAL_FAST_NL NULL
 #define OPTION_VAL_MEDIUM_NL NULL
 #define OPTION_VAL_SLOW_NL NULL
-#define PCE_TURBO_TOGGLING_LABEL_NL NULL
-#define OPTION_VAL_TOGGLE_NL NULL
-#define OPTION_VAL_ALWAYS_NL NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_NL NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_NL NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_NL NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_NL NULL
@@ -20231,8 +20212,6 @@ struct retro_core_options_v2 options_mt = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_NL NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_NL NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_NL NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_NL NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_NL NULL
 #define PCE_CDIMAGECACHE_LABEL_NL NULL
 #define PCE_CDIMAGECACHE_INFO_0_NL NULL
 #define PCE_CDBIOS_LABEL_NL NULL
@@ -20253,12 +20232,12 @@ struct retro_core_options_v2 options_mt = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_NL NULL
 #define OPTION_VAL_10_BIT_NL NULL
 #define OPTION_VAL_12_BIT_NL NULL
-#define PCE_CDDAVOLUME_LABEL_NL NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_NL NULL
-#define PCE_CDDAVOLUME_INFO_0_NL NULL
-#define PCE_CDDAVOLUME_INFO_1_NL NULL
 #define PCE_ADPCMVOLUME_LABEL_NL NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_NL NULL
+#define PCE_ADPCMVOLUME_INFO_0_NL NULL
+#define PCE_ADPCMVOLUME_INFO_1_NL NULL
+#define PCE_CDDAVOLUME_LABEL_NL NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_NL NULL
 #define PCE_CDPSGVOLUME_LABEL_NL NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_NL NULL
 #define PCE_NOSPRITELIMIT_LABEL_NL NULL
@@ -20329,7 +20308,6 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_NL,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_NL,
       NULL,
       "video",
@@ -20549,20 +20527,6 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_NL,
-      NULL,
-      PCE_MULTITAP_INFO_0_NL,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_NL,
       NULL,
@@ -20577,6 +20541,34 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_NL,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_NL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_NL,
+      NULL,
+      PCE_MULTITAP_INFO_0_NL,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_NL,
       NULL,
@@ -20586,6 +20578,35 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_NL,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_NL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_NL },
+         { "always", OPTION_VAL_ALWAYS_NL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_NL,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_NL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -20604,37 +20625,6 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_NL,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_NL },
-         { "always", OPTION_VAL_ALWAYS_NL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_NL,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -20777,20 +20767,6 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_NL,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_NL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_NL,
       NULL,
@@ -20867,11 +20843,11 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_NL,
-      PCE_CDDAVOLUME_LABEL_CAT_NL,
-      PCE_CDDAVOLUME_INFO_0_NL,
-      PCE_CDDAVOLUME_INFO_1_NL,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_NL,
+      PCE_ADPCMVOLUME_LABEL_CAT_NL,
+      PCE_ADPCMVOLUME_INFO_0_NL,
+      PCE_ADPCMVOLUME_INFO_1_NL,
       "cd",
       {
          { "0", NULL },
@@ -20900,11 +20876,11 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_NL,
-      PCE_ADPCMVOLUME_LABEL_CAT_NL,
-      PCE_CDDAVOLUME_INFO_0_NL,
-      PCE_CDDAVOLUME_INFO_1_NL,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_NL,
+      PCE_CDDAVOLUME_LABEL_CAT_NL,
+      PCE_ADPCMVOLUME_INFO_0_NL,
+      PCE_ADPCMVOLUME_INFO_1_NL,
       "cd",
       {
          { "0", NULL },
@@ -20936,8 +20912,8 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_NL,
       PCE_CDPSGVOLUME_LABEL_CAT_NL,
-      PCE_CDDAVOLUME_INFO_0_NL,
-      PCE_CDDAVOLUME_INFO_1_NL,
+      PCE_ADPCMVOLUME_INFO_0_NL,
+      PCE_ADPCMVOLUME_INFO_1_NL,
       "cd",
       {
          { "0", NULL },
@@ -21014,7 +20990,7 @@ struct retro_core_options_v2 options_nl = {
 
 /* RETRO_LANGUAGE_OC */
 
-#define CATEGORY_VIDEO_LABEL_OC NULL
+#define CATEGORY_VIDEO_LABEL_OC "Vidèo"
 #define CATEGORY_VIDEO_INFO_0_OC NULL
 #define CATEGORY_AUDIO_LABEL_OC NULL
 #define CATEGORY_AUDIO_INFO_0_OC NULL
@@ -21081,21 +21057,25 @@ struct retro_core_options_v2 options_nl = {
 #define OPTION_VAL_4_50_OC NULL
 #define OPTION_VAL_4_75_OC NULL
 #define OPTION_VAL_5_00_OC NULL
-#define PCE_MULTITAP_LABEL_OC NULL
-#define PCE_MULTITAP_INFO_0_OC NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_OC NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_OC NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_OC NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_OC NULL
+#define PCE_MULTITAP_LABEL_OC NULL
+#define PCE_MULTITAP_INFO_0_OC NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_OC NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_OC NULL
+#define PCE_TURBO_TOGGLING_LABEL_OC NULL
+#define PCE_TURBO_TOGGLING_INFO_0_OC NULL
+#define OPTION_VAL_TOGGLE_OC NULL
+#define OPTION_VAL_ALWAYS_OC NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_OC NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_OC NULL
 #define PCE_TURBO_DELAY_LABEL_OC NULL
 #define PCE_TURBO_DELAY_INFO_0_OC NULL
 #define OPTION_VAL_FAST_OC NULL
 #define OPTION_VAL_MEDIUM_OC NULL
 #define OPTION_VAL_SLOW_OC NULL
-#define PCE_TURBO_TOGGLING_LABEL_OC NULL
-#define OPTION_VAL_TOGGLE_OC NULL
-#define OPTION_VAL_ALWAYS_OC NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_OC NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_OC NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_OC NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_OC NULL
@@ -21106,8 +21086,6 @@ struct retro_core_options_v2 options_nl = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_OC NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_OC NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_OC NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_OC NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_OC NULL
 #define PCE_CDIMAGECACHE_LABEL_OC NULL
 #define PCE_CDIMAGECACHE_INFO_0_OC NULL
 #define PCE_CDBIOS_LABEL_OC NULL
@@ -21128,12 +21106,12 @@ struct retro_core_options_v2 options_nl = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_OC NULL
 #define OPTION_VAL_10_BIT_OC NULL
 #define OPTION_VAL_12_BIT_OC NULL
-#define PCE_CDDAVOLUME_LABEL_OC NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_OC NULL
-#define PCE_CDDAVOLUME_INFO_0_OC NULL
-#define PCE_CDDAVOLUME_INFO_1_OC NULL
 #define PCE_ADPCMVOLUME_LABEL_OC NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_OC NULL
+#define PCE_ADPCMVOLUME_INFO_0_OC NULL
+#define PCE_ADPCMVOLUME_INFO_1_OC NULL
+#define PCE_CDDAVOLUME_LABEL_OC NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_OC NULL
 #define PCE_CDPSGVOLUME_LABEL_OC NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_OC NULL
 #define PCE_NOSPRITELIMIT_LABEL_OC NULL
@@ -21204,7 +21182,6 @@ struct retro_core_option_v2_definition option_defs_oc[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_OC,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_OC,
       NULL,
       "video",
@@ -21424,20 +21401,6 @@ struct retro_core_option_v2_definition option_defs_oc[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_OC,
-      NULL,
-      PCE_MULTITAP_INFO_0_OC,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_OC,
       NULL,
@@ -21452,6 +21415,34 @@ struct retro_core_option_v2_definition option_defs_oc[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_OC,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_OC,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_OC,
+      NULL,
+      PCE_MULTITAP_INFO_0_OC,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_OC,
       NULL,
@@ -21461,6 +21452,35 @@ struct retro_core_option_v2_definition option_defs_oc[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_OC,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_OC,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_OC },
+         { "always", OPTION_VAL_ALWAYS_OC },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_OC,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_OC,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -21479,37 +21499,6 @@ struct retro_core_option_v2_definition option_defs_oc[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_OC,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_OC },
-         { "always", OPTION_VAL_ALWAYS_OC },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_OC,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -21652,20 +21641,6 @@ struct retro_core_option_v2_definition option_defs_oc[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_OC,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_OC,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_OC,
       NULL,
@@ -21742,11 +21717,11 @@ struct retro_core_option_v2_definition option_defs_oc[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_OC,
-      PCE_CDDAVOLUME_LABEL_CAT_OC,
-      PCE_CDDAVOLUME_INFO_0_OC,
-      PCE_CDDAVOLUME_INFO_1_OC,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_OC,
+      PCE_ADPCMVOLUME_LABEL_CAT_OC,
+      PCE_ADPCMVOLUME_INFO_0_OC,
+      PCE_ADPCMVOLUME_INFO_1_OC,
       "cd",
       {
          { "0", NULL },
@@ -21775,11 +21750,11 @@ struct retro_core_option_v2_definition option_defs_oc[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_OC,
-      PCE_ADPCMVOLUME_LABEL_CAT_OC,
-      PCE_CDDAVOLUME_INFO_0_OC,
-      PCE_CDDAVOLUME_INFO_1_OC,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_OC,
+      PCE_CDDAVOLUME_LABEL_CAT_OC,
+      PCE_ADPCMVOLUME_INFO_0_OC,
+      PCE_ADPCMVOLUME_INFO_1_OC,
       "cd",
       {
          { "0", NULL },
@@ -21811,8 +21786,8 @@ struct retro_core_option_v2_definition option_defs_oc[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_OC,
       PCE_CDPSGVOLUME_LABEL_CAT_OC,
-      PCE_CDDAVOLUME_INFO_0_OC,
-      PCE_CDDAVOLUME_INFO_1_OC,
+      PCE_ADPCMVOLUME_INFO_0_OC,
+      PCE_ADPCMVOLUME_INFO_1_OC,
       "cd",
       {
          { "0", NULL },
@@ -21889,48 +21864,48 @@ struct retro_core_options_v2 options_oc = {
 
 /* RETRO_LANGUAGE_PL */
 
-#define CATEGORY_VIDEO_LABEL_PL NULL
-#define CATEGORY_VIDEO_INFO_0_PL NULL
+#define CATEGORY_VIDEO_LABEL_PL "Wideo"
+#define CATEGORY_VIDEO_INFO_0_PL "Skonfiguruj proporcje, wyświetlaj przycinanie i inne parametry wyjściowe obrazu."
 #define CATEGORY_AUDIO_LABEL_PL NULL
-#define CATEGORY_AUDIO_INFO_0_PL NULL
-#define CATEGORY_INPUT_LABEL_PL NULL
+#define CATEGORY_AUDIO_INFO_0_PL "Skonfiguruj emulowane urządzenia audio."
+#define CATEGORY_INPUT_LABEL_PL "Wejście"
 #define CATEGORY_INPUT_INFO_0_PL NULL
-#define CATEGORY_HACKS_LABEL_PL NULL
-#define CATEGORY_HACKS_INFO_0_PL NULL
+#define CATEGORY_HACKS_LABEL_PL "Hacki emulacyjne"
+#define CATEGORY_HACKS_INFO_0_PL "Skonfiguruj przetaktowanie procesora i dokładność emulacji wpływające na niską wydajność i kompatybilność."
 #define CATEGORY_CD_LABEL_PL NULL
-#define CATEGORY_CD_INFO_0_PL NULL
-#define PCE_PALETTE_LABEL_PL NULL
+#define CATEGORY_CD_INFO_0_PL "Skonfiguruj ustawienia związane z emulacją PC Engine CD."
+#define PCE_PALETTE_LABEL_PL "Paleta kolorów"
 #define PCE_PALETTE_INFO_0_PL NULL
 #define OPTION_VAL_RGB_PL NULL
-#define OPTION_VAL_COMPOSITE_PL NULL
-#define PCE_ASPECT_RATIO_LABEL_PL NULL
+#define OPTION_VAL_COMPOSITE_PL "Kompozytowy"
+#define PCE_ASPECT_RATIO_LABEL_PL "Współczynnik proporcji"
 #define PCE_ASPECT_RATIO_INFO_0_PL NULL
 #define OPTION_VAL_AUTO_PL NULL
 #define OPTION_VAL_6_5_PL NULL
 #define OPTION_VAL_4_3_PL NULL
-#define OPTION_VAL_UNCORRECTED_PL NULL
-#define PCE_SCALING_LABEL_PL NULL
+#define OPTION_VAL_UNCORRECTED_PL "Niepoprawione"
+#define PCE_SCALING_LABEL_PL "Skalowanie rozdzielczości"
 #define PCE_SCALING_INFO_0_PL NULL
-#define OPTION_VAL_LORES_PL NULL
-#define OPTION_VAL_HIRES_PL NULL
+#define OPTION_VAL_LORES_PL "Niska rozdzielczość"
+#define OPTION_VAL_HIRES_PL "Wysoka rozdzielczość"
 #define PCE_HIRES_BLEND_LABEL_PL NULL
 #define PCE_HIRES_BLEND_INFO_0_PL NULL
 #define PCE_H_OVERSCAN_LABEL_PL NULL
 #define PCE_H_OVERSCAN_INFO_0_PL NULL
 #define PCE_INITIAL_SCANLINE_LABEL_PL NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_PL NULL
-#define OPTION_VAL_3_PL NULL
+#define OPTION_VAL_3_PL "3 (domyślnie)"
 #define PCE_LAST_SCANLINE_LABEL_PL NULL
 #define PCE_LAST_SCANLINE_INFO_0_PL NULL
-#define OPTION_VAL_242_PL NULL
+#define OPTION_VAL_242_PL "242 (domyślnie)"
 #define PCE_PSGREVISION_LABEL_PL NULL
 #define PCE_PSGREVISION_INFO_0_PL NULL
 #define OPTION_VAL_HUC6280_PL NULL
 #define OPTION_VAL_HUC6280A_PL NULL
 #define PCE_RESAMP_QUALITY_LABEL_PL NULL
 #define PCE_RESAMP_QUALITY_INFO_0_PL NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_PL NULL
-#define PCE_MOUSE_SENSITIVITY_INFO_0_PL NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_PL "Czułość myszy"
+#define PCE_MOUSE_SENSITIVITY_INFO_0_PL "Wyższe wartości sprawią, że kursor myszy będzie się szybszy."
 #define OPTION_VAL_0_125_PL NULL
 #define OPTION_VAL_0_250_PL NULL
 #define OPTION_VAL_0_375_PL NULL
@@ -21956,21 +21931,25 @@ struct retro_core_options_v2 options_oc = {
 #define OPTION_VAL_4_50_PL NULL
 #define OPTION_VAL_4_75_PL NULL
 #define OPTION_VAL_5_00_PL NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_PL "Zezwalaj na przeciwne kierunki"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_PL NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_PL "Wyłącz resetowanie systemu (RUN+SELECT)"
+#define PCE_DISABLE_SOFTRESET_INFO_0_PL NULL
 #define PCE_MULTITAP_LABEL_PL NULL
 #define PCE_MULTITAP_INFO_0_PL NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_PL NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_PL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PL "Pokaż zaawansowane ustawienia wejścia/Turbo"
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PL NULL
-#define PCE_TURBO_DELAY_LABEL_PL NULL
-#define PCE_TURBO_DELAY_INFO_0_PL NULL
-#define OPTION_VAL_FAST_PL NULL
-#define OPTION_VAL_MEDIUM_PL NULL
-#define OPTION_VAL_SLOW_PL NULL
 #define PCE_TURBO_TOGGLING_LABEL_PL NULL
-#define OPTION_VAL_TOGGLE_PL NULL
+#define PCE_TURBO_TOGGLING_INFO_0_PL NULL
+#define OPTION_VAL_TOGGLE_PL "Przełącz"
 #define OPTION_VAL_ALWAYS_PL NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_PL NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_PL "Alternatywny skrót Turbo"
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_PL NULL
+#define PCE_TURBO_DELAY_LABEL_PL "Turbo Prędkość"
+#define PCE_TURBO_DELAY_INFO_0_PL NULL
+#define OPTION_VAL_FAST_PL "Szybkie"
+#define OPTION_VAL_MEDIUM_PL "Średni"
+#define OPTION_VAL_SLOW_PL "Powolny"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_PL NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_PL NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_PL NULL
@@ -21981,37 +21960,35 @@ struct retro_core_options_v2 options_oc = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_PL NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_PL NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_PL NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_PL NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_PL NULL
 #define PCE_CDIMAGECACHE_LABEL_PL NULL
 #define PCE_CDIMAGECACHE_INFO_0_PL NULL
 #define PCE_CDBIOS_LABEL_PL NULL
 #define PCE_CDBIOS_INFO_0_PL NULL
 #define OPTION_VAL_GAMES_EXPRESS_PL NULL
-#define OPTION_VAL_SYSTEM_CARD_1_PL NULL
-#define OPTION_VAL_SYSTEM_CARD_2_PL NULL
-#define OPTION_VAL_SYSTEM_CARD_3_PL NULL
-#define OPTION_VAL_SYSTEM_CARD_2_US_PL NULL
-#define OPTION_VAL_SYSTEM_CARD_3_US_PL NULL
-#define PCE_ARCADECARD_LABEL_PL NULL
+#define OPTION_VAL_SYSTEM_CARD_1_PL "Karta systemowa 1"
+#define OPTION_VAL_SYSTEM_CARD_2_PL "Karta systemowa 2"
+#define OPTION_VAL_SYSTEM_CARD_3_PL "Karta systemowa 3"
+#define OPTION_VAL_SYSTEM_CARD_2_US_PL "Karta systemowa 2 USA"
+#define OPTION_VAL_SYSTEM_CARD_3_US_PL "Karta systemowa 3 USA"
+#define PCE_ARCADECARD_LABEL_PL "Karta Arcade (wymagany restart)"
 #define PCE_ARCADECARD_INFO_0_PL NULL
-#define PCE_CDSPEED_LABEL_PL NULL
-#define PCE_CDSPEED_LABEL_CAT_PL NULL
-#define PCE_CDSPEED_INFO_0_PL NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_PL NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CAT_PL NULL
-#define PCE_ADPCMEXTRAPREC_INFO_0_PL NULL
-#define OPTION_VAL_10_BIT_PL NULL
-#define OPTION_VAL_12_BIT_PL NULL
-#define PCE_CDDAVOLUME_LABEL_PL NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_PL NULL
-#define PCE_CDDAVOLUME_INFO_0_PL NULL
-#define PCE_CDDAVOLUME_INFO_1_PL NULL
-#define PCE_ADPCMVOLUME_LABEL_PL NULL
-#define PCE_ADPCMVOLUME_LABEL_CAT_PL NULL
-#define PCE_CDPSGVOLUME_LABEL_PL NULL
-#define PCE_CDPSGVOLUME_LABEL_CAT_PL NULL
-#define PCE_NOSPRITELIMIT_LABEL_PL NULL
+#define PCE_CDSPEED_LABEL_PL "(CD) Prędkość CD"
+#define PCE_CDSPEED_LABEL_CAT_PL "Prędkość CD"
+#define PCE_CDSPEED_INFO_0_PL "Wyższe wartości umożliwiają szybsze ładowanie, ale mogą powodować problemy z kilkoma grami."
+#define PCE_ADPCMEXTRAPREC_LABEL_PL "(CD) precyzja ADPCM"
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_PL "Dokładność ADPCM"
+#define PCE_ADPCMEXTRAPREC_INFO_0_PL "Pełna precyzja 12-bitów dla predyktora ADPCM MSM5205 może zmniejszyć szum podczas odtwarzania ADPCM."
+#define OPTION_VAL_10_BIT_PL "10-bitowe"
+#define OPTION_VAL_12_BIT_PL "12-bitowe"
+#define PCE_ADPCMVOLUME_LABEL_PL "(CD) Głośność ADPCM %"
+#define PCE_ADPCMVOLUME_LABEL_CAT_PL "Głośność ADPCM %"
+#define PCE_ADPCMVOLUME_INFO_0_PL "Tylko gra CD. Ustawienie tej kontroli głośności może spowodować przycinanie próbki."
+#define PCE_ADPCMVOLUME_INFO_1_PL "Ustawienie zbyt dużej regulacji głośności może spowodować przycinanie próbki."
+#define PCE_CDDAVOLUME_LABEL_PL "(CD) Głośność CDDA %"
+#define PCE_CDDAVOLUME_LABEL_CAT_PL "Głośność CDDA %"
+#define PCE_CDPSGVOLUME_LABEL_PL "(CD) Głośność CD PSG %"
+#define PCE_CDPSGVOLUME_LABEL_CAT_PL "Głośność CD PSG %"
+#define PCE_NOSPRITELIMIT_LABEL_PL "Bez limitu duszków"
 #define PCE_NOSPRITELIMIT_INFO_0_PL NULL
 #define PCE_OCMULTIPLIER_LABEL_PL NULL
 #define PCE_OCMULTIPLIER_INFO_0_PL NULL
@@ -22079,7 +22056,6 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_PL,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_PL,
       NULL,
       "video",
@@ -22299,20 +22275,6 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_PL,
-      NULL,
-      PCE_MULTITAP_INFO_0_PL,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_PL,
       NULL,
@@ -22327,6 +22289,34 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_PL,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_PL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_PL,
+      NULL,
+      PCE_MULTITAP_INFO_0_PL,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PL,
       NULL,
@@ -22336,6 +22326,35 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_PL,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_PL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_PL },
+         { "always", OPTION_VAL_ALWAYS_PL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_PL,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_PL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -22354,37 +22373,6 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_PL,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_PL },
-         { "always", OPTION_VAL_ALWAYS_PL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_PL,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -22527,20 +22515,6 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_PL,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_PL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_PL,
       NULL,
@@ -22617,11 +22591,11 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_PL,
-      PCE_CDDAVOLUME_LABEL_CAT_PL,
-      PCE_CDDAVOLUME_INFO_0_PL,
-      PCE_CDDAVOLUME_INFO_1_PL,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_PL,
+      PCE_ADPCMVOLUME_LABEL_CAT_PL,
+      PCE_ADPCMVOLUME_INFO_0_PL,
+      PCE_ADPCMVOLUME_INFO_1_PL,
       "cd",
       {
          { "0", NULL },
@@ -22650,11 +22624,11 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_PL,
-      PCE_ADPCMVOLUME_LABEL_CAT_PL,
-      PCE_CDDAVOLUME_INFO_0_PL,
-      PCE_CDDAVOLUME_INFO_1_PL,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_PL,
+      PCE_CDDAVOLUME_LABEL_CAT_PL,
+      PCE_ADPCMVOLUME_INFO_0_PL,
+      PCE_ADPCMVOLUME_INFO_1_PL,
       "cd",
       {
          { "0", NULL },
@@ -22686,8 +22660,8 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_PL,
       PCE_CDPSGVOLUME_LABEL_CAT_PL,
-      PCE_CDDAVOLUME_INFO_0_PL,
-      PCE_CDDAVOLUME_INFO_1_PL,
+      PCE_ADPCMVOLUME_INFO_0_PL,
+      PCE_ADPCMVOLUME_INFO_1_PL,
       "cd",
       {
          { "0", NULL },
@@ -22764,47 +22738,47 @@ struct retro_core_options_v2 options_pl = {
 
 /* RETRO_LANGUAGE_PT_BR */
 
-#define CATEGORY_VIDEO_LABEL_PT_BR NULL
+#define CATEGORY_VIDEO_LABEL_PT_BR "Vídeo"
 #define CATEGORY_VIDEO_INFO_0_PT_BR NULL
-#define CATEGORY_AUDIO_LABEL_PT_BR NULL
-#define CATEGORY_AUDIO_INFO_0_PT_BR NULL
-#define CATEGORY_INPUT_LABEL_PT_BR NULL
+#define CATEGORY_AUDIO_LABEL_PT_BR "Áudio"
+#define CATEGORY_AUDIO_INFO_0_PT_BR "Configure os dispositivos de áudio emulados."
+#define CATEGORY_INPUT_LABEL_PT_BR "Entrada"
 #define CATEGORY_INPUT_INFO_0_PT_BR NULL
-#define CATEGORY_HACKS_LABEL_PT_BR NULL
-#define CATEGORY_HACKS_INFO_0_PT_BR NULL
+#define CATEGORY_HACKS_LABEL_PT_BR "Hacks de emulação"
+#define CATEGORY_HACKS_INFO_0_PT_BR "Configure os parâmetros de precisão de overclock e emulação do processador que afetam o baixo desempenho e a compatibilidade."
 #define CATEGORY_CD_LABEL_PT_BR NULL
 #define CATEGORY_CD_INFO_0_PT_BR NULL
-#define PCE_PALETTE_LABEL_PT_BR NULL
+#define PCE_PALETTE_LABEL_PT_BR "Paleta de cores"
 #define PCE_PALETTE_INFO_0_PT_BR NULL
 #define OPTION_VAL_RGB_PT_BR NULL
-#define OPTION_VAL_COMPOSITE_PT_BR NULL
-#define PCE_ASPECT_RATIO_LABEL_PT_BR NULL
-#define PCE_ASPECT_RATIO_INFO_0_PT_BR NULL
-#define OPTION_VAL_AUTO_PT_BR NULL
+#define OPTION_VAL_COMPOSITE_PT_BR "Composto"
+#define PCE_ASPECT_RATIO_LABEL_PT_BR "Proporção de tela"
+#define PCE_ASPECT_RATIO_INFO_0_PT_BR "Escolhe a proporção de tela preferida do conteúdo. Isso se aplicará somente quando a proporção de tela do RetroArch estiver configurada como 'Fornecida pelo núcleo' nas configurações de vídeo."
+#define OPTION_VAL_AUTO_PT_BR "Automática"
 #define OPTION_VAL_6_5_PT_BR NULL
 #define OPTION_VAL_4_3_PT_BR NULL
-#define OPTION_VAL_UNCORRECTED_PT_BR NULL
+#define OPTION_VAL_UNCORRECTED_PT_BR "Não corrigida"
 #define PCE_SCALING_LABEL_PT_BR NULL
 #define PCE_SCALING_INFO_0_PT_BR NULL
 #define OPTION_VAL_LORES_PT_BR NULL
 #define OPTION_VAL_HIRES_PT_BR NULL
 #define PCE_HIRES_BLEND_LABEL_PT_BR NULL
 #define PCE_HIRES_BLEND_INFO_0_PT_BR NULL
-#define PCE_H_OVERSCAN_LABEL_PT_BR NULL
+#define PCE_H_OVERSCAN_LABEL_PT_BR "Mostrar overscan horizontal"
 #define PCE_H_OVERSCAN_INFO_0_PT_BR NULL
 #define PCE_INITIAL_SCANLINE_LABEL_PT_BR NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_PT_BR NULL
-#define OPTION_VAL_3_PT_BR NULL
+#define OPTION_VAL_3_PT_BR "3 (padrão)"
 #define PCE_LAST_SCANLINE_LABEL_PT_BR NULL
 #define PCE_LAST_SCANLINE_INFO_0_PT_BR NULL
-#define OPTION_VAL_242_PT_BR NULL
+#define OPTION_VAL_242_PT_BR "242 (padrão)"
 #define PCE_PSGREVISION_LABEL_PT_BR NULL
 #define PCE_PSGREVISION_INFO_0_PT_BR NULL
 #define OPTION_VAL_HUC6280_PT_BR NULL
 #define OPTION_VAL_HUC6280A_PT_BR NULL
 #define PCE_RESAMP_QUALITY_LABEL_PT_BR NULL
 #define PCE_RESAMP_QUALITY_INFO_0_PT_BR NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_PT_BR NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_PT_BR "Sensibilidade do mouse"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_PT_BR NULL
 #define OPTION_VAL_0_125_PT_BR NULL
 #define OPTION_VAL_0_250_PT_BR NULL
@@ -22831,21 +22805,25 @@ struct retro_core_options_v2 options_pl = {
 #define OPTION_VAL_4_50_PT_BR NULL
 #define OPTION_VAL_4_75_PT_BR NULL
 #define OPTION_VAL_5_00_PT_BR NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_PT_BR "Permitir direções opostas"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_PT_BR "Esta opção permitirá pressionar, alternar ou segurar rapidamente as direções esquerda e direita (ou cima e baixo) ao mesmo tempo. Pode causar falhas de movimento."
+#define PCE_DISABLE_SOFTRESET_LABEL_PT_BR NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_PT_BR NULL
 #define PCE_MULTITAP_LABEL_PT_BR NULL
 #define PCE_MULTITAP_INFO_0_PT_BR NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_PT_BR NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_PT_BR NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_BR NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_BR NULL
-#define PCE_TURBO_DELAY_LABEL_PT_BR NULL
-#define PCE_TURBO_DELAY_INFO_0_PT_BR NULL
-#define OPTION_VAL_FAST_PT_BR NULL
-#define OPTION_VAL_MEDIUM_PT_BR NULL
-#define OPTION_VAL_SLOW_PT_BR NULL
 #define PCE_TURBO_TOGGLING_LABEL_PT_BR NULL
+#define PCE_TURBO_TOGGLING_INFO_0_PT_BR NULL
 #define OPTION_VAL_TOGGLE_PT_BR NULL
 #define OPTION_VAL_ALWAYS_PT_BR NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_PT_BR NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_PT_BR NULL
+#define PCE_TURBO_DELAY_LABEL_PT_BR NULL
+#define PCE_TURBO_DELAY_INFO_0_PT_BR NULL
+#define OPTION_VAL_FAST_PT_BR "Rápida"
+#define OPTION_VAL_MEDIUM_PT_BR NULL
+#define OPTION_VAL_SLOW_PT_BR NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_PT_BR NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_PT_BR NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_PT_BR NULL
@@ -22856,8 +22834,6 @@ struct retro_core_options_v2 options_pl = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_PT_BR NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_PT_BR NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_PT_BR NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_PT_BR NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_PT_BR NULL
 #define PCE_CDIMAGECACHE_LABEL_PT_BR NULL
 #define PCE_CDIMAGECACHE_INFO_0_PT_BR NULL
 #define PCE_CDBIOS_LABEL_PT_BR NULL
@@ -22878,15 +22854,15 @@ struct retro_core_options_v2 options_pl = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_PT_BR NULL
 #define OPTION_VAL_10_BIT_PT_BR NULL
 #define OPTION_VAL_12_BIT_PT_BR NULL
-#define PCE_CDDAVOLUME_LABEL_PT_BR NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_PT_BR NULL
-#define PCE_CDDAVOLUME_INFO_0_PT_BR NULL
-#define PCE_CDDAVOLUME_INFO_1_PT_BR NULL
 #define PCE_ADPCMVOLUME_LABEL_PT_BR NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_PT_BR NULL
+#define PCE_ADPCMVOLUME_INFO_0_PT_BR NULL
+#define PCE_ADPCMVOLUME_INFO_1_PT_BR NULL
+#define PCE_CDDAVOLUME_LABEL_PT_BR NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_PT_BR NULL
 #define PCE_CDPSGVOLUME_LABEL_PT_BR NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_PT_BR NULL
-#define PCE_NOSPRITELIMIT_LABEL_PT_BR NULL
+#define PCE_NOSPRITELIMIT_LABEL_PT_BR "Sem tempo limite do sprite"
 #define PCE_NOSPRITELIMIT_INFO_0_PT_BR NULL
 #define PCE_OCMULTIPLIER_LABEL_PT_BR NULL
 #define PCE_OCMULTIPLIER_INFO_0_PT_BR NULL
@@ -22954,7 +22930,6 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_PT_BR,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_PT_BR,
       NULL,
       "video",
@@ -23174,20 +23149,6 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_PT_BR,
-      NULL,
-      PCE_MULTITAP_INFO_0_PT_BR,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_PT_BR,
       NULL,
@@ -23202,6 +23163,34 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_PT_BR,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_PT_BR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_PT_BR,
+      NULL,
+      PCE_MULTITAP_INFO_0_PT_BR,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_BR,
       NULL,
@@ -23211,6 +23200,35 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_PT_BR,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_PT_BR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_PT_BR },
+         { "always", OPTION_VAL_ALWAYS_PT_BR },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_PT_BR,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_PT_BR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -23229,37 +23247,6 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_PT_BR,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_PT_BR },
-         { "always", OPTION_VAL_ALWAYS_PT_BR },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_PT_BR,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -23402,20 +23389,6 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_PT_BR,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_PT_BR,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_PT_BR,
       NULL,
@@ -23492,11 +23465,11 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_PT_BR,
-      PCE_CDDAVOLUME_LABEL_CAT_PT_BR,
-      PCE_CDDAVOLUME_INFO_0_PT_BR,
-      PCE_CDDAVOLUME_INFO_1_PT_BR,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_PT_BR,
+      PCE_ADPCMVOLUME_LABEL_CAT_PT_BR,
+      PCE_ADPCMVOLUME_INFO_0_PT_BR,
+      PCE_ADPCMVOLUME_INFO_1_PT_BR,
       "cd",
       {
          { "0", NULL },
@@ -23525,11 +23498,11 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_PT_BR,
-      PCE_ADPCMVOLUME_LABEL_CAT_PT_BR,
-      PCE_CDDAVOLUME_INFO_0_PT_BR,
-      PCE_CDDAVOLUME_INFO_1_PT_BR,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_PT_BR,
+      PCE_CDDAVOLUME_LABEL_CAT_PT_BR,
+      PCE_ADPCMVOLUME_INFO_0_PT_BR,
+      PCE_ADPCMVOLUME_INFO_1_PT_BR,
       "cd",
       {
          { "0", NULL },
@@ -23561,8 +23534,8 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_PT_BR,
       PCE_CDPSGVOLUME_LABEL_CAT_PT_BR,
-      PCE_CDDAVOLUME_INFO_0_PT_BR,
-      PCE_CDDAVOLUME_INFO_1_PT_BR,
+      PCE_ADPCMVOLUME_INFO_0_PT_BR,
+      PCE_ADPCMVOLUME_INFO_1_PT_BR,
       "cd",
       {
          { "0", NULL },
@@ -23639,11 +23612,11 @@ struct retro_core_options_v2 options_pt_br = {
 
 /* RETRO_LANGUAGE_PT_PT */
 
-#define CATEGORY_VIDEO_LABEL_PT_PT NULL
+#define CATEGORY_VIDEO_LABEL_PT_PT "Vídeo"
 #define CATEGORY_VIDEO_INFO_0_PT_PT NULL
-#define CATEGORY_AUDIO_LABEL_PT_PT NULL
+#define CATEGORY_AUDIO_LABEL_PT_PT "Áudio"
 #define CATEGORY_AUDIO_INFO_0_PT_PT NULL
-#define CATEGORY_INPUT_LABEL_PT_PT NULL
+#define CATEGORY_INPUT_LABEL_PT_PT "Entrada"
 #define CATEGORY_INPUT_INFO_0_PT_PT NULL
 #define CATEGORY_HACKS_LABEL_PT_PT NULL
 #define CATEGORY_HACKS_INFO_0_PT_PT NULL
@@ -23653,7 +23626,7 @@ struct retro_core_options_v2 options_pt_br = {
 #define PCE_PALETTE_INFO_0_PT_PT NULL
 #define OPTION_VAL_RGB_PT_PT NULL
 #define OPTION_VAL_COMPOSITE_PT_PT NULL
-#define PCE_ASPECT_RATIO_LABEL_PT_PT NULL
+#define PCE_ASPECT_RATIO_LABEL_PT_PT "Proporção do ecrã"
 #define PCE_ASPECT_RATIO_INFO_0_PT_PT NULL
 #define OPTION_VAL_AUTO_PT_PT NULL
 #define OPTION_VAL_6_5_PT_PT NULL
@@ -23706,21 +23679,25 @@ struct retro_core_options_v2 options_pt_br = {
 #define OPTION_VAL_4_50_PT_PT NULL
 #define OPTION_VAL_4_75_PT_PT NULL
 #define OPTION_VAL_5_00_PT_PT NULL
-#define PCE_MULTITAP_LABEL_PT_PT NULL
-#define PCE_MULTITAP_INFO_0_PT_PT NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_PT_PT NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_PT_PT NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_PT_PT NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_PT_PT NULL
+#define PCE_MULTITAP_LABEL_PT_PT NULL
+#define PCE_MULTITAP_INFO_0_PT_PT NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_PT NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_PT NULL
+#define PCE_TURBO_TOGGLING_LABEL_PT_PT NULL
+#define PCE_TURBO_TOGGLING_INFO_0_PT_PT NULL
+#define OPTION_VAL_TOGGLE_PT_PT NULL
+#define OPTION_VAL_ALWAYS_PT_PT NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_PT_PT NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_PT_PT NULL
 #define PCE_TURBO_DELAY_LABEL_PT_PT NULL
 #define PCE_TURBO_DELAY_INFO_0_PT_PT NULL
 #define OPTION_VAL_FAST_PT_PT NULL
 #define OPTION_VAL_MEDIUM_PT_PT NULL
 #define OPTION_VAL_SLOW_PT_PT NULL
-#define PCE_TURBO_TOGGLING_LABEL_PT_PT NULL
-#define OPTION_VAL_TOGGLE_PT_PT NULL
-#define OPTION_VAL_ALWAYS_PT_PT NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_PT_PT NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_PT_PT NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_PT_PT NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_PT_PT NULL
@@ -23731,8 +23708,6 @@ struct retro_core_options_v2 options_pt_br = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_PT_PT NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_PT_PT NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_PT_PT NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_PT_PT NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_PT_PT NULL
 #define PCE_CDIMAGECACHE_LABEL_PT_PT NULL
 #define PCE_CDIMAGECACHE_INFO_0_PT_PT NULL
 #define PCE_CDBIOS_LABEL_PT_PT NULL
@@ -23753,12 +23728,12 @@ struct retro_core_options_v2 options_pt_br = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_PT_PT NULL
 #define OPTION_VAL_10_BIT_PT_PT NULL
 #define OPTION_VAL_12_BIT_PT_PT NULL
-#define PCE_CDDAVOLUME_LABEL_PT_PT NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_PT_PT NULL
-#define PCE_CDDAVOLUME_INFO_0_PT_PT NULL
-#define PCE_CDDAVOLUME_INFO_1_PT_PT NULL
 #define PCE_ADPCMVOLUME_LABEL_PT_PT NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_PT_PT NULL
+#define PCE_ADPCMVOLUME_INFO_0_PT_PT NULL
+#define PCE_ADPCMVOLUME_INFO_1_PT_PT NULL
+#define PCE_CDDAVOLUME_LABEL_PT_PT NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_PT_PT NULL
 #define PCE_CDPSGVOLUME_LABEL_PT_PT NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_PT_PT NULL
 #define PCE_NOSPRITELIMIT_LABEL_PT_PT NULL
@@ -23829,7 +23804,6 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_PT_PT,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_PT_PT,
       NULL,
       "video",
@@ -24049,20 +24023,6 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_PT_PT,
-      NULL,
-      PCE_MULTITAP_INFO_0_PT_PT,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_PT_PT,
       NULL,
@@ -24077,6 +24037,34 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_PT_PT,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_PT_PT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_PT_PT,
+      NULL,
+      PCE_MULTITAP_INFO_0_PT_PT,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_PT,
       NULL,
@@ -24086,6 +24074,35 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_PT_PT,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_PT_PT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_PT_PT },
+         { "always", OPTION_VAL_ALWAYS_PT_PT },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_PT_PT,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_PT_PT,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -24104,37 +24121,6 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_PT_PT,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_PT_PT },
-         { "always", OPTION_VAL_ALWAYS_PT_PT },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_PT_PT,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -24277,20 +24263,6 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_PT_PT,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_PT_PT,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_PT_PT,
       NULL,
@@ -24367,11 +24339,11 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_PT_PT,
-      PCE_CDDAVOLUME_LABEL_CAT_PT_PT,
-      PCE_CDDAVOLUME_INFO_0_PT_PT,
-      PCE_CDDAVOLUME_INFO_1_PT_PT,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_PT_PT,
+      PCE_ADPCMVOLUME_LABEL_CAT_PT_PT,
+      PCE_ADPCMVOLUME_INFO_0_PT_PT,
+      PCE_ADPCMVOLUME_INFO_1_PT_PT,
       "cd",
       {
          { "0", NULL },
@@ -24400,11 +24372,11 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_PT_PT,
-      PCE_ADPCMVOLUME_LABEL_CAT_PT_PT,
-      PCE_CDDAVOLUME_INFO_0_PT_PT,
-      PCE_CDDAVOLUME_INFO_1_PT_PT,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_PT_PT,
+      PCE_CDDAVOLUME_LABEL_CAT_PT_PT,
+      PCE_ADPCMVOLUME_INFO_0_PT_PT,
+      PCE_ADPCMVOLUME_INFO_1_PT_PT,
       "cd",
       {
          { "0", NULL },
@@ -24436,8 +24408,8 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_PT_PT,
       PCE_CDPSGVOLUME_LABEL_CAT_PT_PT,
-      PCE_CDDAVOLUME_INFO_0_PT_PT,
-      PCE_CDDAVOLUME_INFO_1_PT_PT,
+      PCE_ADPCMVOLUME_INFO_0_PT_PT,
+      PCE_ADPCMVOLUME_INFO_1_PT_PT,
       "cd",
       {
          { "0", NULL },
@@ -24581,21 +24553,25 @@ struct retro_core_options_v2 options_pt_pt = {
 #define OPTION_VAL_4_50_RO NULL
 #define OPTION_VAL_4_75_RO NULL
 #define OPTION_VAL_5_00_RO NULL
-#define PCE_MULTITAP_LABEL_RO NULL
-#define PCE_MULTITAP_INFO_0_RO NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_RO NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_RO NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_RO NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_RO NULL
+#define PCE_MULTITAP_LABEL_RO NULL
+#define PCE_MULTITAP_INFO_0_RO NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RO NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RO NULL
+#define PCE_TURBO_TOGGLING_LABEL_RO NULL
+#define PCE_TURBO_TOGGLING_INFO_0_RO NULL
+#define OPTION_VAL_TOGGLE_RO NULL
+#define OPTION_VAL_ALWAYS_RO NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_RO NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_RO NULL
 #define PCE_TURBO_DELAY_LABEL_RO NULL
 #define PCE_TURBO_DELAY_INFO_0_RO NULL
 #define OPTION_VAL_FAST_RO NULL
 #define OPTION_VAL_MEDIUM_RO NULL
 #define OPTION_VAL_SLOW_RO NULL
-#define PCE_TURBO_TOGGLING_LABEL_RO NULL
-#define OPTION_VAL_TOGGLE_RO NULL
-#define OPTION_VAL_ALWAYS_RO NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_RO NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_RO NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_RO NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_RO NULL
@@ -24606,8 +24582,6 @@ struct retro_core_options_v2 options_pt_pt = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_RO NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_RO NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_RO NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_RO NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_RO NULL
 #define PCE_CDIMAGECACHE_LABEL_RO NULL
 #define PCE_CDIMAGECACHE_INFO_0_RO NULL
 #define PCE_CDBIOS_LABEL_RO NULL
@@ -24628,12 +24602,12 @@ struct retro_core_options_v2 options_pt_pt = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_RO NULL
 #define OPTION_VAL_10_BIT_RO NULL
 #define OPTION_VAL_12_BIT_RO NULL
-#define PCE_CDDAVOLUME_LABEL_RO NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_RO NULL
-#define PCE_CDDAVOLUME_INFO_0_RO NULL
-#define PCE_CDDAVOLUME_INFO_1_RO NULL
 #define PCE_ADPCMVOLUME_LABEL_RO NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_RO NULL
+#define PCE_ADPCMVOLUME_INFO_0_RO NULL
+#define PCE_ADPCMVOLUME_INFO_1_RO NULL
+#define PCE_CDDAVOLUME_LABEL_RO NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_RO NULL
 #define PCE_CDPSGVOLUME_LABEL_RO NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_RO NULL
 #define PCE_NOSPRITELIMIT_LABEL_RO NULL
@@ -24704,7 +24678,6 @@ struct retro_core_option_v2_definition option_defs_ro[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_RO,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_RO,
       NULL,
       "video",
@@ -24924,20 +24897,6 @@ struct retro_core_option_v2_definition option_defs_ro[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_RO,
-      NULL,
-      PCE_MULTITAP_INFO_0_RO,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_RO,
       NULL,
@@ -24952,6 +24911,34 @@ struct retro_core_option_v2_definition option_defs_ro[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_RO,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_RO,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_RO,
+      NULL,
+      PCE_MULTITAP_INFO_0_RO,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RO,
       NULL,
@@ -24961,6 +24948,35 @@ struct retro_core_option_v2_definition option_defs_ro[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_RO,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_RO,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_RO },
+         { "always", OPTION_VAL_ALWAYS_RO },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_RO,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_RO,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -24979,37 +24995,6 @@ struct retro_core_option_v2_definition option_defs_ro[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_RO,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_RO },
-         { "always", OPTION_VAL_ALWAYS_RO },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_RO,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -25152,20 +25137,6 @@ struct retro_core_option_v2_definition option_defs_ro[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_RO,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_RO,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_RO,
       NULL,
@@ -25242,11 +25213,11 @@ struct retro_core_option_v2_definition option_defs_ro[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_RO,
-      PCE_CDDAVOLUME_LABEL_CAT_RO,
-      PCE_CDDAVOLUME_INFO_0_RO,
-      PCE_CDDAVOLUME_INFO_1_RO,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_RO,
+      PCE_ADPCMVOLUME_LABEL_CAT_RO,
+      PCE_ADPCMVOLUME_INFO_0_RO,
+      PCE_ADPCMVOLUME_INFO_1_RO,
       "cd",
       {
          { "0", NULL },
@@ -25275,11 +25246,11 @@ struct retro_core_option_v2_definition option_defs_ro[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_RO,
-      PCE_ADPCMVOLUME_LABEL_CAT_RO,
-      PCE_CDDAVOLUME_INFO_0_RO,
-      PCE_CDDAVOLUME_INFO_1_RO,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_RO,
+      PCE_CDDAVOLUME_LABEL_CAT_RO,
+      PCE_ADPCMVOLUME_INFO_0_RO,
+      PCE_ADPCMVOLUME_INFO_1_RO,
       "cd",
       {
          { "0", NULL },
@@ -25311,8 +25282,8 @@ struct retro_core_option_v2_definition option_defs_ro[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_RO,
       PCE_CDPSGVOLUME_LABEL_CAT_RO,
-      PCE_CDDAVOLUME_INFO_0_RO,
-      PCE_CDDAVOLUME_INFO_1_RO,
+      PCE_ADPCMVOLUME_INFO_0_RO,
+      PCE_ADPCMVOLUME_INFO_1_RO,
       "cd",
       {
          { "0", NULL },
@@ -25389,47 +25360,47 @@ struct retro_core_options_v2 options_ro = {
 
 /* RETRO_LANGUAGE_RU */
 
-#define CATEGORY_VIDEO_LABEL_RU NULL
+#define CATEGORY_VIDEO_LABEL_RU "Видео"
 #define CATEGORY_VIDEO_INFO_0_RU NULL
-#define CATEGORY_AUDIO_LABEL_RU NULL
-#define CATEGORY_AUDIO_INFO_0_RU NULL
-#define CATEGORY_INPUT_LABEL_RU NULL
+#define CATEGORY_AUDIO_LABEL_RU "Аудио"
+#define CATEGORY_AUDIO_INFO_0_RU "Настройки эмуляции аудиоустройств."
+#define CATEGORY_INPUT_LABEL_RU "Ввод"
 #define CATEGORY_INPUT_INFO_0_RU NULL
-#define CATEGORY_HACKS_LABEL_RU NULL
-#define CATEGORY_HACKS_INFO_0_RU NULL
+#define CATEGORY_HACKS_LABEL_RU "Хаки эмуляции"
+#define CATEGORY_HACKS_INFO_0_RU "Настройка разгона процессора и параметров точности эмуляции, влияющих на производительность и совместимость."
 #define CATEGORY_CD_LABEL_RU NULL
 #define CATEGORY_CD_INFO_0_RU NULL
-#define PCE_PALETTE_LABEL_RU NULL
+#define PCE_PALETTE_LABEL_RU "Цветовая палитра"
 #define PCE_PALETTE_INFO_0_RU NULL
 #define OPTION_VAL_RGB_RU NULL
-#define OPTION_VAL_COMPOSITE_RU NULL
-#define PCE_ASPECT_RATIO_LABEL_RU NULL
-#define PCE_ASPECT_RATIO_INFO_0_RU NULL
-#define OPTION_VAL_AUTO_RU NULL
+#define OPTION_VAL_COMPOSITE_RU "Композитный"
+#define PCE_ASPECT_RATIO_LABEL_RU "Соотношение сторон"
+#define PCE_ASPECT_RATIO_INFO_0_RU "Выбор предпочтительного соотношения сторон контента. Учитывается только при установке соотношения сторон RetroArch на 'Core Provided' в настройках видео."
+#define OPTION_VAL_AUTO_RU "Авто"
 #define OPTION_VAL_6_5_RU NULL
 #define OPTION_VAL_4_3_RU NULL
-#define OPTION_VAL_UNCORRECTED_RU NULL
+#define OPTION_VAL_UNCORRECTED_RU "Нескорректированное"
 #define PCE_SCALING_LABEL_RU NULL
 #define PCE_SCALING_INFO_0_RU NULL
 #define OPTION_VAL_LORES_RU NULL
 #define OPTION_VAL_HIRES_RU NULL
 #define PCE_HIRES_BLEND_LABEL_RU NULL
 #define PCE_HIRES_BLEND_INFO_0_RU NULL
-#define PCE_H_OVERSCAN_LABEL_RU NULL
+#define PCE_H_OVERSCAN_LABEL_RU "Показывать гориз. вылеты развёртки"
 #define PCE_H_OVERSCAN_INFO_0_RU NULL
 #define PCE_INITIAL_SCANLINE_LABEL_RU NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_RU NULL
-#define OPTION_VAL_3_RU NULL
+#define OPTION_VAL_3_RU "3 (по умолчанию)"
 #define PCE_LAST_SCANLINE_LABEL_RU NULL
 #define PCE_LAST_SCANLINE_INFO_0_RU NULL
-#define OPTION_VAL_242_RU NULL
+#define OPTION_VAL_242_RU "242 (по умолчанию)"
 #define PCE_PSGREVISION_LABEL_RU NULL
 #define PCE_PSGREVISION_INFO_0_RU NULL
 #define OPTION_VAL_HUC6280_RU NULL
 #define OPTION_VAL_HUC6280A_RU NULL
 #define PCE_RESAMP_QUALITY_LABEL_RU NULL
 #define PCE_RESAMP_QUALITY_INFO_0_RU NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_RU NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_RU "Чувствительность мыши"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_RU NULL
 #define OPTION_VAL_0_125_RU NULL
 #define OPTION_VAL_0_250_RU NULL
@@ -25456,21 +25427,25 @@ struct retro_core_options_v2 options_ro = {
 #define OPTION_VAL_4_50_RU NULL
 #define OPTION_VAL_4_75_RU NULL
 #define OPTION_VAL_5_00_RU NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_RU "Разрешить противоположные направления"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_RU "Позволяет нажимать / быстро менять / зажимать одновременно направления влево и вправо (или вверх и вниз). Может вызывать глитчи, связанные с перемещением."
+#define PCE_DISABLE_SOFTRESET_LABEL_RU NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_RU NULL
 #define PCE_MULTITAP_LABEL_RU NULL
 #define PCE_MULTITAP_INFO_0_RU NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_RU NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_RU NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RU NULL
-#define PCE_TURBO_DELAY_LABEL_RU NULL
-#define PCE_TURBO_DELAY_INFO_0_RU NULL
-#define OPTION_VAL_FAST_RU NULL
-#define OPTION_VAL_MEDIUM_RU NULL
-#define OPTION_VAL_SLOW_RU NULL
 #define PCE_TURBO_TOGGLING_LABEL_RU NULL
+#define PCE_TURBO_TOGGLING_INFO_0_RU NULL
 #define OPTION_VAL_TOGGLE_RU NULL
 #define OPTION_VAL_ALWAYS_RU NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_RU NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_RU NULL
+#define PCE_TURBO_DELAY_LABEL_RU NULL
+#define PCE_TURBO_DELAY_INFO_0_RU NULL
+#define OPTION_VAL_FAST_RU "Быстрый"
+#define OPTION_VAL_MEDIUM_RU NULL
+#define OPTION_VAL_SLOW_RU NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_RU NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_RU NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_RU NULL
@@ -25481,8 +25456,6 @@ struct retro_core_options_v2 options_ro = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_RU NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_RU NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_RU NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_RU NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_RU NULL
 #define PCE_CDIMAGECACHE_LABEL_RU NULL
 #define PCE_CDIMAGECACHE_INFO_0_RU NULL
 #define PCE_CDBIOS_LABEL_RU NULL
@@ -25503,15 +25476,15 @@ struct retro_core_options_v2 options_ro = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_RU NULL
 #define OPTION_VAL_10_BIT_RU NULL
 #define OPTION_VAL_12_BIT_RU NULL
-#define PCE_CDDAVOLUME_LABEL_RU NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_RU NULL
-#define PCE_CDDAVOLUME_INFO_0_RU NULL
-#define PCE_CDDAVOLUME_INFO_1_RU NULL
 #define PCE_ADPCMVOLUME_LABEL_RU NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_RU NULL
+#define PCE_ADPCMVOLUME_INFO_0_RU NULL
+#define PCE_ADPCMVOLUME_INFO_1_RU NULL
+#define PCE_CDDAVOLUME_LABEL_RU NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_RU NULL
 #define PCE_CDPSGVOLUME_LABEL_RU NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_RU NULL
-#define PCE_NOSPRITELIMIT_LABEL_RU NULL
+#define PCE_NOSPRITELIMIT_LABEL_RU "Без ограничения спрайтов"
 #define PCE_NOSPRITELIMIT_INFO_0_RU NULL
 #define PCE_OCMULTIPLIER_LABEL_RU NULL
 #define PCE_OCMULTIPLIER_INFO_0_RU NULL
@@ -25579,7 +25552,6 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_RU,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_RU,
       NULL,
       "video",
@@ -25799,20 +25771,6 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_RU,
-      NULL,
-      PCE_MULTITAP_INFO_0_RU,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_RU,
       NULL,
@@ -25827,6 +25785,34 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_RU,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_RU,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_RU,
+      NULL,
+      PCE_MULTITAP_INFO_0_RU,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU,
       NULL,
@@ -25836,6 +25822,35 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_RU,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_RU,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_RU },
+         { "always", OPTION_VAL_ALWAYS_RU },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_RU,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_RU,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -25854,37 +25869,6 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_RU,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_RU },
-         { "always", OPTION_VAL_ALWAYS_RU },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_RU,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -26027,20 +26011,6 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_RU,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_RU,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_RU,
       NULL,
@@ -26117,11 +26087,11 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_RU,
-      PCE_CDDAVOLUME_LABEL_CAT_RU,
-      PCE_CDDAVOLUME_INFO_0_RU,
-      PCE_CDDAVOLUME_INFO_1_RU,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_RU,
+      PCE_ADPCMVOLUME_LABEL_CAT_RU,
+      PCE_ADPCMVOLUME_INFO_0_RU,
+      PCE_ADPCMVOLUME_INFO_1_RU,
       "cd",
       {
          { "0", NULL },
@@ -26150,11 +26120,11 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_RU,
-      PCE_ADPCMVOLUME_LABEL_CAT_RU,
-      PCE_CDDAVOLUME_INFO_0_RU,
-      PCE_CDDAVOLUME_INFO_1_RU,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_RU,
+      PCE_CDDAVOLUME_LABEL_CAT_RU,
+      PCE_ADPCMVOLUME_INFO_0_RU,
+      PCE_ADPCMVOLUME_INFO_1_RU,
       "cd",
       {
          { "0", NULL },
@@ -26186,8 +26156,8 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_RU,
       PCE_CDPSGVOLUME_LABEL_CAT_RU,
-      PCE_CDDAVOLUME_INFO_0_RU,
-      PCE_CDDAVOLUME_INFO_1_RU,
+      PCE_ADPCMVOLUME_INFO_0_RU,
+      PCE_ADPCMVOLUME_INFO_1_RU,
       "cd",
       {
          { "0", NULL },
@@ -26331,21 +26301,25 @@ struct retro_core_options_v2 options_ru = {
 #define OPTION_VAL_4_50_SI NULL
 #define OPTION_VAL_4_75_SI NULL
 #define OPTION_VAL_5_00_SI NULL
-#define PCE_MULTITAP_LABEL_SI NULL
-#define PCE_MULTITAP_INFO_0_SI NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_SI NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_SI NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_SI NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_SI NULL
+#define PCE_MULTITAP_LABEL_SI NULL
+#define PCE_MULTITAP_INFO_0_SI NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SI NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SI NULL
+#define PCE_TURBO_TOGGLING_LABEL_SI NULL
+#define PCE_TURBO_TOGGLING_INFO_0_SI NULL
+#define OPTION_VAL_TOGGLE_SI NULL
+#define OPTION_VAL_ALWAYS_SI NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_SI NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SI NULL
 #define PCE_TURBO_DELAY_LABEL_SI NULL
 #define PCE_TURBO_DELAY_INFO_0_SI NULL
 #define OPTION_VAL_FAST_SI NULL
 #define OPTION_VAL_MEDIUM_SI NULL
 #define OPTION_VAL_SLOW_SI NULL
-#define PCE_TURBO_TOGGLING_LABEL_SI NULL
-#define OPTION_VAL_TOGGLE_SI NULL
-#define OPTION_VAL_ALWAYS_SI NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_SI NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_SI NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_SI NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_SI NULL
@@ -26356,8 +26330,6 @@ struct retro_core_options_v2 options_ru = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_SI NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_SI NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_SI NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_SI NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_SI NULL
 #define PCE_CDIMAGECACHE_LABEL_SI NULL
 #define PCE_CDIMAGECACHE_INFO_0_SI NULL
 #define PCE_CDBIOS_LABEL_SI NULL
@@ -26378,12 +26350,12 @@ struct retro_core_options_v2 options_ru = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_SI NULL
 #define OPTION_VAL_10_BIT_SI NULL
 #define OPTION_VAL_12_BIT_SI NULL
-#define PCE_CDDAVOLUME_LABEL_SI NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_SI NULL
-#define PCE_CDDAVOLUME_INFO_0_SI NULL
-#define PCE_CDDAVOLUME_INFO_1_SI NULL
 #define PCE_ADPCMVOLUME_LABEL_SI NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_SI NULL
+#define PCE_ADPCMVOLUME_INFO_0_SI NULL
+#define PCE_ADPCMVOLUME_INFO_1_SI NULL
+#define PCE_CDDAVOLUME_LABEL_SI NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_SI NULL
 #define PCE_CDPSGVOLUME_LABEL_SI NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_SI NULL
 #define PCE_NOSPRITELIMIT_LABEL_SI NULL
@@ -26454,7 +26426,6 @@ struct retro_core_option_v2_definition option_defs_si[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_SI,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_SI,
       NULL,
       "video",
@@ -26674,20 +26645,6 @@ struct retro_core_option_v2_definition option_defs_si[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_SI,
-      NULL,
-      PCE_MULTITAP_INFO_0_SI,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_SI,
       NULL,
@@ -26702,6 +26659,34 @@ struct retro_core_option_v2_definition option_defs_si[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_SI,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_SI,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_SI,
+      NULL,
+      PCE_MULTITAP_INFO_0_SI,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SI,
       NULL,
@@ -26711,6 +26696,35 @@ struct retro_core_option_v2_definition option_defs_si[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_SI,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_SI,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_SI },
+         { "always", OPTION_VAL_ALWAYS_SI },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_SI,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SI,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -26729,37 +26743,6 @@ struct retro_core_option_v2_definition option_defs_si[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_SI,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_SI },
-         { "always", OPTION_VAL_ALWAYS_SI },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_SI,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -26902,20 +26885,6 @@ struct retro_core_option_v2_definition option_defs_si[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_SI,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_SI,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_SI,
       NULL,
@@ -26992,11 +26961,11 @@ struct retro_core_option_v2_definition option_defs_si[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_SI,
-      PCE_CDDAVOLUME_LABEL_CAT_SI,
-      PCE_CDDAVOLUME_INFO_0_SI,
-      PCE_CDDAVOLUME_INFO_1_SI,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_SI,
+      PCE_ADPCMVOLUME_LABEL_CAT_SI,
+      PCE_ADPCMVOLUME_INFO_0_SI,
+      PCE_ADPCMVOLUME_INFO_1_SI,
       "cd",
       {
          { "0", NULL },
@@ -27025,11 +26994,11 @@ struct retro_core_option_v2_definition option_defs_si[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_SI,
-      PCE_ADPCMVOLUME_LABEL_CAT_SI,
-      PCE_CDDAVOLUME_INFO_0_SI,
-      PCE_CDDAVOLUME_INFO_1_SI,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_SI,
+      PCE_CDDAVOLUME_LABEL_CAT_SI,
+      PCE_ADPCMVOLUME_INFO_0_SI,
+      PCE_ADPCMVOLUME_INFO_1_SI,
       "cd",
       {
          { "0", NULL },
@@ -27061,8 +27030,8 @@ struct retro_core_option_v2_definition option_defs_si[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_SI,
       PCE_CDPSGVOLUME_LABEL_CAT_SI,
-      PCE_CDDAVOLUME_INFO_0_SI,
-      PCE_CDDAVOLUME_INFO_1_SI,
+      PCE_ADPCMVOLUME_INFO_0_SI,
+      PCE_ADPCMVOLUME_INFO_1_SI,
       "cd",
       {
          { "0", NULL },
@@ -27141,9 +27110,9 @@ struct retro_core_options_v2 options_si = {
 
 #define CATEGORY_VIDEO_LABEL_SK NULL
 #define CATEGORY_VIDEO_INFO_0_SK NULL
-#define CATEGORY_AUDIO_LABEL_SK NULL
+#define CATEGORY_AUDIO_LABEL_SK "Zvuk"
 #define CATEGORY_AUDIO_INFO_0_SK NULL
-#define CATEGORY_INPUT_LABEL_SK NULL
+#define CATEGORY_INPUT_LABEL_SK "Vstup"
 #define CATEGORY_INPUT_INFO_0_SK NULL
 #define CATEGORY_HACKS_LABEL_SK NULL
 #define CATEGORY_HACKS_INFO_0_SK NULL
@@ -27153,7 +27122,7 @@ struct retro_core_options_v2 options_si = {
 #define PCE_PALETTE_INFO_0_SK NULL
 #define OPTION_VAL_RGB_SK NULL
 #define OPTION_VAL_COMPOSITE_SK NULL
-#define PCE_ASPECT_RATIO_LABEL_SK NULL
+#define PCE_ASPECT_RATIO_LABEL_SK "Pomer strán"
 #define PCE_ASPECT_RATIO_INFO_0_SK NULL
 #define OPTION_VAL_AUTO_SK NULL
 #define OPTION_VAL_6_5_SK NULL
@@ -27206,21 +27175,25 @@ struct retro_core_options_v2 options_si = {
 #define OPTION_VAL_4_50_SK NULL
 #define OPTION_VAL_4_75_SK NULL
 #define OPTION_VAL_5_00_SK NULL
-#define PCE_MULTITAP_LABEL_SK NULL
-#define PCE_MULTITAP_INFO_0_SK NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_SK NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_SK NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_SK NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_SK NULL
+#define PCE_MULTITAP_LABEL_SK NULL
+#define PCE_MULTITAP_INFO_0_SK NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SK NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SK NULL
-#define PCE_TURBO_DELAY_LABEL_SK NULL
-#define PCE_TURBO_DELAY_INFO_0_SK NULL
-#define OPTION_VAL_FAST_SK NULL
-#define OPTION_VAL_MEDIUM_SK NULL
-#define OPTION_VAL_SLOW_SK NULL
 #define PCE_TURBO_TOGGLING_LABEL_SK NULL
+#define PCE_TURBO_TOGGLING_INFO_0_SK NULL
 #define OPTION_VAL_TOGGLE_SK NULL
 #define OPTION_VAL_ALWAYS_SK NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_SK NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SK NULL
+#define PCE_TURBO_DELAY_LABEL_SK NULL
+#define PCE_TURBO_DELAY_INFO_0_SK NULL
+#define OPTION_VAL_FAST_SK "Rýchlo"
+#define OPTION_VAL_MEDIUM_SK NULL
+#define OPTION_VAL_SLOW_SK NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_SK NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_SK NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_SK NULL
@@ -27231,8 +27204,6 @@ struct retro_core_options_v2 options_si = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_SK NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_SK NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_SK NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_SK NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_SK NULL
 #define PCE_CDIMAGECACHE_LABEL_SK NULL
 #define PCE_CDIMAGECACHE_INFO_0_SK NULL
 #define PCE_CDBIOS_LABEL_SK NULL
@@ -27253,12 +27224,12 @@ struct retro_core_options_v2 options_si = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_SK NULL
 #define OPTION_VAL_10_BIT_SK NULL
 #define OPTION_VAL_12_BIT_SK NULL
-#define PCE_CDDAVOLUME_LABEL_SK NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_SK NULL
-#define PCE_CDDAVOLUME_INFO_0_SK NULL
-#define PCE_CDDAVOLUME_INFO_1_SK NULL
 #define PCE_ADPCMVOLUME_LABEL_SK NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_SK NULL
+#define PCE_ADPCMVOLUME_INFO_0_SK NULL
+#define PCE_ADPCMVOLUME_INFO_1_SK NULL
+#define PCE_CDDAVOLUME_LABEL_SK NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_SK NULL
 #define PCE_CDPSGVOLUME_LABEL_SK NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_SK NULL
 #define PCE_NOSPRITELIMIT_LABEL_SK NULL
@@ -27329,7 +27300,6 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_SK,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_SK,
       NULL,
       "video",
@@ -27549,20 +27519,6 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_SK,
-      NULL,
-      PCE_MULTITAP_INFO_0_SK,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_SK,
       NULL,
@@ -27577,6 +27533,34 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_SK,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_SK,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_SK,
+      NULL,
+      PCE_MULTITAP_INFO_0_SK,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SK,
       NULL,
@@ -27586,6 +27570,35 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_SK,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_SK,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_SK },
+         { "always", OPTION_VAL_ALWAYS_SK },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_SK,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SK,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -27604,37 +27617,6 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_SK,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_SK },
-         { "always", OPTION_VAL_ALWAYS_SK },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_SK,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -27777,20 +27759,6 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_SK,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_SK,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_SK,
       NULL,
@@ -27867,11 +27835,11 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_SK,
-      PCE_CDDAVOLUME_LABEL_CAT_SK,
-      PCE_CDDAVOLUME_INFO_0_SK,
-      PCE_CDDAVOLUME_INFO_1_SK,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_SK,
+      PCE_ADPCMVOLUME_LABEL_CAT_SK,
+      PCE_ADPCMVOLUME_INFO_0_SK,
+      PCE_ADPCMVOLUME_INFO_1_SK,
       "cd",
       {
          { "0", NULL },
@@ -27900,11 +27868,11 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_SK,
-      PCE_ADPCMVOLUME_LABEL_CAT_SK,
-      PCE_CDDAVOLUME_INFO_0_SK,
-      PCE_CDDAVOLUME_INFO_1_SK,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_SK,
+      PCE_CDDAVOLUME_LABEL_CAT_SK,
+      PCE_ADPCMVOLUME_INFO_0_SK,
+      PCE_ADPCMVOLUME_INFO_1_SK,
       "cd",
       {
          { "0", NULL },
@@ -27936,8 +27904,8 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_SK,
       PCE_CDPSGVOLUME_LABEL_CAT_SK,
-      PCE_CDDAVOLUME_INFO_0_SK,
-      PCE_CDDAVOLUME_INFO_1_SK,
+      PCE_ADPCMVOLUME_INFO_0_SK,
+      PCE_ADPCMVOLUME_INFO_1_SK,
       "cd",
       {
          { "0", NULL },
@@ -28016,9 +27984,9 @@ struct retro_core_options_v2 options_sk = {
 
 #define CATEGORY_VIDEO_LABEL_SR NULL
 #define CATEGORY_VIDEO_INFO_0_SR NULL
-#define CATEGORY_AUDIO_LABEL_SR NULL
+#define CATEGORY_AUDIO_LABEL_SR "Zvuk"
 #define CATEGORY_AUDIO_INFO_0_SR NULL
-#define CATEGORY_INPUT_LABEL_SR NULL
+#define CATEGORY_INPUT_LABEL_SR "Ulaz"
 #define CATEGORY_INPUT_INFO_0_SR NULL
 #define CATEGORY_HACKS_LABEL_SR NULL
 #define CATEGORY_HACKS_INFO_0_SR NULL
@@ -28028,7 +27996,7 @@ struct retro_core_options_v2 options_sk = {
 #define PCE_PALETTE_INFO_0_SR NULL
 #define OPTION_VAL_RGB_SR NULL
 #define OPTION_VAL_COMPOSITE_SR NULL
-#define PCE_ASPECT_RATIO_LABEL_SR NULL
+#define PCE_ASPECT_RATIO_LABEL_SR "Odnos ekrana"
 #define PCE_ASPECT_RATIO_INFO_0_SR NULL
 #define OPTION_VAL_AUTO_SR NULL
 #define OPTION_VAL_6_5_SR NULL
@@ -28081,21 +28049,25 @@ struct retro_core_options_v2 options_sk = {
 #define OPTION_VAL_4_50_SR NULL
 #define OPTION_VAL_4_75_SR NULL
 #define OPTION_VAL_5_00_SR NULL
-#define PCE_MULTITAP_LABEL_SR NULL
-#define PCE_MULTITAP_INFO_0_SR NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_SR NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_SR NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_SR NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_SR NULL
+#define PCE_MULTITAP_LABEL_SR NULL
+#define PCE_MULTITAP_INFO_0_SR NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SR NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SR NULL
+#define PCE_TURBO_TOGGLING_LABEL_SR NULL
+#define PCE_TURBO_TOGGLING_INFO_0_SR NULL
+#define OPTION_VAL_TOGGLE_SR NULL
+#define OPTION_VAL_ALWAYS_SR NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_SR NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SR NULL
 #define PCE_TURBO_DELAY_LABEL_SR NULL
 #define PCE_TURBO_DELAY_INFO_0_SR NULL
 #define OPTION_VAL_FAST_SR NULL
 #define OPTION_VAL_MEDIUM_SR NULL
 #define OPTION_VAL_SLOW_SR NULL
-#define PCE_TURBO_TOGGLING_LABEL_SR NULL
-#define OPTION_VAL_TOGGLE_SR NULL
-#define OPTION_VAL_ALWAYS_SR NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_SR NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_SR NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_SR NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_SR NULL
@@ -28106,8 +28078,6 @@ struct retro_core_options_v2 options_sk = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_SR NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_SR NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_SR NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_SR NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_SR NULL
 #define PCE_CDIMAGECACHE_LABEL_SR NULL
 #define PCE_CDIMAGECACHE_INFO_0_SR NULL
 #define PCE_CDBIOS_LABEL_SR NULL
@@ -28128,12 +28098,12 @@ struct retro_core_options_v2 options_sk = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_SR NULL
 #define OPTION_VAL_10_BIT_SR NULL
 #define OPTION_VAL_12_BIT_SR NULL
-#define PCE_CDDAVOLUME_LABEL_SR NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_SR NULL
-#define PCE_CDDAVOLUME_INFO_0_SR NULL
-#define PCE_CDDAVOLUME_INFO_1_SR NULL
 #define PCE_ADPCMVOLUME_LABEL_SR NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_SR NULL
+#define PCE_ADPCMVOLUME_INFO_0_SR NULL
+#define PCE_ADPCMVOLUME_INFO_1_SR NULL
+#define PCE_CDDAVOLUME_LABEL_SR NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_SR NULL
 #define PCE_CDPSGVOLUME_LABEL_SR NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_SR NULL
 #define PCE_NOSPRITELIMIT_LABEL_SR NULL
@@ -28204,7 +28174,6 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_SR,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_SR,
       NULL,
       "video",
@@ -28424,20 +28393,6 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_SR,
-      NULL,
-      PCE_MULTITAP_INFO_0_SR,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_SR,
       NULL,
@@ -28452,6 +28407,34 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_SR,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_SR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_SR,
+      NULL,
+      PCE_MULTITAP_INFO_0_SR,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SR,
       NULL,
@@ -28461,6 +28444,35 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_SR,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_SR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_SR },
+         { "always", OPTION_VAL_ALWAYS_SR },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_SR,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -28479,37 +28491,6 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_SR,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_SR },
-         { "always", OPTION_VAL_ALWAYS_SR },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_SR,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -28652,20 +28633,6 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_SR,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_SR,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_SR,
       NULL,
@@ -28742,11 +28709,11 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_SR,
-      PCE_CDDAVOLUME_LABEL_CAT_SR,
-      PCE_CDDAVOLUME_INFO_0_SR,
-      PCE_CDDAVOLUME_INFO_1_SR,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_SR,
+      PCE_ADPCMVOLUME_LABEL_CAT_SR,
+      PCE_ADPCMVOLUME_INFO_0_SR,
+      PCE_ADPCMVOLUME_INFO_1_SR,
       "cd",
       {
          { "0", NULL },
@@ -28775,11 +28742,11 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_SR,
-      PCE_ADPCMVOLUME_LABEL_CAT_SR,
-      PCE_CDDAVOLUME_INFO_0_SR,
-      PCE_CDDAVOLUME_INFO_1_SR,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_SR,
+      PCE_CDDAVOLUME_LABEL_CAT_SR,
+      PCE_ADPCMVOLUME_INFO_0_SR,
+      PCE_ADPCMVOLUME_INFO_1_SR,
       "cd",
       {
          { "0", NULL },
@@ -28811,8 +28778,8 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_SR,
       PCE_CDPSGVOLUME_LABEL_CAT_SR,
-      PCE_CDDAVOLUME_INFO_0_SR,
-      PCE_CDDAVOLUME_INFO_1_SR,
+      PCE_ADPCMVOLUME_INFO_0_SR,
+      PCE_ADPCMVOLUME_INFO_1_SR,
       "cd",
       {
          { "0", NULL },
@@ -28889,23 +28856,23 @@ struct retro_core_options_v2 options_sr = {
 
 /* RETRO_LANGUAGE_SV */
 
-#define CATEGORY_VIDEO_LABEL_SV NULL
+#define CATEGORY_VIDEO_LABEL_SV "Bild"
 #define CATEGORY_VIDEO_INFO_0_SV NULL
-#define CATEGORY_AUDIO_LABEL_SV NULL
+#define CATEGORY_AUDIO_LABEL_SV "Ljud"
 #define CATEGORY_AUDIO_INFO_0_SV NULL
-#define CATEGORY_INPUT_LABEL_SV NULL
+#define CATEGORY_INPUT_LABEL_SV "Inmatning"
 #define CATEGORY_INPUT_INFO_0_SV NULL
 #define CATEGORY_HACKS_LABEL_SV NULL
 #define CATEGORY_HACKS_INFO_0_SV NULL
 #define CATEGORY_CD_LABEL_SV NULL
 #define CATEGORY_CD_INFO_0_SV NULL
-#define PCE_PALETTE_LABEL_SV NULL
+#define PCE_PALETTE_LABEL_SV "Färgpalett"
 #define PCE_PALETTE_INFO_0_SV NULL
 #define OPTION_VAL_RGB_SV NULL
-#define OPTION_VAL_COMPOSITE_SV NULL
-#define PCE_ASPECT_RATIO_LABEL_SV NULL
+#define OPTION_VAL_COMPOSITE_SV "Komposit"
+#define PCE_ASPECT_RATIO_LABEL_SV "Bildförhållande"
 #define PCE_ASPECT_RATIO_INFO_0_SV NULL
-#define OPTION_VAL_AUTO_SV NULL
+#define OPTION_VAL_AUTO_SV "Automatiskt"
 #define OPTION_VAL_6_5_SV NULL
 #define OPTION_VAL_4_3_SV NULL
 #define OPTION_VAL_UNCORRECTED_SV NULL
@@ -28956,21 +28923,25 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_4_50_SV NULL
 #define OPTION_VAL_4_75_SV NULL
 #define OPTION_VAL_5_00_SV NULL
-#define PCE_MULTITAP_LABEL_SV NULL
-#define PCE_MULTITAP_INFO_0_SV NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_SV NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_SV NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_SV NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_SV NULL
+#define PCE_MULTITAP_LABEL_SV NULL
+#define PCE_MULTITAP_INFO_0_SV NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SV NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SV NULL
-#define PCE_TURBO_DELAY_LABEL_SV NULL
-#define PCE_TURBO_DELAY_INFO_0_SV NULL
-#define OPTION_VAL_FAST_SV NULL
-#define OPTION_VAL_MEDIUM_SV NULL
-#define OPTION_VAL_SLOW_SV NULL
 #define PCE_TURBO_TOGGLING_LABEL_SV NULL
+#define PCE_TURBO_TOGGLING_INFO_0_SV NULL
 #define OPTION_VAL_TOGGLE_SV NULL
 #define OPTION_VAL_ALWAYS_SV NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_SV NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SV NULL
+#define PCE_TURBO_DELAY_LABEL_SV "Turbo-hastighet"
+#define PCE_TURBO_DELAY_INFO_0_SV NULL
+#define OPTION_VAL_FAST_SV NULL
+#define OPTION_VAL_MEDIUM_SV NULL
+#define OPTION_VAL_SLOW_SV "Långsam"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_SV NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_SV NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_SV NULL
@@ -28981,8 +28952,6 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_SV NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_SV NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_SV NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_SV NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_SV NULL
 #define PCE_CDIMAGECACHE_LABEL_SV NULL
 #define PCE_CDIMAGECACHE_INFO_0_SV NULL
 #define PCE_CDBIOS_LABEL_SV NULL
@@ -28995,21 +28964,21 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_SYSTEM_CARD_3_US_SV NULL
 #define PCE_ARCADECARD_LABEL_SV NULL
 #define PCE_ARCADECARD_INFO_0_SV NULL
-#define PCE_CDSPEED_LABEL_SV NULL
-#define PCE_CDSPEED_LABEL_CAT_SV NULL
+#define PCE_CDSPEED_LABEL_SV "(CD) CD-hastighet"
+#define PCE_CDSPEED_LABEL_CAT_SV "CD-hastighet"
 #define PCE_CDSPEED_INFO_0_SV NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_SV NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_SV NULL
 #define PCE_ADPCMEXTRAPREC_INFO_0_SV NULL
 #define OPTION_VAL_10_BIT_SV NULL
 #define OPTION_VAL_12_BIT_SV NULL
-#define PCE_CDDAVOLUME_LABEL_SV NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_SV NULL
-#define PCE_CDDAVOLUME_INFO_0_SV NULL
-#define PCE_CDDAVOLUME_INFO_1_SV NULL
-#define PCE_ADPCMVOLUME_LABEL_SV NULL
+#define PCE_ADPCMVOLUME_LABEL_SV "(CD) ADPCM Volym %"
 #define PCE_ADPCMVOLUME_LABEL_CAT_SV NULL
-#define PCE_CDPSGVOLUME_LABEL_SV NULL
+#define PCE_ADPCMVOLUME_INFO_0_SV NULL
+#define PCE_ADPCMVOLUME_INFO_1_SV NULL
+#define PCE_CDDAVOLUME_LABEL_SV "(CD) CDDA Volym %"
+#define PCE_CDDAVOLUME_LABEL_CAT_SV NULL
+#define PCE_CDPSGVOLUME_LABEL_SV "(CD) CD PSG Volym %"
 #define PCE_CDPSGVOLUME_LABEL_CAT_SV NULL
 #define PCE_NOSPRITELIMIT_LABEL_SV NULL
 #define PCE_NOSPRITELIMIT_INFO_0_SV NULL
@@ -29079,7 +29048,6 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_SV,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_SV,
       NULL,
       "video",
@@ -29299,20 +29267,6 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_SV,
-      NULL,
-      PCE_MULTITAP_INFO_0_SV,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_SV,
       NULL,
@@ -29327,6 +29281,34 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_SV,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_SV,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_SV,
+      NULL,
+      PCE_MULTITAP_INFO_0_SV,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SV,
       NULL,
@@ -29336,6 +29318,35 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_SV,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_SV,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_SV },
+         { "always", OPTION_VAL_ALWAYS_SV },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_SV,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SV,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -29354,37 +29365,6 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_SV,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_SV },
-         { "always", OPTION_VAL_ALWAYS_SV },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_SV,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -29527,20 +29507,6 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_SV,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_SV,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_SV,
       NULL,
@@ -29617,11 +29583,11 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_SV,
-      PCE_CDDAVOLUME_LABEL_CAT_SV,
-      PCE_CDDAVOLUME_INFO_0_SV,
-      PCE_CDDAVOLUME_INFO_1_SV,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_SV,
+      PCE_ADPCMVOLUME_LABEL_CAT_SV,
+      PCE_ADPCMVOLUME_INFO_0_SV,
+      PCE_ADPCMVOLUME_INFO_1_SV,
       "cd",
       {
          { "0", NULL },
@@ -29650,11 +29616,11 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_SV,
-      PCE_ADPCMVOLUME_LABEL_CAT_SV,
-      PCE_CDDAVOLUME_INFO_0_SV,
-      PCE_CDDAVOLUME_INFO_1_SV,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_SV,
+      PCE_CDDAVOLUME_LABEL_CAT_SV,
+      PCE_ADPCMVOLUME_INFO_0_SV,
+      PCE_ADPCMVOLUME_INFO_1_SV,
       "cd",
       {
          { "0", NULL },
@@ -29686,8 +29652,8 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_SV,
       PCE_CDPSGVOLUME_LABEL_CAT_SV,
-      PCE_CDDAVOLUME_INFO_0_SV,
-      PCE_CDDAVOLUME_INFO_1_SV,
+      PCE_ADPCMVOLUME_INFO_0_SV,
+      PCE_ADPCMVOLUME_INFO_1_SV,
       "cd",
       {
          { "0", NULL },
@@ -29766,46 +29732,46 @@ struct retro_core_options_v2 options_sv = {
 
 #define CATEGORY_VIDEO_LABEL_TR NULL
 #define CATEGORY_VIDEO_INFO_0_TR NULL
-#define CATEGORY_AUDIO_LABEL_TR NULL
-#define CATEGORY_AUDIO_INFO_0_TR NULL
-#define CATEGORY_INPUT_LABEL_TR NULL
-#define CATEGORY_INPUT_INFO_0_TR NULL
-#define CATEGORY_HACKS_LABEL_TR NULL
-#define CATEGORY_HACKS_INFO_0_TR NULL
+#define CATEGORY_AUDIO_LABEL_TR "Ses"
+#define CATEGORY_AUDIO_INFO_0_TR "Taklit edilmiş ses cihazlarını yapılandırın."
+#define CATEGORY_INPUT_LABEL_TR "Giriş"
+#define CATEGORY_INPUT_INFO_0_TR "Light gun, fare ve oyun kolu girişini yapılandırın."
+#define CATEGORY_HACKS_LABEL_TR "Emülatör Geliştirmeleri"
+#define CATEGORY_HACKS_INFO_0_TR "Düşük seviyeli performans ve uyumluluğu etkileyen işlemci hız aşırtma ve emulatör doğruluğu parametrelerini yapılandırın."
 #define CATEGORY_CD_LABEL_TR NULL
-#define CATEGORY_CD_INFO_0_TR NULL
-#define PCE_PALETTE_LABEL_TR NULL
+#define CATEGORY_CD_INFO_0_TR "PC Engine CD emulatörü ilgili ayarları yapılandırın."
+#define PCE_PALETTE_LABEL_TR "Renk Paleti"
 #define PCE_PALETTE_INFO_0_TR NULL
 #define OPTION_VAL_RGB_TR NULL
 #define OPTION_VAL_COMPOSITE_TR NULL
-#define PCE_ASPECT_RATIO_LABEL_TR NULL
-#define PCE_ASPECT_RATIO_INFO_0_TR NULL
-#define OPTION_VAL_AUTO_TR NULL
+#define PCE_ASPECT_RATIO_LABEL_TR "En Boy Oranı"
+#define PCE_ASPECT_RATIO_INFO_0_TR "Tercih edilen içerik en boy oranını seçin. Bu, yalnızca RetroArch en boy oranı Video ayarlarında 'Çekirdek Tarafından Sağlanan' olarak ayarlandığında uygulanacaktır."
+#define OPTION_VAL_AUTO_TR "Otomatik"
 #define OPTION_VAL_6_5_TR NULL
 #define OPTION_VAL_4_3_TR NULL
-#define OPTION_VAL_UNCORRECTED_TR NULL
+#define OPTION_VAL_UNCORRECTED_TR "Düzeltilmemiş"
 #define PCE_SCALING_LABEL_TR NULL
 #define PCE_SCALING_INFO_0_TR NULL
-#define OPTION_VAL_LORES_TR NULL
-#define OPTION_VAL_HIRES_TR NULL
+#define OPTION_VAL_LORES_TR "Düşük Çözünürlük"
+#define OPTION_VAL_HIRES_TR "Yüksek Çözünürlük"
 #define PCE_HIRES_BLEND_LABEL_TR NULL
 #define PCE_HIRES_BLEND_INFO_0_TR NULL
-#define PCE_H_OVERSCAN_LABEL_TR NULL
+#define PCE_H_OVERSCAN_LABEL_TR "Yatay Aşırı Taramayı Göster"
 #define PCE_H_OVERSCAN_INFO_0_TR NULL
-#define PCE_INITIAL_SCANLINE_LABEL_TR NULL
+#define PCE_INITIAL_SCANLINE_LABEL_TR "İlk Tarama Çizgisi"
 #define PCE_INITIAL_SCANLINE_INFO_0_TR NULL
-#define OPTION_VAL_3_TR NULL
-#define PCE_LAST_SCANLINE_LABEL_TR NULL
+#define OPTION_VAL_3_TR "3 (Varsayılan)"
+#define PCE_LAST_SCANLINE_LABEL_TR "Son Tarama Çizgisi"
 #define PCE_LAST_SCANLINE_INFO_0_TR NULL
-#define OPTION_VAL_242_TR NULL
+#define OPTION_VAL_242_TR "242 (Varsayılan)"
 #define PCE_PSGREVISION_LABEL_TR NULL
 #define PCE_PSGREVISION_INFO_0_TR NULL
 #define OPTION_VAL_HUC6280_TR NULL
 #define OPTION_VAL_HUC6280A_TR NULL
 #define PCE_RESAMP_QUALITY_LABEL_TR NULL
 #define PCE_RESAMP_QUALITY_INFO_0_TR NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_TR NULL
-#define PCE_MOUSE_SENSITIVITY_INFO_0_TR NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_TR "Fare Hassasiyeti"
+#define PCE_MOUSE_SENSITIVITY_INFO_0_TR "Daha yüksek değerler, fare imlecinin daha hızlı hareket etmesini sağlar."
 #define OPTION_VAL_0_125_TR NULL
 #define OPTION_VAL_0_250_TR NULL
 #define OPTION_VAL_0_375_TR NULL
@@ -29831,21 +29797,25 @@ struct retro_core_options_v2 options_sv = {
 #define OPTION_VAL_4_50_TR NULL
 #define OPTION_VAL_4_75_TR NULL
 #define OPTION_VAL_5_00_TR NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_TR "Karşı Yönlere İzin Ver"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_TR "Bunun etkinleştirilmesi, aynı anda hem sol hem de sağ (veya yukarı ve aşağı) yönlere basılmasına / hızlı bir şekilde değiştirilmesine / basılı tutulmasına olanak tanır. Bu, hareket tabanlı aksaklıklara neden olabilir."
+#define PCE_DISABLE_SOFTRESET_LABEL_TR NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_TR NULL
 #define PCE_MULTITAP_LABEL_TR NULL
 #define PCE_MULTITAP_INFO_0_TR NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_TR NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_TR NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_TR NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_TR NULL
-#define PCE_TURBO_DELAY_LABEL_TR NULL
-#define PCE_TURBO_DELAY_INFO_0_TR NULL
-#define OPTION_VAL_FAST_TR NULL
-#define OPTION_VAL_MEDIUM_TR NULL
-#define OPTION_VAL_SLOW_TR NULL
 #define PCE_TURBO_TOGGLING_LABEL_TR NULL
+#define PCE_TURBO_TOGGLING_INFO_0_TR NULL
 #define OPTION_VAL_TOGGLE_TR NULL
 #define OPTION_VAL_ALWAYS_TR NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_TR NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_TR "Alternatif Turbo Kısayol Tuşu"
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_TR NULL
+#define PCE_TURBO_DELAY_LABEL_TR "Turbo Hızı"
+#define PCE_TURBO_DELAY_INFO_0_TR NULL
+#define OPTION_VAL_FAST_TR "Hızlı"
+#define OPTION_VAL_MEDIUM_TR "Orta"
+#define OPTION_VAL_SLOW_TR "Yavaş"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_TR NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_TR NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_TR NULL
@@ -29856,37 +29826,35 @@ struct retro_core_options_v2 options_sv = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_TR NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_TR NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_TR NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_TR NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_TR NULL
 #define PCE_CDIMAGECACHE_LABEL_TR NULL
 #define PCE_CDIMAGECACHE_INFO_0_TR NULL
 #define PCE_CDBIOS_LABEL_TR NULL
 #define PCE_CDBIOS_INFO_0_TR NULL
 #define OPTION_VAL_GAMES_EXPRESS_TR NULL
-#define OPTION_VAL_SYSTEM_CARD_1_TR NULL
-#define OPTION_VAL_SYSTEM_CARD_2_TR NULL
-#define OPTION_VAL_SYSTEM_CARD_3_TR NULL
-#define OPTION_VAL_SYSTEM_CARD_2_US_TR NULL
-#define OPTION_VAL_SYSTEM_CARD_3_US_TR NULL
+#define OPTION_VAL_SYSTEM_CARD_1_TR "Sistem Kartı 1"
+#define OPTION_VAL_SYSTEM_CARD_2_TR "Sistem Kartı 2"
+#define OPTION_VAL_SYSTEM_CARD_3_TR "Sistem Kartı 3"
+#define OPTION_VAL_SYSTEM_CARD_2_US_TR "Sistem Kartı 2 US"
+#define OPTION_VAL_SYSTEM_CARD_3_US_TR "Sistem Kartı 3 US"
 #define PCE_ARCADECARD_LABEL_TR NULL
 #define PCE_ARCADECARD_INFO_0_TR NULL
-#define PCE_CDSPEED_LABEL_TR NULL
-#define PCE_CDSPEED_LABEL_CAT_TR NULL
+#define PCE_CDSPEED_LABEL_TR "(CD) CD Hızı"
+#define PCE_CDSPEED_LABEL_CAT_TR "CD Hızı"
 #define PCE_CDSPEED_INFO_0_TR NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_TR NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_TR NULL
 #define PCE_ADPCMEXTRAPREC_INFO_0_TR NULL
 #define OPTION_VAL_10_BIT_TR NULL
 #define OPTION_VAL_12_BIT_TR NULL
-#define PCE_CDDAVOLUME_LABEL_TR NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_TR NULL
-#define PCE_CDDAVOLUME_INFO_0_TR NULL
-#define PCE_CDDAVOLUME_INFO_1_TR NULL
 #define PCE_ADPCMVOLUME_LABEL_TR NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_TR NULL
+#define PCE_ADPCMVOLUME_INFO_0_TR NULL
+#define PCE_ADPCMVOLUME_INFO_1_TR NULL
+#define PCE_CDDAVOLUME_LABEL_TR NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_TR NULL
 #define PCE_CDPSGVOLUME_LABEL_TR NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_TR NULL
-#define PCE_NOSPRITELIMIT_LABEL_TR NULL
+#define PCE_NOSPRITELIMIT_LABEL_TR "Hareket Sınırını Kaldır"
 #define PCE_NOSPRITELIMIT_INFO_0_TR NULL
 #define PCE_OCMULTIPLIER_LABEL_TR NULL
 #define PCE_OCMULTIPLIER_INFO_0_TR NULL
@@ -29954,7 +29922,6 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_TR,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_TR,
       NULL,
       "video",
@@ -30174,20 +30141,6 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_TR,
-      NULL,
-      PCE_MULTITAP_INFO_0_TR,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_TR,
       NULL,
@@ -30202,6 +30155,34 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_TR,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_TR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_TR,
+      NULL,
+      PCE_MULTITAP_INFO_0_TR,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_TR,
       NULL,
@@ -30211,6 +30192,35 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_TR,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_TR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_TR },
+         { "always", OPTION_VAL_ALWAYS_TR },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_TR,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_TR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -30229,37 +30239,6 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_TR,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_TR },
-         { "always", OPTION_VAL_ALWAYS_TR },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_TR,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -30402,20 +30381,6 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_TR,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_TR,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_TR,
       NULL,
@@ -30492,11 +30457,11 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_TR,
-      PCE_CDDAVOLUME_LABEL_CAT_TR,
-      PCE_CDDAVOLUME_INFO_0_TR,
-      PCE_CDDAVOLUME_INFO_1_TR,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_TR,
+      PCE_ADPCMVOLUME_LABEL_CAT_TR,
+      PCE_ADPCMVOLUME_INFO_0_TR,
+      PCE_ADPCMVOLUME_INFO_1_TR,
       "cd",
       {
          { "0", NULL },
@@ -30525,11 +30490,11 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_TR,
-      PCE_ADPCMVOLUME_LABEL_CAT_TR,
-      PCE_CDDAVOLUME_INFO_0_TR,
-      PCE_CDDAVOLUME_INFO_1_TR,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_TR,
+      PCE_CDDAVOLUME_LABEL_CAT_TR,
+      PCE_ADPCMVOLUME_INFO_0_TR,
+      PCE_ADPCMVOLUME_INFO_1_TR,
       "cd",
       {
          { "0", NULL },
@@ -30561,8 +30526,8 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_TR,
       PCE_CDPSGVOLUME_LABEL_CAT_TR,
-      PCE_CDDAVOLUME_INFO_0_TR,
-      PCE_CDDAVOLUME_INFO_1_TR,
+      PCE_ADPCMVOLUME_INFO_0_TR,
+      PCE_ADPCMVOLUME_INFO_1_TR,
       "cd",
       {
          { "0", NULL },
@@ -30639,23 +30604,23 @@ struct retro_core_options_v2 options_tr = {
 
 /* RETRO_LANGUAGE_UK */
 
-#define CATEGORY_VIDEO_LABEL_UK NULL
+#define CATEGORY_VIDEO_LABEL_UK "Відео"
 #define CATEGORY_VIDEO_INFO_0_UK NULL
-#define CATEGORY_AUDIO_LABEL_UK NULL
-#define CATEGORY_AUDIO_INFO_0_UK NULL
-#define CATEGORY_INPUT_LABEL_UK NULL
+#define CATEGORY_AUDIO_LABEL_UK "Аудіо"
+#define CATEGORY_AUDIO_INFO_0_UK "Налаштування емуляції аудіопристроїв."
+#define CATEGORY_INPUT_LABEL_UK "Ввід"
 #define CATEGORY_INPUT_INFO_0_UK NULL
-#define CATEGORY_HACKS_LABEL_UK NULL
-#define CATEGORY_HACKS_INFO_0_UK NULL
+#define CATEGORY_HACKS_LABEL_UK "Гаки емуляції"
+#define CATEGORY_HACKS_INFO_0_UK "Налаштування розгону процесора та точності емуляції, що впливають на низькорівневу продуктивність та сумісність."
 #define CATEGORY_CD_LABEL_UK NULL
 #define CATEGORY_CD_INFO_0_UK NULL
 #define PCE_PALETTE_LABEL_UK NULL
 #define PCE_PALETTE_INFO_0_UK NULL
 #define OPTION_VAL_RGB_UK NULL
 #define OPTION_VAL_COMPOSITE_UK NULL
-#define PCE_ASPECT_RATIO_LABEL_UK NULL
+#define PCE_ASPECT_RATIO_LABEL_UK "Співвідношення сторін"
 #define PCE_ASPECT_RATIO_INFO_0_UK NULL
-#define OPTION_VAL_AUTO_UK NULL
+#define OPTION_VAL_AUTO_UK "Авто"
 #define OPTION_VAL_6_5_UK NULL
 #define OPTION_VAL_4_3_UK NULL
 #define OPTION_VAL_UNCORRECTED_UK NULL
@@ -30706,21 +30671,25 @@ struct retro_core_options_v2 options_tr = {
 #define OPTION_VAL_4_50_UK NULL
 #define OPTION_VAL_4_75_UK NULL
 #define OPTION_VAL_5_00_UK NULL
-#define PCE_MULTITAP_LABEL_UK NULL
-#define PCE_MULTITAP_INFO_0_UK NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_UK NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_UK NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_UK NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_UK NULL
+#define PCE_MULTITAP_LABEL_UK NULL
+#define PCE_MULTITAP_INFO_0_UK NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_UK NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_UK NULL
-#define PCE_TURBO_DELAY_LABEL_UK NULL
-#define PCE_TURBO_DELAY_INFO_0_UK NULL
-#define OPTION_VAL_FAST_UK NULL
-#define OPTION_VAL_MEDIUM_UK NULL
-#define OPTION_VAL_SLOW_UK NULL
 #define PCE_TURBO_TOGGLING_LABEL_UK NULL
+#define PCE_TURBO_TOGGLING_INFO_0_UK NULL
 #define OPTION_VAL_TOGGLE_UK NULL
 #define OPTION_VAL_ALWAYS_UK NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_UK NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_UK NULL
+#define PCE_TURBO_DELAY_LABEL_UK NULL
+#define PCE_TURBO_DELAY_INFO_0_UK NULL
+#define OPTION_VAL_FAST_UK "Швидко"
+#define OPTION_VAL_MEDIUM_UK NULL
+#define OPTION_VAL_SLOW_UK NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_UK NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_UK NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_UK NULL
@@ -30731,8 +30700,6 @@ struct retro_core_options_v2 options_tr = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_UK NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_UK NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_UK NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_UK NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_UK NULL
 #define PCE_CDIMAGECACHE_LABEL_UK NULL
 #define PCE_CDIMAGECACHE_INFO_0_UK NULL
 #define PCE_CDBIOS_LABEL_UK NULL
@@ -30753,12 +30720,12 @@ struct retro_core_options_v2 options_tr = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_UK NULL
 #define OPTION_VAL_10_BIT_UK NULL
 #define OPTION_VAL_12_BIT_UK NULL
-#define PCE_CDDAVOLUME_LABEL_UK NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_UK NULL
-#define PCE_CDDAVOLUME_INFO_0_UK NULL
-#define PCE_CDDAVOLUME_INFO_1_UK NULL
 #define PCE_ADPCMVOLUME_LABEL_UK NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_UK NULL
+#define PCE_ADPCMVOLUME_INFO_0_UK NULL
+#define PCE_ADPCMVOLUME_INFO_1_UK NULL
+#define PCE_CDDAVOLUME_LABEL_UK NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_UK NULL
 #define PCE_CDPSGVOLUME_LABEL_UK NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_UK NULL
 #define PCE_NOSPRITELIMIT_LABEL_UK NULL
@@ -30829,7 +30796,6 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_UK,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_UK,
       NULL,
       "video",
@@ -31049,20 +31015,6 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_UK,
-      NULL,
-      PCE_MULTITAP_INFO_0_UK,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_UK,
       NULL,
@@ -31077,6 +31029,34 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_UK,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_UK,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_UK,
+      NULL,
+      PCE_MULTITAP_INFO_0_UK,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_UK,
       NULL,
@@ -31086,6 +31066,35 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_UK,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_UK,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_UK },
+         { "always", OPTION_VAL_ALWAYS_UK },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_UK,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_UK,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -31104,37 +31113,6 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_UK,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_UK },
-         { "always", OPTION_VAL_ALWAYS_UK },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_UK,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -31277,20 +31255,6 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_UK,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_UK,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_UK,
       NULL,
@@ -31367,11 +31331,11 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_UK,
-      PCE_CDDAVOLUME_LABEL_CAT_UK,
-      PCE_CDDAVOLUME_INFO_0_UK,
-      PCE_CDDAVOLUME_INFO_1_UK,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_UK,
+      PCE_ADPCMVOLUME_LABEL_CAT_UK,
+      PCE_ADPCMVOLUME_INFO_0_UK,
+      PCE_ADPCMVOLUME_INFO_1_UK,
       "cd",
       {
          { "0", NULL },
@@ -31400,11 +31364,11 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_UK,
-      PCE_ADPCMVOLUME_LABEL_CAT_UK,
-      PCE_CDDAVOLUME_INFO_0_UK,
-      PCE_CDDAVOLUME_INFO_1_UK,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_UK,
+      PCE_CDDAVOLUME_LABEL_CAT_UK,
+      PCE_ADPCMVOLUME_INFO_0_UK,
+      PCE_ADPCMVOLUME_INFO_1_UK,
       "cd",
       {
          { "0", NULL },
@@ -31436,8 +31400,8 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_UK,
       PCE_CDPSGVOLUME_LABEL_CAT_UK,
-      PCE_CDDAVOLUME_INFO_0_UK,
-      PCE_CDDAVOLUME_INFO_1_UK,
+      PCE_ADPCMVOLUME_INFO_0_UK,
+      PCE_ADPCMVOLUME_INFO_1_UK,
       "cd",
       {
          { "0", NULL },
@@ -31514,11 +31478,11 @@ struct retro_core_options_v2 options_uk = {
 
 /* RETRO_LANGUAGE_VN */
 
-#define CATEGORY_VIDEO_LABEL_VN NULL
+#define CATEGORY_VIDEO_LABEL_VN "Hình ảnh"
 #define CATEGORY_VIDEO_INFO_0_VN NULL
-#define CATEGORY_AUDIO_LABEL_VN NULL
-#define CATEGORY_AUDIO_INFO_0_VN NULL
-#define CATEGORY_INPUT_LABEL_VN NULL
+#define CATEGORY_AUDIO_LABEL_VN "Âm thanh"
+#define CATEGORY_AUDIO_INFO_0_VN "Chỉnh sửa âm thanh của giả lập."
+#define CATEGORY_INPUT_LABEL_VN "Input Driver"
 #define CATEGORY_INPUT_INFO_0_VN NULL
 #define CATEGORY_HACKS_LABEL_VN NULL
 #define CATEGORY_HACKS_INFO_0_VN NULL
@@ -31530,7 +31494,7 @@ struct retro_core_options_v2 options_uk = {
 #define OPTION_VAL_COMPOSITE_VN NULL
 #define PCE_ASPECT_RATIO_LABEL_VN NULL
 #define PCE_ASPECT_RATIO_INFO_0_VN NULL
-#define OPTION_VAL_AUTO_VN NULL
+#define OPTION_VAL_AUTO_VN "Tự động"
 #define OPTION_VAL_6_5_VN NULL
 #define OPTION_VAL_4_3_VN NULL
 #define OPTION_VAL_UNCORRECTED_VN NULL
@@ -31581,21 +31545,25 @@ struct retro_core_options_v2 options_uk = {
 #define OPTION_VAL_4_50_VN NULL
 #define OPTION_VAL_4_75_VN NULL
 #define OPTION_VAL_5_00_VN NULL
-#define PCE_MULTITAP_LABEL_VN NULL
-#define PCE_MULTITAP_INFO_0_VN NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_VN NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_VN NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_VN NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_VN NULL
+#define PCE_MULTITAP_LABEL_VN NULL
+#define PCE_MULTITAP_INFO_0_VN NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VN NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VN NULL
+#define PCE_TURBO_TOGGLING_LABEL_VN NULL
+#define PCE_TURBO_TOGGLING_INFO_0_VN NULL
+#define OPTION_VAL_TOGGLE_VN NULL
+#define OPTION_VAL_ALWAYS_VN NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_VN NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_VN NULL
 #define PCE_TURBO_DELAY_LABEL_VN NULL
 #define PCE_TURBO_DELAY_INFO_0_VN NULL
 #define OPTION_VAL_FAST_VN NULL
 #define OPTION_VAL_MEDIUM_VN NULL
 #define OPTION_VAL_SLOW_VN NULL
-#define PCE_TURBO_TOGGLING_LABEL_VN NULL
-#define OPTION_VAL_TOGGLE_VN NULL
-#define OPTION_VAL_ALWAYS_VN NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_VN NULL
 #define PCE_P0_TURBO_I_ENABLE_LABEL_VN NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_VN NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_VN NULL
@@ -31606,8 +31574,6 @@ struct retro_core_options_v2 options_uk = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_VN NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_VN NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_VN NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_VN NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_VN NULL
 #define PCE_CDIMAGECACHE_LABEL_VN NULL
 #define PCE_CDIMAGECACHE_INFO_0_VN NULL
 #define PCE_CDBIOS_LABEL_VN NULL
@@ -31628,12 +31594,12 @@ struct retro_core_options_v2 options_uk = {
 #define PCE_ADPCMEXTRAPREC_INFO_0_VN NULL
 #define OPTION_VAL_10_BIT_VN NULL
 #define OPTION_VAL_12_BIT_VN NULL
-#define PCE_CDDAVOLUME_LABEL_VN NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_VN NULL
-#define PCE_CDDAVOLUME_INFO_0_VN NULL
-#define PCE_CDDAVOLUME_INFO_1_VN NULL
 #define PCE_ADPCMVOLUME_LABEL_VN NULL
 #define PCE_ADPCMVOLUME_LABEL_CAT_VN NULL
+#define PCE_ADPCMVOLUME_INFO_0_VN NULL
+#define PCE_ADPCMVOLUME_INFO_1_VN NULL
+#define PCE_CDDAVOLUME_LABEL_VN NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_VN NULL
 #define PCE_CDPSGVOLUME_LABEL_VN NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_VN NULL
 #define PCE_NOSPRITELIMIT_LABEL_VN NULL
@@ -31704,7 +31670,6 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       "pce_scaling",
       PCE_SCALING_LABEL_VN,
       NULL,
-      /*  Is 'authorize' supposed to mean 'allow'? */
       PCE_SCALING_INFO_0_VN,
       NULL,
       "video",
@@ -31924,20 +31889,6 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       "1.25"
    },
    {
-      "pce_multitap",
-      PCE_MULTITAP_LABEL_VN,
-      NULL,
-      PCE_MULTITAP_INFO_0_VN,
-      NULL,
-      "input",
-      {
-         { "enabled", NULL },
-         { "disabled", NULL },
-         { NULL, NULL},
-      },
-      "enabled"
-   },
-   {
       "pce_up_down_allowed",
       PCE_UP_DOWN_ALLOWED_LABEL_VN,
       NULL,
@@ -31952,6 +31903,34 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       "disabled"
    },
    {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_VN,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_VN,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_VN,
+      NULL,
+      PCE_MULTITAP_INFO_0_VN,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
       "pce_show_advanced_input_settings",
       PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VN,
       NULL,
@@ -31961,6 +31940,35 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       {
          { "enabled",  NULL },
          { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_VN,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_VN,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_VN },
+         { "always", OPTION_VAL_ALWAYS_VN },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_VN,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_VN,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
          { NULL, NULL},
       },
       "disabled"
@@ -31979,37 +31987,6 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
          { NULL, NULL},
       },
       "Fast"
-   },
-   {
-      "pce_Turbo_Toggling",
-      PCE_TURBO_TOGGLING_LABEL_VN,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "toggle", OPTION_VAL_TOGGLE_VN },
-         { "always", OPTION_VAL_ALWAYS_VN },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
-      "pce_turbo_toggle_hotkey",
-      PCE_TURBO_TOGGLE_HOTKEY_LABEL_VN,
-      NULL,
-      /*  requires more explanation */
-      NULL,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
    },
    {
       "pce_p0_turbo_I_enable",
@@ -32152,20 +32129,6 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       "disabled"
    },
    {
-      "pce_disable_softreset",
-      PCE_DISABLE_SOFTRESET_LABEL_VN,
-      NULL,
-      PCE_DISABLE_SOFTRESET_INFO_0_VN,
-      NULL,
-      "input",
-      {
-         { "disabled", NULL },
-         { "enabled", NULL },
-         { NULL, NULL},
-      },
-      "disabled"
-   },
-   {
       "pce_cdimagecache",
       PCE_CDIMAGECACHE_LABEL_VN,
       NULL,
@@ -32242,11 +32205,11 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       "10-bit"
    },
    {
-      "pce_cddavolume",
-      PCE_CDDAVOLUME_LABEL_VN,
-      PCE_CDDAVOLUME_LABEL_CAT_VN,
-      PCE_CDDAVOLUME_INFO_0_VN,
-      PCE_CDDAVOLUME_INFO_1_VN,
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_VN,
+      PCE_ADPCMVOLUME_LABEL_CAT_VN,
+      PCE_ADPCMVOLUME_INFO_0_VN,
+      PCE_ADPCMVOLUME_INFO_1_VN,
       "cd",
       {
          { "0", NULL },
@@ -32275,11 +32238,11 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       "100"
    },
    {
-      "pce_adpcmvolume",
-      PCE_ADPCMVOLUME_LABEL_VN,
-      PCE_ADPCMVOLUME_LABEL_CAT_VN,
-      PCE_CDDAVOLUME_INFO_0_VN,
-      PCE_CDDAVOLUME_INFO_1_VN,
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_VN,
+      PCE_CDDAVOLUME_LABEL_CAT_VN,
+      PCE_ADPCMVOLUME_INFO_0_VN,
+      PCE_ADPCMVOLUME_INFO_1_VN,
       "cd",
       {
          { "0", NULL },
@@ -32311,8 +32274,8 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       "pce_cdpsgvolume",
       PCE_CDPSGVOLUME_LABEL_VN,
       PCE_CDPSGVOLUME_LABEL_CAT_VN,
-      PCE_CDDAVOLUME_INFO_0_VN,
-      PCE_CDDAVOLUME_INFO_1_VN,
+      PCE_ADPCMVOLUME_INFO_0_VN,
+      PCE_ADPCMVOLUME_INFO_1_VN,
       "cd",
       {
          { "0", NULL },
