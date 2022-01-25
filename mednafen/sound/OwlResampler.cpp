@@ -244,7 +244,7 @@ RavenBuffer::~RavenBuffer()
 
 
 
-void RavenBuffer::Process(unsigned count, bool integrate, unsigned lp_shift)
+void RavenBuffer::Process(unsigned count, bool integrate, uint32 lp_shift)
 {
  if(integrate)
  {
