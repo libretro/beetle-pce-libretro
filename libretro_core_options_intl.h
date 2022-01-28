@@ -1762,11 +1762,11 @@ struct retro_core_options_v2 options_ast = {
 
 /* RETRO_LANGUAGE_CA */
 
-#define CATEGORY_VIDEO_LABEL_CA NULL
+#define CATEGORY_VIDEO_LABEL_CA "Vídeo"
 #define CATEGORY_VIDEO_INFO_0_CA NULL
-#define CATEGORY_AUDIO_LABEL_CA NULL
+#define CATEGORY_AUDIO_LABEL_CA "Àudio"
 #define CATEGORY_AUDIO_INFO_0_CA NULL
-#define CATEGORY_INPUT_LABEL_CA NULL
+#define CATEGORY_INPUT_LABEL_CA "Dispositius de joc"
 #define CATEGORY_INPUT_INFO_0_CA NULL
 #define CATEGORY_HACKS_LABEL_CA NULL
 #define CATEGORY_HACKS_INFO_0_CA NULL
@@ -7007,76 +7007,76 @@ struct retro_core_options_v2 options_da = {
 /* RETRO_LANGUAGE_DE */
 
 #define CATEGORY_VIDEO_LABEL_DE NULL
-#define CATEGORY_VIDEO_INFO_0_DE NULL
+#define CATEGORY_VIDEO_INFO_0_DE "Seitenverhältnis, Bildausschnitt und andere Bildausgabeparameter anpassen."
 #define CATEGORY_AUDIO_LABEL_DE NULL
-#define CATEGORY_AUDIO_INFO_0_DE NULL
-#define CATEGORY_INPUT_LABEL_DE NULL
-#define CATEGORY_INPUT_INFO_0_DE NULL
+#define CATEGORY_AUDIO_INFO_0_DE "Emulierte Audiogeräte konfigurieren."
+#define CATEGORY_INPUT_LABEL_DE "Eingabe"
+#define CATEGORY_INPUT_INFO_0_DE "Lightgun-, Maus- und Controller-Eingabe anpassen."
 #define CATEGORY_HACKS_LABEL_DE "Emulations-Hacks"
 #define CATEGORY_HACKS_INFO_0_DE "Parameter für Prozessorübertaktung und Emulationsgenauigkeit, die sich auf die Low-Level-Leistung und Kompatibilität auswirken, anpassen."
-#define CATEGORY_CD_LABEL_DE NULL
-#define CATEGORY_CD_INFO_0_DE NULL
+#define CATEGORY_CD_LABEL_DE "PC-Engine-CD"
+#define CATEGORY_CD_INFO_0_DE "Einstellungen der PC-Engine-CD-Emulation anpassen."
 #define PCE_PALETTE_LABEL_DE "Farbpalette"
-#define PCE_PALETTE_INFO_0_DE NULL
+#define PCE_PALETTE_INFO_0_DE "\"Composite\" versucht, die Originalausgabe der Konsole nachzubilden und kann in einigen Spielen mehr Details darstellen."
 #define OPTION_VAL_RGB_DE NULL
 #define OPTION_VAL_COMPOSITE_DE NULL
 #define PCE_ASPECT_RATIO_LABEL_DE "Bildseitenverhältnis"
-#define PCE_ASPECT_RATIO_INFO_0_DE NULL
+#define PCE_ASPECT_RATIO_INFO_0_DE "Das bevorzugte Seitenverhältnis des Inhalts auswählen. Dies wird nur angewendet, wenn das Seitenverhältnis von RetroArch in den Videoeinstellungen auf \"Core-bestimmtes Seitenverhältnis\" eingestellt ist."
 #define OPTION_VAL_AUTO_DE "Automatisch"
 #define OPTION_VAL_6_5_DE NULL
 #define OPTION_VAL_4_3_DE NULL
 #define OPTION_VAL_UNCORRECTED_DE "Unkorrigiert"
-#define PCE_SCALING_LABEL_DE NULL
-#define PCE_SCALING_INFO_0_DE NULL
-#define OPTION_VAL_LORES_DE NULL
-#define OPTION_VAL_HIRES_DE NULL
+#define PCE_SCALING_LABEL_DE "Auflösungs-Skalierung"
+#define PCE_SCALING_INFO_0_DE "\"Automatisch\" erlaubt eine Änderung der Auflösung. Bei \"Niedrige Auflösung\" können Pixel zerdrückt werden. \"Hohe Auflösung\" erzwingt die maximale Breite."
+#define OPTION_VAL_LORES_DE "Niedrige Auflösung"
+#define OPTION_VAL_HIRES_DE "Hohe Auflösung"
 #define PCE_HIRES_BLEND_LABEL_DE NULL
-#define PCE_HIRES_BLEND_INFO_0_DE NULL
-#define PCE_H_OVERSCAN_LABEL_DE NULL
-#define PCE_H_OVERSCAN_INFO_0_DE NULL
-#define PCE_INITIAL_SCANLINE_LABEL_DE NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_DE NULL
+#define PCE_HIRES_BLEND_INFO_0_DE "Im \"Hohe Auflösung\"-Modus die Pixel zusammenblenden. Höhere Werte lassen das Bild stärker verschwimmen."
+#define PCE_H_OVERSCAN_LABEL_DE "Horizontalen Overscan anzeigen"
+#define PCE_H_OVERSCAN_INFO_0_DE "\"Automatisch\" versucht, sich den Spielen anzupassen und leere Bereiche abzuschneiden."
+#define PCE_INITIAL_SCANLINE_LABEL_DE "Erste Scanline"
+#define PCE_INITIAL_SCANLINE_INFO_0_DE "Erste gerenderte Scanline. Höhere Werte schneiden den oberen Teil des Bildes ab."
 #define OPTION_VAL_3_DE "3 (Standard)"
-#define PCE_LAST_SCANLINE_LABEL_DE NULL
-#define PCE_LAST_SCANLINE_INFO_0_DE NULL
+#define PCE_LAST_SCANLINE_LABEL_DE "Letzte Scanline"
+#define PCE_LAST_SCANLINE_INFO_0_DE "Letzte gerenderte Scanline. Niedrigere Werte schneiden den unteren Teil des Bildes ab."
 #define OPTION_VAL_242_DE "242 (Standard)"
-#define PCE_PSGREVISION_LABEL_DE NULL
-#define PCE_PSGREVISION_INFO_0_DE NULL
+#define PCE_PSGREVISION_LABEL_DE "PSG-Audio-Chip (Neustart erforderlich)"
+#define PCE_PSGREVISION_INFO_0_DE "HuC6280 entspricht der ursprünglichen PC Engine, HuC6280A der SuperGrafx und CoreGrafx I."
 #define OPTION_VAL_HUC6280_DE NULL
 #define OPTION_VAL_HUC6280A_DE NULL
-#define PCE_RESAMP_QUALITY_LABEL_DE NULL
+#define PCE_RESAMP_QUALITY_LABEL_DE "Owl-Resampler-Qualität"
 #define PCE_RESAMP_QUALITY_INFO_0_DE NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_DE "Mausempfindlichkeit"
-#define PCE_MOUSE_SENSITIVITY_INFO_0_DE NULL
-#define OPTION_VAL_0_125_DE NULL
-#define OPTION_VAL_0_250_DE NULL
-#define OPTION_VAL_0_375_DE NULL
-#define OPTION_VAL_0_500_DE NULL
-#define OPTION_VAL_0_625_DE NULL
-#define OPTION_VAL_0_750_DE NULL
-#define OPTION_VAL_0_875_DE NULL
-#define OPTION_VAL_1_000_DE NULL
-#define OPTION_VAL_1_125_DE NULL
-#define OPTION_VAL_1_25_DE NULL
-#define OPTION_VAL_1_50_DE NULL
-#define OPTION_VAL_1_75_DE NULL
-#define OPTION_VAL_2_00_DE NULL
-#define OPTION_VAL_2_25_DE NULL
-#define OPTION_VAL_2_50_DE NULL
-#define OPTION_VAL_2_75_DE NULL
-#define OPTION_VAL_3_00_DE NULL
-#define OPTION_VAL_3_25_DE NULL
-#define OPTION_VAL_3_50_DE NULL
-#define OPTION_VAL_3_75_DE NULL
-#define OPTION_VAL_4_00_DE NULL
-#define OPTION_VAL_4_25_DE NULL
-#define OPTION_VAL_4_50_DE NULL
-#define OPTION_VAL_4_75_DE NULL
-#define OPTION_VAL_5_00_DE NULL
+#define PCE_MOUSE_SENSITIVITY_INFO_0_DE "Höhere Werte erhöhen die Geschwindigkeit des Mauszeigers."
+#define OPTION_VAL_0_125_DE "0,125"
+#define OPTION_VAL_0_250_DE "0,250"
+#define OPTION_VAL_0_375_DE "0,375"
+#define OPTION_VAL_0_500_DE "0,500"
+#define OPTION_VAL_0_625_DE "0,625"
+#define OPTION_VAL_0_750_DE "0,750"
+#define OPTION_VAL_0_875_DE "0,875"
+#define OPTION_VAL_1_000_DE "1,000"
+#define OPTION_VAL_1_125_DE "1,125"
+#define OPTION_VAL_1_25_DE "1,25"
+#define OPTION_VAL_1_50_DE "1,50"
+#define OPTION_VAL_1_75_DE "1,75"
+#define OPTION_VAL_2_00_DE "2,00"
+#define OPTION_VAL_2_25_DE "2,25"
+#define OPTION_VAL_2_50_DE "2,50"
+#define OPTION_VAL_2_75_DE "2,75"
+#define OPTION_VAL_3_00_DE "3,00"
+#define OPTION_VAL_3_25_DE "3,25"
+#define OPTION_VAL_3_50_DE "3,50"
+#define OPTION_VAL_3_75_DE "3,75"
+#define OPTION_VAL_4_00_DE "4,00"
+#define OPTION_VAL_4_25_DE "4,25"
+#define OPTION_VAL_4_50_DE "4,50"
+#define OPTION_VAL_4_75_DE "4,75"
+#define OPTION_VAL_5_00_DE "5,00"
 #define PCE_UP_DOWN_ALLOWED_LABEL_DE NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_DE NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_DE NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_DE NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_DE "Neustart-Kombination (RUN+SELECT) deaktivieren"
+#define PCE_DISABLE_SOFTRESET_INFO_0_DE "Wenn RUN und SELECT gleichzeitig gedrückt werden, werden beide Tasten vorübergehend deaktiviert, anstatt den Inhalt neu zu starten."
 #define PCE_MULTITAP_LABEL_DE NULL
 #define PCE_MULTITAP_INFO_0_DE NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DE NULL
@@ -7102,8 +7102,8 @@ struct retro_core_options_v2 options_da = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_DE NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_DE NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_DE NULL
-#define PCE_CDIMAGECACHE_LABEL_DE NULL
-#define PCE_CDIMAGECACHE_INFO_0_DE NULL
+#define PCE_CDIMAGECACHE_LABEL_DE "CD-Abbild-Cache (Neustart erforderlich)"
+#define PCE_CDIMAGECACHE_INFO_0_DE "Das komplette Abbild beim Start in den Arbeitsspeicher laden. Kann die Ladezeiten auf Kosten einer längeren Startzeit verkürzen."
 #define PCE_CDBIOS_LABEL_DE NULL
 #define PCE_CDBIOS_INFO_0_DE NULL
 #define OPTION_VAL_GAMES_EXPRESS_DE NULL
@@ -7910,10 +7910,10 @@ struct retro_core_options_v2 options_de = {
 #define PCE_H_OVERSCAN_INFO_0_EL NULL
 #define PCE_INITIAL_SCANLINE_LABEL_EL NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_EL NULL
-#define OPTION_VAL_3_EL NULL
+#define OPTION_VAL_3_EL "3 (Προεπιλογή)"
 #define PCE_LAST_SCANLINE_LABEL_EL NULL
 #define PCE_LAST_SCANLINE_INFO_0_EL NULL
-#define OPTION_VAL_242_EL NULL
+#define OPTION_VAL_242_EL "242 (Προεπιλογή)"
 #define PCE_PSGREVISION_LABEL_EL NULL
 #define PCE_PSGREVISION_INFO_0_EL NULL
 #define OPTION_VAL_HUC6280_EL NULL
@@ -7981,11 +7981,11 @@ struct retro_core_options_v2 options_de = {
 #define PCE_CDBIOS_LABEL_EL NULL
 #define PCE_CDBIOS_INFO_0_EL NULL
 #define OPTION_VAL_GAMES_EXPRESS_EL NULL
-#define OPTION_VAL_SYSTEM_CARD_1_EL NULL
-#define OPTION_VAL_SYSTEM_CARD_2_EL NULL
-#define OPTION_VAL_SYSTEM_CARD_3_EL NULL
-#define OPTION_VAL_SYSTEM_CARD_2_US_EL NULL
-#define OPTION_VAL_SYSTEM_CARD_3_US_EL NULL
+#define OPTION_VAL_SYSTEM_CARD_1_EL "Κάρτα Συστήματος 1"
+#define OPTION_VAL_SYSTEM_CARD_2_EL "Κάρτα Συστήματος 2"
+#define OPTION_VAL_SYSTEM_CARD_3_EL "Κάρτα Συστήματος 3"
+#define OPTION_VAL_SYSTEM_CARD_2_US_EL "Κάρτα Συστήματος 2 ΗΠΑ"
+#define OPTION_VAL_SYSTEM_CARD_3_US_EL "Κάρτα Συστήματος 3 ΗΠΑ"
 #define PCE_ARCADECARD_LABEL_EL NULL
 #define PCE_ARCADECARD_INFO_0_EL NULL
 #define PCE_CDSPEED_LABEL_EL NULL
@@ -32348,6 +32348,880 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
 struct retro_core_options_v2 options_uk = {
    option_cats_uk,
    option_defs_uk
+};
+
+/* RETRO_LANGUAGE_VAL */
+
+#define CATEGORY_VIDEO_LABEL_VAL NULL
+#define CATEGORY_VIDEO_INFO_0_VAL NULL
+#define CATEGORY_AUDIO_LABEL_VAL NULL
+#define CATEGORY_AUDIO_INFO_0_VAL NULL
+#define CATEGORY_INPUT_LABEL_VAL NULL
+#define CATEGORY_INPUT_INFO_0_VAL NULL
+#define CATEGORY_HACKS_LABEL_VAL NULL
+#define CATEGORY_HACKS_INFO_0_VAL NULL
+#define CATEGORY_CD_LABEL_VAL NULL
+#define CATEGORY_CD_INFO_0_VAL NULL
+#define PCE_PALETTE_LABEL_VAL NULL
+#define PCE_PALETTE_INFO_0_VAL NULL
+#define OPTION_VAL_RGB_VAL NULL
+#define OPTION_VAL_COMPOSITE_VAL NULL
+#define PCE_ASPECT_RATIO_LABEL_VAL NULL
+#define PCE_ASPECT_RATIO_INFO_0_VAL NULL
+#define OPTION_VAL_AUTO_VAL NULL
+#define OPTION_VAL_6_5_VAL NULL
+#define OPTION_VAL_4_3_VAL NULL
+#define OPTION_VAL_UNCORRECTED_VAL NULL
+#define PCE_SCALING_LABEL_VAL NULL
+#define PCE_SCALING_INFO_0_VAL NULL
+#define OPTION_VAL_LORES_VAL NULL
+#define OPTION_VAL_HIRES_VAL NULL
+#define PCE_HIRES_BLEND_LABEL_VAL NULL
+#define PCE_HIRES_BLEND_INFO_0_VAL NULL
+#define PCE_H_OVERSCAN_LABEL_VAL NULL
+#define PCE_H_OVERSCAN_INFO_0_VAL NULL
+#define PCE_INITIAL_SCANLINE_LABEL_VAL NULL
+#define PCE_INITIAL_SCANLINE_INFO_0_VAL NULL
+#define OPTION_VAL_3_VAL NULL
+#define PCE_LAST_SCANLINE_LABEL_VAL NULL
+#define PCE_LAST_SCANLINE_INFO_0_VAL NULL
+#define OPTION_VAL_242_VAL NULL
+#define PCE_PSGREVISION_LABEL_VAL NULL
+#define PCE_PSGREVISION_INFO_0_VAL NULL
+#define OPTION_VAL_HUC6280_VAL NULL
+#define OPTION_VAL_HUC6280A_VAL NULL
+#define PCE_RESAMP_QUALITY_LABEL_VAL NULL
+#define PCE_RESAMP_QUALITY_INFO_0_VAL NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_VAL NULL
+#define PCE_MOUSE_SENSITIVITY_INFO_0_VAL NULL
+#define OPTION_VAL_0_125_VAL NULL
+#define OPTION_VAL_0_250_VAL NULL
+#define OPTION_VAL_0_375_VAL NULL
+#define OPTION_VAL_0_500_VAL NULL
+#define OPTION_VAL_0_625_VAL NULL
+#define OPTION_VAL_0_750_VAL NULL
+#define OPTION_VAL_0_875_VAL NULL
+#define OPTION_VAL_1_000_VAL NULL
+#define OPTION_VAL_1_125_VAL NULL
+#define OPTION_VAL_1_25_VAL NULL
+#define OPTION_VAL_1_50_VAL NULL
+#define OPTION_VAL_1_75_VAL NULL
+#define OPTION_VAL_2_00_VAL NULL
+#define OPTION_VAL_2_25_VAL NULL
+#define OPTION_VAL_2_50_VAL NULL
+#define OPTION_VAL_2_75_VAL NULL
+#define OPTION_VAL_3_00_VAL NULL
+#define OPTION_VAL_3_25_VAL NULL
+#define OPTION_VAL_3_50_VAL NULL
+#define OPTION_VAL_3_75_VAL NULL
+#define OPTION_VAL_4_00_VAL NULL
+#define OPTION_VAL_4_25_VAL NULL
+#define OPTION_VAL_4_50_VAL NULL
+#define OPTION_VAL_4_75_VAL NULL
+#define OPTION_VAL_5_00_VAL NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_VAL NULL
+#define PCE_UP_DOWN_ALLOWED_INFO_0_VAL NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_VAL NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_VAL NULL
+#define PCE_MULTITAP_LABEL_VAL NULL
+#define PCE_MULTITAP_INFO_0_VAL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VAL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VAL NULL
+#define PCE_TURBO_TOGGLING_LABEL_VAL NULL
+#define PCE_TURBO_TOGGLING_INFO_0_VAL NULL
+#define OPTION_VAL_TOGGLE_VAL NULL
+#define OPTION_VAL_ALWAYS_VAL NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_VAL NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_VAL NULL
+#define PCE_TURBO_DELAY_LABEL_VAL NULL
+#define PCE_TURBO_DELAY_INFO_0_VAL NULL
+#define OPTION_VAL_FAST_VAL NULL
+#define OPTION_VAL_MEDIUM_VAL NULL
+#define OPTION_VAL_SLOW_VAL NULL
+#define PCE_P0_TURBO_I_ENABLE_LABEL_VAL NULL
+#define PCE_P0_TURBO_II_ENABLE_LABEL_VAL NULL
+#define PCE_P1_TURBO_I_ENABLE_LABEL_VAL NULL
+#define PCE_P1_TURBO_II_ENABLE_LABEL_VAL NULL
+#define PCE_P2_TURBO_I_ENABLE_LABEL_VAL NULL
+#define PCE_P2_TURBO_II_ENABLE_LABEL_VAL NULL
+#define PCE_P3_TURBO_I_ENABLE_LABEL_VAL NULL
+#define PCE_P3_TURBO_II_ENABLE_LABEL_VAL NULL
+#define PCE_P4_TURBO_I_ENABLE_LABEL_VAL NULL
+#define PCE_P4_TURBO_II_ENABLE_LABEL_VAL NULL
+#define PCE_CDIMAGECACHE_LABEL_VAL NULL
+#define PCE_CDIMAGECACHE_INFO_0_VAL NULL
+#define PCE_CDBIOS_LABEL_VAL NULL
+#define PCE_CDBIOS_INFO_0_VAL NULL
+#define OPTION_VAL_GAMES_EXPRESS_VAL NULL
+#define OPTION_VAL_SYSTEM_CARD_1_VAL NULL
+#define OPTION_VAL_SYSTEM_CARD_2_VAL NULL
+#define OPTION_VAL_SYSTEM_CARD_3_VAL NULL
+#define OPTION_VAL_SYSTEM_CARD_2_US_VAL NULL
+#define OPTION_VAL_SYSTEM_CARD_3_US_VAL NULL
+#define PCE_ARCADECARD_LABEL_VAL NULL
+#define PCE_ARCADECARD_INFO_0_VAL NULL
+#define PCE_CDSPEED_LABEL_VAL NULL
+#define PCE_CDSPEED_LABEL_CAT_VAL NULL
+#define PCE_CDSPEED_INFO_0_VAL NULL
+#define PCE_ADPCMEXTRAPREC_LABEL_VAL NULL
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_VAL NULL
+#define PCE_ADPCMEXTRAPREC_INFO_0_VAL NULL
+#define OPTION_VAL_10_BIT_VAL NULL
+#define OPTION_VAL_12_BIT_VAL NULL
+#define PCE_ADPCMVOLUME_LABEL_VAL NULL
+#define PCE_ADPCMVOLUME_LABEL_CAT_VAL NULL
+#define PCE_ADPCMVOLUME_INFO_0_VAL NULL
+#define PCE_ADPCMVOLUME_INFO_1_VAL NULL
+#define PCE_CDDAVOLUME_LABEL_VAL NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_VAL NULL
+#define PCE_CDPSGVOLUME_LABEL_VAL NULL
+#define PCE_CDPSGVOLUME_LABEL_CAT_VAL NULL
+#define PCE_NOSPRITELIMIT_LABEL_VAL NULL
+#define PCE_NOSPRITELIMIT_INFO_0_VAL NULL
+#define PCE_OCMULTIPLIER_LABEL_VAL NULL
+#define PCE_OCMULTIPLIER_INFO_0_VAL NULL
+
+struct retro_core_option_v2_category option_cats_val[] = {
+   {
+      "video",
+      CATEGORY_VIDEO_LABEL_VAL,
+      CATEGORY_VIDEO_INFO_0_VAL
+   },
+   {
+      "audio",
+      CATEGORY_AUDIO_LABEL_VAL,
+      CATEGORY_AUDIO_INFO_0_VAL
+   },
+   {
+      "input",
+      CATEGORY_INPUT_LABEL_VAL,
+      CATEGORY_INPUT_INFO_0_VAL
+   },
+   {
+      "hacks",
+      CATEGORY_HACKS_LABEL_VAL,
+      CATEGORY_HACKS_INFO_0_VAL
+   },
+   {
+      "cd",
+      CATEGORY_CD_LABEL_VAL,
+      CATEGORY_CD_INFO_0_VAL
+   },
+   { NULL, NULL, NULL },
+};
+struct retro_core_option_v2_definition option_defs_val[] = {
+   {
+      "pce_palette",
+      PCE_PALETTE_LABEL_VAL,
+      NULL,
+      PCE_PALETTE_INFO_0_VAL,
+      NULL,
+      "video",
+      {
+         { "RGB", OPTION_VAL_RGB_VAL },
+         { "Composite", OPTION_VAL_COMPOSITE_VAL },
+         { NULL, NULL},
+      },
+      "RGB"
+   },
+   {
+      "pce_aspect_ratio",
+      PCE_ASPECT_RATIO_LABEL_VAL,
+      NULL,
+      PCE_ASPECT_RATIO_INFO_0_VAL,
+      NULL, 
+      "video",
+      {
+         { "auto", OPTION_VAL_AUTO_VAL },
+         { "6:5", OPTION_VAL_6_5_VAL },
+         { "4:3", OPTION_VAL_4_3_VAL },
+         { "uncorrected", OPTION_VAL_UNCORRECTED_VAL },
+         { NULL, NULL},
+      },
+      "auto"
+   },
+   {
+      "pce_scaling",
+      PCE_SCALING_LABEL_VAL,
+      NULL,
+      PCE_SCALING_INFO_0_VAL,
+      NULL,
+      "video",
+      {
+         { "auto", OPTION_VAL_AUTO_VAL },
+         { "lores", OPTION_VAL_LORES_VAL },
+         { "hires", OPTION_VAL_HIRES_VAL },
+         { NULL, NULL},
+      },
+      "auto"
+   },
+   {
+      "pce_hires_blend",
+      PCE_HIRES_BLEND_LABEL_VAL,
+      NULL,
+      PCE_HIRES_BLEND_INFO_0_VAL,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "1", NULL },
+         { "2", NULL },
+         { "3", NULL },
+         { "4", NULL },
+         { "5", NULL },
+         { "6", NULL },
+         { "7", NULL },
+         { "8", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_h_overscan",
+      PCE_H_OVERSCAN_LABEL_VAL,
+      NULL,
+      PCE_H_OVERSCAN_INFO_0_VAL,
+      NULL,
+      "video",
+      {
+         { "auto", OPTION_VAL_AUTO_VAL },
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "auto"
+   },
+   {
+      "pce_initial_scanline",
+      PCE_INITIAL_SCANLINE_LABEL_VAL,
+      NULL,
+      PCE_INITIAL_SCANLINE_INFO_0_VAL,
+      NULL,
+      "video",
+      {
+         { "0", NULL },
+         { "1", NULL },
+         { "2", NULL },
+         { "3", OPTION_VAL_3_VAL },
+         { "4", NULL },
+         { "5", NULL },
+         { "6", NULL },
+         { "7", NULL },
+         { "8", NULL },
+         { "9", NULL },
+         { "10", NULL },
+         { "11", NULL },
+         { "12", NULL },
+         { "13", NULL },
+         { "14", NULL },
+         { "15", NULL },
+         { "16", NULL },
+         { "17", NULL },
+         { "18", NULL },
+         { "19", NULL },
+         { "20", NULL },
+         { "21", NULL },
+         { "22", NULL },
+         { "23", NULL },
+         { "24", NULL },
+         { "25", NULL },
+         { "26", NULL },
+         { "27", NULL },
+         { "28", NULL },
+         { "29", NULL },
+         { "30", NULL },
+         { "31", NULL },
+         { "32", NULL },
+         { "33", NULL },
+         { "34", NULL },
+         { "35", NULL },
+         { "36", NULL },
+         { "37", NULL },
+         { "38", NULL },
+         { "39", NULL },
+         { "40", NULL },
+         { NULL, NULL},
+      },
+      "3"
+   },
+   {
+      "pce_last_scanline",
+      PCE_LAST_SCANLINE_LABEL_VAL,
+      NULL,
+      PCE_LAST_SCANLINE_INFO_0_VAL,
+      NULL,
+      "video",
+      {
+         { "208", NULL },
+         { "209", NULL },
+         { "210", NULL },
+         { "211", NULL },
+         { "212", NULL },
+         { "213", NULL },
+         { "214", NULL },
+         { "215", NULL },
+         { "216", NULL },
+         { "217", NULL },
+         { "218", NULL },
+         { "219", NULL },
+         { "220", NULL },
+         { "221", NULL },
+         { "222", NULL },
+         { "223", NULL },
+         { "224", NULL },
+         { "225", NULL },
+         { "226", NULL },
+         { "227", NULL },
+         { "228", NULL },
+         { "229", NULL },
+         { "230", NULL },
+         { "231", NULL },
+         { "232", NULL },
+         { "233", NULL },
+         { "234", NULL },
+         { "235", NULL },
+         { "236", NULL },
+         { "237", NULL },
+         { "238", NULL },
+         { "239", NULL },
+         { "240", NULL },
+         { "241", NULL },
+         { "242", OPTION_VAL_242_VAL },
+         { NULL, NULL},
+      },
+      "242"
+   },
+   {
+      "pce_psgrevision",
+      PCE_PSGREVISION_LABEL_VAL,
+      NULL,
+      PCE_PSGREVISION_INFO_0_VAL,
+      NULL,
+      "audio",
+      {
+         { "HuC6280", OPTION_VAL_HUC6280_VAL },
+         { "HuC6280A", OPTION_VAL_HUC6280A_VAL },
+         { "auto", OPTION_VAL_AUTO_VAL },
+         { NULL, NULL},
+      },
+      "HuC6280A"
+   },
+   {
+      "pce_resamp_quality",
+      PCE_RESAMP_QUALITY_LABEL_VAL,
+      NULL,
+      PCE_RESAMP_QUALITY_INFO_0_VAL,
+      NULL,
+      "audio",
+      {
+         { "0", NULL },
+         { "1", NULL },
+         { "2", NULL },
+         { "3", OPTION_VAL_3_VAL },
+         { "4", NULL },
+         { "5", NULL },
+         { "6", NULL },
+         { NULL, NULL},
+      },
+      "3"
+   },
+   {
+      "pce_mouse_sensitivity",
+      PCE_MOUSE_SENSITIVITY_LABEL_VAL,
+      NULL,
+      PCE_MOUSE_SENSITIVITY_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "0.125", OPTION_VAL_0_125_VAL },
+         { "0.250", OPTION_VAL_0_250_VAL },
+         { "0.375", OPTION_VAL_0_375_VAL },
+         { "0.500", OPTION_VAL_0_500_VAL },
+         { "0.625", OPTION_VAL_0_625_VAL },
+         { "0.750", OPTION_VAL_0_750_VAL },
+         { "0.875", OPTION_VAL_0_875_VAL },
+         { "1.000", OPTION_VAL_1_000_VAL },
+         { "1.125", OPTION_VAL_1_125_VAL },
+         { "1.25", OPTION_VAL_1_25_VAL },
+         { "1.50", OPTION_VAL_1_50_VAL },
+         { "1.75", OPTION_VAL_1_75_VAL },
+         { "2.00", OPTION_VAL_2_00_VAL },
+         { "2.25", OPTION_VAL_2_25_VAL },
+         { "2.50", OPTION_VAL_2_50_VAL },
+         { "2.75", OPTION_VAL_2_75_VAL },
+         { "3.00", OPTION_VAL_3_00_VAL },
+         { "3.25", OPTION_VAL_3_25_VAL },
+         { "3.50", OPTION_VAL_3_50_VAL },
+         { "3.75", OPTION_VAL_3_75_VAL },
+         { "4.00", OPTION_VAL_4_00_VAL },
+         { "4.25", OPTION_VAL_4_25_VAL },
+         { "4.50", OPTION_VAL_4_50_VAL },
+         { "4.75", OPTION_VAL_4_75_VAL },
+         { "5.00", OPTION_VAL_5_00_VAL },
+         { NULL, NULL},
+      },
+      "1.25"
+   },
+   {
+      "pce_up_down_allowed",
+      PCE_UP_DOWN_ALLOWED_LABEL_VAL,
+      NULL,
+      PCE_UP_DOWN_ALLOWED_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_VAL,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_VAL,
+      NULL,
+      PCE_MULTITAP_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VAL,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VAL,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_VAL,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_VAL },
+         { "always", OPTION_VAL_ALWAYS_VAL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_VAL,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Delay",
+      PCE_TURBO_DELAY_LABEL_VAL,
+      NULL,
+      PCE_TURBO_DELAY_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "Fast", OPTION_VAL_FAST_VAL },
+         { "Medium", OPTION_VAL_MEDIUM_VAL },
+         { "Slow", OPTION_VAL_SLOW_VAL },
+         { NULL, NULL},
+      },
+      "Fast"
+   },
+   {
+      "pce_p0_turbo_I_enable",
+      PCE_P0_TURBO_I_ENABLE_LABEL_VAL,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p0_turbo_II_enable",
+      PCE_P0_TURBO_II_ENABLE_LABEL_VAL,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p1_turbo_I_enable",
+      PCE_P1_TURBO_I_ENABLE_LABEL_VAL,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p1_turbo_II_enable",
+      PCE_P1_TURBO_II_ENABLE_LABEL_VAL,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p2_turbo_I_enable",
+      PCE_P2_TURBO_I_ENABLE_LABEL_VAL,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p2_turbo_II_enable",
+      PCE_P2_TURBO_II_ENABLE_LABEL_VAL,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p3_turbo_I_enable",
+      PCE_P3_TURBO_I_ENABLE_LABEL_VAL,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p3_turbo_II_enable",
+      PCE_P3_TURBO_II_ENABLE_LABEL_VAL,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p4_turbo_I_enable",
+      PCE_P4_TURBO_I_ENABLE_LABEL_VAL,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p4_turbo_II_enable",
+      PCE_P4_TURBO_II_ENABLE_LABEL_VAL,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_cdimagecache",
+      PCE_CDIMAGECACHE_LABEL_VAL,
+      NULL,
+      PCE_CDIMAGECACHE_INFO_0_VAL,
+      NULL,
+      "cd",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_cdbios",
+      PCE_CDBIOS_LABEL_VAL,
+      NULL,
+      PCE_CDBIOS_INFO_0_VAL,
+      NULL,
+      "cd",
+      {
+         { "Games Express", OPTION_VAL_GAMES_EXPRESS_VAL },
+         { "System Card 1", OPTION_VAL_SYSTEM_CARD_1_VAL },
+         { "System Card 2", OPTION_VAL_SYSTEM_CARD_2_VAL },
+         { "System Card 3", OPTION_VAL_SYSTEM_CARD_3_VAL },
+         { "System Card 2 US", OPTION_VAL_SYSTEM_CARD_2_US_VAL },
+         { "System Card 3 US", OPTION_VAL_SYSTEM_CARD_3_US_VAL },
+         { NULL, NULL},
+      },
+      "System Card 3"
+   },
+   {
+      "pce_arcadecard",
+      PCE_ARCADECARD_LABEL_VAL,
+      NULL,
+      PCE_ARCADECARD_INFO_0_VAL,
+      NULL,
+      "cd",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
+      "pce_cdspeed",
+      PCE_CDSPEED_LABEL_VAL,
+      PCE_CDSPEED_LABEL_CAT_VAL,
+      PCE_CDSPEED_INFO_0_VAL,
+      NULL,
+      "cd",
+      {
+         { "1", NULL },
+         { "2", NULL },
+         { "4", NULL },
+         { "8", NULL },
+         { NULL, NULL},
+      },
+      "1"
+   },
+   {
+      "pce_adpcmextraprec",
+      PCE_ADPCMEXTRAPREC_LABEL_VAL,
+      PCE_ADPCMEXTRAPREC_LABEL_CAT_VAL,
+      PCE_ADPCMEXTRAPREC_INFO_0_VAL,
+      NULL,
+      "cd",
+      {
+         { "10-bit", OPTION_VAL_10_BIT_VAL },
+         { "12-bit", OPTION_VAL_12_BIT_VAL },
+         { NULL, NULL},
+      },
+      "10-bit"
+   },
+   {
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_VAL,
+      PCE_ADPCMVOLUME_LABEL_CAT_VAL,
+      PCE_ADPCMVOLUME_INFO_0_VAL,
+      PCE_ADPCMVOLUME_INFO_1_VAL,
+      "cd",
+      {
+         { "0", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { "60", NULL },
+         { "70", NULL },
+         { "80", NULL },
+         { "90", NULL },
+         { "100", NULL },
+         { "110", NULL },
+         { "120", NULL },
+         { "130", NULL },
+         { "140", NULL },
+         { "150", NULL },
+         { "160", NULL },
+         { "170", NULL },
+         { "180", NULL },
+         { "190", NULL },
+         { "200", NULL },
+         { NULL, NULL},
+      },
+      "100"
+   },
+   {
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_VAL,
+      PCE_CDDAVOLUME_LABEL_CAT_VAL,
+      PCE_ADPCMVOLUME_INFO_0_VAL,
+      PCE_ADPCMVOLUME_INFO_1_VAL,
+      "cd",
+      {
+         { "0", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { "60", NULL },
+         { "70", NULL },
+         { "80", NULL },
+         { "90", NULL },
+         { "100", NULL },
+         { "110", NULL },
+         { "120", NULL },
+         { "130", NULL },
+         { "140", NULL },
+         { "150", NULL },
+         { "160", NULL },
+         { "170", NULL },
+         { "180", NULL },
+         { "190", NULL },
+         { "200", NULL },
+         { NULL, NULL},
+      },
+      "100"
+   },
+   {
+      "pce_cdpsgvolume",
+      PCE_CDPSGVOLUME_LABEL_VAL,
+      PCE_CDPSGVOLUME_LABEL_CAT_VAL,
+      PCE_ADPCMVOLUME_INFO_0_VAL,
+      PCE_ADPCMVOLUME_INFO_1_VAL,
+      "cd",
+      {
+         { "0", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { "60", NULL },
+         { "70", NULL },
+         { "80", NULL },
+         { "90", NULL },
+         { "100", NULL },
+         { "110", NULL },
+         { "120", NULL },
+         { "130", NULL },
+         { "140", NULL },
+         { "150", NULL },
+         { "160", NULL },
+         { "170", NULL },
+         { "180", NULL },
+         { "190", NULL },
+         { "200", NULL },
+         { NULL, NULL},
+      },
+      "100"
+   },
+   {
+      "pce_nospritelimit",
+      PCE_NOSPRITELIMIT_LABEL_VAL,
+      NULL,
+      PCE_NOSPRITELIMIT_INFO_0_VAL,
+      NULL,
+      "hacks",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_ocmultiplier",
+      PCE_OCMULTIPLIER_LABEL_VAL,
+      NULL,
+      PCE_OCMULTIPLIER_INFO_0_VAL,
+      NULL,
+      "hacks",
+      {
+         { "1", NULL },
+         { "2", NULL },
+         { "3", NULL },
+         { "4", NULL },
+         { "5", NULL },
+         { "6", NULL },
+         { "7", NULL },
+         { "8", NULL },
+         { "9", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { NULL, NULL},
+      },
+      "1"
+   },
+   { NULL, NULL, NULL, NULL, NULL, NULL, {{0}}, NULL },
+};
+struct retro_core_options_v2 options_val = {
+   option_cats_val,
+   option_defs_val
 };
 
 /* RETRO_LANGUAGE_VN */
