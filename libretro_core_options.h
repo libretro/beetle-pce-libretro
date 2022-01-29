@@ -279,7 +279,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "pce_resamp_quality",
       "Owl Resampler Quality",
       NULL,
-      "Higher values give better signal noise ratio and preservation of higher frequencies but increase the computation cost and may cause higher latency and clipping if the volume is set too high.",
+      "Higher values give better signal-to-noise ratio and preservation of higher frequencies but increase the computation cost and may cause higher latency and clipping if the volume is set too high.",
       NULL,
       "audio",
       {
