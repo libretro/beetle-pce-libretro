@@ -16659,7 +16659,7 @@ struct retro_core_options_v2 options_id = {
 #define OPTION_VAL_HUC6280_IT NULL
 #define OPTION_VAL_HUC6280A_IT NULL
 #define PCE_RESAMP_QUALITY_LABEL_IT "Qualità Del Owl Resampler"
-#define PCE_RESAMP_QUALITY_INFO_0_IT "Valori più alti danno un migliore rapporto rumore segnale e la conservazione di frequenze più elevate, ma aumentare il costo di calcolo e può causare una maggiore latenza e ritaglio se il volume è impostato troppo alto."
+#define PCE_RESAMP_QUALITY_INFO_0_IT "Valori più alti danno un migliore rapporto segnale-rumore e la conservazione di frequenze più elevate, ma aumentano il costo di calcolo e possono causare una maggiore latenza e ritaglio se il volume è impostato troppo alto."
 #define PCE_MOUSE_SENSITIVITY_LABEL_IT "Sensibilità Mouse"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_IT "Valori più alti renderanno il cursore del mouse più veloce."
 #define OPTION_VAL_0_125_IT NULL
@@ -21004,7 +21004,7 @@ struct retro_core_options_v2 options_nl = {
 #define PCE_PALETTE_INFO_0_NO NULL
 #define OPTION_VAL_RGB_NO NULL
 #define OPTION_VAL_COMPOSITE_NO NULL
-#define PCE_ASPECT_RATIO_LABEL_NO NULL
+#define PCE_ASPECT_RATIO_LABEL_NO "Størrelsesforhold"
 #define PCE_ASPECT_RATIO_INFO_0_NO NULL
 #define OPTION_VAL_AUTO_NO NULL
 #define OPTION_VAL_6_5_NO NULL
@@ -32352,11 +32352,11 @@ struct retro_core_options_v2 options_uk = {
 
 /* RETRO_LANGUAGE_VAL */
 
-#define CATEGORY_VIDEO_LABEL_VAL NULL
+#define CATEGORY_VIDEO_LABEL_VAL "Vídeo"
 #define CATEGORY_VIDEO_INFO_0_VAL NULL
-#define CATEGORY_AUDIO_LABEL_VAL NULL
+#define CATEGORY_AUDIO_LABEL_VAL "Àudio"
 #define CATEGORY_AUDIO_INFO_0_VAL NULL
-#define CATEGORY_INPUT_LABEL_VAL NULL
+#define CATEGORY_INPUT_LABEL_VAL "Entrada"
 #define CATEGORY_INPUT_INFO_0_VAL NULL
 #define CATEGORY_HACKS_LABEL_VAL NULL
 #define CATEGORY_HACKS_INFO_0_VAL NULL
@@ -32391,7 +32391,7 @@ struct retro_core_options_v2 options_uk = {
 #define OPTION_VAL_HUC6280_VAL NULL
 #define OPTION_VAL_HUC6280A_VAL NULL
 #define PCE_RESAMP_QUALITY_LABEL_VAL NULL
-#define PCE_RESAMP_QUALITY_INFO_0_VAL NULL
+#define PCE_RESAMP_QUALITY_INFO_0_VAL "Els valors alts donen una millor proporció i preservació d'altes freqüències de relació senyal-soroll, però augmenta el cost de recursos i pot causar major latència i retallada d'imatge si el volum es posa massa alt."
 #define PCE_MOUSE_SENSITIVITY_LABEL_VAL NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_VAL NULL
 #define OPTION_VAL_0_125_VAL NULL
