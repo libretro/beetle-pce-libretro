@@ -372,6 +372,8 @@ static MDFN_COLD int LoadCommon(void)
 
 	HuCPU.SetReadHandler(0xFF, IORead);
 	HuCPU.SetWriteHandler(0xFF, IOWrite);
+	
+	HuCPU.SetOverclock(MDFN_GetSettingUI("pce.ocmultiplier"));
 
 	int psgrevision = MDFN_GetSettingI("pce.psgrevision");
 
