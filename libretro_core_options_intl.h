@@ -7085,7 +7085,7 @@ struct retro_core_options_v2 options_da = {
 #define PCE_TURBO_TOGGLING_INFO_0_DE NULL
 #define OPTION_VAL_TOGGLE_DE NULL
 #define OPTION_VAL_ALWAYS_DE NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_DE NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_DE "Alternative Turbo-Hotkeys"
 #define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_DE NULL
 #define PCE_TURBO_DELAY_LABEL_DE NULL
 #define PCE_TURBO_DELAY_INFO_0_DE NULL
@@ -7105,7 +7105,7 @@ struct retro_core_options_v2 options_da = {
 #define PCE_CDIMAGECACHE_LABEL_DE "CD-Abbild-Cache (Neustart erforderlich)"
 #define PCE_CDIMAGECACHE_INFO_0_DE "Das komplette Abbild beim Start in den Arbeitsspeicher laden. Kann die Ladezeiten auf Kosten einer längeren Startzeit verkürzen."
 #define PCE_CDBIOS_LABEL_DE NULL
-#define PCE_CDBIOS_INFO_0_DE NULL
+#define PCE_CDBIOS_INFO_0_DE "Die meisten Spiele können auf \"System Card 3\" laufen. \"Games Express\" wird für einige nicht lizenzierte Spiele benötigt."
 #define OPTION_VAL_GAMES_EXPRESS_DE NULL
 #define OPTION_VAL_SYSTEM_CARD_1_DE NULL
 #define OPTION_VAL_SYSTEM_CARD_2_DE NULL
@@ -7114,26 +7114,26 @@ struct retro_core_options_v2 options_da = {
 #define OPTION_VAL_SYSTEM_CARD_3_US_DE NULL
 #define PCE_ARCADECARD_LABEL_DE NULL
 #define PCE_ARCADECARD_INFO_0_DE NULL
-#define PCE_CDSPEED_LABEL_DE NULL
-#define PCE_CDSPEED_LABEL_CAT_DE NULL
-#define PCE_CDSPEED_INFO_0_DE NULL
+#define PCE_CDSPEED_LABEL_DE "(CD) CD-Geschwindigkeit"
+#define PCE_CDSPEED_LABEL_CAT_DE "CD-Geschwindigkeit"
+#define PCE_CDSPEED_INFO_0_DE "Höhere Werte ermöglichen schnellere Ladezeiten, können aber Probleme mit einigen Spielen verursachen."
 #define PCE_ADPCMEXTRAPREC_LABEL_DE NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_DE NULL
 #define PCE_ADPCMEXTRAPREC_INFO_0_DE NULL
 #define OPTION_VAL_10_BIT_DE NULL
 #define OPTION_VAL_12_BIT_DE NULL
-#define PCE_ADPCMVOLUME_LABEL_DE NULL
-#define PCE_ADPCMVOLUME_LABEL_CAT_DE NULL
-#define PCE_ADPCMVOLUME_INFO_0_DE NULL
-#define PCE_ADPCMVOLUME_INFO_1_DE NULL
-#define PCE_CDDAVOLUME_LABEL_DE NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_DE NULL
+#define PCE_ADPCMVOLUME_LABEL_DE "(CD) ADPCM Lautstärke %"
+#define PCE_ADPCMVOLUME_LABEL_CAT_DE "ADPCM Lautstärke %"
+#define PCE_ADPCMVOLUME_INFO_0_DE "Nur für CD-Spiele. Diese Lautstärke zu hoch einzustellen kann zu Übersteuerung führen."
+#define PCE_ADPCMVOLUME_INFO_1_DE "Diese Lautstärke zu hoch einzustellen kann zu Übersteuerung führen."
+#define PCE_CDDAVOLUME_LABEL_DE "(CD) CDDA Lautstärke %"
+#define PCE_CDDAVOLUME_LABEL_CAT_DE "CDDA Lautstärke %"
 #define PCE_CDPSGVOLUME_LABEL_DE NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_DE NULL
-#define PCE_NOSPRITELIMIT_LABEL_DE NULL
+#define PCE_NOSPRITELIMIT_LABEL_DE "Kein Sprite-Limit"
 #define PCE_NOSPRITELIMIT_INFO_0_DE NULL
 #define PCE_OCMULTIPLIER_LABEL_DE NULL
-#define PCE_OCMULTIPLIER_INFO_0_DE NULL
+#define PCE_OCMULTIPLIER_INFO_0_DE "Höhere Werte können Slowdowns in Spielen reduzieren. WARNUNG: Kann Grafikfehler und Abstürze verursachen."
 
 struct retro_core_option_v2_category option_cats_de[] = {
    {
@@ -7920,7 +7920,7 @@ struct retro_core_options_v2 options_de = {
 #define OPTION_VAL_HUC6280A_EL NULL
 #define PCE_RESAMP_QUALITY_LABEL_EL NULL
 #define PCE_RESAMP_QUALITY_INFO_0_EL NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_EL NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_EL "Ευαισθησία Ποντικιού"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_EL NULL
 #define OPTION_VAL_0_125_EL NULL
 #define OPTION_VAL_0_250_EL NULL
