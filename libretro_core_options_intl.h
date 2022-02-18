@@ -4398,9 +4398,9 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_PALETTE_INFO_0_CS NULL
 #define OPTION_VAL_RGB_CS NULL
 #define OPTION_VAL_COMPOSITE_CS NULL
-#define PCE_ASPECT_RATIO_LABEL_CS "Poměr stran"
-#define PCE_ASPECT_RATIO_INFO_0_CS NULL
-#define OPTION_VAL_AUTO_CS NULL
+#define PCE_ASPECT_RATIO_LABEL_CS NULL
+#define PCE_ASPECT_RATIO_INFO_0_CS "Zvolte preferovaný poměr stran obsahu. To se použije pouze v případě, že je poměr stran aplikace RetroArch v nastavení videa nastaven na hodnotu \"Core provided\"."
+#define OPTION_VAL_AUTO_CS "Automatické"
 #define OPTION_VAL_6_5_CS NULL
 #define OPTION_VAL_4_3_CS NULL
 #define OPTION_VAL_UNCORRECTED_CS NULL
@@ -4414,10 +4414,10 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_H_OVERSCAN_INFO_0_CS NULL
 #define PCE_INITIAL_SCANLINE_LABEL_CS NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_CS NULL
-#define OPTION_VAL_3_CS NULL
+#define OPTION_VAL_3_CS "3 (Výchozí)"
 #define PCE_LAST_SCANLINE_LABEL_CS NULL
 #define PCE_LAST_SCANLINE_INFO_0_CS NULL
-#define OPTION_VAL_242_CS NULL
+#define OPTION_VAL_242_CS "242 (Výchozí)"
 #define PCE_PSGREVISION_LABEL_CS NULL
 #define PCE_PSGREVISION_INFO_0_CS NULL
 #define OPTION_VAL_HUC6280_CS NULL
@@ -4467,9 +4467,9 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CS NULL
 #define PCE_TURBO_DELAY_LABEL_CS NULL
 #define PCE_TURBO_DELAY_INFO_0_CS NULL
-#define OPTION_VAL_FAST_CS NULL
-#define OPTION_VAL_MEDIUM_CS NULL
-#define OPTION_VAL_SLOW_CS NULL
+#define OPTION_VAL_FAST_CS "Rychle"
+#define OPTION_VAL_MEDIUM_CS "Středně"
+#define OPTION_VAL_SLOW_CS "Pomalu"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_CS NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_CS NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_CS NULL
@@ -9649,7 +9649,7 @@ struct retro_core_options_v2 options_eo = {
 #define OPTION_VAL_4_3_ES NULL
 #define OPTION_VAL_UNCORRECTED_ES "Sin corregir"
 #define PCE_SCALING_LABEL_ES "Escalar resolución"
-#define PCE_SCALING_INFO_0_ES "«Selección automática» permitirá que se cambie la resolución. «Baja resolución» puede provocar pérdida de píxeles. «Alta resolución» mantendrá el ancho máximo."
+#define PCE_SCALING_INFO_0_ES "«Selección automática» permitirá que se cambie la resolución. «Baja resolución» puede provocar una pérdida de píxeles. «Alta resolución» mantendrá el ancho máximo."
 #define OPTION_VAL_LORES_ES "Baja resolución"
 #define OPTION_VAL_HIRES_ES "Alta resolución"
 #define PCE_HIRES_BLEND_LABEL_ES "Fuerza de la fusión en alta resolución"
@@ -9706,7 +9706,7 @@ struct retro_core_options_v2 options_eo = {
 #define PCE_TURBO_TOGGLING_LABEL_ES "Modo de la tecla rápida del turbo"
 #define PCE_TURBO_TOGGLING_INFO_0_ES "Activa los botones con turbo. Las teclas rápidas (los botones III y IV) pueden hacer de conmutadores o de botones de turbo dedicados (mantenlos pulsados para usarlos)."
 #define OPTION_VAL_TOGGLE_ES "Activación manual"
-#define OPTION_VAL_ALWAYS_ES "Dedicado"
+#define OPTION_VAL_ALWAYS_ES "Botones dedicados"
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_ES "Teclas rápidas alternativas para el turbo"
 #define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_ES "Asigna los botones L3/R3 del RetroPad como teclas rápidas de turbo en vez de usar los botones III y IV. Solo funciona en el modo «Alternar» y mientras no haya otra acción asignada a los botones L3/R3. Con esta opción no tendrás que reasignar los botones III y IV cuando cambies al modo de mando de 6 botones."
 #define PCE_TURBO_DELAY_LABEL_ES "Velocidad del turbo"
