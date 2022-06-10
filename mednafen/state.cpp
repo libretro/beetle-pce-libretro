@@ -98,7 +98,7 @@ static int smem_read32le(StateMem *st, uint32_t *b)
    return(4);
 }
 
-static bool SubWrite(StateMem *st, SFORMAT *sf, const char *name_prefix = NULL)
+static bool SubWrite(StateMem *st, SFORMAT *sf)
 {
    /* Size can sometimes be zero, so also check for the text name.  These two should both be zero only at the end of a struct. */
    while(sf->size || sf->name)	
@@ -111,7 +111,7 @@ static bool SubWrite(StateMem *st, SFORMAT *sf, const char *name_prefix = NULL)
 
       if(sf->size == (uint32_t)~0)		/* Link to another struct.	*/
       {
-         if(!SubWrite(st, (SFORMAT *)sf->v, name_prefix))
+         if(!SubWrite(st, (SFORMAT *)sf->v))
             return(0);
 
          sf++;
@@ -121,24 +121,17 @@ static bool SubWrite(StateMem *st, SFORMAT *sf, const char *name_prefix = NULL)
       int32_t bytesize = sf->size;
 
       char nameo[1 + 256];
-      int slen;
+      const int slen = strlen(sf->name);
 
-      slen = snprintf(nameo + 1, 256, "%s%s", name_prefix ? name_prefix : "", sf->name);
+      memcpy(&nameo[1], sf->name, slen);
       nameo[0] = slen;
-
-      if(slen >= 255)
-         slen = 255;
 
       smem_write(st, nameo, 1 + nameo[0]);
       smem_write32le(st, bytesize);
 
 #ifdef MSB_FIRST
       /* Flip the byte order... */
-      if(sf->flags & MDFNSTATE_BOOL)
-      {
-
-      }
-      else if(sf->flags & MDFNSTATE_RLSB64)
+      if(sf->flags & MDFNSTATE_RLSB64)
          Endian_A64_NE_to_LE(sf->v, bytesize / sizeof(uint64_t));
       else if(sf->flags & MDFNSTATE_RLSB32)
          Endian_A32_NE_to_LE(sf->v, bytesize / sizeof(uint32_t));
@@ -166,11 +159,7 @@ static bool SubWrite(StateMem *st, SFORMAT *sf, const char *name_prefix = NULL)
 
 #ifdef MSB_FIRST
       /* Now restore the original byte order. */
-      if(sf->flags & MDFNSTATE_BOOL)
-      {
-
-      }
-      else if(sf->flags & MDFNSTATE_RLSB64)
+      if(sf->flags & MDFNSTATE_RLSB64)
          Endian_A64_LE_to_NE(sf->v, bytesize / sizeof(uint64_t));
       else if(sf->flags & MDFNSTATE_RLSB32)
          Endian_A32_LE_to_NE(sf->v, bytesize / sizeof(uint32_t));
