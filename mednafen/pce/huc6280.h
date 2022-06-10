@@ -64,8 +64,7 @@ public:
 
 	int StateAction(StateMem *sm, const unsigned load, const bool data_only);
 
-	template<bool DebugMode>
-	void RunSub(void) NO_INLINE;
+	NO_INLINE void RunSub(void);
 
 	void Run(const bool StepMode = false);
 
@@ -261,13 +260,10 @@ private:
 	void PUSH(const uint8 V);
 	uint8 POP(void);
 
-	template<bool DebugMode>
 	void JR(const bool cond, const bool BBRS = false);
 
-	template<bool DebugMode>
 	void BBRi(const uint8 val, const unsigned int bitto);
 
-	template<bool DebugMode>
 	void BBSi(const uint8 val, const unsigned int bitto);
 
 private:
@@ -328,9 +324,6 @@ private:
 	uint8 *FastMap[0x100];		// Direct pointers to memory for mapped RAM and ROM for faster reads.
 	readfunc ReadMap[0x100];	// Read handler pointers for each 8KiB in the 21-bit physical address space.
 	writefunc WriteMap[0x100];	// Write handler pointers for each 8KiB in the 21-bit physical address space.
-
-	bool (*CPUHook)(uint32);
-	void (*ADDBT)(uint32, uint32, uint32);
 
 	bool EmulateWAI;		// For speed hacks
 };

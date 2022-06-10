@@ -30,9 +30,6 @@ case 0x00:  /* BRK */
             PC = RdOp(0xFFF6);
             PC |= RdOp(0xFFF7) << 8;
 
-	    if(DebugMode && ADDBT)
-	     ADDBT(old_PC, PC, 0);
-
             ADDCYC(7);
             LastCycle();
             break;
@@ -42,9 +39,6 @@ case 0x40:  /* RTI */
 	    REDOPIMCACHE();
             PC = POP();
             PC |= POP() << 8;
-
-	    if(DebugMode && ADDBT)
-	     ADDBT(old_PC, PC, 0);
 
             ADDCYC(6);
             LastCycle();
@@ -57,9 +51,6 @@ case 0x60:  /* RTS */
             PC = POP();
             PC |= POP() << 8;
 	    PC++;
-
-	    if(DebugMode && ADDBT)
-	     ADDBT(old_PC, PC, 0);
 
             ADDCYC(6);
             LastCycle();
@@ -131,9 +122,6 @@ case 0x4C: /* JMP ABSOLUTE */
 	   npc |= RdOp(ptmp)<<8;
 	   PC = npc;
 
-	   if(DebugMode && ADDBT)
-	    ADDBT(old_PC, PC, 0);
-
            ADDCYC(3);
            LastCycle();
 	  }
@@ -145,9 +133,6 @@ case 0x6C: /* JMP Indirect */
 	    GetAB(tmp);
 	    PC = RdMem(tmp);
 	    PC |= RdMem(tmp + 1) << 8;
-
-	    if(DebugMode && ADDBT)
-	     ADDBT(old_PC, PC, 0);
 
             ADDCYC(6);
             LastCycle();
@@ -163,9 +148,6 @@ case 0x7C: // JMP Indirect X - 65C02
             PC = RdMem(tmp);
             PC |= RdMem(tmp + 1) << 8;
 
-	    if(DebugMode && ADDBT)
-	     ADDBT(old_PC, PC, 0);
-
             ADDCYC(6);
             LastCycle();
            }
@@ -180,9 +162,6 @@ case 0x20: /* JSR */
             PUSH(PC);
             PC = RdOp(PC) << 8;
 	    PC |= npc;
-
-	    if(DebugMode && ADDBT)
-	     ADDBT(old_PC, PC, 0);
 
 	    ADDCYC(6);
 	    LastCycle();
@@ -244,7 +223,6 @@ case 0x78: /* SEI */
 	   OP_SETF(I_FLAG, REDOPIMCACHE(););
 
 case 0xF4: /* SET */
-	   //puts("SET");
 	   ADDCYC(1);
 	   LastCycle();
 	   P |= T_FLAG;
@@ -409,27 +387,27 @@ case 0x94: ST_ZPX(Y);
 case 0x8C: ST_AB(Y);
 
 /* BBRi */
-case 0x0F: LD_ZP(BBRi<DebugMode>(x, 0));
-case 0x1F: LD_ZP(BBRi<DebugMode>(x, 1));
-case 0x2F: LD_ZP(BBRi<DebugMode>(x, 2));
-case 0x3F: LD_ZP(BBRi<DebugMode>(x, 3));
-case 0x4F: LD_ZP(BBRi<DebugMode>(x, 4));
-case 0x5F: LD_ZP(BBRi<DebugMode>(x, 5));
-case 0x6F: LD_ZP(BBRi<DebugMode>(x, 6));
-case 0x7F: LD_ZP(BBRi<DebugMode>(x, 7));
+case 0x0F: LD_ZP(BBRi(x, 0));
+case 0x1F: LD_ZP(BBRi(x, 1));
+case 0x2F: LD_ZP(BBRi(x, 2));
+case 0x3F: LD_ZP(BBRi(x, 3));
+case 0x4F: LD_ZP(BBRi(x, 4));
+case 0x5F: LD_ZP(BBRi(x, 5));
+case 0x6F: LD_ZP(BBRi(x, 6));
+case 0x7F: LD_ZP(BBRi(x, 7));
 
 /* BBSi */
-case 0x8F: LD_ZP(BBSi<DebugMode>(x, 0));
-case 0x9F: LD_ZP(BBSi<DebugMode>(x, 1));
-case 0xAF: LD_ZP(BBSi<DebugMode>(x, 2));
-case 0xBF: LD_ZP(BBSi<DebugMode>(x, 3));
-case 0xCF: LD_ZP(BBSi<DebugMode>(x, 4));
-case 0xDF: LD_ZP(BBSi<DebugMode>(x, 5));
-case 0xEF: LD_ZP(BBSi<DebugMode>(x, 6));
-case 0xFF: LD_ZP(BBSi<DebugMode>(x, 7));
+case 0x8F: LD_ZP(BBSi(x, 0));
+case 0x9F: LD_ZP(BBSi(x, 1));
+case 0xAF: LD_ZP(BBSi(x, 2));
+case 0xBF: LD_ZP(BBSi(x, 3));
+case 0xCF: LD_ZP(BBSi(x, 4));
+case 0xDF: LD_ZP(BBSi(x, 5));
+case 0xEF: LD_ZP(BBSi(x, 6));
+case 0xFF: LD_ZP(BBSi(x, 7));
 
 /* BRA */
-case 0x80: JR<DebugMode>(1); break;
+case 0x80: JR(1); break;
 
 /* BSR */
 case 0x44:
@@ -437,33 +415,33 @@ case 0x44:
             PUSH(PC >> 8);
             PUSH(PC);
 	    ADDCYC(4);
-	    JR<DebugMode>(1);
+	    JR(1);
            } 
 	   break;
 
 /* BCC */
-case 0x90: JR<DebugMode>(!(P&C_FLAG)); break;
+case 0x90: JR(!(P&C_FLAG)); break;
 
 /* BCS */
-case 0xB0: JR<DebugMode>(P&C_FLAG); break;
+case 0xB0: JR(P&C_FLAG); break;
 
 /* BEQ */
-case 0xF0: JR<DebugMode>(P&Z_FLAG); break;
+case 0xF0: JR(P&Z_FLAG); break;
 
 /* BNE */
-case 0xD0: JR<DebugMode>(!(P&Z_FLAG)); break;
+case 0xD0: JR(!(P&Z_FLAG)); break;
 
 /* BMI */
-case 0x30: JR<DebugMode>(P&N_FLAG); break;
+case 0x30: JR(P&N_FLAG); break;
 
 /* BPL */
-case 0x10: JR<DebugMode>(!(P&N_FLAG)); break;
+case 0x10: JR(!(P&N_FLAG)); break;
 
 /* BVC */
-case 0x50: JR<DebugMode>(!(P&V_FLAG)); break;
+case 0x50: JR(!(P&V_FLAG)); break;
 
 /* BVS */
-case 0x70: JR<DebugMode>(P&V_FLAG); break;
+case 0x70: JR(P&V_FLAG); break;
 
 
 // RMB				65SC02
@@ -547,11 +525,11 @@ case 0xCB:
 	if(EmulateWAI)
 	{
 	 if(next_event > 1)
-	  ADDCYC(next_event - 1);
+	  ADDCYC_MASTER(next_event - 1);
 	 LastCycle();
 	 break;
 	}
-default:  //MDFN_printf("Bad %02x at $%04x\n", lastop, PC);
+default:  
           ADDCYC(1);
           LastCycle();
           break;

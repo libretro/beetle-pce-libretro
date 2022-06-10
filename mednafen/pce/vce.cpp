@@ -73,14 +73,10 @@ bool VCE::WS_Hook(int32 vdc_cycles)
 		to_steal = ((vdc_cycles * dot_clock_ratio - clock_divider) + 2) / 3;
 
 	if(to_steal <= 0) // This should never happen.  But in case it does...
-	{
-		printf("Bad steal: %d; Wanted VDC: %d; Dot clock ratio: %d; Clock divider: %d\n", to_steal, vdc_cycles, dot_clock_ratio, clock_divider);
 		to_steal = 1;
-	}
 
 	if((to_steal + ws_counter) > 455 * 64)
 	{
-		printf("WS Over: Wanted: %d, could: %d\n", to_steal, 455 * 64 - ws_counter);
 		to_steal = 455 * 64 - ws_counter;
 
 		if(to_steal < 0)
@@ -148,9 +144,6 @@ void VCE::write_scanline_info()
 			case 3: vce_resolution.res_512 = 1; break;
 		}
 
-		//printf("[%d] max rate = %d %d %d\n", scanline, dot_clock, HDW, vce_resolution.width);
-
-		
 		vce_resolution.max_rate = dot_clock;
 
 		vce_resolution.start = HDS;
@@ -163,9 +156,10 @@ void VCE::write_scanline_info()
 
 void VCE::IRQChangeCheck(void)
 {
+	unsigned chip;
 	bool irqtmp = 0;
 
-	for(unsigned chip = 0; chip < chip_count; chip++)
+	for(chip = 0; chip < chip_count; chip++)
 	irqtmp |= vdc[chip].PeekIRQ();
 
 	if(irqtmp)
@@ -182,19 +176,18 @@ void VCE::SetShowHorizOS(bool show)
 
 VCE::VCE(const bool want_sgfx, const uint32 vram_size)
 {
-	//printf("%zu\n", (size_t)((uintptr_t)&vdc[0] - (uintptr_t)this));
-
+	unsigned chip;
 	ShowHorizOS = false;
 
-	sgfx = want_sgfx;
-	chip_count = sgfx ? 2 : 1;
+	sgfx        = want_sgfx;
+	chip_count  = sgfx ? 2 : 1;
 
-	cd_event = 1;
+	cd_event    = 1;
 
-	fb = NULL;
-	pitch32 = 0;
+	fb          = NULL;
+	pitch32     = 0;
 
-	for(unsigned chip = 0; chip < chip_count; chip++)
+	for(chip = 0; chip < chip_count; chip++)
 	{
 		vdc[chip].SetVRAMSize(vram_size);
 		vdc[chip].SetIRQHook(IRQChange_Hook);
@@ -211,7 +204,8 @@ VCE::VCE(const bool want_sgfx, const uint32 vram_size)
 
 void VCE::SetVDCUnlimitedSprites(const bool nospritelimit)
 {
-	for(unsigned chip = 0; chip < chip_count; chip++)
+	unsigned chip;
+	for(chip = 0; chip < chip_count; chip++)
 		vdc[chip].SetUnlimitedSprites(nospritelimit);
 }
 
@@ -222,34 +216,41 @@ VCE::~VCE()
 
 void VCE::Reset(const int32 timestamp)
 {
-	last_ts = 0;
+	uint16_t i;
+	unsigned chip;
+	last_ts          = 0;
 
-	pixel_offset = 0;
-	dot_clock = 0;
-	dot_clock_ratio = vce_ratios[dot_clock];
-	clock_divider = 0;
+	pixel_offset     = 0;
+	dot_clock        = 0;
+	dot_clock_ratio  = vce_ratios[dot_clock];
+	clock_divider    = 0;
 
-	ws_counter = 0;
-	scanline = 0;
+	ws_counter       = 0;
+	scanline         = 0;
 	scanline_out_ptr = NULL;
-	CR = 0;
-	lc263 = 0;
-	bw = 0;
+	CR               = 0;
+	lc263            = 0;
+	bw               = 0;
 
-	memset(color_table, 0, sizeof(color_table));
 	memset(color_table_cache, 0, sizeof(color_table_cache));
 
-	ctaddress = 0;
+	for(i = 0; i < 0x200; i++)
+	{
+		color_table[i] = ((i ^ (i >> 3)) & 1) ? 0x000 : 0x1FF;
+		FixPCache(i);
+	}
 
-	hblank = 1;
-	vblank = 1;
+	ctaddress        = 0;
 
-	NeedSLReset = false;
+	hblank           = 1;
+	vblank           = 1;
 
-	hblank_counter = 237;
-	vblank_counter = 4095 + 30;
+	NeedSLReset      = false;
 
-	for(unsigned chip = 0; chip < chip_count; chip++)
+	hblank_counter   = 237;
+	vblank_counter   = 4095 + 30;
+
+	for(chip = 0; chip < chip_count; chip++)
 		child_event[chip] = vdc[chip].Reset();
 
 	// SuperGrafx VPC init
@@ -273,41 +274,40 @@ void VCE::Reset(const int32 timestamp)
 
 void VCE::StartFrame(MDFN_Surface *surface, MDFN_Rect *DisplayRect, int32 *LineWidths, int skip)
 {
-	FrameDone = false;
-
-	//printf("Clock divider: %d\n", clock_divider);
+	FrameDone      = false;
 
 	color_table_cache[0x200] = color_table_cache[0x300] = MAKECOLOR(0x00, 0xFE, 0x00, 0);
 
 
-	hires = MDFN_GetSettingUI("pce.scaling") == 2;
+	hires          = MDFN_GetSettingUI("pce.scaling") == 2;
 	scanline_start = MDFN_GetSettingUI("pce.slstart");
-	scanline_end = MDFN_GetSettingUI("pce.slend");
+	scanline_end   = MDFN_GetSettingUI("pce.slend");
 
 
 	if(!skip)
 	{
-		DisplayRect->x = 0;
-		DisplayRect->w = 1365;
-		DisplayRect->y = 0 + 14;
-		DisplayRect->h = max_T<uint32>(240, scanline_end + 1); //263 - 14;
+		uint16_t y;
+		DisplayRect->x   = 0;
+		DisplayRect->w   = 1365;
+		DisplayRect->y   = 0 + 14;
+		DisplayRect->h   = max_T<uint32>(240, scanline_end + 1); //263 - 14;
 
-		DisplayRect->y = 14 + scanline_start;
-		DisplayRect->h = scanline_end - scanline_start + 1;
+		DisplayRect->y   = 14 + scanline_start;
+		DisplayRect->h   = scanline_end - scanline_start + 1;
 
-		for(int y = 0; y < 263; y++)
+		for(y = 0; y < 263; y++)
 			LineWidths[y] = 0;
 
-		pitch32 = surface->pitch;
-		fb = surface->pixels;
-		LW = LineWidths;
+		pitch32          = surface->pitch;
+		fb               = surface->pixels;
+		LW               = LineWidths;
 		scanline_out_ptr = &fb[(scanline % 263) * pitch32];
 	}
 	else
 	{
-		pitch32 = 0;
-		fb = NULL;
-		LW = NULL;
+		pitch32          = 0;
+		fb               = NULL;
+		LW               = NULL;
 		scanline_out_ptr = NULL;
 	}
 
@@ -326,10 +326,11 @@ bool VCE::RunPartial(void)
 
 	if(!skipframe)
 	{
+		uint16_t y;
 		// Worst-case fallback
 		int32 LW_Fix = 256;
 
-		for(int y = 0; y < 263; y++)
+		for(y = 0; y < 263; y++)
 		{
 			if(LW[y])
 			{
@@ -338,7 +339,7 @@ bool VCE::RunPartial(void)
 			}
 		}
 
-		for(int y = 0; y < 263; y++)
+		for(y = 0; y < 263; y++)
 		{
 			if(!LW[y])
 				LW[y] = LW_Fix;
@@ -399,14 +400,11 @@ void INLINE VCE::SyncSub(int32 clocks)
 			chunk_clocks = min_T<int32>(chunk_clocks, child_event[1] * dot_clock_ratio - clock_divider);
 
 		if(MDFN_UNLIKELY(chunk_clocks <= 0))
-		{
-			fprintf(stderr, "[BUG] chunk_clocks <= 0 -- %d --- %d %d %d %d, %d %d\n", chunk_clocks, clocks, hblank_counter, vblank_counter, clock_divider, child_event[0], child_event[1]);
 			chunk_clocks = 1;
-		}
  
-		clock_divider += chunk_clocks;
-		div_clocks = clock_divider / dot_clock_ratio;
-		clock_divider -= div_clocks * dot_clock_ratio;
+		clock_divider  += chunk_clocks;
+		div_clocks      = clock_divider / dot_clock_ratio;
+		clock_divider  -= div_clocks * dot_clock_ratio;
 
 		child_event[0] -= div_clocks;
 		if(TA_SuperGrafx)
@@ -427,7 +425,8 @@ void INLINE VCE::SyncSub(int32 clocks)
 			{
 				if(TA_SuperGrafx)
 				{
-					for(int32 i = 0; MDFN_LIKELY(i < div_clocks); i++) // * vce_ratios[dot_clock]; i++)
+					int32_t i;
+					for(i = 0; MDFN_LIKELY(i < div_clocks); i++)
 					{
 						static const int prio_select[4] = { 1, 1, 0, 0 };
 						static const int prio_shift[4] = { 4, 0, 4, 0 };
@@ -474,7 +473,8 @@ void INLINE VCE::SyncSub(int32 clocks)
 
 						if(TA_AwesomeMode)
 						{
-							for(int32 s_i = 0; s_i < dot_clock_ratio; s_i++)
+							int32_t s_i;
+							for(s_i = 0; s_i < dot_clock_ratio; s_i++)
 							{
 								scanline_out_ptr[pixel_offset & 2047] = pix;
 								pixel_offset++;
@@ -491,9 +491,11 @@ void INLINE VCE::SyncSub(int32 clocks)
 				{
 					if(TA_AwesomeMode)
 					{
-						for(int32 i = 0; MDFN_LIKELY(i < div_clocks); i++)
+						int32_t i;
+						for(i = 0; MDFN_LIKELY(i < div_clocks); i++)
 						{
-							for(int32 si = 0; si < dot_clock_ratio; si++)
+							int32_t si;
+							for(si = 0; si < dot_clock_ratio; si++)
 							{
 								uint32 pix = color_table_cache[pixel_buffer[0][i] & 0x3FF];
 						
@@ -504,7 +506,8 @@ void INLINE VCE::SyncSub(int32 clocks)
 					}
 					else
 					{
-						for(int32 i = 0; MDFN_LIKELY(i < div_clocks); i++) // * vce_ratios[dot_clock]; i++)
+						int32_t i;
+						for(i = 0; MDFN_LIKELY(i < div_clocks); i++)
 						{
 							uint32 pix = color_table_cache[pixel_buffer[0][i] & 0x3FF];
 							scanline_out_ptr[pixel_offset & 2047] = pix;
@@ -545,16 +548,10 @@ void INLINE VCE::SyncSub(int32 clocks)
 					scanline++;
 
 				if(scanline == 14 + max_T<uint32>(240, scanline_end + 1))
-				{
 					FrameDone = true;
-				}
 
 				if((scanline == 14 + max_T<uint32>(240, scanline_end + 1)) || (scanline == 123))
-				{
 					HuCPU.Exit();
-				}
-
-				//printf("VCE New scanline: %d\n", scanline);
 
 				scanline_out_ptr = &fb[(scanline % 263) * pitch32];
 
@@ -686,7 +683,8 @@ void VCE::FixPCache(int entry)
 
 	if(!(entry & 0xFF))
 	{
-		for(int x = 0; x < 16; x++)
+		uint8_t x;
+		for(x = 0; x < 16; x++)
 			color_table_cache[(entry & 0x100) + (x << 4)] = csl[color_table[entry & 0x100]];
 	}
 
@@ -700,8 +698,9 @@ void VCE::SetVCECR(uint8 V)
 {
 	if(((V & 0x80) >> 7) != bw)
 	{
+		uint16_t x;
 		bw = V & 0x80;
-		for(int x = 0; x < 512; x++)
+		for(x = 0; x < 512; x++)
 			FixPCache(x);
 	}
 
@@ -717,7 +716,8 @@ void VCE::SetVCECR(uint8 V)
 
 void VCE::SetPixelFormat(const uint8* CustomColorMap, const uint32 CustomColorMapLen)
 {
-	for(int x = 0; x < 512; x++)
+	uint16_t x;
+	for(x = 0; x < 512; x++)
 	{
 		int r, g, b;
 		int sc_r, sc_g, sc_b;
@@ -743,10 +743,7 @@ void VCE::SetPixelFormat(const uint8* CustomColorMap, const uint32 CustomColorMa
 		}
 		else
 		{
-			double y;
-
-			y = floor(0.5 + 0.300 * r + 0.589 * g + 0.111 * b);
-
+			double y = floor(0.5 + 0.300 * r + 0.589 * g + 0.111 * b);
 			if(y < 0)
 				y = 0;
 
@@ -760,9 +757,10 @@ void VCE::SetPixelFormat(const uint8* CustomColorMap, const uint32 CustomColorMa
 		surf_clut[1][x] = MAKECOLOR(sc_r, sc_g, sc_b, 0);
 	}
 
-	// I know the temptation is there, but don't combine these two loops just
+	// I know the temptation is there, but 
+        // don't combine these two loops just
 	// because they loop 512 times ;)
-	for(int x = 0; x < 512; x++)
+	for(x = 0; x < 512; x++)
 		FixPCache(x);
 }
 
@@ -795,7 +793,6 @@ void VCE::Write(uint32 A, uint8 V)
 {
 	Sync(HuCPU.Timestamp());
 
-	//printf("VCE Write(vce scanline=%d, HuCPU.timestamp=%d): %04x %02x\n", scanline, HuCPU.timestamp, A, V);
 	switch(A&0x7)
 	{
 	case 0:
@@ -949,10 +946,10 @@ int VCE::StateAction(StateMem *sm, const unsigned load, const bool data_only)
 		SFVAR(ws_counter),
 
 		SFVARN(ctaddress, "ctaddress"),
-		SFARRAY16N(color_table, 0x200, "color_table"),
+		SFVARN(color_table, "color_table"),
 
 		SFVARN(clock_divider, "clock_divider"),
-		SFARRAY32N(child_event, 2, "child_event"),
+		SFVARN(child_event, "child_event"),
 		SFVARN(scanline, "scanline"),
 		SFVARN(pixel_offset, "pixel_offset"),
 		SFVARN(hblank_counter, "hblank_counter"),
@@ -969,10 +966,10 @@ int VCE::StateAction(StateMem *sm, const unsigned load, const bool data_only)
 	{
 		SFORMAT VPC_StateRegs[] =
 		{
-			SFARRAYN(priority, 2, "priority"),
-			SFARRAY16N(winwidths, 2, "winwidths"),
+			SFVARN(priority, "priority"),
+			SFVARN(winwidths, "winwidths"),
 			SFVARN(st_mode, "st_mode"),
-			SFARRAY32N(window_counter, 2, "window_counter"),
+			SFVARN(window_counter, "window_counter"),
 			SFEND
 		};
 
@@ -1030,9 +1027,7 @@ void VCE::EndFrame(MDFN_Rect *DisplayRect)
 	bool scale_hires = hires;
 	bool scale_lores = MDFN_GetSettingUI("pce.scaling") == 1;
 
-
 	write_scanline_info();
-
 
 	if(!scale_hires && (vce_resolution.res_256 + vce_resolution.res_352 + vce_resolution.res_512) > 1)
 	{
@@ -1040,8 +1035,9 @@ void VCE::EndFrame(MDFN_Rect *DisplayRect)
 			{ 256, 341, 512, 512 },
 			{ 256 + 24, 341 + 32, 512 + 48, 512 + 48 }
 		};
+		int lcv;
 
-		for(int lcv = 0; lcv < scanline_info_count - 1; lcv++)
+		for(lcv = 0; lcv < scanline_info_count - 1; lcv++)
 		{
 			int scale, width;
 			int rate = scanline_info[lcv].rate;
@@ -1125,9 +1121,6 @@ void VCE::EndFrame(MDFN_Rect *DisplayRect)
 	int rate = vce_resolution.max_rate;
 	int width = (vce_resolution.width + 1) * 8;
 	int start = vce_resolution.start * 8;
-
-	//printf("%d %d %d %d %d\n", rate, vce_resolution.pulse, vce_resolution.start, vce_resolution.width, vce_resolution.end);
-
 
 	vce_resolution.width = width;
 

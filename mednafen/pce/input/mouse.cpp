@@ -62,25 +62,20 @@ void PCE_Input_Mouse::Update(const uint8 *data, bool start_frame)
 	if(!start_frame)
 		return;
 
-	//puts("Frame");
-
-	mouse_x += (int16)MDFN_de16lsb(data + 0);
-	mouse_y += (int16)MDFN_de16lsb(data + 2);
-	pce_mouse_button = *(data + 4);
+	mouse_x          += (int16)MDFN_de16lsb(data + 0);
+	mouse_y          += (int16)MDFN_de16lsb(data + 2);
+	pce_mouse_button  = *(data + 4);
 }
 
 void PCE_Input_Mouse::AdjustTS(int32 delta)
 {
-	//printf("Adjust: %d\n", delta);
 	mouse_last_meow += delta;
 }
 
 void PCE_Input_Mouse::Write(int32 timestamp, bool old_SEL, bool new_SEL, bool old_CLR, bool new_CLR)
 {
-	//printf("Write: %d old_SEL=%d, new_SEL=%d, old_CLR=%d, new_CLR=%d\n", timestamp, old_SEL, new_SEL, old_CLR, new_CLR);
 	if(!old_CLR && new_CLR)
 	{
-		//printf("%lld\n", (int64)timestamp - mouse_last_meow);
 		if(((int64)timestamp - mouse_last_meow) > 10000 * 3)
 		{
 			mouse_last_meow = timestamp;
@@ -99,13 +94,9 @@ void PCE_Input_Mouse::Write(int32 timestamp, bool old_SEL, bool new_SEL, bool ol
 			mouse_x += (int32)(rel_x);
 			mouse_y += (int32)(rel_y);
 
-			//printf("Latch: %d %d, %04x\n", rel_x, rel_y, mouse_shifter);
 		}
 		else
-		{
-			//puts("Shift");
 			mouse_shifter >>= 4;
-		}
 	}
 
 	SEL = new_SEL;
@@ -115,17 +106,9 @@ void PCE_Input_Mouse::Write(int32 timestamp, bool old_SEL, bool new_SEL, bool ol
 uint8 PCE_Input_Mouse::Read(int32 timestamp)
 {
 	uint8 ret = 0xF;
-
-	//printf("Read: %d\n", timestamp);
-
 	if(SEL)
-	{
-		  ret = (mouse_shifter & 0xF);
-		  //printf("Read: %02x\n", ret);
-	}
-	else
-		ret ^= pce_mouse_button & 0xF;
-
+		  return (mouse_shifter & 0xF);
+	ret ^= pce_mouse_button & 0xF;
 	return(ret);
 }
 

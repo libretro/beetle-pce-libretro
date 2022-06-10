@@ -512,13 +512,11 @@ uint8 MDFN_FASTCALL PCECD_Read(uint32 timestamp, uint32 A, int32 &next_event, co
 
 	if((A & 0x18c0) == 0x18c0)
 	{
-		switch (A & 0x18cf)
+		ret = 0xFF;
+		if (!(A & 0xC))
 		{
-			case 0x18c0: ret = 0x00; break;
-			case 0x18c1: ret = 0xaa; break;
-			case 0x18c2: ret = 0x55; break;
-			case 0x18c3: ret = 0x03; break;
-			default: ret = 0xff; break;
+			static const uint8 sig[4] = { 0x00, 0xAA, 0x55, 0x03 };
+			ret = sig[A & 0x3];
 		}
 	}
 	else
@@ -1204,8 +1202,8 @@ int PCECD_StateAction(StateMem *sm, const unsigned load, const bool data_only)
 		SFVAR(bBRAMEnabled),
 		SFVAR(ACKStatus),
 		SFVAR(ClearACKDelay),
-		SFARRAY16(RawPCMVolumeCache, 2),
-		SFARRAY(_Port, sizeof(_Port)),
+		SFVAR(RawPCMVolumeCache),
+		SFVAR(_Port),
 
 		SFVAR(Fader.Command),
 		SFVAR(Fader.Volume),

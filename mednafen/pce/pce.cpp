@@ -17,24 +17,18 @@
 
 #include "pce.h"
 #include "vce.h"
-#include <mednafen/hw_sound/pce_psg/pce_psg.h>
 #include <encodings/crc32.h>
 #include "input.h"
 #include "huc.h"
 #include "pcecd.h"
-#include <mednafen/cdrom/scsicd.h>
+#include "../hw_sound/pce_psg/pce_psg.h"
+#include "../cdrom/scsicd.h"
 #include "tsushin.h"
-#include <mednafen/hw_misc/arcade_card/arcade_card.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/cdrom/cdromif.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/sound/OwlResampler.h>
-
-#include <zlib.h>
-
-#define PCE_DEBUG(x, ...) {  /* printf(x, ## __VA_ARGS__); */ }
-
-extern MDFNGI EmulatedPCE;
+#include "../hw_misc/arcade_card/arcade_card.h"
+#include "../mempatcher.h"
+#include "../cdrom/cdromif.h"
+#include "../FileStream.h"
+#include "../sound/OwlResampler.h"
 
 static std::vector<CDIF*> *cdifs = NULL;
 
@@ -66,13 +60,11 @@ HuC6280::readfunc NonCheatPCERead[0x100];
 
 static DECLFR(PCEBusRead)
 {
-	PCE_DEBUG("Unmapped Read: %02x %04x\n", A >> 13, A);
 	return(0xFF);
 }
 
 static DECLFW(PCENullWrite)
 {
-	PCE_DEBUG("Unmapped Write: %02x, %08x %02x\n", A >> 13, A, V);
 }
 
 static DECLFR(BaseRAMReadSGX)
@@ -170,8 +162,6 @@ static DECLFR(IORead)
 			break; // Expansion
 	}
 
-	PCE_DEBUG("I/O Unmapped Read: %04x\n", A);
-
 	return(0xFF);
 }
 
@@ -214,10 +204,7 @@ static DECLFW(IOWrite)
 					PCE_TsushinWrite(A & 0x1FFF, V);
 	
 			if(!PCE_IsCD)
-			{
-				PCE_DEBUG("I/O Unmapped Write: %04x %02x\n", A, V);
 				break;
-			}
 
 			if((A & 0x1E00) == 0x1A00)
 			{
@@ -249,7 +236,7 @@ static void PCECDIRQCB(bool asserted)
 static int LoadCommon(void);
 static void LoadCommonPre(void);
 
-static void SetCDSettings(bool silent_status = false)
+static void SetCDSettings(void)
 {
 	double cdpsgvolume;
 	PCECD_Settings cd_settings;
@@ -261,23 +248,8 @@ static void SetCDSettings(bool silent_status = false)
 	cd_settings.ADPCM_ExtraPrecision = MDFN_GetSettingB("pce.adpcmextraprec");
 	cd_settings.CD_Speed = MDFN_GetSettingUI("pce.cdspeed");
 
-	if(!silent_status)
-	{
-		if(cd_settings.CDDA_Volume != 1.0 || cd_settings.ADPCM_Volume != 1.0 || cdpsgvolume != 1.0)
-		{
-			MDFN_printf("CD-DA Volume: %d%%\n", (int)(100 * cd_settings.CDDA_Volume));
-			MDFN_printf("ADPCM Volume: %d%%\n", (int)(100 * cd_settings.ADPCM_Volume));
-			MDFN_printf("CD PSG Volume: %d%%\n", (int)(100 * cdpsgvolume));
-		}
-	}
-
 	PCECD_SetSettings(&cd_settings);
 	psg->SetVolume(0.678 * cdpsgvolume);
-}
-
-void CDSettingChanged(const char *name)
-{
-	SetCDSettings(true);
 }
 
 static const struct
@@ -309,7 +281,8 @@ MDFN_COLD int PCE_Load(const uint8_t *data, size_t size, const char *ext)
 		IsSGX = true;
 	else
 	{
-		for(int lcv = 0; sgx_table[lcv].crc; lcv++)
+		unsigned lcv;
+		for(lcv = 0; sgx_table[lcv].crc; lcv++)
 		{
 			if(sgx_table[lcv].crc == crc)
 			{
@@ -346,6 +319,7 @@ static MDFN_COLD void LoadCommonPre(void)
 
 static MDFN_COLD int LoadCommon(void)
 { 
+	int i;
 	IsSGX |= MDFN_GetSettingB("pce.forcesgx") ? 1 : 0;
 
 	// Don't modify IsSGX past this point.
@@ -354,10 +328,7 @@ static MDFN_COLD int LoadCommon(void)
 	vce = new VCE(IsSGX, vram_size);
 	vce->SetVDCUnlimitedSprites(MDFN_GetSettingB("pce.nospritelimit"));
 
-	if(IsSGX)
-		MDFN_printf("SuperGrafx Emulation Enabled.\n");
-
-	for(int i = 0xF8; i < 0xFC; i++)
+	for(i = 0xF8; i < 0xFC; i++)
 	{
 		HuCPU.SetReadHandler(i, IsSGX ? BaseRAMReadSGX : BaseRAMRead);
 		HuCPU.SetWriteHandler(i, IsSGX ? BaseRAMWriteSGX : BaseRAMWrite);
@@ -786,18 +757,19 @@ static bool SetSoundRate(double rate)
 
 	if(rate > 0)
 	{
+		uint8_t i;
 		HRRes = new OwlResampler(PCE_MASTER_CLOCK / 12, rate, MDFN_GetSettingF("pce.resamp_rate_error"), 20, MDFN_GetSettingUI("pce.resamp_quality"));
-		for(unsigned i = 0; i < 2; i++)
+		for(i = 0; i < 2; i++)
 			HRRes->ResetBufResampState(HRBufs[i]);
 	}
 
 	return(true);
 }
 
-void SettingsChanged()
+void SettingsChanged(void)
 {
 	if(PCE_IsCD)
-		CDSettingChanged("cdrom");
+		SetCDSettings();
 
 	PCEINPUT_SettingChanged("input");
 
