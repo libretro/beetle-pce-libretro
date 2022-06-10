@@ -1204,8 +1204,8 @@ int PCECD_StateAction(StateMem *sm, const unsigned load, const bool data_only)
 		SFVAR(bBRAMEnabled),
 		SFVAR(ACKStatus),
 		SFVAR(ClearACKDelay),
-		SFARRAY16(RawPCMVolumeCache, 2),
-		SFARRAY(_Port, sizeof(_Port)),
+		SFVAR(RawPCMVolumeCache),
+		SFVAR(_Port),
 
 		SFVAR(Fader.Command),
 		SFVAR(Fader.Volume),

@@ -141,11 +141,11 @@ void PCEINPUT_SetInput(unsigned port, const char *type, uint8 *ptr)
 {
 	assert(port < 5);
 
-	if(!strcasecmp(type, "gamepad"))
+	if(!strcmp(type, "gamepad"))
 		InputTypes[port] = PCEINPUT_GAMEPAD;
-	else if(!strcasecmp(type, "mouse"))
+	else if(!strcmp(type, "mouse"))
 		InputTypes[port] = PCEINPUT_MOUSE;
-	else if(!strcasecmp(type, "tsushinkb"))
+	else if(!strcmp(type, "tsushinkb"))
 		InputTypes[port] = PCEINPUT_TSUSHINKB;
 	else
 		InputTypes[port] = PCEINPUT_NONE;
