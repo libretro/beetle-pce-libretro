@@ -986,27 +986,6 @@ static void DoREZEROUNIT(const uint8_t *cdb)
  SendStatusAndMessage(STATUS_GOOD, 0x00);
 }
 
-// This data was originally taken from a PC-FXGA software loader, but
-// while it was mostly correct(maybe it is correct for the FXGA, but not for the PC-FX?),
-// it was 3 bytes too long, and the last real byte was 0x45 instead of 0x20.
-// TODO:  Investigate this discrepancy by testing an FXGA with the official loader software.
-#if 0
-static const uint8_t InqData[0x24] = 
-{
- // Standard
- 0x05, 0x80, 0x02, 0x00,
-
- // Additional Length
- 0x1F,
-
- // Vendor Specific
- 0x00, 0x00, 0x00, 0x4E, 0x45, 0x43, 0x20, 0x20, 
- 0x20, 0x20, 0x20, 0x43, 0x44, 0x2D, 0x52, 0x4F, 
- 0x4D, 0x20, 0x44, 0x52, 0x49, 0x56, 0x45, 0x3A, 
- 0x46, 0x58, 0x20, 0x31, 0x2E, 0x30, 0x20
-};
-#endif
-
 // Miraculum behaves differently if the last byte(offset 0x23) of the inquiry data is 0x45(ASCII character 'E').  Relavent code is at PC=0x3E382
 // If it's = 0x45, it will run MODE SELECT, and transfer this data to the CD unit: 00 00 00 00 29 01 00
 static const uint8_t InqData[0x24] =
@@ -2463,16 +2442,6 @@ static INLINE void RunCDDA(uint32_t system_timestamp, int32_t run_time)
      if(TrayOpen || !Cur_CDIF)
      {
       cdda.CDDAStatus = CDDASTATUS_STOPPED;
-
-      #if 0
-      cd.data_transfer_done = FALSE;
-      cd.key_pending = SENSEKEY_NOT_READY;
-      cd.asc_pending = ASC_MEDIUM_NOT_PRESENT;
-      cd.ascq_pending = 0x00;
-      cd.fru_pending = 0x00;
-      SendStatusAndMessage(STATUS_CHECK_CONDITION, 0x00);
-      #endif
-
       break;
      }
 
@@ -2536,28 +2505,6 @@ static INLINE void RunCDDA(uint32_t system_timestamp, int32_t run_time)
      cdda.sr[0] = cdda.CDDASectorBuffer[cdda.CDDAReadPos * 2 + cdda.OutPortChSelectCache[0]];
      cdda.sr[1] = cdda.CDDASectorBuffer[cdda.CDDAReadPos * 2 + cdda.OutPortChSelectCache[1]];
     }
-
-#if 0
-    {
-     static int16 wv = 0x7FFF; //0x5000;
-     static unsigned counter = 0;
-     static double phase = 0;
-     static double phase_inc = 0;
-     static const double phase_inc_inc = 0.000003 / 2;
-
-     cdda.sr[0] = 32767 * sin(phase);
-     cdda.sr[1] = 32767 * sin(phase);
-
-     //cdda.sr[0] = wv;
-     //cdda.sr[1] = wv;
-
-     if(counter == 0)
-      wv = -wv;
-     counter = (counter + 1) & 1;
-     phase += phase_inc;
-     phase_inc += phase_inc_inc;
-    }
-#endif
 
     {
      const unsigned obwp = cdda.OversamplePos >> 1;

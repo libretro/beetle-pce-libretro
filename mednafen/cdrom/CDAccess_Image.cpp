@@ -139,12 +139,7 @@ static size_t UnQuotify(const std::string &src, size_t source_offset, std::strin
          {
             source_offset++;
             // Not sure which behavior is most useful(or correct :b).
-#if 0
-            in_quote = false;
-            already_normal = true;
-#else
             break;
-#endif
          }
          else
             in_quote = 1;
@@ -508,17 +503,9 @@ bool CDAccess_Image::ImageOpen(const std::string& path, bool image_memcache)
          } // end to TRACK
          else if(cmdbuf == "SILENCE")
          {
-#if 0
-            log_cb(RETRO_LOG_INFO, "Unsupported directive: %s\n", cmdbuf.c_str());
-            return false;
-#endif
          }
          else if(cmdbuf == "ZERO")
          {
-#if 0
-            log_cb(RETRO_LOG_INFO, "Unsupported directive: %s\n", cmdbuf.c_str());
-            return false;
-#endif
          }
          else if(cmdbuf == "FIFO")
          {
@@ -638,13 +625,6 @@ bool CDAccess_Image::ImageOpen(const std::string& path, bool image_memcache)
             disc_type = DISC_TYPE_CDDA_OR_M1;
          else if(cmdbuf == "CD_ROM_XA")
             disc_type = DISC_TYPE_CD_XA;
-         else
-         {
-#if 0
-            log_cb(RETRO_LOG_ERROR, "Unsupported directive: %s", cmdbuf.c_str());
-            return false;
-#endif
-         }
          // TODO: CATALOG
 
       } /*********** END TOC HANDLING ************/

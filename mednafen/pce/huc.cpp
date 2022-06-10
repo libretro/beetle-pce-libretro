@@ -182,27 +182,6 @@ static DECLFW(MCG_WriteHandler)
 	mcg->Write(HuCPU.Timestamp(), A, V);
 }
 
-static void LoadSaveMemory(const std::string& path, uint8* const data, const uint64 len, bool possibly_gz = false)
-{
-#if 0
-	try
-	{
-		std::unique_ptr<Stream> fp((Stream*)(new FileStream(path, FileStream::MODE_READ)));
-		const uint64 fp_size_tmp = fp->size();
-
-		if(fp_size_tmp != len)
-			throw MDFN_Error("Save game memory file \"%s\" is an incorrect size(%llu bytes).  The correct size is %llu bytes.", path.c_str(), (unsigned long long)fp_size_tmp, (unsigned long long)len);
-
-		fp->read(data, len);
-	}
-	catch(MDFN_Error &e)
-	{
-		if(e.GetErrno() != ENOENT)
-			throw;
-	}
-#endif
-}
-
 uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM, SysCardType syscard)
 {
 	uint32 crc = 0;
@@ -287,7 +266,6 @@ uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM, SysCardType 
 
 				tmp_buf.resize(nvs);
 
-				//LoadSaveMemory(MDFN_MakeFName(MDFNMKF_SAV, 0, buf), &tmp_buf[0], tmp_buf.size(), false);
 				mcg->WriteNV(i, &tmp_buf[0], 0, tmp_buf.size());
 			}
 		}
@@ -386,8 +364,6 @@ uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM, SysCardType 
 			PopRAM = new uint8[32768];
 			memset(PopRAM, 0xFF, 32768);
 
-			//LoadSaveMemory(MDFN_MakeFName(MDFNMKF_SAV, 0, "sav"), PopRAM, 32768);
-
 			IsPopulous = 1;
 			for(int x = 0x40; x < 0x44; x++)
 			{
@@ -403,8 +379,6 @@ uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM, SysCardType 
 		{
 			TsushinRAM = new uint8[0x8000];
 			memset(TsushinRAM, 0xFF, 0x8000);
-
-			//LoadSaveMemory(MDFN_MakeFName(MDFNMKF_SAV, 0, "sav"), TsushinRAM, 32768);
 
 			IsTsushin = 1;
 			for(int x = 0x88; x < 0x8C; x++)
@@ -448,8 +422,6 @@ BRAM_Init:
 		// in the CD BIOS screen.
 		memset(SaveRAM, 0x00, 2048);
 		memcpy(SaveRAM, BRAM_Init_String, 8);
-
-		//LoadSaveMemory(MDFN_MakeFName(MDFNMKF_SAV, 0, "sav"), SaveRAM, 2048);
 
 		HuCPU.SetWriteHandler(0xF7, SaveRAMWrite);
 		HuCPU.SetReadHandler(0xF7, SaveRAMRead);
