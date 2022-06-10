@@ -17,22 +17,20 @@
 
 #include "pce.h"
 #include "vce.h"
-#include <mednafen/hw_sound/pce_psg/pce_psg.h>
 #include <encodings/crc32.h>
 #include "input.h"
 #include "huc.h"
 #include "pcecd.h"
-#include <mednafen/cdrom/scsicd.h>
+#include "../hw_sound/pce_psg/pce_psg.h"
+#include "../cdrom/scsicd.h"
 #include "tsushin.h"
-#include <mednafen/hw_misc/arcade_card/arcade_card.h>
-#include <mednafen/mempatcher.h>
-#include <mednafen/cdrom/cdromif.h>
-#include <mednafen/FileStream.h>
-#include <mednafen/sound/OwlResampler.h>
+#include "../hw_misc/arcade_card/arcade_card.h"
+#include "../mempatcher.h"
+#include "../cdrom/cdromif.h"
+#include "../FileStream.h"
+#include "../sound/OwlResampler.h"
 
 #include <zlib.h>
-
-#define PCE_DEBUG(x, ...) {  /* printf(x, ## __VA_ARGS__); */ }
 
 extern MDFNGI EmulatedPCE;
 
@@ -66,13 +64,11 @@ HuC6280::readfunc NonCheatPCERead[0x100];
 
 static DECLFR(PCEBusRead)
 {
-	PCE_DEBUG("Unmapped Read: %02x %04x\n", A >> 13, A);
 	return(0xFF);
 }
 
 static DECLFW(PCENullWrite)
 {
-	PCE_DEBUG("Unmapped Write: %02x, %08x %02x\n", A >> 13, A, V);
 }
 
 static DECLFR(BaseRAMReadSGX)
@@ -170,8 +166,6 @@ static DECLFR(IORead)
 			break; // Expansion
 	}
 
-	PCE_DEBUG("I/O Unmapped Read: %04x\n", A);
-
 	return(0xFF);
 }
 
@@ -214,10 +208,7 @@ static DECLFW(IOWrite)
 					PCE_TsushinWrite(A & 0x1FFF, V);
 	
 			if(!PCE_IsCD)
-			{
-				PCE_DEBUG("I/O Unmapped Write: %04x %02x\n", A, V);
 				break;
-			}
 
 			if((A & 0x1E00) == 0x1A00)
 			{
