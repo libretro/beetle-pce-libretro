@@ -548,7 +548,6 @@ NO_INLINE void HuC6280::RunSub(void)
 
 	if(in_block_move)
 	{
-		IBM_Dispatch: ;
 		switch(in_block_move)
 		{
 			default:

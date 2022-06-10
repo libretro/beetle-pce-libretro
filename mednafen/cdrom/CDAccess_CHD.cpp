@@ -150,7 +150,6 @@ bool CDAccess_CHD::Load(const std::string &path, bool image_memcache)
     toc.tracks[NumTracks].lba = plba;
 
     fileOffset += Tracks[NumTracks].pregap_dv;
-    //printf("Tracks[%d].fileOffset=%d\n",NumTracks, fileOffset);
     Tracks[NumTracks].fileOffset = fileOffset;
     fileOffset += frames - Tracks[NumTracks].pregap_dv;
     fileOffset += Tracks[NumTracks].postgap;
@@ -179,8 +178,6 @@ bool CDAccess_CHD::Load(const std::string &path, bool image_memcache)
 
     toc.first_track = 1;
     toc.last_track = NumTracks;
-
-    //printf("Track=%d pregap=%d pregap_dv=%d sectors=%d LBA=%d\n", NumTracks, Tracks[NumTracks].pregap, Tracks[NumTracks].pregap_dv, Tracks[NumTracks].sectors, Tracks[NumTracks].LBA);
   }
 
   FirstTrack = 1;
@@ -373,7 +370,6 @@ bool CDAccess_CHD::Read_Raw_Sector(uint8_t *buf, int32_t lba)
       // TODO: Zero out optional(?) checksum bytes?
       break;
     }
-    printf("Pre/post-gap read, LBA=%d(LBA-track_start_LBA=%d)\n", lba, lba - ct->LBA);
   }
   else
   {
@@ -434,22 +430,12 @@ int32_t CDAccess_CHD::MakeSubPQ(int32_t lba, uint8_t *SubPWBuf) const
   uint32_t ma, sa, fa;
   uint32_t m, s, f;
   uint8_t pause_or = 0x00;
-  bool track_found = false;
 
   for (track = FirstTrack; track < (FirstTrack + NumTracks); track++)
   {
     if (lba >= (Tracks[track].LBA - Tracks[track].pregap_dv - Tracks[track].pregap) && lba < (Tracks[track].LBA + Tracks[track].sectors + Tracks[track].postgap))
-    {
-      track_found = true;
       break;
-    }
   }
-
-#if 0
-  if (!track_found) {
-    printf("Could not find track for sector %d\n!", lba);
-  }
-#endif
 
   if (lba < Tracks[track].LBA)
     lba_relative = Tracks[track].LBA - 1 - lba;
@@ -469,10 +455,7 @@ int32_t CDAccess_CHD::MakeSubPQ(int32_t lba, uint8_t *SubPWBuf) const
 
   // Handle pause(D7 of interleaved subchannel byte) bit, should be set to 1 when in pregap or postgap.
   if ((lba < Tracks[track].LBA) || (lba >= Tracks[track].LBA + Tracks[track].sectors))
-  {
-    //printf("pause_or = 0x80 --- %d\n", lba);
     pause_or = 0x80;
-  }
 
   // Handle pregap between audio->data track
   {
@@ -486,10 +469,7 @@ int32_t CDAccess_CHD::MakeSubPQ(int32_t lba, uint8_t *SubPWBuf) const
     if (pg_offset < -150)
     {
       if ((Tracks[track].subq_control & SUBQ_CTRLF_DATA) && (FirstTrack < track) && !(Tracks[track - 1].subq_control & SUBQ_CTRLF_DATA))
-      {
-        //printf("Pregap part 1 audio->data: lba=%d track_lba=%d\n", lba, Tracks[track].LBA);
         control = Tracks[track - 1].subq_control;
-      }
     }
   }
 

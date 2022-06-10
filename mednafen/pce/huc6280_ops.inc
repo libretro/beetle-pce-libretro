@@ -223,7 +223,6 @@ case 0x78: /* SEI */
 	   OP_SETF(I_FLAG, REDOPIMCACHE(););
 
 case 0xF4: /* SET */
-	   //puts("SET");
 	   ADDCYC(1);
 	   LastCycle();
 	   P |= T_FLAG;
@@ -526,11 +525,11 @@ case 0xCB:
 	if(EmulateWAI)
 	{
 	 if(next_event > 1)
-	  ADDCYC(next_event - 1);
+	  ADDCYC_MASTER(next_event - 1);
 	 LastCycle();
 	 break;
 	}
-default:  //MDFN_printf("Bad %02x at $%04x\n", lastop, PC);
+default:  
           ADDCYC(1);
           LastCycle();
           break;

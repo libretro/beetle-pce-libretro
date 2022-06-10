@@ -770,7 +770,7 @@ static bool SetSoundRate(double rate)
 	return(true);
 }
 
-void SettingsChanged()
+void SettingsChanged(void)
 {
 	if(PCE_IsCD)
 		SetCDSettings();
