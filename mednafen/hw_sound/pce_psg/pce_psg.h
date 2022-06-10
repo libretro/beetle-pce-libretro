@@ -140,7 +140,7 @@ public:
 	void ResetTS(int32 ts_base = 0);
 
 	// TODO: timestamp
-	uint32 GetRegister(const unsigned int id, char *special, const uint32 special_len);
+	uint32 GetRegister(const unsigned int id);
 	void SetRegister(const unsigned int id, const uint32 value);
 
 	void PeekWave(const unsigned int ch, uint32 Address, uint32 Length, uint8 *Buffer);

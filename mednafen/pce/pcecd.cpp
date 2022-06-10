@@ -216,7 +216,7 @@ static int32 CalcNextEvent(int32 base)
 	return(next_event);
 }
 
-uint32 PCECD_GetRegister(const unsigned int id, char *special, const uint32 special_len)
+uint32 PCECD_GetRegister(const unsigned int id)
 {
 	uint32 value = 0xDEADBEEF;
 

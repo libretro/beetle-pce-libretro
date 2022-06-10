@@ -232,7 +232,7 @@ void PCE_PSG::PokeWave(const unsigned int ch, uint32 Address, uint32 Length, con
 	}
 }
 
-uint32 PCE_PSG::GetRegister(const unsigned int id, char *special, const uint32 special_len)
+uint32 PCE_PSG::GetRegister(const unsigned int id)
 {
 	uint32 value = 0xDEADBEEF;
 	const int ch = (id >> 8) & 0xF;

@@ -31,7 +31,7 @@ enum
 	CD_GSREG_ADPCM_ENDREACHED,
 };
 
-uint32 PCECD_GetRegister(const unsigned int id, char *special, const uint32 special_len);
+uint32 PCECD_GetRegister(const unsigned int id);
 void PCECD_SetRegister(const unsigned int id, const uint32 value);
 
 

@@ -115,8 +115,8 @@ void VCE::write_scanline_info()
 	}
 
 
-	HSR = vdc[0].GetRegister(VDC::GSREG_HSR, NULL, 0);
-	HDR = vdc[0].GetRegister(VDC::GSREG_HDR, NULL, 0);
+	HSR = vdc[0].GetRegister(VDC::GSREG_HSR);
+	HDR = vdc[0].GetRegister(VDC::GSREG_HDR);
 
 	HSW = (HSR >> 0) & 0x1f;
 	HDS = (HSR >> 8) & 0x7f;

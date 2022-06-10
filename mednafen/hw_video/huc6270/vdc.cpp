@@ -72,7 +72,7 @@ void VDC::FixTileCache(uint16 A)
 #define VDCS_VD		0x20 // Vertical blank interrupt occurred
 #define VDCS_BSY	0x40 // VDC is waiting for a CPU access slot during the active display area??
 
-uint32 VDC::GetRegister(const unsigned int id, char *special, const uint32 special_len)
+uint32 VDC::GetRegister(const unsigned int id)
 {
 	uint32 value = 0xDEADBEEF;
 
