@@ -1,6 +1,11 @@
 #ifndef __PCFX_SCSICD_H
 #define __PCFX_SCSICD_H
 
+#include <stdint.h>
+
+#include "cdromif.h"
+#include "../state.h"
+
 typedef int32_t scsicd_timestamp_t;
 
 typedef struct
@@ -72,8 +77,7 @@ void SCSICD_ResetTS(uint32_t ts_base);
 
 enum
 {
- SCSICD_PCE = 1,
- SCSICD_PCFX
+ SCSICD_PCE = 1
 };
 
 enum
@@ -83,11 +87,9 @@ enum
  SCSICD_IRQ_MAGICAL_REQ,
 };
 
-void SCSICD_GetCDDAValues(int16 &left, int16 &right);
+void SCSICD_GetCDDAValues(int16_t &left, int16_t &right);
 
-void SCSICD_SetLog(void (*logfunc)(const char *, const char *, ...));
-
-void SCSICD_Init(int type, int CDDATimeDiv, int32_t* left_hrbuf, int32_t* right_hrbuf, uint32_t TransferRate, uint32_t SystemClock, void (*IRQFunc)(int), void (*SSCFunc)(uint8_t, int));
+void SCSICD_Init(int CDDATimeDiv, int32_t* left_hrbuf, int32_t* right_hrbuf, uint32_t TransferRate, uint32_t SystemClock);
 void SCSICD_Close(void);
 
 void SCSICD_SetTransferRate(uint32_t TransferRate);

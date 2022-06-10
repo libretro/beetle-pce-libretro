@@ -15,13 +15,15 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#include <mednafen/mednafen.h>
 #include <math.h>
 #include <algorithm>
+
+#include <compat/msvc.h>
+
 #include "scsicd.h"
 #include "cdromif.h"
 #include "SimpleFIFO.h"
-#include <compat/msvc.h>
+#include "../mednafen.h"
 
 #if defined(__SSE2__)
 #include <xmmintrin.h>
@@ -30,13 +32,15 @@
 
 static uint32_t CD_DATA_TRANSFER_RATE;
 static uint32_t System_Clock;
-static void (*CDIRQCallback)(int);
-static void (*CDStuffSubchannels)(uint8_t, int);
+
 static int32_t* HRBufs[2];
-static int WhichSystem;
 
 static CDIF *Cur_CDIF;
 static bool TrayOpen;
+
+/* Forward declaration */
+void CDIRQ(int type);
+void StuffSubchannel(uint8_t a, int b);
 
 // Internal operation to the SCSI CD unit.  Only pass 1 or 0 to these macros!
 #define SetIOP(mask, set)	{ cd_bus.signals &= ~mask; if(set) cd_bus.signals |= mask; }
@@ -49,7 +53,7 @@ static bool TrayOpen;
 static INLINE void SetREQ(bool set)
 {
  if(set && !REQ_signal)
-  CDIRQCallback(SCSICD_IRQ_MAGICAL_REQ);
+  CDIRQ(SCSICD_IRQ_MAGICAL_REQ);
 
  SetIOP(SCSICD_REQ_mask, set);
 }
@@ -158,7 +162,6 @@ void MakeSense(uint8_t * target, uint8_t key, uint8_t asc, uint8_t ascq, uint8_t
  target[14] = fru;		// Field Replaceable Unit code
 }
 
-static void (*SCSILog)(const char *, const char *format, ...);
 static void InitModePages(void);
 
 static scsicd_timestamp_t lastts;
@@ -375,7 +378,7 @@ static void ChangePhase(const unsigned int new_phase)
 		SetIO(false);
 		SetREQ(false);
 
-	        CDIRQCallback(0x8000 | SCSICD_IRQ_DATA_TRANSFER_DONE);
+	        CDIRQ(0x8000 | SCSICD_IRQ_DATA_TRANSFER_DONE);
 		break;
 
   case PHASE_DATA_IN:		// Us to them
@@ -442,15 +445,10 @@ static void SendStatusAndMessage(uint8_t status, uint8_t message)
  cd.status_sent = FALSE;
  cd.message_sent = FALSE;
 
- if(WhichSystem == SCSICD_PCE)
- {
-  if(status == STATUS_GOOD || status == STATUS_CONDITION_MET)
+ if(status == STATUS_GOOD || status == STATUS_CONDITION_MET)
    cd_bus.DB = 0x00;
-  else
-   cd_bus.DB = 0x01;
- }
  else
-  cd_bus.DB = status << 1;
+   cd_bus.DB = 0x01;
 
  ChangePhase(PHASE_STATUS);
 }
@@ -1857,20 +1855,13 @@ static void DoREADBase(uint32_t sa, uint32_t sc)
   return;
  }
 
- if(SCSILog)
- {
-  int Track = toc.FindTrackByLBA(sa);
-  uint32_t Offset = sa - toc.tracks[Track].lba; //Cur_CDIF->GetTrackStartPositionLBA(Track);
-  SCSILog("SCSI", "Read: start=0x%08x(track=%d, offs=0x%08x), cnt=0x%08x", sa, Track, Offset, sc);
- }
-
  SectorAddr = sa;
  SectorCount = sc;
  if(SectorCount)
  {
   Cur_CDIF->HintReadSector(sa);	//, sa + sc);
 
-  CDReadTimer = (uint64_t)((WhichSystem == SCSICD_PCE) ? 3 : 1) * 2048 * System_Clock / CD_DATA_TRANSFER_RATE;
+  CDReadTimer = (uint64_t)3 * 2048 * System_Clock / CD_DATA_TRANSFER_RATE;
  }
  else
  {
@@ -2284,61 +2275,6 @@ static const int32_t RequiredCDBLen[16] =
  10, // 0xFn
 };
 
-static SCSICH PCFXCommandDefs[] =
-{
- { 0x00, SCF_REQUIRES_MEDIUM, DoTESTUNITREADY, "Test Unit Ready" },
- { 0x01, 0/* ? */, DoREZEROUNIT, "Rezero Unit" },
- { 0x03, 0, DoREQUESTSENSE, "Request Sense" },
- { 0x08, SCF_REQUIRES_MEDIUM, DoREAD6, "Read(6)" },
- { 0x0B, SCF_REQUIRES_MEDIUM, DoSEEK6, "Seek(6)" },
- { 0x0D, 0, DoNEC_NOP, "No Operation" },
- { 0x12, 0, DoINQUIRY, "Inquiry" },
- { 0x15, 0, DoMODESELECT6, "Mode Select(6)" },
- // TODO: { 0x16, 0 /* ? */, DoRESERVE, "Reserve" },			// 9.2.12
- // TODO: { 0x17, 0 /* ? */, DoRELEASE, "Release" },			// 9.2.11
- { 0x1A, 0, DoMODESENSE6, "Mode Sense(6)" },
- { 0x1B, SCF_REQUIRES_MEDIUM, DoSTARTSTOPUNIT6, "Start/Stop Unit" },		// 9.2.17
- // TODO: { 0x1D, , DoSENDDIAG, "Send Diagnostic" },		// 8.2.15
- { 0x1E, 0, DoPREVENTALLOWREMOVAL, "Prevent/Allow Media Removal" },
-
- { 0x25, SCF_REQUIRES_MEDIUM, DoREADCDCAP10, "Read CD-ROM Capacity" },	// 14.2.8
- { 0x28, SCF_REQUIRES_MEDIUM, DoREAD10, "Read(10)" },
- { 0x2B, SCF_REQUIRES_MEDIUM, DoSEEK10, "Seek(10)" },
-
- // TODO: { 0x2F, SCF_REQUIRES_MEDIUM, DoVERIFY10, "Verify(10)" },		// 16.2.11
-
- { 0x34, SCF_REQUIRES_MEDIUM, DoPREFETCH, "Prefetch" },
- // TODO: { 0x3B, 0, 10, DoWRITEBUFFER, "Write Buffer" },		// 8.2.17
- // TODO: { 0x3C, 0, 10, DoREADBUFFER, "Read Buffer" },		// 8.2.12
-
- { 0x42, SCF_REQUIRES_MEDIUM, DoREADSUBCHANNEL, "Read Subchannel" },
- { 0x43, SCF_REQUIRES_MEDIUM, DoREADTOC, "Read TOC" },
- { 0x44, SCF_REQUIRES_MEDIUM, DoREADHEADER10, "Read Header" },
-
- { 0x45, SCF_REQUIRES_MEDIUM, DoPA10, "Play Audio(10)" },
- { 0x47, SCF_REQUIRES_MEDIUM, DoPAMSF, "Play Audio MSF" },
- { 0x48, SCF_REQUIRES_MEDIUM, DoPATI, "Play Audio Track Index" },
- { 0x49, SCF_REQUIRES_MEDIUM, DoPATR10, "Play Audio Track Relative(10)" },
- { 0x4B, SCF_REQUIRES_MEDIUM, DoPAUSERESUME, "Pause/Resume" },
-
- { 0xA5, SCF_REQUIRES_MEDIUM, DoPA12, "Play Audio(12)" },
- { 0xA8, SCF_REQUIRES_MEDIUM, DoREAD12, "Read(12)" },
- { 0xA9, SCF_REQUIRES_MEDIUM, DoPATR12, "Play Audio Track Relative(12)" },
-
- // TODO: { 0xAF, SCF_REQUIRES_MEDIUM, DoVERIFY12, "Verify(12)" },		// 16.2.12
-
- { 0xD2, SCF_REQUIRES_MEDIUM, DoNEC_SCAN, "Scan" },
- { 0xD8, SCF_REQUIRES_MEDIUM, DoNEC_SAPSP, "Set Audio Playback Start Position" }, // "Audio track search"
- { 0xD9, SCF_REQUIRES_MEDIUM, DoNEC_SAPEP, "Set Audio Playback End Position" },   // "Play"
- { 0xDA, SCF_REQUIRES_MEDIUM, DoNEC_PAUSE, "Pause" },			     // "Still"
- { 0xDB, SCF_REQUIRES_MEDIUM | SCF_UNTESTED, DoNEC_SST, "Set Stop Time" },
- { 0xDC, SCF_REQUIRES_MEDIUM, DoNEC_EJECT, "Eject" },
- { 0xDD, SCF_REQUIRES_MEDIUM, DoNEC_READSUBQ, "Read Subchannel Q" },
- { 0xDE, SCF_REQUIRES_MEDIUM, DoNEC_GETDIRINFO, "Get Dir Info" },
-
- { 0xFF, 0, 0, NULL, NULL },
-};
-
 static SCSICH PCECommandDefs[] = 
 {
  { 0x00, SCF_REQUIRES_MEDIUM, DoTESTUNITREADY, "Test Unit Ready" },
@@ -2359,7 +2295,7 @@ void SCSICD_ResetTS(uint32_t ts_base)
  lastts = ts_base;
 }
 
-void SCSICD_GetCDDAValues(int16 &left, int16 &right)
+void SCSICD_GetCDDAValues(int16_t &left, int16_t &right)
 {
  if(cdda.CDDAStatus)
  {
@@ -2419,7 +2355,7 @@ static INLINE void RunCDDA(uint32_t system_timestamp, int32_t run_time)
 
        case PLAYMODE_INTERRUPT:
         cdda.CDDAStatus = CDDASTATUS_STOPPED;
-        CDIRQCallback(SCSICD_IRQ_DATA_TRANSFER_DONE);
+        CDIRQ(SCSICD_IRQ_DATA_TRANSFER_DONE);
         break;
 
        case PLAYMODE_LOOP:
@@ -2493,9 +2429,9 @@ static INLINE void RunCDDA(uint32_t system_timestamp, int32_t run_time)
      int subindex = cdda.CDDAReadPos / 6 - 2;
 
      if(subindex >= 0)
-      CDStuffSubchannels(cd.SubPWBuf[subindex], subindex);
+      StuffSubchannel(cd.SubPWBuf[subindex], subindex);
      else // The system-specific emulation code should handle what value the sync bytes are.
-      CDStuffSubchannels(0x00, subindex);
+      StuffSubchannel(0x00, subindex);
     }
 
     // If the last valid sub-Q data decoded indicate that the corresponding sector is a data sector, don't output the
@@ -2629,7 +2565,7 @@ static INLINE void RunCDRead(uint32_t system_timestamp, int32_t run_time)
 
   if(CDReadTimer <= 0)
   {
-   if(din->CanWrite() < ((WhichSystem == SCSICD_PCFX) ? 2352 : 2048))	// +96 if we find out the PC-FX can read subchannel data along with raw data too. ;)
+   if(din->CanWrite() < 2048)	// +96 if we find out the PC-FX can read subchannel data along with raw data too. ;)
    {
     CDReadTimer += (uint64_t) 1 * 2048 * System_Clock / CD_DATA_TRANSFER_RATE;
    }
@@ -2669,7 +2605,7 @@ static INLINE void RunCDRead(uint32_t system_timestamp, int32_t run_time)
 
      GenSubQFromSubPW();
 
-     CDIRQCallback(SCSICD_IRQ_DATA_TRANSFER_READY);
+     CDIRQ(SCSICD_IRQ_DATA_TRANSFER_READY);
 
      SectorAddr++;
      SectorCount--;
@@ -2721,14 +2657,7 @@ uint32_t SCSICD_Run(scsicd_timestamp_t system_timestamp)
  {
   if(SEL_signal)
   {
-   if(WhichSystem == SCSICD_PCFX)
-   {
-     ChangePhase(PHASE_COMMAND);
-   }
-   else // PCE
-   {
     ChangePhase(PHASE_COMMAND);
-   }
   }
  }
  else if(ATN_signal && !REQ_signal && !ACK_signal)
@@ -2746,51 +2675,19 @@ uint32_t SCSICD_Run(scsicd_timestamp_t system_timestamp)
     {
      if(cd.command_buffer_pos == RequiredCDBLen[cd.command_buffer[0] >> 4])
      {
-      const SCSICH *cmd_info_ptr;
-
-      if(WhichSystem == SCSICD_PCFX)
-       cmd_info_ptr = PCFXCommandDefs;
-      else
-       cmd_info_ptr = PCECommandDefs;
+      const SCSICH *cmd_info_ptr = PCECommandDefs;
 
       while(cmd_info_ptr->pretty_name && cmd_info_ptr->cmd != cd.command_buffer[0])
        cmd_info_ptr++;
   
-      if(SCSILog)
-      {
-       char log_buffer[1024];
-       int lb_pos;
-
-       log_buffer[0] = 0;
-       
-       lb_pos = snprintf(log_buffer, 1024, "Command: %02x, %s%s  ", cd.command_buffer[0], cmd_info_ptr->pretty_name ? cmd_info_ptr->pretty_name : "!!BAD COMMAND!!",
-			(cmd_info_ptr->flags & SCF_UNTESTED) ? "(UNTESTED)" : "");
-
-       for(int i = 0; i < RequiredCDBLen[cd.command_buffer[0] >> 4]; i++)
-        lb_pos += snprintf(log_buffer + lb_pos, 1024 - lb_pos, "%02x ", cd.command_buffer[i]);
-
-       SCSILog("SCSI", "%s", log_buffer);
-      }
-
-
       if(cmd_info_ptr->pretty_name == NULL)	// Command not found!
       {
        CommandCCError(SENSEKEY_ILLEGAL_REQUEST, NSE_INVALID_COMMAND);
-
-       //SCSIDBG("Bad Command: %02x\n", cd.command_buffer[0]);
-
-       if(SCSILog)
-        SCSILog("SCSI", "Bad Command: %02x", cd.command_buffer[0]);
 
        cd.command_buffer_pos = 0;
       }
       else
       {
-       if(cmd_info_ptr->flags & SCF_UNTESTED)
-       {
-        //SCSIDBG("Untested SCSI command: %02x, %s", cd.command_buffer[0], cmd_info_ptr->pretty_name);
-       }
-
        if(TrayOpen && (cmd_info_ptr->flags & SCF_REQUIRES_MEDIUM))
        {
 	CommandCCError(SENSEKEY_NOT_READY, NSE_TRAY_OPEN);
@@ -2896,13 +2793,13 @@ uint32_t SCSICD_Run(scsicd_timestamp_t system_timestamp)
     {
      if(din->in_count == 0)	// aaand we're done!
      {
-      CDIRQCallback(0x8000 | SCSICD_IRQ_DATA_TRANSFER_READY);
+      CDIRQ(0x8000 | SCSICD_IRQ_DATA_TRANSFER_READY);
 
       if(cd.data_transfer_done)
       {
        SendStatusAndMessage(STATUS_GOOD, 0x00);
        cd.data_transfer_done = FALSE;
-       CDIRQCallback(SCSICD_IRQ_DATA_TRANSFER_DONE);
+       CDIRQ(SCSICD_IRQ_DATA_TRANSFER_DONE);
       }
      }
      else
@@ -2947,11 +2844,6 @@ uint32_t SCSICD_Run(scsicd_timestamp_t system_timestamp)
  return(next_time);
 }
 
-void SCSICD_SetLog(void (*logfunc)(const char *, const char *, ...))
-{
- SCSILog = logfunc;
-}
-
 void SCSICD_SetTransferRate(uint32_t TransferRate)
 {
  CD_DATA_TRANSFER_RATE = TransferRate;
@@ -2966,7 +2858,7 @@ void SCSICD_Close(void)
  }
 }
 
-void SCSICD_Init(int type, int cdda_time_div, int32_t* left_hrbuf, int32_t* right_hrbuf, uint32_t TransferRate, uint32_t SystemClock, void (*IRQFunc)(int), void (*SSCFunc)(uint8_t, int))
+void SCSICD_Init(int cdda_time_div, int32_t* left_hrbuf, int32_t* right_hrbuf, uint32_t TransferRate, uint32_t SystemClock)
 {
  Cur_CDIF = NULL;
  TrayOpen = true;
@@ -2974,16 +2866,8 @@ void SCSICD_Init(int type, int cdda_time_div, int32_t* left_hrbuf, int32_t* righ
  assert(SystemClock < 30000000);	// 30 million, sanity check.
 
  monotonic_timestamp = 0;
- lastts = 0;
-
- SCSILog = NULL;
-
- if(type == SCSICD_PCFX)
-  din = new SimpleFIFO<uint8_t>(65536);	//4096);
- else
-  din = new SimpleFIFO<uint8_t>(2048); //8192); //1024); /2048);
-
- WhichSystem = type;
+ lastts      = 0;
+ din         = new SimpleFIFO<uint8_t>(2048); //8192); //1024); /2048);
 
  cdda.CDDADivAcc = (int64_t)System_Clock * (1024 * 1024) / 88200;
  cdda.CDDADivAccVolFudge = 100;
@@ -2999,8 +2883,6 @@ void SCSICD_Init(int type, int cdda_time_div, int32_t* left_hrbuf, int32_t* righ
 
  CD_DATA_TRANSFER_RATE = TransferRate;
  System_Clock = SystemClock;
- CDIRQCallback = IRQFunc;
- CDStuffSubchannels = SSCFunc;
 }
 
 void SCSICD_SetCDDAVolume(double left, double right)

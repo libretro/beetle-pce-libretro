@@ -36,7 +36,7 @@ static void DoNEC_PCE_SAPSP(const uint8_t *cdb)
   pce_lastsapsp_timestamp = monotonic_timestamp;
 
   SendStatusAndMessage(STATUS_GOOD, 0x00);
-  CDIRQCallback(SCSICD_IRQ_DATA_TRANSFER_DONE);
+  CDIRQ(SCSICD_IRQ_DATA_TRANSFER_DONE);
   return;
  }
 
@@ -61,7 +61,7 @@ static void DoNEC_PCE_SAPSP(const uint8_t *cdb)
   Cur_CDIF->HintReadSector(read_sec);
 
  SendStatusAndMessage(STATUS_GOOD, 0x00);
- CDIRQCallback(SCSICD_IRQ_DATA_TRANSFER_DONE);
+ CDIRQ(SCSICD_IRQ_DATA_TRANSFER_DONE);
 }
 
 

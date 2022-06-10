@@ -325,7 +325,7 @@ static void update_irq_state()
 	IRQCB((bool)irq);
 }
 
-static void StuffSubchannel(uint8 meow, int subindex)
+void StuffSubchannel(uint8 meow, int subindex)
 {
 	uint8 tmp_data = meow & 0x7F;
 
@@ -341,7 +341,7 @@ static void StuffSubchannel(uint8 meow, int subindex)
 	update_irq_state();
 }
 
-static void CDIRQ(int type)
+void CDIRQ(int type)
 {
 	if(type & 0x8000)
 	{
@@ -432,7 +432,7 @@ void PCECD_Init(const PCECD_Settings *settings, void (*irqcb)(bool), double mast
 
 	ADPCMBuf = adbuf;
 
-	SCSICD_Init(SCSICD_PCE, 3, hrbuf_l, hrbuf_r, 126000, master_clock, CDIRQ, StuffSubchannel);
+	SCSICD_Init(3, hrbuf_l, hrbuf_r, 126000, master_clock);
 
 	ADPCM.RAM = new uint8[0x10000];
 
