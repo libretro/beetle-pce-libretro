@@ -113,9 +113,6 @@ static int32 ClearACKDelay;
 static int32 lastts;
 static int32 scsicd_ne;
 
-// ADPCM variables and whatnot
-#define ADPCM_DEBUG(x, ...) {  /*printf("[Half=%d, End=%d, Playing=%d] "x, ADPCM.HalfReached, ADPCM.EndReached, ADPCM.Playing, ## __VA_ARGS__);*/  }
-
 static OKIADPCM_Decoder<OKIADPCM_MSM5205> MSM5205;
 
 typedef struct
@@ -592,10 +589,7 @@ uint8 MDFN_FASTCALL PCECD_Read(uint32 timestamp, uint32 A, int32 &next_event, co
 
 			case 0xa: 
 				if(!PeekMode)
-				{
-					ADPCM_DEBUG("ReadBuffer\n");
 					ADPCM.ReadPending = 19 * 3; //24 * 3;
-				}
 
 				ret = ADPCM.ReadBuffer;
 
@@ -606,7 +600,6 @@ uint8 MDFN_FASTCALL PCECD_Read(uint32 timestamp, uint32 A, int32 &next_event, co
 				break;
 
 			case 0xc:
-				//printf("ADPCM Status Read: %d\n", timestamp);
 				ret = 0x00;
 
 				ret |= (ADPCM.EndReached) ? 0x01 : 0x00;
@@ -713,14 +706,9 @@ int32 MDFN_FASTCALL PCECD_Write(uint32 timestamp, uint32 physAddr, uint8 data)
 			ADPCM.Addr &= 0xFF00;
 			ADPCM.Addr |= V;
 
-			ADPCM_DEBUG("SAL: %02x, %d\n", V, timestamp);
-
 			// Length appears to be constantly latched when D4 is set(tested on a real system)
 			if(ADPCM.LastCmd & 0x10)
-			{
-				ADPCM_DEBUG("Set length(crazy way L): %04x\n", ADPCM.Addr);
 				ADPCM.LengthCount = ADPCM.Addr;
-			}
 			break;
 
 		case 0x9:	// Set ADPCM address high
@@ -730,24 +718,17 @@ int32 MDFN_FASTCALL PCECD_Write(uint32 timestamp, uint32 physAddr, uint8 data)
 			ADPCM.Addr &= 0x00FF;
 			ADPCM.Addr |= V << 8;
 
-			ADPCM_DEBUG("SAH: %02x, %d\n", V, timestamp);
-
 			// Length appears to be constantly latched when D4 is set(tested on a real system)
 			if(ADPCM.LastCmd & 0x10)
-			{
-				ADPCM_DEBUG("Set length(crazy way H): %04x\n", ADPCM.Addr);
 				ADPCM.LengthCount = ADPCM.Addr;
-			}
 			break;
 
 		case 0xa:
-			//ADPCM_DEBUG("Write: %02x, %d\n", V, timestamp);
-		    ADPCM.WritePending = 3 * 11;
+			ADPCM.WritePending = 3 * 11;
 			ADPCM.WritePendingValue = data;
 			break;
 
 		case 0xb:	// adpcm dma
-			ADPCM_DEBUG("DMA: %02x\n", V);
 			_Port[0xb] = data;
 			break;
 
@@ -755,7 +736,6 @@ int32 MDFN_FASTCALL PCECD_Write(uint32 timestamp, uint32 physAddr, uint8 data)
 			break;
 
 		case 0xd:
-			ADPCM_DEBUG("Write180D: %02x\n", V);
 			if(data & 0x80)
 			{
 				ADPCM.Addr = 0;
@@ -793,8 +773,7 @@ int32 MDFN_FASTCALL PCECD_Write(uint32 timestamp, uint32 physAddr, uint8 data)
 			// Length appears to be constantly latched when D4 is set(tested on a real system)
 			if(data & 0x10)
 			{
-		        ADPCM_DEBUG("Set length: %04x\n", ADPCM.Addr);
-		        ADPCM.LengthCount = ADPCM.Addr;
+				ADPCM.LengthCount = ADPCM.Addr;
 				ADPCM.EndReached = false;
 			}
 
@@ -805,8 +784,6 @@ int32 MDFN_FASTCALL PCECD_Write(uint32 timestamp, uint32 physAddr, uint8 data)
 					ADPCM.ReadAddr = ADPCM.Addr;
 				else
 					ADPCM.ReadAddr = (ADPCM.Addr - 1) & 0xFFFF;
-
-				ADPCM_DEBUG("Set ReadAddr: %04x, %06x\n", ADPCM.Addr, ADPCM.ReadAddr);
 			}
 
 			// D0 and D1 control write address
@@ -815,7 +792,6 @@ int32 MDFN_FASTCALL PCECD_Write(uint32 timestamp, uint32 physAddr, uint8 data)
 				ADPCM.WriteAddr = ADPCM.Addr;
 				if(!(data & 0x1))
 					ADPCM.WriteAddr = (ADPCM.WriteAddr - 1) & 0xFFFF;
-				ADPCM_DEBUG("Set WriteAddr: %04x, %06x\n", ADPCM.Addr, ADPCM.WriteAddr);
 			}
 			ADPCM.LastCmd = data;
 			UpdateADPCMIRQState();
@@ -824,10 +800,7 @@ int32 MDFN_FASTCALL PCECD_Write(uint32 timestamp, uint32 physAddr, uint8 data)
 		case 0xe:		// Set ADPCM playback rate
 			{
 				uint8 freq = V & 0x0F;
-
-		        ADPCM.SampleFreq = freq;
-
-				ADPCM_DEBUG("Freq: %02x\n", freq);
+				ADPCM.SampleFreq = freq;
 			}
 			break;
 
@@ -1014,13 +987,11 @@ void PCECD_ProcessADPCMBuffer(const uint32 rsc)
 		ADPCM.lp1p_fstate += (ADPCM.lp2p_fstate[2] - ADPCM.lp1p_fstate) >> 2;
 
 		ADPCMBuf[i] = ADPCM.lp1p_fstate >> 10;
-		//printf("%lld\n", yv[2] >> 10);
 	}
 }
 
 static void INLINE ADPCM_Run(const int32 clocks, const int32 timestamp)
 {
-	//printf("ADPCM Run: %d\n", clocks);
 	ADPCM_PB_Run(timestamp, clocks);
 
 	if(ADPCM.WritePending > 0)
@@ -1091,9 +1062,6 @@ int32 MDFN_FASTCALL PCECD_Run(uint32 in_timestamp)
 	int32 clocks = in_timestamp - lastts;
 	int32 running_ts = lastts;
 
-	//printf("Run Begin: Clocks=%d(%d - %d), cl=%d ---- (%016llx %d %d) %d %d %d\n", clocks, in_timestamp, lastts, CalcNextEvent(clocks), (long long)ADPCM.bigdiv, ADPCM.ReadPending, ADPCM.WritePending, ClearACKDelay, scsicd_ne, Fader.CycleCounter);
-	//fflush(stdout);
-
 	while(clocks > 0)
 	{
 		int32 chunk_clocks = CalcNextEvent(clocks);
@@ -1124,9 +1092,6 @@ int32 MDFN_FASTCALL PCECD_Run(uint32 in_timestamp)
 	}
 
 	lastts = in_timestamp;
-
-	//puts("Run End");
-	//fflush(stdout);
 
 	return(CalcNextEvent(0x7FFFFFFF));
 }

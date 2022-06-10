@@ -287,7 +287,6 @@ MDFN_COLD int PCE_Load(const uint8_t *data, size_t size, const char *ext)
 			if(sgx_table[lcv].crc == crc)
 			{
 				IsSGX = true;
-				MDFN_printf("SuperGrafx: %s\n", sgx_table[lcv].name);
 				break;
 			}
 		}
@@ -409,7 +408,6 @@ static bool DetectGECD(CDIF *cdiface)	// Very half-assed detection until(if) we 
 					};
 					uint32 zecrc = encoding_crc32(0, sector_buffer, 2048);
 
-					//printf("%04x\n", zecrc);
 					for(unsigned int i = 0; i < sizeof(known_crcs) / sizeof(uint32); i++)
 						if(known_crcs[i] == zecrc)
 							return(true);
@@ -457,20 +455,11 @@ MDFN_COLD int PCE_LoadCD(std::vector<CDIF *> *CDInterfaces)
 	const char *bios_sname = DetectGECD((*CDInterfaces)[0]) ? "pce.gecdbios" : "pce.cdbios";
 	std::string bios_path = MDFN_GetSettingS("filesys.path_firmware") + "/" + MDFN_GetSettingS(bios_sname).c_str();
 
-	if (log_cb)
-		MDFN_printf("Loading bios %s\n", bios_path.c_str());
-
 	MDFNFILE *fp = file_open(bios_path.c_str());
 	if (!fp)
-	{
-		MDFN_printf("Error: Failed to load bios!\n");
 		return 0;
-	}
 
 	bool disable_bram_cd = MDFN_GetSettingB("pce.disable_bram_cd");
-
-	if(disable_bram_cd)
-		MDFN_printf("Warning: BRAM is disabled per pcfx.disable_bram_cd setting.  This is simulating a malfunction.\n");
 
 	HuC_Load(fp->data, fp->size, disable_bram_cd, PCE_ACEnabled ? SYSCARD_ARCADE : SYSCARD_3);
 	file_close(fp);
@@ -486,8 +475,6 @@ MDFN_COLD int PCE_LoadCD(std::vector<CDIF *> *CDInterfaces)
 
 	SCSICD_SetDisc(true, NULL, true);
 	SCSICD_SetDisc(false, (*cdifs)[0], true);
-
-	MDFN_printf("Arcade Card Emulation:  %s\n", PCE_ACEnabled ? "Enabled" : "Disabled");
 
 	return LoadCommon();
 }
@@ -569,7 +556,6 @@ void Emulate(EmulateSpecStruct *espec)
 	do
 	{
 		assert(HuCPU.Timestamp() < 12);
-		//printf("ST: %d\n", HuCPU.Timestamp());
 
 		INPUT_Frame(start_frame);
 
@@ -610,7 +596,6 @@ void Emulate(EmulateSpecStruct *espec)
 
 			if(espec->SoundBuf && HRRes)
 			{
-				//printf("%04x\n", rsc);
 				new_sc = HRRes->Resample(HRBufs[ch], rsc, espec->SoundBuf + (espec->SoundBufSize * 2) + ch, espec->SoundBufMaxSize - espec->SoundBufSize, espec->NeedSoundReverse);
 			}
 			else
@@ -694,7 +679,6 @@ void PCE_Power(void)
 
 	if(PCE_IsCD)
 		vce->SetCDEvent(PCECD_Power(timestamp));
-	//printf("%d\n", HuCPU.Timestamp());
 }
 
 void DoSimpleCommand(int cmd)

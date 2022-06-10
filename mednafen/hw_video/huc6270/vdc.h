@@ -407,8 +407,6 @@ private:
 
 			if(next_vram_dma_event > 0 && next_vram_dma_event < next_event)
 				next_event = next_vram_dma_event;
-
-			//printf("Next VRAM DMA event: %d(LENR = %d)\n", next_vram_dma_event, LENR);
 		}
 
 		assert(next_event > 0);

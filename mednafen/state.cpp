@@ -127,10 +127,7 @@ static bool SubWrite(StateMem *st, SFORMAT *sf, const char *name_prefix = NULL)
       nameo[0] = slen;
 
       if(slen >= 255)
-      {
-         printf("Warning:  state variable name possibly too long: %s %s %s %d\n", sf->name, name_prefix, nameo, slen);
          slen = 255;
-      }
 
       smem_write(st, nameo, 1 + nameo[0]);
       smem_write32le(st, bytesize);
@@ -257,16 +254,10 @@ static int ReadStateChunk(StateMem *st, SFORMAT *sf, int size)
       uint8_t toa[1 + 256];	/* Don't change to char unless cast toa[0] to unsigned to smem_read() and other places. */
 
       if(smem_read(st, toa, 1) != 1)
-      {
-         puts("Unexpected EOF");
          return(0);
-      }
 
       if(smem_read(st, toa + 1, toa[0]) != toa[0])
-      {
-         puts("Unexpected EOF?");
          return 0;
-      }
 
       toa[1 + toa[0]] = 0;
 
@@ -280,12 +271,8 @@ static int ReadStateChunk(StateMem *st, SFORMAT *sf, int size)
 
          if(recorded_size != expected_size)
          {
-            printf("Variable in save state wrong size: %s.  Need: %d, got: %d\n", toa + 1, expected_size, recorded_size);
             if(smem_seek(st, recorded_size, SEEK_CUR) < 0)
-            {
-               puts("Seek error");
                return(0);
-            }
          }
          else
          {
@@ -313,12 +300,8 @@ static int ReadStateChunk(StateMem *st, SFORMAT *sf, int size)
       }
       else
       {
-         printf("Unknown variable in save state: %s\n", toa + 1);
          if(smem_seek(st, recorded_size, SEEK_CUR) < 0)
-         {
-            puts("Seek error");
             return(0);
-         }
       }
    }
 
@@ -350,32 +333,20 @@ static int MDFNSS_StateAction_internal(void *st_p, int load, int data_only, SSDe
          if(!strncmp(sname, section->name, 32))
          {
             if(!ReadStateChunk(st, section->sf, tmp_size))
-            {
-               printf("Error reading chunk: %s\n", section->name);
                return(0);
-            }
             found = 1;
             break;
          } 
          else
          {
             if(smem_seek(st, tmp_size, SEEK_CUR) < 0)
-            {
-               puts("Chunk seek failure");
                return(0);
-            }
          }
       }
       if(smem_seek(st, -total, SEEK_CUR) < 0)
-      {
-         puts("Reverse seek error");
          return(0);
-      }
       if(!found && !section->optional) /* Not found.  We are sad! */
-      {
-         printf("Section missing:  %.32s\n", section->name);
          return(0);
-      }
    }
    else
    {

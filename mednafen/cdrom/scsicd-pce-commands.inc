@@ -7,7 +7,6 @@ static void DoNEC_PCE_SAPSP(const uint8_t *cdb)
 {
  uint32 new_read_sec_start;
 
- //printf("Set audio start: %02x %02x %02x %02x %02x %02x %02x\n", cdb[9], cdb[1], cdb[2], cdb[3], cdb[4], cdb[5], cdb[6]);
  switch (cdb[9] & 0xc0)
  {
   default:  //SCSIDBG("Unknown SAPSP 9: %02x\n", cdb[9]);
@@ -32,7 +31,6 @@ static void DoNEC_PCE_SAPSP(const uint8_t *cdb)
    break;
  }
 
- //printf("%lld\n", (long long)(monotonic_timestamp - pce_lastsapsp_timestamp) * 1000 / System_Clock);
  if(cdda.CDDAStatus == CDDASTATUS_PLAYING && new_read_sec_start == read_sec_start && ((int64)(monotonic_timestamp - pce_lastsapsp_timestamp) * 1000 / System_Clock) < 190)
  {
   pce_lastsapsp_timestamp = monotonic_timestamp;
@@ -76,8 +74,6 @@ static void DoNEC_PCE_SAPSP(const uint8_t *cdb)
 static void DoNEC_PCE_SAPEP(const uint8_t *cdb)
 {
  uint32 new_read_sec_end;
-
- //printf("Set audio end: %02x %02x %02x %02x %02x %02x %02x\n", cdb[9], cdb[1], cdb[2], cdb[3], cdb[4], cdb[5], cdb[6]);
 
  switch (cdb[9] & 0xc0)
  {
@@ -203,8 +199,7 @@ static void DoNEC_PCE_GETDIRINFO(const uint8_t *cdb)
 
  switch(cdb[1])
  {
-  default: //MDFN_DispMessage("Unknown GETDIRINFO Mode: %02x", cdb[1]);
-	   //printf("Unknown GETDIRINFO Mode: %02x", cdb[1]);
+  default: 
   case 0x0:
    data_in[0] = U8_to_BCD(toc.first_track);
    data_in[1] = U8_to_BCD(toc.last_track);

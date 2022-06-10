@@ -36,12 +36,9 @@ Startup:
 
 DECLFR(PCE_TsushinRead)
 {
-	//printf("Read: %04x, %04x\n", A, HuCPU.PC);
-
 	return(0x80);
 }
 
 DECLFW(PCE_TsushinWrite)
 {
-	//printf("Write: %04x %02x, %04x\n", A, V, HuCPU.PC);
 }

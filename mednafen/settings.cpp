@@ -62,8 +62,6 @@ uint64 MDFN_GetSettingUI(const char *name)
       return 32768;
    if (!strcmp("pce.scaling", name))
       return setting_pce_scaling;
-
-   fprintf(stderr, "unhandled setting UI: %s\n", name);
    return 0;
 }
 
@@ -71,8 +69,6 @@ int64 MDFN_GetSettingI(const char *name)
 {
    if (!strcmp("pce.psgrevision", name))
       return setting_pce_psgrevision;
-
-   fprintf(stderr, "unhandled setting I: %s\n", name);
    return 0;
 }
 
@@ -82,9 +78,7 @@ double MDFN_GetSettingF(const char *name)
       return 0.0000009;
    if (!strcmp("pce.mouse_sensitivity", name))
       return 1.0;
-
-   fprintf(stderr, "unhandled setting F: %s\n", name);
-   return 0;
+   return 0.0;
 }
 
 bool MDFN_GetSettingB(const char *name)
@@ -126,7 +120,6 @@ bool MDFN_GetSettingB(const char *name)
       return 0;
    if (!strcmp("filesys.disablesavegz", name))
       return 1;
-   fprintf(stderr, "unhandled setting B: %s\n", name);
    return 0;
 }
 
@@ -149,6 +142,5 @@ std::string MDFN_GetSettingS(const char *name)
       return retro_base_directory;
    if (!strcmp("filesys.path_cheat", name))
       return retro_base_directory;
-   fprintf(stderr, "unhandled setting S: %s\n", name);
    return 0;
 }
