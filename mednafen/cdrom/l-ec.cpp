@@ -447,9 +447,7 @@ int DecodePQ(ReedSolomonTables *rt, unsigned char *data, int padding,
 	 if(!erasure_count)
 	    erasure_list[0] = location-padding;
       }
-#if 1
       else return -3;
-#endif
    }
 
    /*** Form the syndromes: Evaluate data(x) at roots of g(x) */
@@ -466,11 +464,9 @@ int DecodePQ(ReedSolomonTables *rt, unsigned char *data, int padding,
     }
 
    /*** Convert syndrome to index form, check for nonzero condition. */
-#if 1
    for(i=0; i<NROOTS; i++)
      if(syndrome[i])
        return -2;
-#endif
 
    return corrected;
 }
