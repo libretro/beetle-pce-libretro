@@ -243,8 +243,8 @@ TPREFIX; {					\
 
 // Note: CSL/CSH's speed timing changes take effect for the last CPU cycle of CSL/CSH.  Be cautious
 // not to change the order here:
-#define CSL	{ /*printf("CSL: %04x\n", PC);*/ ADDCYC(2); speed = 0; REDOSPEEDCACHE(); LastCycle(); }
-#define CSH	{ /*printf("CSH: %04x\n", PC);*/ ADDCYC(2); speed = 1; REDOSPEEDCACHE(); LastCycle(); }
+#define CSL	{ ADDCYC(2); speed = 0; REDOSPEEDCACHE(); LastCycle(); }
+#define CSH	{ ADDCYC(2); speed = 1; REDOSPEEDCACHE(); LastCycle(); }
 
 #define RMB(bitto)	x &= ~(1 << (bitto & 7))
 #define SMB(bitto)	x |= 1 << (bitto & 7)
@@ -441,8 +441,6 @@ HuC6280::HuC6280()
 void HuC6280::Init(const bool emulate_wai)
 {
 #ifdef ARCH_X86
-	//printf("%llu\n", (unsigned long long)((uint8*)&FastPageR[0] - (uint8*)this));
-	//printf("Blorp: %016llx\n", (unsigned long long)this);
 	assert(((uint8*)&FastPageR[0] - (uint8*)this) < 128);
 #endif
 
@@ -589,10 +587,6 @@ NO_INLINE void HuC6280::RunSub(void)
 					tmpa = 0xFFF8;
 				else if(IRQSample & IQIRQ2)
 					tmpa = 0xFFF6;
-				//else
-					// puts("DANGER WILL ROBINSON DANGER");
-
-				//printf("IRQ: %04x\n", tmpa);
 
 				if(tmpa)
 				{
@@ -676,8 +670,6 @@ void HuC6280::TimerWrite(unsigned int address, uint8 V)
 		{
 			if(timer_status == 0)
 			{
-				//if(timer_inreload)
-				// puts("Oops");
 				timer_div = 1024 * 3;
 				timer_value = timer_load;
 			}

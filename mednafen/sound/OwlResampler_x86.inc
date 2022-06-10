@@ -16,7 +16,6 @@ static INLINE void DoMAC_AVX_32X(float* wave, float* coeffs, int32 count, int32*
  int dummy;
  int32 tmp;
 
- //printf("%f\n", adj);
 /*
 	?di = wave pointer
 	?si = coeffs pointer
@@ -102,7 +101,6 @@ static INLINE void DoMAC_AVX_32X_P16(float* wave, float* coeffs, int32 count, in
  int dummy;
  int32 tmp;
 
- //printf("%f\n", adj);
 /*
 	?di = wave pointer
 	?si = coeffs pointer
@@ -195,7 +193,6 @@ static INLINE void DoMAC_SSE_16X(float *wave, float *coeffs, int32 count, int32 
  // Multiplies 16 coefficients at a time.
  int dummy;
 
- //printf("%f\n", adj);
 /*
 	?di = wave pointer
 	?si = coeffs pointer

@@ -196,43 +196,23 @@ void MCGenjin::WriteNV(const unsigned di, const uint8 *buffer, uint32 offset, ui
 MCGenjin::MCGenjin(const uint8_t *data, size_t size)
 {
 	const uint64 rr_size = size;
-	uint8 revision, num256_pages, region, cs_di[2];
+	uint8 revision, cs_di[2];
 
 	if(rr_size > 1024 * 1024 * 128)
-	{
-		MDFN_printf("MCGenjin ROM size is too large!");
 		return;
-	}
 
 	if(rr_size < 8192)
-	{
-		MDFN_printf("MCGenjin ROM size is too small!");
 		return;
-	}
 
 	rom.resize(round_up_pow2(rr_size));
 	memcpy(&rom[0], data, rr_size);
 
 	if(memcmp(&rom[0x1FD0], "MCGENJIN", 8))
-	{
-		MDFN_printf("MC Genjin header magic missing!");
 		return;
-	}
 
 	revision = rom[0x1FD8];
-	num256_pages = rom[0x1FD9];
-	region = rom[0x1FDA];
 	cs_di[0] = rom[0x1FDB];
 	cs_di[1] = rom[0x1FDC];
-
-	MDFN_printf("MCGenjin Header:\n");
-	MDFN_indent(1);
-	MDFN_printf("Revision: 0x%02x\n", revision);
-	MDFN_printf("ROM Size: %u\n", num256_pages * 262144);
-	MDFN_printf("Region: 0x%02x\n", region);
-	MDFN_printf("CS0 Type: 0x%02x\n", cs_di[0]);
-	MDFN_printf("CS1 Type: 0x%02x\n", cs_di[1]);
-	MDFN_indent(-1);
 
 	// Don't set addr_write_mask to larger than 0xF unless code in mcgenjin.h is adjusted as well.
 	if(revision >= 0x80)
@@ -244,20 +224,15 @@ MCGenjin::MCGenjin(const uint8_t *data, size_t size)
 	{
 		if((cs_di[i] >= 0x10 && cs_di[i] <= 0x18) || (cs_di[i] >= 0x20 && cs_di[i] <= 0x28))
 		{
-			MDFN_printf("CS%d: %uKiB %sRAM\n", i, 8 << (cs_di[i] & 0xF), (cs_di[i] & 0x20) ? "Nonvolatile " : "");
-			
 			if(cs[i]) delete cs[i];
 			cs[i] = new MCGenjin_CS_Device_RAM(8192 << (cs_di[i] & 0xF), (bool)(cs_di[i] & 0x20));
 		}
 		else switch(cs_di[i])
 		{
 		default:
-			MDFN_printf("Unsupported MCGENJIN device on CS%d: 0x%02x", i, cs_di[i]);
 			break;
 
 		case 0x00:
-			MDFN_printf("CS%d: Unused\n", i);
-			
 			if(cs[i]) delete cs[i];
 			cs[i] = new MCGenjin_CS_Device();
 			break;

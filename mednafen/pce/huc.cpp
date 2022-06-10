@@ -242,12 +242,7 @@ uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM, SysCardType 
 		else
 			m_len = round_up_pow2(m_len - 512 * 1024) + 512 * 1024;
 
-		if(m_len > 8912896)
-			MDFN_printf("ROM image is too large for extended SF2 mapper!");
-
 		HuCSF2BankMask = ((m_len - 512 * 1024) / (512 * 1024)) - 1;
-
-		//printf("%d %d, %02x\n", len, m_len, HuCSF2BankMask);
 	}
 
 	IsPopulous = 0;
@@ -304,9 +299,6 @@ uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM, SysCardType 
 	memset(HuCROM, 0xFF, m_len);
 	memcpy(HuCROM, data, min_T<uint64>(m_len, size));
 	crc = encoding_crc32(0, HuCROM, min_T<uint64>(m_len, len));
-
-	if(syscard == SYSCARD_NONE)
-		MDFN_printf("ROM:       %lluKiB\n", (unsigned long long)((m_len < len) ? m_len : len) / 1024);
 
 	if(m_len == 0x60000)
 	{
@@ -397,7 +389,6 @@ uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM, SysCardType 
 			//LoadSaveMemory(MDFN_MakeFName(MDFNMKF_SAV, 0, "sav"), PopRAM, 32768);
 
 			IsPopulous = 1;
-			MDFN_printf("Populous\n");
 			for(int x = 0x40; x < 0x44; x++)
 			{
 				ROMMap[x] = &PopRAM[(x & 3) * 8192] - x * 8192;
@@ -416,7 +407,6 @@ uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM, SysCardType 
 			//LoadSaveMemory(MDFN_MakeFName(MDFNMKF_SAV, 0, "sav"), TsushinRAM, 32768);
 
 			IsTsushin = 1;
-			MDFN_printf("Tsushin Booster\n");
 			for(int x = 0x88; x < 0x8C; x++)
 			{
 				ROMMap[x] = &TsushinRAM[(x & 3) * 8192] - x * 8192;
@@ -442,7 +432,6 @@ uint32 HuC_Load(const uint8_t *data, size_t size, bool DisableBRAM, SysCardType 
 			}
 			HuCPU.SetWriteHandler(0, HuCSF2Write);
 
-			MDFN_printf("Street Fighter 2 Mapper\n");
 			HuCSF2Latch = 0;
 		}
 	}	// end else to if(syscard)
