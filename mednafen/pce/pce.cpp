@@ -32,8 +32,6 @@
 
 #include <zlib.h>
 
-extern MDFNGI EmulatedPCE;
-
 static std::vector<CDIF*> *cdifs = NULL;
 
 HuC6280 HuCPU;
