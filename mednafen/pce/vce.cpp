@@ -216,6 +216,7 @@ VCE::~VCE()
 
 void VCE::Reset(const int32 timestamp)
 {
+	uint16_t i;
 	unsigned chip;
 	last_ts          = 0;
 
@@ -231,8 +232,13 @@ void VCE::Reset(const int32 timestamp)
 	lc263            = 0;
 	bw               = 0;
 
-	memset(color_table, 0, sizeof(color_table));
 	memset(color_table_cache, 0, sizeof(color_table_cache));
+
+	for(i = 0; i < 0x200; i++)
+	{
+		color_table[i] = ((i ^ (i >> 3)) & 1) ? 0x000 : 0x1FF;
+		FixPCache(i);
+	}
 
 	ctaddress        = 0;
 
