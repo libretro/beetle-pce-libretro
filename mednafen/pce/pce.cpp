@@ -52,8 +52,6 @@ static void Cleanup(void);
 bool PCE_ACEnabled;
 uint64 PCE_TimestampBase;	// Only used with the debugger for the time being.
 
-static bool IsSGX;
-
 uint8 BaseRAM[32768]; // 8KB for PCE, 32KB for Super Grafx
 
 HuC6280::readfunc NonCheatPCERead[0x100];
@@ -65,16 +63,6 @@ static DECLFR(PCEBusRead)
 
 static DECLFW(PCENullWrite)
 {
-}
-
-static DECLFR(BaseRAMReadSGX)
-{
-	return(BaseRAM[A & 0x7FFF]);
-}
-
-static DECLFW(BaseRAMWriteSGX)
-{
-	BaseRAM[A & 0x7FFF] = V;
 }
 
 static DECLFR(BaseRAMRead)
@@ -252,46 +240,10 @@ static void SetCDSettings(void)
 	psg->SetVolume(0.678 * cdpsgvolume);
 }
 
-static const struct
-{
-	uint32 crc;
-	const char* name;
-} sgx_table[] = 
-{
-	{ 0xbebfe042, "Darius Plus", },
-	{ 0x4c2126b0, "Aldynes" },
-	{ 0x8c4588e2, "1941 - Counter Attack" },
-	{ 0x1f041166, "Madouou Granzort" },
-	{ 0xb486a8ed, "Daimakaimura" },
-	{ 0x3b13af61, "Battle Ace" },
-	{ 0, "" }
-};
-
 MDFN_COLD int PCE_Load(const uint8_t *data, size_t size, const char *ext)
 {
-	IsSGX = false;
-
 	LoadCommonPre();
-
-	uint32 crc;
-
-	crc = HuC_Load(data, size, MDFN_GetSettingB("pce.disable_bram_hucard"));
-
-	if(!strcmp(ext, "sgx"))
-		IsSGX = true;
-	else
-	{
-		unsigned lcv;
-		for(lcv = 0; sgx_table[lcv].crc; lcv++)
-		{
-			if(sgx_table[lcv].crc == crc)
-			{
-				IsSGX = true;
-				break;
-			}
-		}
-	}
-
+	uint32 crc = HuC_Load(data, size, MDFN_GetSettingB("pce.disable_bram_hucard"));
 	return LoadCommon();
 }
 
@@ -319,26 +271,21 @@ static MDFN_COLD void LoadCommonPre(void)
 static MDFN_COLD int LoadCommon(void)
 { 
 	int i;
-	IsSGX |= MDFN_GetSettingB("pce.forcesgx") ? 1 : 0;
 
-	// Don't modify IsSGX past this point.
 	const uint32 vram_size = MDFN_GetSettingUI("pce.vramsize");
 
-	vce = new VCE(IsSGX, vram_size);
+	vce = new VCE(vram_size);
 	vce->SetVDCUnlimitedSprites(MDFN_GetSettingB("pce.nospritelimit"));
 
 	for(i = 0xF8; i < 0xFC; i++)
 	{
-		HuCPU.SetReadHandler(i, IsSGX ? BaseRAMReadSGX : BaseRAMRead);
-		HuCPU.SetWriteHandler(i, IsSGX ? BaseRAMWriteSGX : BaseRAMWrite);
+		HuCPU.SetReadHandler(i, BaseRAMRead);
+		HuCPU.SetWriteHandler(i, BaseRAMWrite);
 
-		if(IsSGX)
-			HuCPU.SetFastRead(i, BaseRAM + (i & 0x3) * 8192);
-		else
-			HuCPU.SetFastRead(i, BaseRAM);
+		HuCPU.SetFastRead(i, BaseRAM);
 	}
 
-	MDFNMP_AddRAM(IsSGX ? 32768 : 8192, 0xf8 * 8192, BaseRAM);
+	MDFNMP_AddRAM(8192, 0xf8 * 8192, BaseRAM);
 
 	HuCPU.SetReadHandler(0xFF, IORead);
 	HuCPU.SetWriteHandler(0xFF, IOWrite);
@@ -348,9 +295,7 @@ static MDFN_COLD int LoadCommon(void)
 	int psgrevision = MDFN_GetSettingI("pce.psgrevision");
 
 	if(psgrevision == PCE_PSG::_REVISION_COUNT)
-	{
-		psgrevision = IsSGX ? PCE_PSG::REVISION_HUC6280A : PCE_PSG::REVISION_HUC6280;
-	}
+		psgrevision = PCE_PSG::REVISION_HUC6280;
 
 	psg = new PCE_PSG(HRBufs[0]->Buf(), HRBufs[1]->Buf(), psgrevision);
 
@@ -419,37 +364,8 @@ static bool DetectGECD(CDIF *cdiface)	// Very half-assed detection until(if) we 
 	return(false);
 }
 
-static MDFN_COLD bool DetectSGXCD(std::vector<CDIF*>* CDInterfaces)
-{
-	CDIF *cdiface = (*CDInterfaces)[0];
-	TOC toc;
-	uint8 sector_buffer[2048];
-	bool ret = false;
-
-	memset(sector_buffer, 0, sizeof(sector_buffer));
-
-	cdiface->ReadTOC(&toc);
-
-	// Check all data tracks for the 16-byte magic(4D 65 64 6E 61 66 65 6E 74 AB 90 19 42 62 7D E6) at offset 0x86A(assuming mode 1 sectors).
-	for(int32 track = toc.first_track; track <= toc.last_track; track++)
-	{
-		if(toc.tracks[track].control & 0x4)
-		{
-			if(cdiface->ReadSector(sector_buffer, toc.tracks[track].lba + 1, 1) != 0x1)
-				continue;
-
-			if(MDFN_de64msb(&sector_buffer[0x6A]) == 0x4D65646E6166656EULL && MDFN_de64msb(&sector_buffer[0x6A + 8]) == 0x74AB901942627DE6ULL)
-				ret = true;
-		}
-	}
-
-	return ret;
-}
-
 MDFN_COLD int PCE_LoadCD(std::vector<CDIF *> *CDInterfaces)
 {
-	IsSGX = DetectSGXCD(CDInterfaces);
-
 	LoadCommonPre();
 
 	const char *bios_sname = DetectGECD((*CDInterfaces)[0]) ? "pce.gecdbios" : "pce.cdbios";
@@ -645,7 +561,7 @@ int StateAction(StateMem *sm, int load, int data_only)
 {
 	SFORMAT StateRegs[] =
 	{
-		SFARRAY(BaseRAM, IsSGX ? 32768 : 8192),
+		SFARRAY(BaseRAM, 8192),
 		SFVAR(PCE_TimestampBase),
 
 		SFEND
