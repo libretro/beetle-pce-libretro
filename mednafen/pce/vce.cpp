@@ -115,8 +115,8 @@ void VCE::write_scanline_info()
 	}
 
 
-	HSR = vdc.GetRegister(VDC::GSREG_HSR);
-	HDR = vdc.GetRegister(VDC::GSREG_HDR);
+	HSR = vdc[0].GetRegister(VDC::GSREG_HSR);
+	HDR = vdc[0].GetRegister(VDC::GSREG_HDR);
 
 	HSW = (HSR >> 0) & 0x1f;
 	HDS = (HSR >> 8) & 0x7f;
@@ -156,7 +156,11 @@ void VCE::write_scanline_info()
 
 void VCE::IRQChangeCheck(void)
 {
-	bool irqtmp = vdc.PeekIRQ();
+	unsigned chip;
+	bool irqtmp = 0;
+
+	for(chip = 0; chip < chip_count; chip++)
+	irqtmp |= vdc[chip].PeekIRQ();
 
 	if(irqtmp)
 		HuCPU.IRQBegin(HuC6280::IQIRQ1);
@@ -170,19 +174,26 @@ void VCE::SetShowHorizOS(bool show)
 }
 
 
-VCE::VCE(const uint32 vram_size)
+VCE::VCE(const bool want_sgfx, const uint32 vram_size)
 {
+	unsigned chip;
 	ShowHorizOS = false;
+
+	sgfx        = want_sgfx;
+	chip_count  = sgfx ? 2 : 1;
 
 	cd_event    = 1;
 
 	fb          = NULL;
 	pitch32     = 0;
 
-	vdc.SetVRAMSize(vram_size);
-	vdc.SetIRQHook(IRQChange_Hook);
-	vdc.SetWSHook(WS_Hook_);
-	vdc.SetLayerEnableMask(0x3);
+	for(chip = 0; chip < chip_count; chip++)
+	{
+		vdc[chip].SetVRAMSize(vram_size);
+		vdc[chip].SetIRQHook(IRQChange_Hook);
+		vdc[chip].SetWSHook(WS_Hook_);
+		vdc[chip].SetLayerEnableMask(0x3);
+	}
 
 	SetVDCUnlimitedSprites(false);
 
@@ -193,7 +204,9 @@ VCE::VCE(const uint32 vram_size)
 
 void VCE::SetVDCUnlimitedSprites(const bool nospritelimit)
 {
-	vdc.SetUnlimitedSprites(nospritelimit);
+	unsigned chip;
+	for(chip = 0; chip < chip_count; chip++)
+		vdc[chip].SetUnlimitedSprites(nospritelimit);
 }
 
 VCE::~VCE()
@@ -237,7 +250,17 @@ void VCE::Reset(const int32 timestamp)
 	hblank_counter   = 237;
 	vblank_counter   = 4095 + 30;
 
-	child_event[0]   = vdc.Reset();
+	for(chip = 0; chip < chip_count; chip++)
+		child_event[chip] = vdc[chip].Reset();
+
+	// SuperGrafx VPC init
+	priority[0] = 0x11;
+	priority[1] = 0x11;
+	winwidths[0] = 0;
+	winwidths[1] = 0;
+	st_mode = 0;
+	window_counter[0] = 0x40;
+	window_counter[1] = 0x40;
 
 	if(fb)
 		scanline_out_ptr = &fb[(scanline % 263) * pitch32];
@@ -348,13 +371,16 @@ int32 INLINE VCE::CalcNextEvent(void)
 
 	next_event = min_T<int32>(next_event, child_event[0] * dot_clock_ratio - clock_divider);
 
+	if(sgfx)
+		next_event = min_T<int32>(next_event, child_event[1] * dot_clock_ratio - clock_divider);
+
 	if(next_event < 1)
 		next_event = 1;
 
 	return next_event;
 }
 
-template<bool TA_AwesomeMode>
+template<bool TA_SuperGrafx, bool TA_AwesomeMode>
 void INLINE VCE::SyncSub(int32 clocks)
 {
 	while(clocks > 0)
@@ -370,6 +396,9 @@ void INLINE VCE::SyncSub(int32 clocks)
 
 		chunk_clocks = min_T<int32>(chunk_clocks, child_event[0] * dot_clock_ratio - clock_divider);
 
+		if(TA_SuperGrafx)
+			chunk_clocks = min_T<int32>(chunk_clocks, child_event[1] * dot_clock_ratio - clock_divider);
+
 		if(MDFN_UNLIKELY(chunk_clocks <= 0))
 			chunk_clocks = 1;
  
@@ -378,6 +407,8 @@ void INLINE VCE::SyncSub(int32 clocks)
 		clock_divider  -= div_clocks * dot_clock_ratio;
 
 		child_event[0] -= div_clocks;
+		if(TA_SuperGrafx)
+			child_event[1] -= div_clocks;
 
 		if(div_clocks > 0)
 		{
@@ -386,9 +417,77 @@ void INLINE VCE::SyncSub(int32 clocks)
 			if((scanline < 14 + scanline_start) || (scanline > 14 + scanline_end))
 				skipline = true;
 
-			child_event[0] = vdc.Run(div_clocks, pixel_buffer[0], skipline);
+			child_event[0] = vdc[0].Run(div_clocks, pixel_buffer[0], skipline);
+			if(TA_SuperGrafx)
+				child_event[1] = vdc[1].Run(div_clocks, pixel_buffer[1], skipline);
+
 			if(!skipline)
 			{
+				if(TA_SuperGrafx)
+				{
+					int32_t i;
+					for(i = 0; MDFN_LIKELY(i < div_clocks); i++)
+					{
+						static const int prio_select[4] = { 1, 1, 0, 0 };
+						static const int prio_shift[4] = { 4, 0, 4, 0 };
+						uint32 pix;
+						int in_window = 0;
+
+						if(window_counter[0] > 0x40)
+						{
+							in_window |= 1;
+							window_counter[0]--;
+						}
+
+						if(window_counter[1] > 0x40)
+						{
+							in_window |= 2;
+							window_counter[1]--;
+						}
+
+						uint8 pb = (priority[prio_select[in_window]] >> prio_shift[in_window]) & 0xF;
+						uint32 vdc2_pixel, vdc1_pixel;
+
+						vdc2_pixel = vdc1_pixel = 0;
+
+						if(pb & 1)
+							vdc1_pixel = pixel_buffer[0][i];
+						if(pb & 2)
+							vdc2_pixel = pixel_buffer[1][i];
+
+						/* Dai MakaiMura uses setting 1, and expects VDC #2 sprites in front of VDC #1 background, but
+							behind VDC #1's sprites.
+						*/
+						switch(pb >> 2)
+						{
+						case 1:
+							if((vdc2_pixel & 0x100) && !(vdc1_pixel & 0x100) && (vdc2_pixel & 0xF))
+								vdc1_pixel = 0; //amask;
+							break;
+						case 2:
+							if((vdc1_pixel & 0x100) && !(vdc2_pixel & 0x100) && (vdc2_pixel & 0xF))
+								vdc1_pixel = 0; //|= amask;
+							break;
+						}
+						pix = color_table_cache[((vdc1_pixel & 0xF) ? vdc1_pixel : vdc2_pixel) & 0x1FF];
+
+						if(TA_AwesomeMode)
+						{
+							int32_t s_i;
+							for(s_i = 0; s_i < dot_clock_ratio; s_i++)
+							{
+								scanline_out_ptr[pixel_offset & 2047] = pix;
+								pixel_offset++;
+							}
+						}
+						else
+						{
+							scanline_out_ptr[pixel_offset & 2047] = pix;
+							pixel_offset++;
+						}
+					}
+				}
+				else
 				{
 					if(TA_AwesomeMode)
 					{
@@ -432,6 +531,13 @@ void INLINE VCE::SyncSub(int32 clocks)
 			}
 			else
 			{
+				if(sgfx)
+				{
+					int add = 8 + ((dot_clock == 1) ? 38 : 24);
+					window_counter[0] = winwidths[0] + add;
+					window_counter[1] = winwidths[1] + add;
+				}
+
 				if(NeedSLReset)
 				{
 					scanline = 0;
@@ -493,7 +599,9 @@ void INLINE VCE::SyncSub(int32 clocks)
 			}
 			hblank_counter = hblank ? 237 : 1128;
 
-			child_event[0] = vdc.HSync(hblank);
+			child_event[0] = vdc[0].HSync(hblank);
+			if(TA_SuperGrafx)
+				child_event[1] = vdc[1].HSync(hblank);
 		}
 
 		vblank_counter -= chunk_clocks;
@@ -503,9 +611,13 @@ void INLINE VCE::SyncSub(int32 clocks)
 			vblank_counter = vblank ? 4095 : ((lc263 ? 358995 : 357630) - 4095);
 
 			if(!vblank)
+			{
 				NeedSLReset = true;
+			}
 
-			child_event[0] = vdc.VSync(vblank);
+			child_event[0] = vdc[0].VSync(vblank);
+			if(TA_SuperGrafx)
+				child_event[1] = vdc[1].VSync(vblank);
 		}
 	}
 }
@@ -521,9 +633,19 @@ int32 INLINE VCE::SyncReal(const int32 timestamp)
 		cd_event = PCECD_Run(timestamp);
 
 	if(!hires)
-		SyncSub<false>(clocks);
+	{
+		if(sgfx)
+			SyncSub<true, false>(clocks);
+		else
+			SyncSub<false, false>(clocks);
+	}
 	else
-		SyncSub<true>(clocks);
+	{
+		if(sgfx)
+			SyncSub<true, true>(clocks);
+		else
+			SyncSub<false, true>(clocks);
+	}
 
 	//
 	//
@@ -713,7 +835,37 @@ uint8 VCE::ReadVDC(uint32 A)
 
 	Sync(HuCPU.Timestamp());
 
-	ret = vdc.Read(A, child_event[0], 0);
+	if(!sgfx)
+	{
+		ret = vdc[0].Read(A, child_event[0], 0);
+	}
+	else
+	{
+		int chip = 0;
+
+		A &= 0x1F;
+
+		if(A & 0x8)
+		{
+			ret = 0;
+
+			switch(A)
+			{
+			case 0x8: ret = priority[0]; break;
+			case 0x9: ret = priority[1]; break;
+			case 0xA: ret = winwidths[0]; break;
+			case 0xB: ret = winwidths[0] >> 8; break;
+			case 0xC: ret = winwidths[1]; break;
+			case 0xD: ret = winwidths[1] >> 8; break;
+			case 0xE: ret = 0; break;
+			}
+		}
+		else
+		{
+			chip = (A & 0x10) >> 4;
+			ret = vdc[chip].Read(A & 0x3, child_event[chip], 0);
+		}
+	}
 
 	HuCPU.SetEvent(CalcNextEvent());
 
@@ -724,7 +876,38 @@ void VCE::WriteVDC(uint32 A, uint8 V)
 {
 	Sync(HuCPU.Timestamp());
 
-	vdc.Write(A & 0x1FFF, V, child_event[0]);
+	if(!sgfx)
+	{
+		vdc[0].Write(A & 0x1FFF, V, child_event[0]);
+	}
+	else
+	{
+		int chip = 0;
+
+		// For ST0/ST1/ST2
+		A |= ((A >> 31) & st_mode) << 4;
+
+		A &= 0x1F;
+
+		if(A & 0x8)
+		{
+			switch(A)
+			{
+			case 0x8: priority[0] = V; break;
+			case 0x9: priority[1] = V; break;
+			case 0xA: winwidths[0] &= 0x300; winwidths[0] |= V; break;
+			case 0xB: winwidths[0] &= 0x0FF; winwidths[0] |= (V & 3) << 8; break;
+			case 0xC: winwidths[1] &= 0x300; winwidths[1] |= V; break;
+			case 0xD: winwidths[1] &= 0x0FF; winwidths[1] |= (V & 3) << 8; break;
+			case 0xE: st_mode = V & 1; break;
+			}
+		}
+		else
+		{
+			chip = (A & 0x10) >> 4;
+			vdc[chip].Write(A & 0x3, V, child_event[chip]);
+		}
+	}
 
 	HuCPU.SetEvent(CalcNextEvent());
 }
@@ -733,14 +916,25 @@ void VCE::WriteVDC_ST(uint32 A, uint8 V)
 {
 	Sync(HuCPU.Timestamp());
 
-	vdc.Write(A, V, child_event[0]);
+	if(!sgfx)
+	{
+		vdc[0].Write(A, V, child_event[0]);
+	}
+	else
+	{
+		int chip = st_mode & 1;
+		vdc[chip].Write(A, V, child_event[chip]);
+	}
 
 	HuCPU.SetEvent(CalcNextEvent());
 }
 
 void VCE::SetLayerEnableMask(uint64 mask)
 {
-	vdc.SetLayerEnableMask(mask & 0x3);
+	for(unsigned chip = 0; chip < chip_count; chip++)
+	{
+		vdc[chip].SetLayerEnableMask((mask >> (chip * 2)) & 0x3);
+	}
 }
 
 int VCE::StateAction(StateMem *sm, const unsigned load, const bool data_only)
@@ -768,6 +962,20 @@ int VCE::StateAction(StateMem *sm, const unsigned load, const bool data_only)
 
 	int ret = MDFNSS_StateAction(sm, load, data_only, VCE_StateRegs, "VCE", false);
 
+	if(sgfx)
+	{
+		SFORMAT VPC_StateRegs[] =
+		{
+			SFVARN(priority, "priority"),
+			SFVARN(winwidths, "winwidths"),
+			SFVARN(st_mode, "st_mode"),
+			SFVARN(window_counter, "window_counter"),
+			SFEND
+		};
+
+		ret &= MDFNSS_StateAction(sm, load, data_only, VPC_StateRegs, "VPC", false);
+	}
+
 	if(load)
 	{
 		SetVCECR(CR);
@@ -794,11 +1002,12 @@ int VCE::StateAction(StateMem *sm, const unsigned load, const bool data_only)
 		if(cd_event < 1)
 			cd_event = 1;
 
+		for(unsigned chip = 0; chip < chip_count; chip++)
 		{
-			if(child_event[0] < 1)
-				child_event[0] = 1;
-			else if(child_event[0] > 1024)
-				child_event[0] = 1024;
+			if(child_event[chip] < 1)
+				child_event[chip] = 1;
+			else if(child_event[chip] > 1024)
+				child_event[chip] = 1024;
 		}
 		//
 		//
@@ -807,7 +1016,8 @@ int VCE::StateAction(StateMem *sm, const unsigned load, const bool data_only)
 			FixPCache(x);
 	}
 
-	ret &= vdc.StateAction(sm, load, data_only, "VDC");
+	for(unsigned chip = 0; chip < chip_count; chip++)
+		ret &= vdc[chip].StateAction(sm, load, data_only, chip ? "VDCB" : "VDC");
 	
 	return ret;
 }

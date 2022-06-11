@@ -43,7 +43,7 @@ class VCE
 {
 public:
 
-	VCE(const uint32 vram_size = 32768) MDFN_COLD;
+	VCE(const bool want_sgfx, const uint32 vram_size = 32768) MDFN_COLD;
 	~VCE() MDFN_COLD;
 
 	void SetVDCUnlimitedSprites(const bool nospritelimit);
@@ -96,7 +96,7 @@ public:
 
 private:
 
-	template<bool TA_AwesomeMode>
+	template<bool TA_SuperGrafx, bool TA_AwesomeMode>
 	void SyncSub(int32 clocks);
 
 	void FixPCache(int entry);
@@ -105,7 +105,7 @@ private:
 	void write_scanline_info(void);
 	
 	int32 CalcNextEvent(void);
-	int32 child_event[1];
+	int32 child_event[2];
 
 	int32 cd_event;
 
@@ -113,6 +113,7 @@ private:
 	uint16 pitch32;		// Pitch(in 16-bit pixels)
 	bool FrameDone;
 	bool ShowHorizOS;
+	bool sgfx;
 
 	bool skipframe;
 	int32 *LW;
@@ -143,6 +144,14 @@ private:
 	int32 last_ts;
 
 	//
+	// SuperGrafx HuC6202 VPC state
+	//
+	int32 window_counter[2];
+	uint16 winwidths[2];
+	uint8 priority[2];
+	uint8 st_mode;
+
+	//
 	//
 	//
 	uint16 ctaddress;
@@ -151,7 +160,7 @@ private:
 	uint16 color_table[0x200];
 	uint32 surf_clut[2][512];
 
-	VDC vdc;
+	VDC vdc[2];
 };
 
 #endif
