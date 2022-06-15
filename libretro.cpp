@@ -42,9 +42,6 @@ static bool cdimagecache = false;
 static bool show_advanced_input_settings = true;
 static bool use_palette = false;
 
-extern MDFNGI EmulatedPCE;
-MDFNGI *MDFNGameInfo = &EmulatedPCE;
-
 static int hires_blend = 0;
 static int blur_passes = 1;
 static int aspect_ratio = 0;
@@ -695,8 +692,6 @@ static bool MDFNI_LoadCD(const char *path, const char *ext)
 
       CDInterfaces.clear();
 
-      MDFNGameInfo = NULL;
-
       return false;
    }
 
@@ -712,7 +707,6 @@ static bool MDFNI_LoadGame(const char *path, const char *ext,
       const uint8_t *data, size_t size)
 {
    MDFNFILE *GameFile          = NULL;
-   MDFNGameInfo                = &EmulatedPCE;
    const uint8_t *content_data = NULL;
    size_t content_size         = 0;
 
@@ -772,7 +766,6 @@ static bool MDFNI_LoadGame(const char *path, const char *ext,
 error:
    if (GameFile)
       file_close(GameFile);
-   MDFNGameInfo = NULL;
 
    return false;
 }
@@ -1450,16 +1443,11 @@ bool retro_load_game(const struct retro_game_info *info)
 
 void retro_unload_game(void)
 {
-   if(!MDFNGameInfo)
-      return;
-
    MDFN_FlushGameCheats(0);
 
    PCE_CloseGame();
 
    MDFNMP_Kill();
-
-   MDFNGameInfo = NULL;
 
    for(unsigned i = 0; i < CDInterfaces.size(); i++)
       delete CDInterfaces[i];
@@ -1740,8 +1728,6 @@ void retro_run(void)
    spec.CustomPalette = use_palette ? composite_palette : NULL;
    spec.CustomPaletteNumEntries = use_palette ? 512 : 0;
 
-   spec.IsFMV     = NULL;
-
    spec.InterlaceOn = false;
    spec.InterlaceField = false;
 
@@ -1754,10 +1740,6 @@ void retro_run(void)
    spec.SoundBuf = sound_buf;
    spec.SoundBufMaxSize = sizeof(sound_buf) / 2;
    spec.SoundBufSize = 0;
-   spec.SoundBufSizeALMS = 0;
-
-   spec.MasterCycles = 0;
-   spec.MasterCyclesALMS = 0;
 
    spec.SoundVolume = 1.0;
    spec.soundmultiplier = 1.0;
@@ -1774,11 +1756,7 @@ void retro_run(void)
    Emulate(&spec);
 
 #define PCE_SOUNDCHANS 2
-   int16 *const SoundBuf = spec.SoundBuf + spec.SoundBufSizeALMS * PCE_SOUNDCHANS;
-   int32 SoundBufSize = spec.SoundBufSize - spec.SoundBufSizeALMS;
-   const int32 SoundBufMaxSize = spec.SoundBufMaxSize - spec.SoundBufSizeALMS;
-
-   spec.SoundBufSize = spec.SoundBufSizeALMS + SoundBufSize;
+   const int32 SoundBufMaxSize = spec.SoundBufMaxSize;
 
    if (video_width != spec.DisplayRect.w || video_height != spec.DisplayRect.h)
       resolution_changed = true;
@@ -2135,13 +2113,5 @@ void MDFN_DispMessage(const char *format, ...)
 
 void MDFN_MidSync(EmulateSpecStruct *espec)
 {
-   //if(!MDFNnetplay)
-   {
-      //ProcessAudio(espec);
-
-      //espec->SoundBufSizeALMS = espec->SoundBufSize;
-      //espec->MasterCyclesALMS = espec->MasterCycles;
-
-      PCEINPUT_TransformInput();
-   }
+   PCEINPUT_TransformInput();
 }

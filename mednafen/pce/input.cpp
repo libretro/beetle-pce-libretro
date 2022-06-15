@@ -283,7 +283,6 @@ int INPUT_StateAction(StateMem *sm, int load, int data_only)
 
 static void SyncSettings(void)
 {
-	MDFNGameInfo->mouse_sensitivity = MDFN_GetSettingF("pce.mouse_sensitivity");
 	MultiTapEnabled = MDFN_GetSettingB("pce.input.multitap");
 	DisableSR = MDFN_GetSettingB("pce.disable_softreset");
 }

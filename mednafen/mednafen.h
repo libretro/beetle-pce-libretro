@@ -35,8 +35,6 @@ static INLINE void swap_T(T& t1, T& t2)
     t2 = tmp;
 }
 
-extern MDFNGI *MDFNGameInfo;
-
 #include "settings.h"
 
 void MDFN_PrintError(const char *format, ...);

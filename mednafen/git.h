@@ -18,25 +18,6 @@ enum
 
 typedef enum
 {
- VIDSYS_NONE, // Can be used internally in system emulation code, but it is an error condition to let it continue to be
-	      // after the Load() or LoadCD() function returns!
- VIDSYS_PAL,
- VIDSYS_PAL_M, // Same timing as NTSC, but uses PAL-style colour encoding
- VIDSYS_NTSC,
- VIDSYS_SECAM
-} VideoSystems;
-
-typedef enum
-{
- GMT_CART,	// Self-explanatory!
- GMT_ARCADE,	// VS Unisystem, PC-10...
- GMT_DISK,	// Famicom Disk System, mostly
- GMT_CDROM,	// PC Engine CD, PC-FX
- GMT_PLAYER	// Music player(NSF, HES, GSF)
-} GameMediumTypes;
-
-typedef enum
-{
  IDIT_BUTTON,		// 1-bit
  IDIT_BUTTON_CAN_RAPID, // 1-bit
  IDIT_BUTTON_BYTE, // 8-bits, Button as a byte instead of a bit.
@@ -123,45 +104,6 @@ enum
  MDFN_MSC_RESET = 0x01,
  MDFN_MSC_POWER = 0x02,
 
- MDFN_MSC_INSERT_COIN = 0x07,
-
- // If we ever support arcade systems, we'll abstract DIP switches differently...maybe.
- MDFN_MSC_TOGGLE_DIP0 = 0x10,
- MDFN_MSC_TOGGLE_DIP1,
- MDFN_MSC_TOGGLE_DIP2,
- MDFN_MSC_TOGGLE_DIP3,
- MDFN_MSC_TOGGLE_DIP4,
- MDFN_MSC_TOGGLE_DIP5,
- MDFN_MSC_TOGGLE_DIP6,
- MDFN_MSC_TOGGLE_DIP7,
- MDFN_MSC_TOGGLE_DIP8,
- MDFN_MSC_TOGGLE_DIP9,
- MDFN_MSC_TOGGLE_DIP10,
- MDFN_MSC_TOGGLE_DIP11,
- MDFN_MSC_TOGGLE_DIP12,
- MDFN_MSC_TOGGLE_DIP13,
- MDFN_MSC_TOGGLE_DIP14,
- MDFN_MSC_TOGGLE_DIP15,
-
-
- // n of DISKn translates to is emulation module specific.
- MDFN_MSC_INSERT_DISK0 = 0x20,
- MDFN_MSC_INSERT_DISK1,
- MDFN_MSC_INSERT_DISK2,
- MDFN_MSC_INSERT_DISK3,
- MDFN_MSC_INSERT_DISK4,
- MDFN_MSC_INSERT_DISK5,
- MDFN_MSC_INSERT_DISK6,
- MDFN_MSC_INSERT_DISK7,
- MDFN_MSC_INSERT_DISK8,
- MDFN_MSC_INSERT_DISK9,
- MDFN_MSC_INSERT_DISK10,
- MDFN_MSC_INSERT_DISK11,
- MDFN_MSC_INSERT_DISK12,
- MDFN_MSC_INSERT_DISK13,
- MDFN_MSC_INSERT_DISK14,
- MDFN_MSC_INSERT_DISK15,
-
  MDFN_MSC_INSERT_DISK	= 0x30,
  MDFN_MSC_EJECT_DISK 	= 0x31,
 
@@ -204,9 +146,6 @@ typedef struct
 	uint8 *CustomPalette;
 	uint32 CustomPaletteNumEntries;
 
-	// TODO
-	bool *IsFMV;
-
 	// Set(optionally) by emulation code.  If InterlaceOn is true, then assume field height is 1/2 DisplayRect.h, and
 	// only every other line in surface (with the start line defined by InterlacedField) has valid data
 	// (it's up to internal Mednafen code to deinterlace it).
@@ -237,14 +176,6 @@ typedef struct
 
 	// Number of frames currently in internal sound buffer.  Set by the system emulation code, to be read by the driver code.
 	int32 SoundBufSize;
-	int32 SoundBufSizeALMS;	// SoundBufSize value at last MidSync(), 0
-				// if mid sync isn't implemented for the emulation module in use.
-
-	// Number of cycles that this frame consumed, using MDFNGI::MasterClock as a time base.
-	// Set by emulation code.
-	int64 MasterCycles;
-	int64 MasterCyclesALMS;	// MasterCycles value at last MidSync(), 0
-				// if mid sync isn't implemented for the emulation module in use.
 
 	// Current sound volume(0.000...<=volume<=1.000...).  If, after calling Emulate(), it is still != 1, Mednafen will handle it internally.
 	// Emulation modules can handle volume themselves if they like, for speed reasons.  If they do, afterwards, they should set its value to 1.
@@ -277,58 +208,6 @@ typedef enum
 } ModPrio;
 
 class CDIF;
-
-#define MDFN_MASTERCLOCK_FIXED(n)	((int64)((double)(n) * (1LL << 32)))
-
-typedef struct
-{
- // Time base for EmulateSpecStruct::MasterCycles
- int64 MasterClock;
-
- uint32 fps; // frames per second * 65536 * 256, truncated
-
- // multires is a hint that, if set, indicates that the system has fairly programmable video modes(particularly, the ability
- // to display multiple horizontal resolutions, such as the PCE, PC-FX, or Genesis).  In practice, it will cause the driver
- // code to set the linear interpolation on by default.
- //
- // lcm_width and lcm_height are the least common multiples of all possible
- // resolutions in the frame buffer as specified by DisplayRect/LineWidths(Ex for PCE: widths of 256, 341.333333, 512,
- // lcm = 1024)
- //
- // nominal_width and nominal_height specify the resolution that Mednafen should display
- // the framebuffer image in at 1x scaling, scaled from the dimensions of DisplayRect, and optionally the LineWidths array
- // passed through espec to the Emulate() function.
- //
- bool multires;
-
- int lcm_width;
- int lcm_height;
-
- void *dummy_separator;	//
-
- int nominal_width;
- int nominal_height;
-
- int fb_width;		// Width of the framebuffer(not necessarily width of the image).  MDFN_Surface width should be >= this.
- int fb_height;		// Height of the framebuffer passed to the Emulate() function(not necessarily height of the image)
-
- int soundchan; 	// Number of output sound channels.
-
-
- int rotated;
-
- int soundrate;  /* For Ogg Vorbis expansion sound wacky support.  0 for default. */
-
- VideoSystems VideoSystem;
- GameMediumTypes GameType;
-
- //int DiskLogicalCount;	// A single double-sided disk would be 2 here.
- //const char *DiskNames;	// Null-terminated.
-
- const char *cspecial;  /* Special cart expansion: DIP switches, barcode reader, etc. */
-
- double mouse_sensitivity;
-} MDFNGI;
 
 // Source: http://graphics.stanford.edu/~seander/bithacks.html#RoundUpPowerOf2
 // Rounds up to the nearest power of 2.

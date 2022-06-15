@@ -363,16 +363,8 @@ static MDFN_COLD int LoadCommon(void)
 
 	PCE_Power();
 
-	MDFNGameInfo->fps = (uint32)((double)7159090.90909090 / 455 / 263 * 65536 * 256);
-
 	for(unsigned int i = 0; i < 0x100; i++)
 		NonCheatPCERead[i] = HuCPU.GetReadHandler(i);
-
-	MDFNGameInfo->nominal_height = MDFN_GetSettingUI("pce.slend") - MDFN_GetSettingUI("pce.slstart") + 1;
-	MDFNGameInfo->nominal_width = MDFN_GetSettingB("pce.h_overscan") ? 320 : 288;
-
-	MDFNGameInfo->lcm_width = MDFN_GetSettingB("pce.h_overscan") ? 1120 : 1024;
-	MDFNGameInfo->lcm_height = MDFNGameInfo->nominal_height;
 
 	vce->SetShowHorizOS(MDFN_GetSettingB("pce.h_overscan")); 
 
@@ -537,7 +529,6 @@ void Emulate(EmulateSpecStruct *espec)
 {
 	es = espec;
 
-	espec->MasterCycles = 0;
 	espec->SoundBufSize = 0;
 
 	MDFNMP_ApplyPeriodicCheats();
@@ -629,7 +620,6 @@ void Emulate(EmulateSpecStruct *espec)
 		//
 		//
 		PCE_TimestampBase += end_timestamp - end_timestamp_mod12;
-		espec->MasterCycles += end_timestamp - end_timestamp_mod12;
 
 		if(!rp_rv)
 			MDFN_MidSync(espec);
@@ -762,23 +752,3 @@ void SettingsChanged(void)
 	vce->SetVDCUnlimitedSprites(MDFN_GetSettingB("pce.nospritelimit"));
 	vce->SetShowHorizOS(MDFN_GetSettingB("pce.h_overscan"));
 }
-
-MDFNGI EmulatedPCE =
-{
-	MDFN_MASTERCLOCK_FIXED(PCE_MASTER_CLOCK),
-	0,
-
-	true,  	// Multires possible?
-
-	0,   	// lcm_width
-	0,   	// lcm_height           
-	NULL,  	// Dummy
-
-	512,   	// Nominal width
-	243,   	// Nominal height
-
-	1365,	// Framebuffer width
-	270,	// Framebuffer height
-
-	2,     	// Number of output sound channels
-};

@@ -17,7 +17,6 @@
 
 extern HuC6280 HuCPU;
 extern uint8 BaseRAM[32768];
-extern MDFNGI EmulatedPCE;
 
 extern bool PCE_ACEnabled; // Arcade Card emulation enabled?
 extern void PCE_Power(void);
