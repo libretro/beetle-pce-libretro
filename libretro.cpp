@@ -781,17 +781,17 @@ static uint8 lastchar = 0;
 
 void MDFN_printf(const char *format, ...)
 {
-   char *format_temp;
-   char *temp;
-   unsigned int x, newlen;
-
    va_list ap;
-   va_start(ap,format);
-
-
+   char *temp;
+   char *format_temp;
+   unsigned int x, newlen;
+   size_t len            = strlen(format);
    // First, determine how large our format_temp buffer needs to be.
    uint8 lastchar_backup = lastchar; // Save lastchar!
-   for(newlen=x=0;x<strlen(format);x++)
+
+   va_start(ap,format);
+
+   for(newlen=x=0;x < len;x++)
    {
       if(lastchar == '\n' && format[x] != '\n')
       {
@@ -803,11 +803,12 @@ void MDFN_printf(const char *format, ...)
       lastchar = format[x];
    }
 
-   format_temp = (char *)malloc(newlen + 1); // Length + NULL character, duh
-
+   // Length + NULL character, duh
+   format_temp = (char *)malloc(newlen + 1); 
    // Now, construct our format_temp string
-   lastchar = lastchar_backup; // Restore lastchar
-   for(newlen=x=0;x<strlen(format);x++)
+   lastchar    = lastchar_backup; // Restore lastchar
+
+   for(newlen=x=0;x < len;x++)
    {
       if(lastchar == '\n' && format[x] != '\n')
       {
@@ -835,7 +836,6 @@ void MDFN_printf(const char *format, ...)
 void MDFN_PrintError(const char *format, ...)
 {
    char *temp;
-
    va_list ap;
 
    va_start(ap, format);
@@ -878,6 +878,7 @@ static void check_system_specs(void)
 void retro_init(void)
 {
    struct retro_log_callback log;
+   const char *dir = NULL;
    if (environ_cb(RETRO_ENVIRONMENT_GET_LOG_INTERFACE, &log))
       log_cb = log.log;
    else 
@@ -885,13 +886,12 @@ void retro_init(void)
 
    CDUtility_Init();
 
-   const char *dir = NULL;
-
    if (environ_cb(RETRO_ENVIRONMENT_GET_SYSTEM_DIRECTORY, &dir) && dir)
    {
+      size_t last;
       retro_base_directory = dir;
       // Make sure that we don't have any lingering slashes, etc, as they break Windows.
-      size_t last = retro_base_directory.find_last_not_of("/\\");
+      last = retro_base_directory.find_last_not_of("/\\");
       if (last != std::string::npos)
          last++;
 
