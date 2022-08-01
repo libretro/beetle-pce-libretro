@@ -2111,6 +2111,7 @@ void retro_cheat_set(unsigned index, bool enabled, const char *code)
       codepart = strtok(NULL,"+,;._ ");
    }
 }
+
 #ifdef _WIN32
 static void sanitize_path(std::string &path)
 {
