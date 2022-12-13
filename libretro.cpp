@@ -628,8 +628,6 @@ static bool MDFNI_LoadCD(const char *path, const char *ext)
       return false;
    }
 
-   log_cb(RETRO_LOG_INFO, "Loading %s...\n\n", path);
-
    if (!strcasecmp(ext, "m3u"))
    {
       std::vector<std::string> file_list;
@@ -1639,8 +1637,6 @@ static uint64_t video_frames, audio_frames;
 
 static float get_aspect_ratio(unsigned width, unsigned height)
 {
-   log_cb(RETRO_LOG_INFO, "Resolution: %d %d\n", vce_resolution.width, height);
-
    if(aspect_ratio == 0)
    {
       float par = (CLOCK_FREQ_NTSC / 2.0);

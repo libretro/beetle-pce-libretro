@@ -82,7 +82,7 @@ bool CDAccess_CHD::Load(const std::string &path, bool image_memcache)
   hunkmem = (uint8_t *)malloc(head->hunkbytes);
   oldhunk = -1;
 
-  log_cb(RETRO_LOG_INFO, "chd_load '%s' hunkbytes=%d\n", path.c_str(), head->hunkbytes);
+  log_cb(RETRO_LOG_DEBUG, "chd_load '%s' hunkbytes=%d\n", path.c_str(), head->hunkbytes);
 
   int plba = -150;
   int numsectors = 0;
@@ -169,7 +169,7 @@ bool CDAccess_CHD::Load(const std::string &path, bool image_memcache)
 
     Tracks[NumTracks].subq_control = (strcmp(type, "AUDIO") == 0) ? 0 : 4;
 
-    //log_cb(RETRO_LOG_INFO, "chd_parse '%s' track=%d lba=%d, pregap=%d pregap_dv=%d postgap=%d sectors=%d\n", tmp, NumTracks, Tracks[NumTracks].LBA, Tracks[NumTracks].pregap, Tracks[NumTracks].pregap_dv, Tracks[NumTracks].postgap, Tracks[NumTracks].sectors);
+    log_cb(RETRO_LOG_DEBUG, "chd_parse '%s' track=%d lba=%d, pregap=%d pregap_dv=%d postgap=%d sectors=%d\n", tmp, NumTracks, Tracks[NumTracks].LBA, Tracks[NumTracks].pregap, Tracks[NumTracks].pregap_dv, Tracks[NumTracks].postgap, Tracks[NumTracks].sectors);
 
     plba += frames - Tracks[NumTracks].pregap_dv;
     plba += Tracks[NumTracks].postgap;
@@ -183,7 +183,7 @@ bool CDAccess_CHD::Load(const std::string &path, bool image_memcache)
   FirstTrack = 1;
   LastTrack = NumTracks;
   total_sectors = numsectors;
-  //log_cb(RETRO_LOG_INFO, "chd total_sectors '%d'\n", total_sectors);
+  log_cb(RETRO_LOG_DEBUG, "chd total_sectors '%d'\n", total_sectors);
 
   /* add track */
   toc.tracks[100].adr = 1;
