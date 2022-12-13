@@ -30,6 +30,12 @@
 #include <emmintrin.h>
 #endif
 
+#ifdef __LIBRETRO__
+#define RETRO_LED_CD 1
+#define RETRO_LED_NUM 2
+extern unsigned int pce_led_state[RETRO_LED_NUM];
+#endif
+
 static uint32_t CD_DATA_TRANSFER_RATE;
 static uint32_t System_Clock;
 
@@ -889,7 +895,7 @@ static void DoREADBase(uint32_t sa, uint32_t sc)
   return;
  }
 
- if(!(toc.tracks[track].control) & 0x4)
+ if(!(toc.tracks[track].control & 0x4))
  {
   CommandCCError(SENSEKEY_MEDIUM_ERROR, NSE_NOT_DATA_TRACK);
   return;
@@ -1345,6 +1351,12 @@ static INLINE void RunCDRead(uint32_t system_timestamp, int32_t run_time)
    }				// end else to if(!Cur_CDIF->ReadSector
 
   }
+#ifdef __LIBRETRO__
+  if (cd.data_transfer_done)
+     pce_led_state[RETRO_LED_CD] = 0;
+  else
+     pce_led_state[RETRO_LED_CD] = 1;
+#endif
  }
 }
 
@@ -1557,6 +1569,13 @@ uint32_t SCSICD_Run(scsicd_timestamp_t system_timestamp)
   if(cdda_div_sexytime > 0 && cdda_div_sexytime < next_time)
    next_time = cdda_div_sexytime;
  }
+
+#ifdef __LIBRETRO__
+ if(cdda.CDDAStatus == CDDASTATUS_PLAYING || cdda.CDDAStatus == CDDASTATUS_SCANNING)
+    pce_led_state[RETRO_LED_CD] = 1;
+ else if(cdda.CDDAStatus == CDDASTATUS_PAUSED)
+    pce_led_state[RETRO_LED_CD] = 0;
+#endif
 
  assert(next_time >= 0);
 

@@ -628,8 +628,6 @@ static bool MDFNI_LoadCD(const char *path, const char *ext)
       return false;
    }
 
-   log_cb(RETRO_LOG_INFO, "Loading %s...\n\n", path);
-
    if (!strcasecmp(ext, "m3u"))
    {
       std::vector<std::string> file_list;
@@ -852,6 +850,7 @@ void MDFN_PrintError(const char *format, ...)
 struct retro_perf_callback perf_cb;
 retro_get_cpu_features_t perf_get_cpu_features_cb = NULL;
 retro_log_printf_t log_cb;
+static retro_set_led_state_t led_state_cb = NULL;
 static retro_video_refresh_t video_cb;
 static retro_audio_sample_t audio_cb;
 static retro_audio_sample_batch_t audio_batch_cb;
@@ -873,6 +872,37 @@ static void check_system_specs(void)
 {
    unsigned level = 5;
    environ_cb(RETRO_ENVIRONMENT_SET_PERFORMANCE_LEVEL, &level);
+}
+
+/* LED interface */
+enum
+{
+   RETRO_LED_POWER = 0,
+   RETRO_LED_CD,
+   RETRO_LED_NUM
+};
+
+unsigned int pce_led_state[RETRO_LED_NUM] = {0};
+static unsigned int retro_led_state[RETRO_LED_NUM] = {0};
+static void retro_led_interface(void)
+{
+   /* 0: Power
+    * 1: CD */
+
+   unsigned int led_state[RETRO_LED_NUM] = {0};
+   unsigned int l                        = 0;
+
+   led_state[RETRO_LED_POWER] = pce_led_state[RETRO_LED_POWER];
+   led_state[RETRO_LED_CD]    = pce_led_state[RETRO_LED_CD];
+
+   for (l = 0; l < RETRO_LED_NUM; l++)
+   {
+      if (retro_led_state[l] != led_state[l])
+      {
+         retro_led_state[l] = led_state[l];
+         led_state_cb(l, led_state[l]);
+      }
+   }
 }
 
 void retro_init(void)
@@ -1438,6 +1468,8 @@ bool retro_load_game(const struct retro_game_info *info)
    for (unsigned i = 0; i < MAX_PLAYERS; i++)
       PCEINPUT_SetInput(i, "gamepad", &input_buf[i][0]);
 
+   pce_led_state[RETRO_LED_POWER] = 1;
+
    return true;
 }
 
@@ -1605,8 +1637,6 @@ static uint64_t video_frames, audio_frames;
 
 static float get_aspect_ratio(unsigned width, unsigned height)
 {
-   log_cb(RETRO_LOG_INFO, "Resolution: %d %d\n", vce_resolution.width, height);
-
    if(aspect_ratio == 0)
    {
       float par = (CLOCK_FREQ_NTSC / 2.0);
@@ -1755,6 +1785,10 @@ void retro_run(void)
 
    Emulate(&spec);
 
+   /* LED interface */
+   if (led_state_cb)
+      retro_led_interface();
+
 #define PCE_SOUNDCHANS 2
    const int32 SoundBufMaxSize = spec.SoundBufMaxSize;
 
@@ -1869,6 +1903,7 @@ void retro_set_controller_port_device(unsigned in_port, unsigned device)
 void retro_set_environment(retro_environment_t cb)
 {
    struct retro_vfs_interface_info vfs_iface_info;
+   struct retro_led_interface led_interface;
    environ_cb = cb;
 
    static const struct retro_controller_description pads[] = {
@@ -1905,6 +1940,10 @@ void retro_set_environment(retro_environment_t cb)
    vfs_iface_info.iface                      = NULL;
    if (environ_cb(RETRO_ENVIRONMENT_GET_VFS_INTERFACE, &vfs_iface_info))
       filestream_vfs_init(&vfs_iface_info);
+
+   if (environ_cb(RETRO_ENVIRONMENT_GET_LED_INTERFACE, &led_interface))
+      if (led_interface.set_led_state && !led_state_cb)
+         led_state_cb = led_interface.set_led_state;
 }
 
 void retro_set_audio_sample(retro_audio_sample_t cb)

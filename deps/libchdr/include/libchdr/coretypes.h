@@ -27,7 +27,7 @@ typedef int8_t INT8;
 #define core_ftell rftell
 #define core_fread(fc, buff, len) fread(buff, 1, len, fc)
 #define core_fclose rfclose
-#else
+#else /* USE_LIBRETRO_VFS */
 #define core_file FILE
 #define core_fopen(file) fopen(file, "rb")
 #if defined(__WIN32__) || defined(_WIN32) || defined(WIN32) || defined(__WIN64__)
