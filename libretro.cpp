@@ -666,21 +666,19 @@ static bool MDFNI_LoadCD(const char *path, const char *ext)
 
       CDInterfaces[i]->ReadTOC(&toc);
 
-      MDFN_printf("CD %d Layout:\n", i + 1);
+      MDFN_printf("CD %d Layout:", i + 1);
       MDFN_indent(1);
 
       for(int32 track = toc.first_track; track <= toc.last_track; track++)
       {
-         MDFN_printf("Track %2d, LBA: %6d  %s\n", track, toc.tracks[track].lba, (toc.tracks[track].control & 0x4) ? "DATA" : "AUDIO");
+         MDFN_printf("Track %2d, LBA: %6d  %s", track, toc.tracks[track].lba, (toc.tracks[track].control & 0x4) ? "DATA" : "AUDIO");
       }
 
-      MDFN_printf("Leadout: %6d\n", toc.tracks[100].lba);
+      MDFN_printf("Leadout: %6d", toc.tracks[100].lba);
       MDFN_indent(-1);
-      MDFN_printf("\n");
    }
    MDFN_indent(-1);
-
-   MDFN_printf("Using module: pce.\n");
+   MDFN_printf("Using module: pce.");
 #endif
 
    if(!(PCE_LoadCD(&CDInterfaces)))
@@ -716,9 +714,10 @@ static bool MDFNI_LoadGame(const char *path, const char *ext,
        !strcasecmp(ext, "m3u")))
       return MDFNI_LoadCD(path, ext);
 
-   MDFN_printf("Loading %s...\n", path ? path : "content");
-
+#ifdef DEBUG
+   MDFN_printf("Loading %s...", path ? path : "content");
    MDFN_indent(1);
+#endif
 
    /* Check whether we already have a valid
     * data buffer */
@@ -745,8 +744,10 @@ static bool MDFNI_LoadGame(const char *path, const char *ext,
       content_size = GameFile->size;
    }
 
-   MDFN_printf("Using module: pce.\n\n");
-   MDFN_indent(1);
+#ifdef DEBUG
+   MDFN_indent(-1);
+   MDFN_printf("Using module: pce.");
+#endif
 
    if(PCE_Load(content_data, content_size, ext) <= 0)
       goto error;
@@ -756,8 +757,6 @@ static bool MDFNI_LoadGame(const char *path, const char *ext,
 
    if (GameFile)
       file_close(GameFile);
-
-   MDFN_indent(-2);
 
    return true;
 
@@ -938,7 +937,7 @@ void retro_init(void)
 #if defined(WANT_16BPP) && defined(FRONTEND_SUPPORTS_RGB565)
    enum retro_pixel_format rgb565 = RETRO_PIXEL_FORMAT_RGB565;
    if (environ_cb(RETRO_ENVIRONMENT_SET_PIXEL_FORMAT, &rgb565) && log_cb)
-      log_cb(RETRO_LOG_INFO, "Frontend supports RGB565 - will use that instead of XRGB1555.\n");
+      log_cb(RETRO_LOG_DEBUG, "Frontend supports RGB565 - will use that instead of XRGB1555.\n");
 #elif defined(WANT_32BPP)
    enum retro_pixel_format rgb888 = RETRO_PIXEL_FORMAT_XRGB8888;
    if (!environ_cb(RETRO_ENVIRONMENT_SET_PIXEL_FORMAT, &rgb888))
@@ -1855,9 +1854,9 @@ void retro_deinit()
 
    if (log_cb)
    {
-      log_cb(RETRO_LOG_INFO, "[%s]: Samples / Frame: %.5f\n",
+      log_cb(RETRO_LOG_DEBUG, "[%s]: Samples / Frame: %.5f\n",
             MEDNAFEN_CORE_NAME, (double)audio_frames / video_frames);
-      log_cb(RETRO_LOG_INFO, "[%s]: Estimated FPS: %.5f\n",
+      log_cb(RETRO_LOG_DEBUG, "[%s]: Estimated FPS: %.5f\n",
             MEDNAFEN_CORE_NAME, (double)video_frames * 44100 / audio_frames);
    }
 
