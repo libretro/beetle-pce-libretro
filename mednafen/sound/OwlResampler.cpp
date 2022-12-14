@@ -751,9 +751,6 @@ OwlResampler::OwlResampler(double input_rate, double output_rate, double rate_er
 
  for(unsigned int phase = 0; phase < NumPhases; phase++)
  {
-  //double sum_d = 0;
-  //float sum_f4[4] = { 0, 0, 0, 0 };
-
   const unsigned sp = (NumPhases - 1 - (((uint64)phase * Ratio_Dividend) % NumPhases));
   const unsigned tp = phase;
 
@@ -768,8 +765,6 @@ OwlResampler::OwlResampler(double input_rate, double output_rate, double rate_er
 
  assert(debias_corner < (output_rate / 16));
  debias_multiplier = (uint32)(((uint64)1 << 16) * debias_corner / output_rate);
-
- MDFN_indent(-1);
 
  delete[] FilterBuf;
 }

@@ -567,6 +567,71 @@ static uint8_t composite_palette[] = {
 	255, 255, 255
 };
 
+static int curindent  = 0;
+static uint8 lastchar = 0;
+
+static void MDFN_indent(int indent)
+{
+   curindent += indent;
+}
+
+#ifdef DEBUG
+static void MDFN_printf(const char *format, ...)
+{
+   va_list ap;
+   char *temp;
+   char *format_temp;
+   unsigned int x, newlen;
+   size_t len            = strlen(format);
+   // First, determine how large our format_temp buffer needs to be.
+   uint8 lastchar_backup = lastchar; // Save lastchar!
+
+   va_start(ap,format);
+
+   for(newlen=x=0;x < len;x++)
+   {
+      if(lastchar == '\n' && format[x] != '\n')
+      {
+         int y;
+         for(y=0;y<curindent;y++)
+            newlen++;
+      }
+      newlen++;
+      lastchar = format[x];
+   }
+
+   // Length + NULL character, duh
+   format_temp = (char *)malloc(newlen + 1); 
+   // Now, construct our format_temp string
+   lastchar    = lastchar_backup; // Restore lastchar
+
+   for(newlen=x=0;x < len;x++)
+   {
+      if(lastchar == '\n' && format[x] != '\n')
+      {
+         int y;
+         for(y=0;y<curindent;y++)
+            format_temp[newlen++] = ' ';
+      }
+      format_temp[newlen++] = format[x];
+      lastchar = format[x];
+   }
+
+   format_temp[newlen] = 0;
+
+   temp = (char*)malloc(4096 * sizeof(char));
+   vsnprintf(temp, 4096, format_temp, ap);
+   free(format_temp);
+
+   if (log_cb)
+      log_cb(RETRO_LOG_INFO, "%s\n", temp);
+   free(temp);
+
+   va_end(ap);
+}
+#endif
+
+
 static void ReadM3U(std::vector<std::string> &file_list, std::string path, unsigned depth = 0)
 {
    std::string dir_path;
@@ -677,8 +742,6 @@ static bool MDFNI_LoadCD(const char *path, const char *ext)
       MDFN_printf("Leadout: %6d", toc.tracks[100].lba);
       MDFN_indent(-1);
    }
-   MDFN_indent(-1);
-   MDFN_printf("Using module: pce.");
 #endif
 
    if(!(PCE_LoadCD(&CDInterfaces)))
@@ -714,11 +777,6 @@ static bool MDFNI_LoadGame(const char *path, const char *ext,
        !strcasecmp(ext, "m3u")))
       return MDFNI_LoadCD(path, ext);
 
-#ifdef DEBUG
-   MDFN_printf("Loading %s...", path ? path : "content");
-   MDFN_indent(1);
-#endif
-
    /* Check whether we already have a valid
     * data buffer */
    if (data)
@@ -744,11 +802,6 @@ static bool MDFNI_LoadGame(const char *path, const char *ext,
       content_size = GameFile->size;
    }
 
-#ifdef DEBUG
-   MDFN_indent(-1);
-   MDFN_printf("Using module: pce.");
-#endif
-
    if(PCE_Load(content_data, content_size, ext) <= 0)
       goto error;
 
@@ -765,69 +818,6 @@ error:
       file_close(GameFile);
 
    return false;
-}
-
-static int curindent = 0;
-
-void MDFN_indent(int indent)
-{
-   curindent += indent;
-}
-
-static uint8 lastchar = 0;
-
-void MDFN_printf(const char *format, ...)
-{
-   va_list ap;
-   char *temp;
-   char *format_temp;
-   unsigned int x, newlen;
-   size_t len            = strlen(format);
-   // First, determine how large our format_temp buffer needs to be.
-   uint8 lastchar_backup = lastchar; // Save lastchar!
-
-   va_start(ap,format);
-
-   for(newlen=x=0;x < len;x++)
-   {
-      if(lastchar == '\n' && format[x] != '\n')
-      {
-         int y;
-         for(y=0;y<curindent;y++)
-            newlen++;
-      }
-      newlen++;
-      lastchar = format[x];
-   }
-
-   // Length + NULL character, duh
-   format_temp = (char *)malloc(newlen + 1); 
-   // Now, construct our format_temp string
-   lastchar    = lastchar_backup; // Restore lastchar
-
-   for(newlen=x=0;x < len;x++)
-   {
-      if(lastchar == '\n' && format[x] != '\n')
-      {
-         int y;
-         for(y=0;y<curindent;y++)
-            format_temp[newlen++] = ' ';
-      }
-      format_temp[newlen++] = format[x];
-      lastchar = format[x];
-   }
-
-   format_temp[newlen] = 0;
-
-   temp = (char*)malloc(4096 * sizeof(char));
-   vsnprintf(temp, 4096, format_temp, ap);
-   free(format_temp);
-
-   if (log_cb)
-      log_cb(RETRO_LOG_INFO, "%s\n", temp);
-   free(temp);
-
-   va_end(ap);
 }
 
 void MDFN_PrintError(const char *format, ...)
