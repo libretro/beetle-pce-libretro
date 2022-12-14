@@ -37,7 +37,6 @@ static INLINE void swap_T(T& t1, T& t2)
 
 #include "settings.h"
 
-void MDFN_PrintError(const char *format, ...);
 void MDFN_DispMessage(const char *format, ...);
 
 void MDFN_LoadGameCheats(void *override);

@@ -141,11 +141,6 @@ void MDFNMP_RemoveReadPatches(void)
 {
 }
 
-static void CheatMemErr(void)
-{
- MDFN_PrintError(_("Error allocating memory for cheat data."));
-}
-
 /* This function doesn't allocate any memory for "name" */
 static int AddCheatEntry(char *name, char *conditions, uint32 addr, uint64 val, uint64 compare, int status, char type, unsigned int length, bool bigendian)
 {
@@ -192,10 +187,7 @@ int MDFNI_AddCheat(const char *name, uint32 addr, uint64 val, uint64 compare, ch
  char *t;
 
  if(!(t = strdup(name)))
- {
-  CheatMemErr();
   return(0);
- }
 
  if(!AddCheatEntry(t, NULL, addr,val,compare,1,type, length, bigendian))
  {

@@ -510,7 +510,6 @@ static bool ValidateRawDataSector(uint8_t *data, const uint32_t lba)
  if(!Cur_CDIF->ValidateRawSector(data))
  {
   MDFN_DispMessage(_("Uncorrectable data at sector %d"), lba);
-  MDFN_PrintError(_("Uncorrectable data at sector %d"), lba);
 
   din->Flush();
   cd.data_transfer_done = false;

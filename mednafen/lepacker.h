@@ -49,10 +49,7 @@ class LEPacker : public std::vector<uint8>
   if(read_mode)
   {
    if((read_pos + sizeof(T)) > csize)
-   {
-    MDFN_PrintError("out of range: LEPacker::operator^\n");
 	return;
-   }
 
    uint8 *ptr = &(*this)[read_pos];
    val = 0;

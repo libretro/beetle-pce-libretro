@@ -754,8 +754,6 @@ static bool MDFNI_LoadCD(const char *path, const char *ext)
       return false;
    }
 
-   //MDFNI_SetLayerEnableMask(~0ULL);
-
    MDFN_LoadGameCheats(NULL);
    MDFNMP_InstallReadPatches();
 
@@ -818,22 +816,6 @@ error:
       file_close(GameFile);
 
    return false;
-}
-
-void MDFN_PrintError(const char *format, ...)
-{
-   char *temp;
-   va_list ap;
-
-   va_start(ap, format);
-
-   temp = (char*)malloc(4096 * sizeof(char));
-   vsnprintf(temp, 4096, format, ap);
-   if (log_cb)
-      log_cb(RETRO_LOG_ERROR, "%s\n", temp);
-   free(temp);
-
-   va_end(ap);
 }
 
 struct retro_perf_callback perf_cb;

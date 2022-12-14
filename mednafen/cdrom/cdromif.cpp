@@ -134,24 +134,21 @@ int CDIF::ReadSector(uint8_t* buf, int32_t lba, uint32_t sector_count, bool supp
    int ret = 0;
 
    if(UnrecoverableError)
-      return(false);
+      return 0;
 
    while(sector_count--)
    {
       uint8_t tmpbuf[2352 + 96];
 
       if(!ReadRawSector(tmpbuf, lba))
-         return(FALSE);
+         return 0;
 
       if(!ValidateRawSector(tmpbuf))
       {
          if(!suppress_uncorrectable_message)
-         {
             MDFN_DispMessage("Uncorrectable data at sector %d", lba);
-            MDFN_PrintError("Uncorrectable data at sector %d", lba);
-         }
 
-         return(false);
+         return 0;
       }
 
       const int mode = tmpbuf[12 + 3];
@@ -164,13 +161,13 @@ int CDIF::ReadSector(uint8_t* buf, int32_t lba, uint32_t sector_count, bool supp
       else if(mode == 2)
          memcpy(buf, &tmpbuf[12 + 4 + 8], 2048);
       else
-         return(false);
+         return 0;
 
       buf += 2048;
       lba++;
    }
 
-   return(ret);
+   return ret;
 }
 
 //
@@ -201,18 +198,18 @@ bool CDIF_ST::ReadRawSector(uint8_t *buf, int32_t lba)
    if(UnrecoverableError)
    {
       memset(buf, 0, 2352 + 96);
-      return(false);
+      return false;
    }
 
    if(lba < LBA_Read_Minimum || lba > LBA_Read_Maximum)
    {
       memset(buf, 0, 2352 + 96);
-      return(false);
+      return false;
    }
 
    disc_cdaccess->Read_Raw_Sector(buf, lba);
 
-   return(true);
+   return true;
 }
 
 bool CDIF_ST::ReadRawSectorPWOnly(uint8_t* pwbuf, int32_t lba, bool hint_fullread)
@@ -220,27 +217,25 @@ bool CDIF_ST::ReadRawSectorPWOnly(uint8_t* pwbuf, int32_t lba, bool hint_fullrea
    if(UnrecoverableError)
    {
       memset(pwbuf, 0, 96);
-      return(false);
+      return false;
    }
 
    if(lba < LBA_Read_Minimum || lba > LBA_Read_Maximum)
    {
       memset(pwbuf, 0, 96);
-      return(false);
+      return false;
    }
 
-   if(disc_cdaccess->Fast_Read_Raw_PW_TSRE(pwbuf, lba))
-      return(true);
-   else
+   if (!disc_cdaccess->Fast_Read_Raw_PW_TSRE(pwbuf, lba))
    {
       uint8_t tmpbuf[2352 + 96];
-      bool ret;
-
-      ret = ReadRawSector(tmpbuf, lba);
+      bool ret = ReadRawSector(tmpbuf, lba);
       memcpy(pwbuf, tmpbuf + 2352, 96);
 
       return ret;
    }
+
+   return(true);
 }
 
 CDIF *CDIF_Open(const std::string& path, bool image_memcache)
