@@ -20117,17 +20117,17 @@ struct retro_core_options_v2 options_ja = {
 /* RETRO_LANGUAGE_KO */
 
 #define CATEGORY_VIDEO_LABEL_KO "비디오"
-#define CATEGORY_VIDEO_INFO_0_KO NULL
+#define CATEGORY_VIDEO_INFO_0_KO "화면 비 및 화면 자르기 등 기타 이미지 출력 매개변수를 구성합니다."
 #define CATEGORY_AUDIO_LABEL_KO "오디오"
 #define CATEGORY_AUDIO_INFO_0_KO "에뮬레이트되는 오디오 장치를 설정합니다."
 #define CATEGORY_INPUT_LABEL_KO "입력"
-#define CATEGORY_INPUT_INFO_0_KO NULL
+#define CATEGORY_INPUT_INFO_0_KO "라이트 건, 마우스 및 컨트롤러 입력 등을 설정합니다."
 #define CATEGORY_HACKS_LABEL_KO "에뮬레이션 핵"
 #define CATEGORY_HACKS_INFO_0_KO "성능과 호환성에 영향을 끼치는 프로세서 오버클러킹 및 에뮬레이션 정확도 옵션 등을 설정합니다."
 #define CATEGORY_CD_LABEL_KO NULL
-#define CATEGORY_CD_INFO_0_KO NULL
+#define CATEGORY_CD_INFO_0_KO "PC Engine CD 에뮬레이션과 관련된 설정을 구성합니다."
 #define PCE_PALETTE_LABEL_KO "색상 팔레트"
-#define PCE_PALETTE_INFO_0_KO NULL
+#define PCE_PALETTE_INFO_0_KO "컴포지트는 원본 콘솔 출력을 재현하며 일부 게임에서 더 디테일하게 표시될 수 있습니다."
 #define OPTION_VAL_RGB_KO NULL
 #define OPTION_VAL_COMPOSITE_KO "컴포지트"
 #define PCE_ASPECT_RATIO_LABEL_KO "화면비"
@@ -20136,28 +20136,28 @@ struct retro_core_options_v2 options_ja = {
 #define OPTION_VAL_6_5_KO NULL
 #define OPTION_VAL_4_3_KO NULL
 #define OPTION_VAL_UNCORRECTED_KO "교정 안 됨"
-#define PCE_SCALING_LABEL_KO NULL
-#define PCE_SCALING_INFO_0_KO NULL
-#define OPTION_VAL_LORES_KO NULL
-#define OPTION_VAL_HIRES_KO NULL
-#define PCE_HIRES_BLEND_LABEL_KO NULL
-#define PCE_HIRES_BLEND_INFO_0_KO NULL
+#define PCE_SCALING_LABEL_KO "해상도 배율"
+#define PCE_SCALING_INFO_0_KO "'자동'을 선택하면 해상도를 변경합니다. '저해상도'는 픽셀이 망가질 수 있고 '고해상도'는 최대 너비로 유지됩니다."
+#define OPTION_VAL_LORES_KO "저해상도"
+#define OPTION_VAL_HIRES_KO "고해상도"
+#define PCE_HIRES_BLEND_LABEL_KO "고해상도 블렌딩 강도"
+#define PCE_HIRES_BLEND_INFO_0_KO "고해상도 모드에서 픽셀을 혼합합니다. 값이 높을수록 화면이 더 흐려집니다."
 #define PCE_H_OVERSCAN_LABEL_KO "가로 오버스캔 표시하기"
-#define PCE_H_OVERSCAN_INFO_0_KO NULL
-#define PCE_INITIAL_SCANLINE_LABEL_KO NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_KO NULL
+#define PCE_H_OVERSCAN_INFO_0_KO "'자동'으로 설정하면 게임에 맞춰 빈 공간을 잘라냅니다."
+#define PCE_INITIAL_SCANLINE_LABEL_KO "최초 스캔라인"
+#define PCE_INITIAL_SCANLINE_INFO_0_KO "첫 번째 렌더링 되는 스캔라인입니다. 값이 높으면 이미지 상단이 잘립니다."
 #define OPTION_VAL_3_KO "3 (기본)"
-#define PCE_LAST_SCANLINE_LABEL_KO NULL
-#define PCE_LAST_SCANLINE_INFO_0_KO NULL
+#define PCE_LAST_SCANLINE_LABEL_KO "마지막 스캔라인"
+#define PCE_LAST_SCANLINE_INFO_0_KO "마지막으로 렌더링 되는 스캔라인입니다. 값이 높으면 이미지 하단이 잘립니다."
 #define OPTION_VAL_242_KO "242 (기본)"
-#define PCE_PSGREVISION_LABEL_KO NULL
-#define PCE_PSGREVISION_INFO_0_KO NULL
+#define PCE_PSGREVISION_LABEL_KO "PSG 오디오 칩 (재시작 필요)"
+#define PCE_PSGREVISION_INFO_0_KO "HuC6280은 오리지널 PC Engine, HuC6280A는 SuperGrafx 및 CoreGrafx I에 사용됩니다."
 #define OPTION_VAL_HUC6280_KO NULL
 #define OPTION_VAL_HUC6280A_KO NULL
-#define PCE_RESAMP_QUALITY_LABEL_KO NULL
-#define PCE_RESAMP_QUALITY_INFO_0_KO NULL
+#define PCE_RESAMP_QUALITY_LABEL_KO "Owl 리샘플러 품질"
+#define PCE_RESAMP_QUALITY_INFO_0_KO "값이 높을수록 더 나은 신호 대비 잡음비를 제공하고 더 높은 주파수를 보존하지만 계산 비용이 증가하고 볼륨이 너무 높게 설정되면 더 높은 대기 시간과 클리핑이 발생할 수 있습니다."
 #define PCE_MOUSE_SENSITIVITY_LABEL_KO "마우스 감도"
-#define PCE_MOUSE_SENSITIVITY_INFO_0_KO NULL
+#define PCE_MOUSE_SENSITIVITY_INFO_0_KO "값이 높을수록 마우스 커서가 더 빠르게 움직입니다."
 #define OPTION_VAL_0_125_KO NULL
 #define OPTION_VAL_0_250_KO NULL
 #define OPTION_VAL_0_375_KO NULL
@@ -20185,65 +20185,65 @@ struct retro_core_options_v2 options_ja = {
 #define OPTION_VAL_5_00_KO NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_KO "반대 방향 동시 입력 허용"
 #define PCE_UP_DOWN_ALLOWED_INFO_0_KO "이 옵션을 활성화하면 왼쪽과 오른쪽 (또는 위쪽과 아래쪽) 방향 입력을 동시에 누르거나 빠르게 번갈아 누르는 것을 허용합니다. 이는 움직임 관련 버그를 일으킬 수 있습니다."
-#define PCE_DISABLE_SOFTRESET_LABEL_KO NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_KO NULL
-#define PCE_MULTITAP_LABEL_KO NULL
-#define PCE_MULTITAP_INFO_0_KO NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_KO NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_KO NULL
-#define PCE_TURBO_TOGGLING_LABEL_KO NULL
-#define PCE_TURBO_TOGGLING_INFO_0_KO NULL
-#define OPTION_VAL_TOGGLE_KO NULL
-#define OPTION_VAL_ALWAYS_KO NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_KO NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_KO NULL
-#define PCE_TURBO_DELAY_LABEL_KO NULL
-#define PCE_TURBO_DELAY_INFO_0_KO NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_KO "소프트 리셋 비활성화 (RUN+SELECT)"
+#define PCE_DISABLE_SOFTRESET_INFO_0_KO "RUN과 SELECT를 동시에 누르면 리셋하는 대신 두 버튼을 일시적으로 비활성화합니다."
+#define PCE_MULTITAP_LABEL_KO "멀티탭 5포트 컨트롤러"
+#define PCE_MULTITAP_INFO_0_KO "최대 5인까지 지원하는 멀티탭 에뮬레이션을 활성화합니다. 비활성화는 일부 경우에만 필요합니다(예: Cho Aniki)."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_KO "고급 입력/터보 설정 표시"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_KO "멀티탭, 마우스, 터보 버튼 및 고급 매개변수를 표시합니다. 참고: 목록을 새로 고치려면 게임으로 돌아간 후 다시 메뉴로 돌어와야합니다."
+#define PCE_TURBO_TOGGLING_LABEL_KO "터포 핫키 모드"
+#define PCE_TURBO_TOGGLING_INFO_0_KO "터보 버튼을 활성화합니다. 핫키(버튼 III 및 IV)는 토글 스위치 또는 전용(길게 눌러 사용) 터보 버튼으로 작동할 수 있습니다."
+#define OPTION_VAL_TOGGLE_KO "토글"
+#define OPTION_VAL_ALWAYS_KO "전용"
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_KO "대체 터보 핫키"
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_KO "레트로 패드의 L3/R3 버튼을 버튼 III 및 IV 대신 터보 핫키로 할당합니다. '토글' 모드에서 L3/R3 버튼에 아무 것도 할당되지 않은 경우에만 작동합니다. 이를 통해 6버튼 컨트롤러 모드로 전환할 때 버튼 III 및 IV를 다시 설정해야하는 것을 방지할 수 있습니다."
+#define PCE_TURBO_DELAY_LABEL_KO "터보 속도"
+#define PCE_TURBO_DELAY_INFO_0_KO "버튼 연사 속도를 선택합니다."
 #define OPTION_VAL_FAST_KO "빠르게"
-#define OPTION_VAL_MEDIUM_KO NULL
-#define OPTION_VAL_SLOW_KO NULL
-#define PCE_P0_TURBO_I_ENABLE_LABEL_KO NULL
-#define PCE_P0_TURBO_II_ENABLE_LABEL_KO NULL
-#define PCE_P1_TURBO_I_ENABLE_LABEL_KO NULL
-#define PCE_P1_TURBO_II_ENABLE_LABEL_KO NULL
-#define PCE_P2_TURBO_I_ENABLE_LABEL_KO NULL
-#define PCE_P2_TURBO_II_ENABLE_LABEL_KO NULL
-#define PCE_P3_TURBO_I_ENABLE_LABEL_KO NULL
-#define PCE_P3_TURBO_II_ENABLE_LABEL_KO NULL
-#define PCE_P4_TURBO_I_ENABLE_LABEL_KO NULL
-#define PCE_P4_TURBO_II_ENABLE_LABEL_KO NULL
-#define PCE_CDIMAGECACHE_LABEL_KO NULL
-#define PCE_CDIMAGECACHE_INFO_0_KO NULL
-#define PCE_CDBIOS_LABEL_KO NULL
-#define PCE_CDBIOS_INFO_0_KO NULL
+#define OPTION_VAL_MEDIUM_KO "중간"
+#define OPTION_VAL_SLOW_KO "느리게"
+#define PCE_P0_TURBO_I_ENABLE_LABEL_KO "P1 터보 I"
+#define PCE_P0_TURBO_II_ENABLE_LABEL_KO "P1 터보 II"
+#define PCE_P1_TURBO_I_ENABLE_LABEL_KO "P2 터보 I"
+#define PCE_P1_TURBO_II_ENABLE_LABEL_KO "P2 터보 II"
+#define PCE_P2_TURBO_I_ENABLE_LABEL_KO "P3 터보 I"
+#define PCE_P2_TURBO_II_ENABLE_LABEL_KO "P3 터보 II"
+#define PCE_P3_TURBO_I_ENABLE_LABEL_KO "P4 터보 I"
+#define PCE_P3_TURBO_II_ENABLE_LABEL_KO "P4 터보 II"
+#define PCE_P4_TURBO_I_ENABLE_LABEL_KO "P5 터보 I"
+#define PCE_P4_TURBO_II_ENABLE_LABEL_KO "P5 터보 II"
+#define PCE_CDIMAGECACHE_LABEL_KO "CD 이미지 캐시 (재시작 필요)"
+#define PCE_CDIMAGECACHE_INFO_0_KO "시작할 때 전체 이미지를 메모리에 불러옵니다. 시작 시간이 늘어나는 대신 로딩 시간을 잠재적으로 줄일 수 있습니다."
+#define PCE_CDBIOS_LABEL_KO "CD BIOS (재시작 필요)"
+#define PCE_CDBIOS_INFO_0_KO "대부분의 게임은 'System Card 3'에서 실행할 수 있습니다. 'Games Express'는 라이선스가 없는 게임에서 필요합니다."
 #define OPTION_VAL_GAMES_EXPRESS_KO NULL
 #define OPTION_VAL_SYSTEM_CARD_1_KO NULL
 #define OPTION_VAL_SYSTEM_CARD_2_KO NULL
 #define OPTION_VAL_SYSTEM_CARD_3_KO NULL
 #define OPTION_VAL_SYSTEM_CARD_2_US_KO NULL
 #define OPTION_VAL_SYSTEM_CARD_3_US_KO NULL
-#define PCE_ARCADECARD_LABEL_KO NULL
-#define PCE_ARCADECARD_INFO_0_KO NULL
-#define PCE_CDSPEED_LABEL_KO NULL
-#define PCE_CDSPEED_LABEL_CAT_KO NULL
-#define PCE_CDSPEED_INFO_0_KO NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_KO NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CAT_KO NULL
-#define PCE_ADPCMEXTRAPREC_INFO_0_KO NULL
-#define OPTION_VAL_10_BIT_KO NULL
-#define OPTION_VAL_12_BIT_KO NULL
-#define PCE_ADPCMVOLUME_LABEL_KO NULL
-#define PCE_ADPCMVOLUME_LABEL_CAT_KO NULL
-#define PCE_ADPCMVOLUME_INFO_0_KO NULL
-#define PCE_ADPCMVOLUME_INFO_1_KO NULL
-#define PCE_CDDAVOLUME_LABEL_KO NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_KO NULL
-#define PCE_CDPSGVOLUME_LABEL_KO NULL
-#define PCE_CDPSGVOLUME_LABEL_CAT_KO NULL
+#define PCE_ARCADECARD_LABEL_KO "아케이드 카드 (재시작 필요)"
+#define PCE_ARCADECARD_INFO_0_KO "ACD향상 SCD 게임의 향상된 모드를 허용하려면 이 옵션을 활성하십시오.."
+#define PCE_CDSPEED_LABEL_KO "(CD) CD 속도"
+#define PCE_CDSPEED_LABEL_CAT_KO "CD 속도"
+#define PCE_CDSPEED_INFO_0_KO "값이 높을수록 로딩 시간이 빨라지지만 몇 가지 게임에서 문제가 발생할 수 있습니다."
+#define PCE_ADPCMEXTRAPREC_LABEL_KO "(CD) ADPCM 정밀도"
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_KO "ADPCM 정밀도"
+#define PCE_ADPCMEXTRAPREC_INFO_0_KO "MSM5205 ADPCM 예측에 대한 12비트 전체 정밀도는 ADPCM 재생 중 잡음을 줄일 수 있습니다."
+#define OPTION_VAL_10_BIT_KO "10 비트"
+#define OPTION_VAL_12_BIT_KO "12 비트"
+#define PCE_ADPCMVOLUME_LABEL_KO "(CD) ADPCM 볼륨 %"
+#define PCE_ADPCMVOLUME_LABEL_CAT_KO "ADPCM 볼륨 %"
+#define PCE_ADPCMVOLUME_INFO_0_KO "CD 게임에 해당합니다. 볼륨을 너무 높게 설정하면 샘플 클리핑이 발생할 수 있습니다."
+#define PCE_ADPCMVOLUME_INFO_1_KO "볼륨을 너무 높게 설정하면 샘플 클리핑이 발생할 수 있습니다."
+#define PCE_CDDAVOLUME_LABEL_KO "(CD) CDDA 음량 %"
+#define PCE_CDDAVOLUME_LABEL_CAT_KO "CDDA 음량 %"
+#define PCE_CDPSGVOLUME_LABEL_KO "(CD) CD PSG 볼륨 %"
+#define PCE_CDPSGVOLUME_LABEL_CAT_KO "CD PSG 볼륨 %"
 #define PCE_NOSPRITELIMIT_LABEL_KO "스프라이트 제한 해제"
-#define PCE_NOSPRITELIMIT_INFO_0_KO NULL
-#define PCE_OCMULTIPLIER_LABEL_KO NULL
-#define PCE_OCMULTIPLIER_INFO_0_KO NULL
+#define PCE_NOSPRITELIMIT_INFO_0_KO "스캔라인 당 16개의 스프라이트 하드웨어 제한을 제거합니다. 경고: 일부 게임에서 그래픽 결함이 발생할 수 있습니다(예: Bloody Wolf)."
+#define PCE_OCMULTIPLIER_LABEL_KO "CPU 오버클럭 배수"
+#define PCE_OCMULTIPLIER_INFO_0_KO "값이 높을수록 게임의 속도 저하를 줄일 수 있습니다. 경고: 결함 및 충돌이 발생할 수 있습니다."
 
 struct retro_core_option_v2_category option_cats_ko[] = {
    {
@@ -28886,10 +28886,10 @@ struct retro_core_options_v2 options_si = {
 #define PCE_H_OVERSCAN_INFO_0_SK NULL
 #define PCE_INITIAL_SCANLINE_LABEL_SK NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_SK NULL
-#define OPTION_VAL_3_SK NULL
+#define OPTION_VAL_3_SK "3 (predvolené)"
 #define PCE_LAST_SCANLINE_LABEL_SK NULL
 #define PCE_LAST_SCANLINE_INFO_0_SK NULL
-#define OPTION_VAL_242_SK NULL
+#define OPTION_VAL_242_SK "242 (predvolené)"
 #define PCE_PSGREVISION_LABEL_SK NULL
 #define PCE_PSGREVISION_INFO_0_SK NULL
 #define OPTION_VAL_HUC6280_SK NULL
@@ -28933,15 +28933,15 @@ struct retro_core_options_v2 options_si = {
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SK NULL
 #define PCE_TURBO_TOGGLING_LABEL_SK NULL
 #define PCE_TURBO_TOGGLING_INFO_0_SK NULL
-#define OPTION_VAL_TOGGLE_SK NULL
+#define OPTION_VAL_TOGGLE_SK "Prepnúť"
 #define OPTION_VAL_ALWAYS_SK NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_SK NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SK NULL
-#define PCE_TURBO_DELAY_LABEL_SK NULL
+#define PCE_TURBO_DELAY_LABEL_SK "Turbo rýchlosť"
 #define PCE_TURBO_DELAY_INFO_0_SK NULL
 #define OPTION_VAL_FAST_SK "Rýchlo"
-#define OPTION_VAL_MEDIUM_SK NULL
-#define OPTION_VAL_SLOW_SK NULL
+#define OPTION_VAL_MEDIUM_SK "Stredné"
+#define OPTION_VAL_SLOW_SK "Pomalé"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_SK NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_SK NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_SK NULL
@@ -28965,7 +28965,7 @@ struct retro_core_options_v2 options_si = {
 #define PCE_ARCADECARD_LABEL_SK NULL
 #define PCE_ARCADECARD_INFO_0_SK NULL
 #define PCE_CDSPEED_LABEL_SK NULL
-#define PCE_CDSPEED_LABEL_CAT_SK NULL
+#define PCE_CDSPEED_LABEL_CAT_SK "CD rýchlosť"
 #define PCE_CDSPEED_INFO_0_SK NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_SK NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_SK NULL
