@@ -19271,10 +19271,10 @@ struct retro_core_options_v2 options_it = {
 #define PCE_H_OVERSCAN_LABEL_JA NULL
 #define PCE_H_OVERSCAN_INFO_0_JA NULL
 #define PCE_INITIAL_SCANLINE_LABEL_JA NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_JA NULL
+#define PCE_INITIAL_SCANLINE_INFO_0_JA "描画開始スキャンライン。大きい値ほど画面上部の表示が欠けます。"
 #define OPTION_VAL_3_JA "3 (デフォルト)"
 #define PCE_LAST_SCANLINE_LABEL_JA NULL
-#define PCE_LAST_SCANLINE_INFO_0_JA NULL
+#define PCE_LAST_SCANLINE_INFO_0_JA "最終描画スキャンライン。小さい値ほど画面下部の表示が欠けます。"
 #define OPTION_VAL_242_JA "242 (デフォルト)"
 #define PCE_PSGREVISION_LABEL_JA NULL
 #define PCE_PSGREVISION_INFO_0_JA NULL
@@ -19282,8 +19282,8 @@ struct retro_core_options_v2 options_it = {
 #define OPTION_VAL_HUC6280A_JA NULL
 #define PCE_RESAMP_QUALITY_LABEL_JA NULL
 #define PCE_RESAMP_QUALITY_INFO_0_JA NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_JA NULL
-#define PCE_MOUSE_SENSITIVITY_INFO_0_JA NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_JA "マウス感度"
+#define PCE_MOUSE_SENSITIVITY_INFO_0_JA "値を大きくすると、マウスカーソルがより速く移動します。"
 #define OPTION_VAL_0_125_JA NULL
 #define OPTION_VAL_0_250_JA NULL
 #define OPTION_VAL_0_375_JA NULL
@@ -19311,8 +19311,8 @@ struct retro_core_options_v2 options_it = {
 #define OPTION_VAL_5_00_JA NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_JA NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_JA "有効にすると、左右 (または上下) 方向の同時押し / 高速交互押し / 長押しが可能になります。動作に不具合が生じる場合があります。"
-#define PCE_DISABLE_SOFTRESET_LABEL_JA NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_JA NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_JA "ソフトリセットを無効にする (RUN+SELECT)"
+#define PCE_DISABLE_SOFTRESET_INFO_0_JA "RUN と SELECT が同時に押された時に、リセットの代わりに一時的に両方のボタンを無効にします。"
 #define PCE_MULTITAP_LABEL_JA NULL
 #define PCE_MULTITAP_INFO_0_JA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_JA NULL
@@ -19340,7 +19340,7 @@ struct retro_core_options_v2 options_it = {
 #define PCE_P4_TURBO_II_ENABLE_LABEL_JA NULL
 #define PCE_CDIMAGECACHE_LABEL_JA "CD イメージキャッシュ (再起動が必要)"
 #define PCE_CDIMAGECACHE_INFO_0_JA "起動時に完全なイメージをメモリにロードします。起動時間が増す代わりにロード時間が短縮される可能性があります。"
-#define PCE_CDBIOS_LABEL_JA NULL
+#define PCE_CDBIOS_LABEL_JA "CD BIOS (再起動が必要)"
 #define PCE_CDBIOS_INFO_0_JA NULL
 #define OPTION_VAL_GAMES_EXPRESS_JA NULL
 #define OPTION_VAL_SYSTEM_CARD_1_JA NULL
@@ -19348,11 +19348,11 @@ struct retro_core_options_v2 options_it = {
 #define OPTION_VAL_SYSTEM_CARD_3_JA NULL
 #define OPTION_VAL_SYSTEM_CARD_2_US_JA NULL
 #define OPTION_VAL_SYSTEM_CARD_3_US_JA NULL
-#define PCE_ARCADECARD_LABEL_JA NULL
-#define PCE_ARCADECARD_INFO_0_JA NULL
+#define PCE_ARCADECARD_LABEL_JA "アーケードカード (再起動が必要)"
+#define PCE_ARCADECARD_INFO_0_JA "ACD 対応SCD ゲームのACDモードを許可するには、このオプションを有効にしておきます。"
 #define PCE_CDSPEED_LABEL_JA NULL
 #define PCE_CDSPEED_LABEL_CAT_JA NULL
-#define PCE_CDSPEED_INFO_0_JA NULL
+#define PCE_CDSPEED_INFO_0_JA "値が高いほど読み込み時間が速くなりますが、いくつかのゲームで問題が発生する可能性があります。"
 #define PCE_ADPCMEXTRAPREC_LABEL_JA NULL
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_JA NULL
 #define PCE_ADPCMEXTRAPREC_INFO_0_JA NULL
@@ -19363,13 +19363,13 @@ struct retro_core_options_v2 options_it = {
 #define PCE_ADPCMVOLUME_INFO_0_JA NULL
 #define PCE_ADPCMVOLUME_INFO_1_JA NULL
 #define PCE_CDDAVOLUME_LABEL_JA NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_JA NULL
-#define PCE_CDPSGVOLUME_LABEL_JA NULL
-#define PCE_CDPSGVOLUME_LABEL_CAT_JA NULL
-#define PCE_NOSPRITELIMIT_LABEL_JA NULL
-#define PCE_NOSPRITELIMIT_INFO_0_JA NULL
-#define PCE_OCMULTIPLIER_LABEL_JA NULL
-#define PCE_OCMULTIPLIER_INFO_0_JA NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_JA "CD-DA 音量 %"
+#define PCE_CDPSGVOLUME_LABEL_JA "(CD) CD PSG 音量 %"
+#define PCE_CDPSGVOLUME_LABEL_CAT_JA "CD PSG 音量 %"
+#define PCE_NOSPRITELIMIT_LABEL_JA "スプライト制限なし"
+#define PCE_NOSPRITELIMIT_INFO_0_JA "スキャンラインあたりの16スプライトのハードウェア制限を削除します。警告: ゲームによってはグラフィックが乱れる可能性があります。(ブラッディーウルフなど)"
+#define PCE_OCMULTIPLIER_LABEL_JA "CPUオーバークロック倍率"
+#define PCE_OCMULTIPLIER_INFO_0_JA "値を大きくするとゲームのスローダウンが減ります。警告：不具合やクラッシュを引き起こす可能性があります。"
 
 struct retro_core_option_v2_category option_cats_ja[] = {
    {
