@@ -3511,7 +3511,7 @@ struct retro_core_options_v2 options_chs = {
 /* RETRO_LANGUAGE_CHT */
 
 #define CATEGORY_VIDEO_LABEL_CHT "顯示"
-#define CATEGORY_VIDEO_INFO_0_CHT "變更寬高比、畫面裁切和影像輸出相關的設定。"
+#define CATEGORY_VIDEO_INFO_0_CHT "變更寬高比、畫面裁剪和影像輸出相關的設定。"
 #define CATEGORY_AUDIO_LABEL_CHT "音效"
 #define CATEGORY_AUDIO_INFO_0_CHT "變更音訊裝置相關的設定。"
 #define CATEGORY_INPUT_LABEL_CHT "輸入"
@@ -3522,10 +3522,10 @@ struct retro_core_options_v2 options_chs = {
 #define CATEGORY_CD_INFO_0_CHT "變更光碟機相關的設定。"
 #define PCE_PALETTE_LABEL_CHT "影像配色"
 #define PCE_PALETTE_INFO_0_CHT "設定<合成>時嘗試重建原色影像輸出, 可在部分遊戲中顯示更多細節。"
-#define OPTION_VAL_RGB_CHT "三原色"
+#define OPTION_VAL_RGB_CHT "原色"
 #define OPTION_VAL_COMPOSITE_CHT "合成"
 #define PCE_ASPECT_RATIO_LABEL_CHT "寬高比"
-#define PCE_ASPECT_RATIO_INFO_0_CHT "設定畫面的寬高比, 僅限應用程式「設定/顯示/縮放」選項中, 設定「寬高比」為<核心參數>時使用。"
+#define PCE_ASPECT_RATIO_INFO_0_CHT "設定畫面的寬高比, 僅限「設定/顯示/縮放」選項中, 設定「寬高比」為<核心參數>時使用。"
 #define OPTION_VAL_AUTO_CHT "自動"
 #define OPTION_VAL_6_5_CHT NULL
 #define OPTION_VAL_4_3_CHT NULL
@@ -28059,7 +28059,7 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SV NULL
 #define PCE_TURBO_TOGGLING_LABEL_SV NULL
 #define PCE_TURBO_TOGGLING_INFO_0_SV NULL
-#define OPTION_VAL_TOGGLE_SV NULL
+#define OPTION_VAL_TOGGLE_SV "Växla"
 #define OPTION_VAL_ALWAYS_SV NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_SV NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SV NULL
