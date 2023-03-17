@@ -3529,7 +3529,7 @@ struct retro_core_options_v2 options_chs = {
 #define OPTION_VAL_AUTO_CHT "自動"
 #define OPTION_VAL_6_5_CHT NULL
 #define OPTION_VAL_4_3_CHT NULL
-#define OPTION_VAL_UNCORRECTED_CHT "未修正"
+#define OPTION_VAL_UNCORRECTED_CHT "未調整"
 #define PCE_SCALING_LABEL_CHT "解析度縮放"
 #define PCE_SCALING_INFO_0_CHT "設定<自動>時允許變更解析度, 設定<低解析度>時會破壞像素, 設定<高解析度>時維持在最大寬度顯示。"
 #define OPTION_VAL_LORES_CHT "低解析度"
@@ -3584,7 +3584,7 @@ struct retro_core_options_v2 options_chs = {
 #define PCE_MULTITAP_LABEL_CHT "五手把轉接器"
 #define PCE_MULTITAP_INFO_0_CHT "使用五手把轉接插座可對應五位玩家, 部分遊戲執行時需要關閉此選項, 例如「超兄貴(Cho Aniki)」。"
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHT "顯示輸入進階設定"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHT "顯示滑鼠、轉接插座和按鍵連發的進階設定選項。\n注意: 變更此選項時需先繼續遊戲, 再一次開啟核心選項後套用變更。"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHT "顯示滑鼠、轉接插座和按鍵連發的進階設定選項。\n注意: 此選項變更時需要重新進入核心選項才能生效。"
 #define PCE_TURBO_TOGGLING_LABEL_CHT "連發模式"
 #define PCE_TURBO_TOGGLING_INFO_0_CHT "設定[III/IV鍵]連發模式(開關/專用), 設定<開關>時提供給[I/II鍵]使用。"
 #define OPTION_VAL_TOGGLE_CHT "開關"
@@ -17495,7 +17495,7 @@ struct retro_core_options_v2 options_hu = {
 /* RETRO_LANGUAGE_ID */
 
 #define CATEGORY_VIDEO_LABEL_ID NULL
-#define CATEGORY_VIDEO_INFO_0_ID NULL
+#define CATEGORY_VIDEO_INFO_0_ID "Konfigurasikan aspek rasio, pemangkasan tampilan, dan parameter output gambar lainnya."
 #define CATEGORY_AUDIO_LABEL_ID "Suara"
 #define CATEGORY_AUDIO_INFO_0_ID NULL
 #define CATEGORY_INPUT_LABEL_ID "Masukan"
@@ -17534,7 +17534,7 @@ struct retro_core_options_v2 options_hu = {
 #define OPTION_VAL_HUC6280A_ID NULL
 #define PCE_RESAMP_QUALITY_LABEL_ID NULL
 #define PCE_RESAMP_QUALITY_INFO_0_ID NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_ID NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_ID "Sensivitas Mouse"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_ID NULL
 #define OPTION_VAL_0_125_ID NULL
 #define OPTION_VAL_0_250_ID NULL
@@ -25361,11 +25361,11 @@ struct retro_core_options_v2 options_pt_pt = {
 /* RETRO_LANGUAGE_RU */
 
 #define CATEGORY_VIDEO_LABEL_RU "Видео"
-#define CATEGORY_VIDEO_INFO_0_RU NULL
+#define CATEGORY_VIDEO_INFO_0_RU "Настройка соотношения сторон, кадрирования и прочих параметров изображения."
 #define CATEGORY_AUDIO_LABEL_RU "Аудио"
 #define CATEGORY_AUDIO_INFO_0_RU "Настройки эмуляции аудиоустройств."
 #define CATEGORY_INPUT_LABEL_RU "Ввод"
-#define CATEGORY_INPUT_INFO_0_RU NULL
+#define CATEGORY_INPUT_INFO_0_RU "Настройка ввода светового пистолета, мыши и контроллера."
 #define CATEGORY_HACKS_LABEL_RU "Хаки эмуляции"
 #define CATEGORY_HACKS_INFO_0_RU "Настройка разгона процессора и параметров точности эмуляции, влияющих на производительность и совместимость."
 #define CATEGORY_CD_LABEL_RU NULL
@@ -25380,26 +25380,26 @@ struct retro_core_options_v2 options_pt_pt = {
 #define OPTION_VAL_6_5_RU NULL
 #define OPTION_VAL_4_3_RU NULL
 #define OPTION_VAL_UNCORRECTED_RU "Нескорректированное"
-#define PCE_SCALING_LABEL_RU NULL
-#define PCE_SCALING_INFO_0_RU NULL
-#define OPTION_VAL_LORES_RU NULL
-#define OPTION_VAL_HIRES_RU NULL
-#define PCE_HIRES_BLEND_LABEL_RU NULL
-#define PCE_HIRES_BLEND_INFO_0_RU NULL
+#define PCE_SCALING_LABEL_RU "Масштабирование разрешения"
+#define PCE_SCALING_INFO_0_RU "'Авто' разрешает изменение разрешения. 'Низкое разрешение' может искажать пиксели. 'Высокое разрешение' поддерживает максимальную ширину."
+#define OPTION_VAL_LORES_RU "Низкое разрешение"
+#define OPTION_VAL_HIRES_RU "Высокое разрешение"
+#define PCE_HIRES_BLEND_LABEL_RU "Сила смешивания в высоком разрешении"
+#define PCE_HIRES_BLEND_INFO_0_RU "Смешивать пиксели в режиме высокого разрешения. Более высокие значения сильнее размывают изображение."
 #define PCE_H_OVERSCAN_LABEL_RU "Показывать гориз. вылеты развёртки"
-#define PCE_H_OVERSCAN_INFO_0_RU NULL
+#define PCE_H_OVERSCAN_INFO_0_RU "Режим 'Авто' адаптируется к играм, кадрируя пустые области."
 #define PCE_INITIAL_SCANLINE_LABEL_RU "Первая строка развёртки"
 #define PCE_INITIAL_SCANLINE_INFO_0_RU "Начальная отображаемая строка развёртки. Более высокие значения обрезают верхнюю часть изображения."
 #define OPTION_VAL_3_RU "3 (по умолчанию)"
 #define PCE_LAST_SCANLINE_LABEL_RU "Последняя строка развёртки"
 #define PCE_LAST_SCANLINE_INFO_0_RU "Последняя отображаемая строка развёртки. Более высокие значения обрезают нижнюю часть изображения."
 #define OPTION_VAL_242_RU "242 (по умолчанию)"
-#define PCE_PSGREVISION_LABEL_RU NULL
-#define PCE_PSGREVISION_INFO_0_RU NULL
+#define PCE_PSGREVISION_LABEL_RU "Аудиочип PSG (требуется перезапуск)"
+#define PCE_PSGREVISION_INFO_0_RU "HuC6280 имитирует звучание PC Engine, HuC6280A - звучание SuperGrafx и CoreGrafx I."
 #define OPTION_VAL_HUC6280_RU NULL
 #define OPTION_VAL_HUC6280A_RU NULL
-#define PCE_RESAMP_QUALITY_LABEL_RU NULL
-#define PCE_RESAMP_QUALITY_INFO_0_RU NULL
+#define PCE_RESAMP_QUALITY_LABEL_RU "Качество ресемплера Owl"
+#define PCE_RESAMP_QUALITY_INFO_0_RU "Более высокие значения улучшают соотношение сигнал-шум и сохраняют высокие частоты, но повышают сложность вычислений, могут увеличивать задержку и вызывать нелинейные искажения при завышении громкости."
 #define PCE_MOUSE_SENSITIVITY_LABEL_RU "Чувствительность мыши"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_RU "Более высокие значения повышают скорость перемещения курсора мыши."
 #define OPTION_VAL_0_125_RU NULL
@@ -25431,34 +25431,34 @@ struct retro_core_options_v2 options_pt_pt = {
 #define PCE_UP_DOWN_ALLOWED_INFO_0_RU "Позволяет нажимать / быстро менять / зажимать одновременно направления влево и вправо (или вверх и вниз). Может вызывать глитчи, связанные с перемещением."
 #define PCE_DISABLE_SOFTRESET_LABEL_RU "Отключить мягкий сброс (RUN+SELECT)"
 #define PCE_DISABLE_SOFTRESET_INFO_0_RU "Одновременное нажатие RUN и SELECT вместо сброса будет временно отключать обе кнопки."
-#define PCE_MULTITAP_LABEL_RU NULL
-#define PCE_MULTITAP_INFO_0_RU NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RU NULL
-#define PCE_TURBO_TOGGLING_LABEL_RU NULL
-#define PCE_TURBO_TOGGLING_INFO_0_RU NULL
-#define OPTION_VAL_TOGGLE_RU NULL
-#define OPTION_VAL_ALWAYS_RU NULL
+#define PCE_MULTITAP_LABEL_RU "Multitap на 5 контроллеров"
+#define PCE_MULTITAP_INFO_0_RU "Включает эмуляцию multitap до 5 игроков. Отключение настройки требуется лишь в отдельных случаях (напр. Cho Aniki)."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU "Показывать расширенные настройки ввода/турбо"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RU "Показывать дополнительные параметры multitap, мыши и турбо-кнопок. Для применения настройки требуется вернуться в игру и повторно вызвать меню."
+#define PCE_TURBO_TOGGLING_LABEL_RU "Режим турбо-кнопок"
+#define PCE_TURBO_TOGGLING_INFO_0_RU "Включение турбо-кнопок. Активаторы (кнопки III и IV) могут работать как переключатели или как выделенные кнопки, включаемые при удерживании."
+#define OPTION_VAL_TOGGLE_RU "Переключатели"
+#define OPTION_VAL_ALWAYS_RU "Выделенные"
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_RU "Альтернативное включение турбо"
-#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_RU NULL
-#define PCE_TURBO_DELAY_LABEL_RU NULL
-#define PCE_TURBO_DELAY_INFO_0_RU NULL
-#define OPTION_VAL_FAST_RU "Быстрый"
-#define OPTION_VAL_MEDIUM_RU NULL
-#define OPTION_VAL_SLOW_RU NULL
-#define PCE_P0_TURBO_I_ENABLE_LABEL_RU NULL
-#define PCE_P0_TURBO_II_ENABLE_LABEL_RU NULL
-#define PCE_P1_TURBO_I_ENABLE_LABEL_RU NULL
-#define PCE_P1_TURBO_II_ENABLE_LABEL_RU NULL
-#define PCE_P2_TURBO_I_ENABLE_LABEL_RU NULL
-#define PCE_P2_TURBO_II_ENABLE_LABEL_RU NULL
-#define PCE_P3_TURBO_I_ENABLE_LABEL_RU NULL
-#define PCE_P3_TURBO_II_ENABLE_LABEL_RU NULL
-#define PCE_P4_TURBO_I_ENABLE_LABEL_RU NULL
-#define PCE_P4_TURBO_II_ENABLE_LABEL_RU NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_RU "Назначает для включения турбо кнопки RetroPad L3/R3 вместо кнопок III и IV. Работает только с режимом 'Переключение' и при условии, что кнопки L3/R3 не используются для других действий. Позволяет избежать перепривязки кнопок III и IV при включении 6-кнопочного режима."
+#define PCE_TURBO_DELAY_LABEL_RU "Скорость турбо"
+#define PCE_TURBO_DELAY_INFO_0_RU "Выбор скорости повтора при нажатии кнопок."
+#define OPTION_VAL_FAST_RU "Высокая"
+#define OPTION_VAL_MEDIUM_RU "Средняя"
+#define OPTION_VAL_SLOW_RU "Низкая"
+#define PCE_P0_TURBO_I_ENABLE_LABEL_RU "Игрок 1 Турбо I"
+#define PCE_P0_TURBO_II_ENABLE_LABEL_RU "Игрок 1 Турбо II"
+#define PCE_P1_TURBO_I_ENABLE_LABEL_RU "Игрок 2 Турбо I"
+#define PCE_P1_TURBO_II_ENABLE_LABEL_RU "Игрок 2 Турбо II"
+#define PCE_P2_TURBO_I_ENABLE_LABEL_RU "Игрок 3 Турбо I"
+#define PCE_P2_TURBO_II_ENABLE_LABEL_RU "Игрок 3 Турбо II"
+#define PCE_P3_TURBO_I_ENABLE_LABEL_RU "Игрок 4 Турбо I"
+#define PCE_P3_TURBO_II_ENABLE_LABEL_RU "Игрок 4 Турбо II"
+#define PCE_P4_TURBO_I_ENABLE_LABEL_RU "Игрок 5 Турбо I"
+#define PCE_P4_TURBO_II_ENABLE_LABEL_RU "Игрок 5 Турбо II"
 #define PCE_CDIMAGECACHE_LABEL_RU "Кэшировать образ CD (требуется перезапуск)"
 #define PCE_CDIMAGECACHE_INFO_0_RU "При запуске загружать полный образ диска в память. Может снижать время загрузок, но увеличивает время запуска."
-#define PCE_CDBIOS_LABEL_RU NULL
+#define PCE_CDBIOS_LABEL_RU "CD Bios (требуется перезапуск)"
 #define PCE_CDBIOS_INFO_0_RU "Большинство игр запускаются с 'System Card 3'. 'Games Express' требуется для некоторых нелицензированных игр."
 #define OPTION_VAL_GAMES_EXPRESS_RU NULL
 #define OPTION_VAL_SYSTEM_CARD_1_RU NULL
@@ -25466,14 +25466,14 @@ struct retro_core_options_v2 options_pt_pt = {
 #define OPTION_VAL_SYSTEM_CARD_3_RU NULL
 #define OPTION_VAL_SYSTEM_CARD_2_US_RU NULL
 #define OPTION_VAL_SYSTEM_CARD_3_US_RU NULL
-#define PCE_ARCADECARD_LABEL_RU NULL
+#define PCE_ARCADECARD_LABEL_RU "Arcade Card (требуется перезапуск)"
 #define PCE_ARCADECARD_INFO_0_RU NULL
 #define PCE_CDSPEED_LABEL_RU "(CD) Скорость CD"
 #define PCE_CDSPEED_LABEL_CAT_RU "Cкорость CD"
 #define PCE_CDSPEED_INFO_0_RU "Более высокие значения ускоряют загрузки, но могут вызывать проблемы в отдельных играх."
-#define PCE_ADPCMEXTRAPREC_LABEL_RU NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CAT_RU NULL
-#define PCE_ADPCMEXTRAPREC_INFO_0_RU NULL
+#define PCE_ADPCMEXTRAPREC_LABEL_RU "(CD) Точность ADPCM"
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_RU "Точность ADPCM"
+#define PCE_ADPCMEXTRAPREC_INFO_0_RU "Полная 12-битная точность предсказателя ADPCM MSM5205 помогает уменьшить протяжный шум при воспроизведении ADPCM."
 #define OPTION_VAL_10_BIT_RU NULL
 #define OPTION_VAL_12_BIT_RU NULL
 #define PCE_ADPCMVOLUME_LABEL_RU "(CD) Громкость ADPCM"
@@ -25482,11 +25482,11 @@ struct retro_core_options_v2 options_pt_pt = {
 #define PCE_ADPCMVOLUME_INFO_1_RU "Слишком высокие значения могут приводить к искажениям звука."
 #define PCE_CDDAVOLUME_LABEL_RU "(CD) Громкость CDDA"
 #define PCE_CDDAVOLUME_LABEL_CAT_RU "Громкость CDDA (%)"
-#define PCE_CDPSGVOLUME_LABEL_RU NULL
+#define PCE_CDPSGVOLUME_LABEL_RU "(CD) Громкость CD PSG %"
 #define PCE_CDPSGVOLUME_LABEL_CAT_RU "Громкость PSG (%)"
 #define PCE_NOSPRITELIMIT_LABEL_RU "Без ограничения спрайтов"
-#define PCE_NOSPRITELIMIT_INFO_0_RU NULL
-#define PCE_OCMULTIPLIER_LABEL_RU NULL
+#define PCE_NOSPRITELIMIT_INFO_0_RU "Убирает аппаратное ограничение в 16 спрайтов на линию развёртки. В некоторых играх может вызывать проблемы с графикой (например Bloody Wolf)."
+#define PCE_OCMULTIPLIER_LABEL_RU "Множитель разгона CPU"
 #define PCE_OCMULTIPLIER_INFO_0_RU "Более высокие значения уменьшают замедления в играх. ВНИМАНИЕ: может приводить к багам и вылетам."
 
 struct retro_core_option_v2_category option_cats_ru[] = {
