@@ -25371,11 +25371,11 @@ struct retro_core_options_v2 options_pt_pt = {
 #define CATEGORY_CD_LABEL_RU NULL
 #define CATEGORY_CD_INFO_0_RU "Настройка параметров, относящихся к эмуляции PC Engine CD."
 #define PCE_PALETTE_LABEL_RU "Цветовая палитра"
-#define PCE_PALETTE_INFO_0_RU "Композитный пытается воссоздать оригинальное изображение консоли и может повышать детализацию в некоторых играх."
+#define PCE_PALETTE_INFO_0_RU "Композит пытается воссоздать оригинальное изображение консоли и может повышать детализацию в некоторых играх."
 #define OPTION_VAL_RGB_RU NULL
-#define OPTION_VAL_COMPOSITE_RU "Композитный"
+#define OPTION_VAL_COMPOSITE_RU "Композит"
 #define PCE_ASPECT_RATIO_LABEL_RU "Соотношение сторон"
-#define PCE_ASPECT_RATIO_INFO_0_RU "Выбор предпочтительного соотношения сторон контента. Учитывается только при установке соотношения сторон RetroArch на 'Core Provided' в настройках видео."
+#define PCE_ASPECT_RATIO_INFO_0_RU "Выбор предпочтительного соотношения сторон контента. Применяется только при выборе режима соотношения сторон 'Настройка ядра' в настройках видео RetroArch."
 #define OPTION_VAL_AUTO_RU "Авто"
 #define OPTION_VAL_6_5_RU NULL
 #define OPTION_VAL_4_3_RU NULL
@@ -25428,9 +25428,9 @@ struct retro_core_options_v2 options_pt_pt = {
 #define OPTION_VAL_4_75_RU NULL
 #define OPTION_VAL_5_00_RU NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_RU "Разрешить противоположные направления"
-#define PCE_UP_DOWN_ALLOWED_INFO_0_RU "Позволяет нажимать / быстро менять / зажимать одновременно направления влево и вправо (или вверх и вниз). Может вызывать глитчи, связанные с перемещением."
+#define PCE_UP_DOWN_ALLOWED_INFO_0_RU "При включении позволяет нажимать / быстро менять / одновременно зажимать направления влево и вправо (или вверх и вниз). Может вызывать глитчи, связанные с перемещением."
 #define PCE_DISABLE_SOFTRESET_LABEL_RU "Отключить мягкий сброс (RUN+SELECT)"
-#define PCE_DISABLE_SOFTRESET_INFO_0_RU "Одновременное нажатие RUN и SELECT вместо сброса будет временно отключать обе кнопки."
+#define PCE_DISABLE_SOFTRESET_INFO_0_RU "При одновременном нажатии RUN и SELECT вместо сброса обе кнопки будут временно отключаться."
 #define PCE_MULTITAP_LABEL_RU "Multitap на 5 контроллеров"
 #define PCE_MULTITAP_INFO_0_RU "Включает эмуляцию multitap до 5 игроков. Отключение настройки требуется лишь в отдельных случаях (напр. Cho Aniki)."
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU "Показывать расширенные настройки ввода/турбо"
@@ -25467,15 +25467,15 @@ struct retro_core_options_v2 options_pt_pt = {
 #define OPTION_VAL_SYSTEM_CARD_2_US_RU NULL
 #define OPTION_VAL_SYSTEM_CARD_3_US_RU NULL
 #define PCE_ARCADECARD_LABEL_RU "Arcade Card (требуется перезапуск)"
-#define PCE_ARCADECARD_INFO_0_RU NULL
+#define PCE_ARCADECARD_INFO_0_RU "При включении разрешает дополнительные режимы для игр SCD с улучшениями ACD."
 #define PCE_CDSPEED_LABEL_RU "(CD) Скорость CD"
 #define PCE_CDSPEED_LABEL_CAT_RU "Cкорость CD"
 #define PCE_CDSPEED_INFO_0_RU "Более высокие значения ускоряют загрузки, но могут вызывать проблемы в отдельных играх."
 #define PCE_ADPCMEXTRAPREC_LABEL_RU "(CD) Точность ADPCM"
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_RU "Точность ADPCM"
 #define PCE_ADPCMEXTRAPREC_INFO_0_RU "Полная 12-битная точность предсказателя ADPCM MSM5205 помогает уменьшить протяжный шум при воспроизведении ADPCM."
-#define OPTION_VAL_10_BIT_RU NULL
-#define OPTION_VAL_12_BIT_RU NULL
+#define OPTION_VAL_10_BIT_RU "10-битная"
+#define OPTION_VAL_12_BIT_RU "12-битная"
 #define PCE_ADPCMVOLUME_LABEL_RU "(CD) Громкость ADPCM"
 #define PCE_ADPCMVOLUME_LABEL_CAT_RU "Громкость ADPCM (%)"
 #define PCE_ADPCMVOLUME_INFO_0_RU "Только для CD-игр. Слишком высокие значения могут приводить к искажениям звука."
