@@ -3521,7 +3521,7 @@ struct retro_core_options_v2 options_ca = {
 #define CATEGORY_CD_LABEL_CHS NULL
 #define CATEGORY_CD_INFO_0_CHS NULL
 #define PCE_PALETTE_LABEL_CHS "色板"
-#define PCE_PALETTE_INFO_0_CHS NULL
+#define PCE_PALETTE_INFO_0_CHS "使用复合设计模式尝试复现原始的控制台显示，在部分游戏中可以显示更多细节"
 #define OPTION_VAL_RGB_CHS NULL
 #define OPTION_VAL_COMPOSITE_CHS "合成"
 #define PCE_ASPECT_RATIO_LABEL_CHS "纵横比"
@@ -3606,8 +3606,8 @@ struct retro_core_options_v2 options_ca = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_CHS NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_CHS NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_CHS NULL
-#define PCE_CDIMAGECACHE_LABEL_CHS NULL
-#define PCE_CDIMAGECACHE_INFO_0_CHS NULL
+#define PCE_CDIMAGECACHE_LABEL_CHS "启用CD光盘缓存（重启以生效）"
+#define PCE_CDIMAGECACHE_INFO_0_CHS "在启动时将完整的镜像加载到内存中，以增加启动时间为代价，或许能减少游戏中的加载时间。"
 #define PCE_CDBIOS_LABEL_CHS NULL
 #define PCE_CDBIOS_INFO_0_CHS NULL
 #define OPTION_VAL_GAMES_EXPRESS_CHS NULL
