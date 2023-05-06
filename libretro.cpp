@@ -971,10 +971,70 @@ static int Turbo_Toggling = 1;
 static bool turbo_toggle_alt = false;
 static int turbo_toggle_down[MAX_PLAYERS][MAX_BUTTONS] = {};
 
+static bool update_option_visibility(void)
+{
+   struct retro_variable var = {0};
+   bool updated = false;
+
+   if (libretro_supports_option_categories)
+      return false;
+
+   /* decide if input/turbo settings should be shown */
+   var.key = "pce_show_advanced_input_settings";
+   var.value = NULL;
+   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+   {
+      bool show_advanced_input_settings_prev = show_advanced_input_settings;
+
+      show_advanced_input_settings = (strcmp(var.value, "enabled") == 0);
+
+      if (show_advanced_input_settings != show_advanced_input_settings_prev)
+      {
+         struct retro_core_option_display option_display;
+         size_t i;
+         const char av_keys[22][32] = {
+            "pce_multitap",
+            "pce_mouse_sensitivity",
+            "pce_disable_softreset",
+            "pce_up_down_allowed",
+            "pce_Turbo_Delay",
+            "pce_Turbo_Toggling",
+            "pce_turbo_toggle_hotkey",
+            "pce_p0_turbo_I_enable",
+            "pce_p0_turbo_II_enable",
+            "pce_p1_turbo_I_enable",
+            "pce_p1_turbo_II_enable",
+            "pce_p2_turbo_I_enable",
+            "pce_p2_turbo_II_enable",
+            "pce_p3_turbo_I_enable",
+            "pce_p3_turbo_II_enable",
+            "pce_p4_turbo_I_enable",
+            "pce_p4_turbo_II_enable",
+            "pce_default_joypad_type_p1",
+            "pce_default_joypad_type_p2",
+            "pce_default_joypad_type_p3",
+            "pce_default_joypad_type_p4",
+            "pce_default_joypad_type_p5",
+         };
+
+         option_display.visible = show_advanced_input_settings;
+
+         for (i = 0; i < 22; i++)
+         {
+            option_display.key = av_keys[i];
+            environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_DISPLAY, &option_display);
+         }
+
+         updated = true;
+      }
+   }
+
+   return updated;
+}
+
 static void check_variables(bool loaded)
 {
    struct retro_variable var = {0};
-   struct retro_core_option_display option_display;
 
    if (!loaded)
    {
@@ -1020,6 +1080,22 @@ static void check_variables(bool loaded)
             setting_pce_psgrevision = 0;
          else if (strcmp(var.value, "HuC6280A") == 0)
             setting_pce_psgrevision = 1;
+      }
+
+      char key[256];
+      key[0] = '\0';
+
+      var.key = key ;
+      for (int i = 0 ; i < MAX_PLAYERS ; i++)
+      {
+         snprintf(key, sizeof(key), "pce_default_joypad_type_p%d", i + 1);
+         if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+         {
+            if(strcmp(var.value, "2 Buttons") == 0)
+               avpad6_enable[i] = 0;
+            else if(strcmp(var.value, "6 Buttons") == 0)
+               avpad6_enable[i] ^= (1 << 12);
+         }
       }
    }
 
@@ -1289,53 +1365,8 @@ static void check_variables(bool loaded)
       up_down_allowed = (strcmp(var.value, "enabled") == 0);
    }
 
-   /* 'Show Advanced Input/Turbo Settings' is only needed if catgegories aren't supported */
-   option_display.key = "pce_show_advanced_input_settings";
-   option_display.visible = !libretro_supports_option_categories;
-   environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_DISPLAY, &option_display);
+   update_option_visibility();
 
-   /* decide if input/turbo settings should be shown */
-   var.key = "pce_show_advanced_input_settings";
-   var.value = NULL;
-   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
-   {
-      bool show_advanced_input_settings_prev = show_advanced_input_settings;
-
-      show_advanced_input_settings = (strcmp(var.value, "enabled") == 0)
-                                     || libretro_supports_option_categories;
-
-      if (!loaded || (show_advanced_input_settings != show_advanced_input_settings_prev))
-      {
-         size_t i;
-         const char av_keys[17][32] = {
-            "pce_multitap",
-            "pce_mouse_sensitivity",
-            "pce_disable_softreset",
-            "pce_up_down_allowed",
-            "pce_Turbo_Delay",
-            "pce_Turbo_Toggling",
-            "pce_turbo_toggle_hotkey",
-            "pce_p0_turbo_I_enable",
-            "pce_p0_turbo_II_enable",
-            "pce_p1_turbo_I_enable",
-            "pce_p1_turbo_II_enable",
-            "pce_p2_turbo_I_enable",
-            "pce_p2_turbo_II_enable",
-            "pce_p3_turbo_I_enable",
-            "pce_p3_turbo_II_enable",
-            "pce_p4_turbo_I_enable",
-            "pce_p4_turbo_II_enable",
-         };
-
-         option_display.visible = show_advanced_input_settings;
-
-         for (i = 0; i < 17; i++)
-         {
-            option_display.key = av_keys[i];
-            environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_DISPLAY, &option_display);
-         }
-      }
-   }
    if (loaded)
       SettingsChanged();
 }
@@ -1875,6 +1906,7 @@ void retro_set_environment(retro_environment_t cb)
 {
    struct retro_vfs_interface_info vfs_iface_info;
    struct retro_led_interface led_interface;
+   bool option_categories = false;
    environ_cb = cb;
 
    static const struct retro_controller_description pads[] = {
@@ -1900,9 +1932,27 @@ void retro_set_environment(retro_environment_t cb)
       { NULL, false, false }
    };
 
-   libretro_supports_option_categories = false;
-   libretro_set_core_options(environ_cb,
-         &libretro_supports_option_categories);
+   libretro_set_core_options(environ_cb, &option_categories);
+   libretro_supports_option_categories |= option_categories;
+
+   if (libretro_supports_option_categories)
+   {
+      struct retro_core_option_display option_display;
+
+      option_display.visible = false;
+      option_display.key     = "pce_show_advanced_input_settings";
+
+      environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_DISPLAY,
+            &option_display);
+   }
+   else
+   {
+      struct retro_core_options_update_display_callback update_display_cb;
+      update_display_cb.callback = update_option_visibility;
+
+      environ_cb(RETRO_ENVIRONMENT_SET_CORE_OPTIONS_UPDATE_DISPLAY_CALLBACK,
+            &update_display_cb);
+   }
 
    environ_cb(RETRO_ENVIRONMENT_SET_CONTROLLER_INFO, (void*)ports);
    environ_cb(RETRO_ENVIRONMENT_SET_CONTENT_INFO_OVERRIDE, (void*)content_overrides);
