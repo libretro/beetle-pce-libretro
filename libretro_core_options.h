@@ -295,6 +295,20 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      "Show Advanced Input/Turbo Settings",
+      NULL,
+      "Show Multitap, Mouse, Turbo Buttons and advanced parameters. NOTE: You may need to go back in game and re-enter the menu to refresh the list.",
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       "Mouse Sensitivity",
       NULL,
@@ -374,18 +388,74 @@ struct retro_core_option_v2_definition option_defs_us[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      "Show Advanced Input/Turbo Settings",
+      "pce_default_joypad_type_p1",
+      "P1 Default Joypad Type",
       NULL,
-      "Show Multitap, Mouse, Turbo Buttons and advanced parameters. NOTE: You need to go back in game and re-enter the menu to refresh the list.",
+      "Choose if port 1 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", NULL },
+         { "6 Buttons", NULL },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      "P2 Default Joypad Type",
+      NULL,
+      "Choose if port 2 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
+      NULL,
+      "input",
+      {
+         { "2 Buttons", NULL },
+         { "6 Buttons", NULL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      "P3 Default Joypad Type",
+      NULL,
+      "Choose if port 3 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
+      NULL,
+      "input",
+      {
+         { "2 Buttons", NULL },
+         { "6 Buttons", NULL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      "P4 Default Joypad Type",
+      NULL,
+      "Choose if port 4 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
+      NULL,
+      "input",
+      {
+         { "2 Buttons", NULL },
+         { "6 Buttons", NULL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      "P5 Default Joypad Type",
+      NULL,
+      "Choose if port 5 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
+      NULL,
+      "input",
+      {
+         { "2 Buttons", NULL },
+         { "6 Buttons", NULL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
