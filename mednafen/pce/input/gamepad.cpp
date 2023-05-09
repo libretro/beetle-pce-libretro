@@ -98,8 +98,8 @@ void PCE_Input_Gamepad::Write(int32 timestamp, bool old_SEL, bool new_SEL, bool 
 	SEL = new_SEL;
 	CLR = new_CLR;
 
-	//if(old_SEL && new_SEL && old_CLR && !new_CLR)
-	if(!old_SEL && new_SEL)
+	//if(!old_SEL && new_SEL)
+	if(old_SEL && new_SEL && old_CLR && !new_CLR)
 		AVPad6Which = !AVPad6Which;
 }
 
