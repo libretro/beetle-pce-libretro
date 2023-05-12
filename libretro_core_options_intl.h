@@ -54,6 +54,8 @@ extern "C" {
 #define OPTION_VAL_HUC6280A_AR NULL
 #define PCE_RESAMP_QUALITY_LABEL_AR NULL
 #define PCE_RESAMP_QUALITY_INFO_0_AR NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AR NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_AR NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_AR NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_AR NULL
 #define OPTION_VAL_0_125_AR NULL
@@ -87,8 +89,18 @@ extern "C" {
 #define PCE_DISABLE_SOFTRESET_INFO_0_AR NULL
 #define PCE_MULTITAP_LABEL_AR NULL
 #define PCE_MULTITAP_INFO_0_AR NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AR NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_AR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_AR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_AR NULL
+#define OPTION_VAL_2_BUTTONS_AR NULL
+#define OPTION_VAL_6_BUTTONS_AR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_AR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_AR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_AR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_AR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_AR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_AR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_AR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_AR NULL
 #define PCE_TURBO_TOGGLING_LABEL_AR NULL
 #define PCE_TURBO_TOGGLING_INFO_0_AR NULL
 #define OPTION_VAL_TOGGLE_AR NULL
@@ -388,6 +400,20 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AR,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_AR,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_AR,
       NULL,
@@ -467,18 +493,74 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AR,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_AR,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_AR,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_AR,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_AR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_AR },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_AR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_AR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_AR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_AR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_AR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_AR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_AR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_AR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_AR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_AR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_AR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_AR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_AR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_AR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_AR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_AR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -928,6 +1010,8 @@ struct retro_core_options_v2 options_ar = {
 #define OPTION_VAL_HUC6280A_AST NULL
 #define PCE_RESAMP_QUALITY_LABEL_AST NULL
 #define PCE_RESAMP_QUALITY_INFO_0_AST NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AST NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_AST NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_AST "Sensibilidá del mur"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_AST NULL
 #define OPTION_VAL_0_125_AST "0,125"
@@ -961,8 +1045,18 @@ struct retro_core_options_v2 options_ar = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_AST NULL
 #define PCE_MULTITAP_LABEL_AST NULL
 #define PCE_MULTITAP_INFO_0_AST NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AST NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_AST NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_AST NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_AST NULL
+#define OPTION_VAL_2_BUTTONS_AST NULL
+#define OPTION_VAL_6_BUTTONS_AST NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_AST NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_AST NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_AST NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_AST NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_AST NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_AST NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_AST NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_AST NULL
 #define PCE_TURBO_TOGGLING_LABEL_AST NULL
 #define PCE_TURBO_TOGGLING_INFO_0_AST NULL
 #define OPTION_VAL_TOGGLE_AST NULL
@@ -1262,6 +1356,20 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AST,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_AST,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_AST,
       NULL,
@@ -1341,18 +1449,74 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_AST,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_AST,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_AST,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_AST,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_AST },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_AST },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_AST,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_AST,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_AST },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_AST },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_AST,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_AST,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_AST },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_AST },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_AST,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_AST,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_AST },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_AST },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_AST,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_AST,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_AST },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_AST },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -1762,9 +1926,9 @@ struct retro_core_options_v2 options_ast = {
 
 /* RETRO_LANGUAGE_BE */
 
-#define CATEGORY_VIDEO_LABEL_BE NULL
+#define CATEGORY_VIDEO_LABEL_BE "Відэа"
 #define CATEGORY_VIDEO_INFO_0_BE NULL
-#define CATEGORY_AUDIO_LABEL_BE NULL
+#define CATEGORY_AUDIO_LABEL_BE "Аўдыё"
 #define CATEGORY_AUDIO_INFO_0_BE NULL
 #define CATEGORY_INPUT_LABEL_BE NULL
 #define CATEGORY_INPUT_INFO_0_BE NULL
@@ -1802,6 +1966,8 @@ struct retro_core_options_v2 options_ast = {
 #define OPTION_VAL_HUC6280A_BE NULL
 #define PCE_RESAMP_QUALITY_LABEL_BE NULL
 #define PCE_RESAMP_QUALITY_INFO_0_BE NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_BE NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_BE NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_BE NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_BE NULL
 #define OPTION_VAL_0_125_BE NULL
@@ -1835,8 +2001,18 @@ struct retro_core_options_v2 options_ast = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_BE NULL
 #define PCE_MULTITAP_LABEL_BE NULL
 #define PCE_MULTITAP_INFO_0_BE NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_BE NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_BE NULL
+#define OPTION_VAL_2_BUTTONS_BE NULL
+#define OPTION_VAL_6_BUTTONS_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_BE NULL
 #define PCE_TURBO_TOGGLING_LABEL_BE NULL
 #define PCE_TURBO_TOGGLING_INFO_0_BE NULL
 #define OPTION_VAL_TOGGLE_BE NULL
@@ -2136,6 +2312,20 @@ struct retro_core_option_v2_definition option_defs_be[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_BE,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_BE,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_BE,
       NULL,
@@ -2215,18 +2405,74 @@ struct retro_core_option_v2_definition option_defs_be[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_BE,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_BE,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_BE,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_BE,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_BE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_BE },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_BE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_BE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_BE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_BE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_BE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_BE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_BE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_BE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_BE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_BE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_BE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_BE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_BE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_BE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_BE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_BE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -2676,6 +2922,8 @@ struct retro_core_options_v2 options_be = {
 #define OPTION_VAL_HUC6280A_CA NULL
 #define PCE_RESAMP_QUALITY_LABEL_CA NULL
 #define PCE_RESAMP_QUALITY_INFO_0_CA NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CA NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CA NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_CA NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_CA NULL
 #define OPTION_VAL_0_125_CA "0,125"
@@ -2709,8 +2957,18 @@ struct retro_core_options_v2 options_be = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_CA NULL
 #define PCE_MULTITAP_LABEL_CA NULL
 #define PCE_MULTITAP_INFO_0_CA NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CA NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CA NULL
+#define OPTION_VAL_2_BUTTONS_CA NULL
+#define OPTION_VAL_6_BUTTONS_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CA NULL
 #define PCE_TURBO_TOGGLING_LABEL_CA NULL
 #define PCE_TURBO_TOGGLING_INFO_0_CA NULL
 #define OPTION_VAL_TOGGLE_CA NULL
@@ -3010,6 +3268,20 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CA,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CA,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_CA,
       NULL,
@@ -3089,18 +3361,74 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CA,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CA,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CA,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CA,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CA },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -3550,6 +3878,8 @@ struct retro_core_options_v2 options_ca = {
 #define OPTION_VAL_HUC6280A_CHS NULL
 #define PCE_RESAMP_QUALITY_LABEL_CHS NULL
 #define PCE_RESAMP_QUALITY_INFO_0_CHS NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHS NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHS NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_CHS "鼠标灵敏度"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_CHS NULL
 #define OPTION_VAL_0_125_CHS NULL
@@ -3583,8 +3913,18 @@ struct retro_core_options_v2 options_ca = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_CHS NULL
 #define PCE_MULTITAP_LABEL_CHS NULL
 #define PCE_MULTITAP_INFO_0_CHS NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHS NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CHS NULL
+#define OPTION_VAL_2_BUTTONS_CHS NULL
+#define OPTION_VAL_6_BUTTONS_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CHS NULL
 #define PCE_TURBO_TOGGLING_LABEL_CHS NULL
 #define PCE_TURBO_TOGGLING_INFO_0_CHS NULL
 #define OPTION_VAL_TOGGLE_CHS "切换"
@@ -3884,6 +4224,20 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHS,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHS,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_CHS,
       NULL,
@@ -3963,18 +4317,74 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHS,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CHS,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHS,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CHS,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CHS },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CHS },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CHS,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CHS,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CHS },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CHS },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CHS,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CHS,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CHS },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CHS },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CHS,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CHS,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CHS },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CHS },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CHS,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CHS,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CHS },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CHS },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -4424,6 +4834,8 @@ struct retro_core_options_v2 options_chs = {
 #define OPTION_VAL_HUC6280A_CHT NULL
 #define PCE_RESAMP_QUALITY_LABEL_CHT "Owl重新取樣器品質"
 #define PCE_RESAMP_QUALITY_INFO_0_CHT "設定提高時可提供更好的訊噪比, 並維持較高頻率但增加計算資源, 且音量過高可能導致延遲和削波。"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHT "顯示輸入進階設定"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHT NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_CHT "滑鼠靈敏度"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_CHT "數值越高游標移動速度越快。"
 #define OPTION_VAL_0_125_CHT NULL
@@ -4457,8 +4869,18 @@ struct retro_core_options_v2 options_chs = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_CHT "禁用按[RUN鍵+SELECT鍵]重新開始遊戲, 此選項僅禁用核心登錄的組合鍵。"
 #define PCE_MULTITAP_LABEL_CHT "五手把轉接器"
 #define PCE_MULTITAP_INFO_0_CHT "使用五手把轉接插座可對應五位玩家, 部分遊戲執行時需要關閉此選項, 例如「超兄貴(Cho Aniki)」。"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHT "顯示輸入進階設定"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHT "顯示滑鼠、轉接插座和按鍵連發的進階設定選項。\n注意: 此選項變更時需要重新進入核心選項才能生效。"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CHT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CHT NULL
+#define OPTION_VAL_2_BUTTONS_CHT NULL
+#define OPTION_VAL_6_BUTTONS_CHT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CHT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CHT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CHT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CHT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CHT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CHT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CHT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CHT NULL
 #define PCE_TURBO_TOGGLING_LABEL_CHT "連發模式"
 #define PCE_TURBO_TOGGLING_INFO_0_CHT "設定[III/IV鍵]連發模式(開關/專用), 設定<開關>時提供給[I/II鍵]使用。"
 #define OPTION_VAL_TOGGLE_CHT "開關"
@@ -4758,6 +5180,20 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHT,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHT,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_CHT,
       NULL,
@@ -4837,18 +5273,74 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHT,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CHT,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHT,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CHT,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CHT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CHT },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CHT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CHT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CHT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CHT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CHT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CHT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CHT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CHT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CHT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CHT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CHT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CHT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CHT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CHT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CHT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CHT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -5298,6 +5790,8 @@ struct retro_core_options_v2 options_cht = {
 #define OPTION_VAL_HUC6280A_CS NULL
 #define PCE_RESAMP_QUALITY_LABEL_CS "Kvalita Sovího Převzorkování"
 #define PCE_RESAMP_QUALITY_INFO_0_CS "Vyšší hodnoty poskytují lepší odstup signálu od šumu a zachování vyšších frekvencí, ale zvyšují náklady na výpočet a mohou způsobit vyšší latenci a oříznutí, pokud je hlasitost nastavena příliš vysoko."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CS "Zobrazit Pokročilá Nastavení Vstupu/Turba"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CS NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_CS "Citlivost Myší"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_CS "Při vyšších hodnotách se kurzor myši pohybuje rychleji."
 #define OPTION_VAL_0_125_CS NULL
@@ -5331,8 +5825,18 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_CS "Při současném stisknutí tlačítek RUN a SELECT se místo resetování dočasně vypnou obě tlačítka."
 #define PCE_MULTITAP_LABEL_CS "Multitap 5-portový Ovladač"
 #define PCE_MULTITAP_INFO_0_CS "Umožňuje emulaci až 5 hráčů ve více lidech. Vypnutí této funkce je nutné pouze v některých případech (např. Cho Aniki)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CS "Zobrazit Pokročilá Nastavení Vstupu/Turba"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CS "Zobrazení tlačítek Multitap, Myš, Turbo a pokročilých parametrů. POZNÁMKA: Pro obnovení seznamu se musíte vrátit do hry a znovu vstoupit do nabídky."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CS NULL
+#define OPTION_VAL_2_BUTTONS_CS NULL
+#define OPTION_VAL_6_BUTTONS_CS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CS NULL
 #define PCE_TURBO_TOGGLING_LABEL_CS "Režim Turbo Hotkey"
 #define PCE_TURBO_TOGGLING_INFO_0_CS "Povolení turbo tlačítek. Klávesové zkratky (tlačítka III a IV) se mohou chovat jako přepínače nebo jako vyhrazená turbo tlačítka (pro použití je třeba je podržet)."
 #define OPTION_VAL_TOGGLE_CS "Přepínač"
@@ -5632,6 +6136,20 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CS,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CS,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_CS,
       NULL,
@@ -5711,18 +6229,74 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CS,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CS,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CS,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CS,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CS },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CS },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CS,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CS,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CS },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CS },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CS,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CS,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CS },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CS },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CS,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CS,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CS },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CS },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CS,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CS,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CS },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CS },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -6172,6 +6746,8 @@ struct retro_core_options_v2 options_cs = {
 #define OPTION_VAL_HUC6280A_CY NULL
 #define PCE_RESAMP_QUALITY_LABEL_CY NULL
 #define PCE_RESAMP_QUALITY_INFO_0_CY NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CY NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CY NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_CY NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_CY NULL
 #define OPTION_VAL_0_125_CY NULL
@@ -6205,8 +6781,18 @@ struct retro_core_options_v2 options_cs = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_CY NULL
 #define PCE_MULTITAP_LABEL_CY NULL
 #define PCE_MULTITAP_INFO_0_CY NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CY NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CY NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CY NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CY NULL
+#define OPTION_VAL_2_BUTTONS_CY NULL
+#define OPTION_VAL_6_BUTTONS_CY NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CY NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CY NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CY NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CY NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CY NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CY NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CY NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CY NULL
 #define PCE_TURBO_TOGGLING_LABEL_CY NULL
 #define PCE_TURBO_TOGGLING_INFO_0_CY NULL
 #define OPTION_VAL_TOGGLE_CY NULL
@@ -6506,6 +7092,20 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CY,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CY,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_CY,
       NULL,
@@ -6585,18 +7185,74 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CY,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CY,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CY,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CY,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CY },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CY },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CY,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CY,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CY },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CY },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CY,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CY,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CY },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CY },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CY,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CY,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CY },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CY },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CY,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CY,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_CY },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_CY },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -7046,6 +7702,8 @@ struct retro_core_options_v2 options_cy = {
 #define OPTION_VAL_HUC6280A_DA NULL
 #define PCE_RESAMP_QUALITY_LABEL_DA NULL
 #define PCE_RESAMP_QUALITY_INFO_0_DA NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DA NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_DA NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_DA NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_DA NULL
 #define OPTION_VAL_0_125_DA NULL
@@ -7079,8 +7737,18 @@ struct retro_core_options_v2 options_cy = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_DA NULL
 #define PCE_MULTITAP_LABEL_DA NULL
 #define PCE_MULTITAP_INFO_0_DA NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DA NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_DA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_DA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_DA NULL
+#define OPTION_VAL_2_BUTTONS_DA NULL
+#define OPTION_VAL_6_BUTTONS_DA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_DA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_DA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_DA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_DA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_DA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_DA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_DA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_DA NULL
 #define PCE_TURBO_TOGGLING_LABEL_DA NULL
 #define PCE_TURBO_TOGGLING_INFO_0_DA NULL
 #define OPTION_VAL_TOGGLE_DA NULL
@@ -7380,6 +8048,20 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DA,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_DA,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_DA,
       NULL,
@@ -7459,18 +8141,74 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DA,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_DA,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_DA,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_DA,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_DA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_DA },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_DA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_DA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_DA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_DA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_DA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_DA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_DA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_DA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_DA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_DA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_DA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_DA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_DA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_DA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_DA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_DA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -7920,6 +8658,8 @@ struct retro_core_options_v2 options_da = {
 #define OPTION_VAL_HUC6280A_DE NULL
 #define PCE_RESAMP_QUALITY_LABEL_DE "Owl-Resampler-Qualität"
 #define PCE_RESAMP_QUALITY_INFO_0_DE "Höhere Werte führen zu einem besseren Signal-Rausch-Verhältnis und zur Erhaltung höherer Frequenzen, erhöhen jedoch die Rechenlast und können zu einer höheren Latenz und Übersteuerung führen, wenn die Lautstärke zu hoch eingestellt ist."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DE "Erweiterte Eingabe-/Turbo-Einstellungen anzeigen"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_DE "Multitap, Maus, Turbo-Tasten und erweiterte Parameter anzeigen. HINWEIS: Möglicherweise muss im Spiel zurückgegangen und das Menü erneut aufgerufen werden, um die Liste zu aktualisieren."
 #define PCE_MOUSE_SENSITIVITY_LABEL_DE "Mausempfindlichkeit"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_DE "Höhere Werte erhöhen die Geschwindigkeit des Mauszeigers."
 #define OPTION_VAL_0_125_DE "0,125"
@@ -7953,8 +8693,18 @@ struct retro_core_options_v2 options_da = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_DE "Wenn RUN und SELECT gleichzeitig gedrückt werden, werden beide Tasten vorübergehend deaktiviert, anstatt den Inhalt neu zu starten."
 #define PCE_MULTITAP_LABEL_DE "Multitap-5-Port-Controller"
 #define PCE_MULTITAP_INFO_0_DE "Multitap-Emulation für bis zu 5 Spieler aktivieren. Die Deaktivierung ist nur in einigen Fällen erforderlich (z. B. Cho Aniki)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DE "Erweiterte Eingabe-/Turbo-Einstellungen anzeigen"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_DE "Multitap, Maus, Turbotasten und erweiterte Parameter anzeigen. HINWEIS: Es muss im Spiel zurückgegangen werden und das Menü erneut aufrufen, um die Liste zu aktualisieren."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_DE "P1 Standard-Joypad-Typ"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_DE "Hier wählen, ob Joypad von Port 1 standardmäßig 2 oder 6 Tasten besitzen soll. Diese Option wird nur beim Start des Cores ausgeführt. Wenn umgeschaltet werden soll, während der Inhalt läuft, bitte den „Moduswechsel“ verwenden. HINWEIS: Ein 6-Tasten-Joypad kann sich in nicht kompatiblen Spielen seltsam verhalten."
+#define OPTION_VAL_2_BUTTONS_DE "2 Tasten"
+#define OPTION_VAL_6_BUTTONS_DE "6 Tasten"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_DE "P2 Standard-Joypad-Typ"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_DE "Hier wählen, ob Joypad von Port 2 standardmäßig 2 oder 6 Tasten besitzen soll. Diese Option wird nur beim Start des Cores ausgeführt. Wenn umgeschaltet werden soll, während der Inhalt läuft, bitte den „Moduswechsel“ verwenden. HINWEIS: Ein 6-Tasten-Joypad kann sich in nicht kompatiblen Spielen seltsam verhalten."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_DE "P3 Standard-Joypad-Typ"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_DE "Hier wählen, ob Joypad von Port 3 standardmäßig 2 oder 6 Tasten besitzen soll. Diese Option wird nur beim Start des Cores ausgeführt. Wenn umgeschaltet werden soll, während der Inhalt läuft, bitte den „Moduswechsel“ verwenden. HINWEIS: Ein 6-Tasten-Joypad kann sich in nicht kompatiblen Spielen seltsam verhalten."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_DE "P4 Standard-Joypad-Typ"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_DE "Hier wählen, ob Joypad von Port 4 standardmäßig 2 oder 6 Tasten besitzen soll. Diese Option wird nur beim Start des Cores ausgeführt. Wenn umgeschaltet werden soll, während der Inhalt läuft, bitte den „Moduswechsel“ verwenden. HINWEIS: Ein 6-Tasten-Joypad kann sich in nicht kompatiblen Spielen seltsam verhalten."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_DE "P5 Standard-Joypad-Typ"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_DE "Hier wählen, ob Joypad von Port 5 standardmäßig 2 oder 6 Tasten besitzen soll. Diese Option wird nur beim Start des Cores ausgeführt. Wenn umgeschaltet werden soll, während der Inhalt läuft, bitte den „Moduswechsel“ verwenden. HINWEIS: Ein 6-Tasten-Joypad kann sich in nicht kompatiblen Spielen seltsam verhalten."
 #define PCE_TURBO_TOGGLING_LABEL_DE "Turbo-Hotkey-Modus"
 #define PCE_TURBO_TOGGLING_INFO_0_DE "Turbotasten aktivieren. Hotkeys (Tasten III und IV) können entweder als Umschalter oder als dedizierte Turbotasten (zum Verwenden gedrückt halten) fungieren."
 #define OPTION_VAL_TOGGLE_DE "Umschalten"
@@ -8254,6 +9004,20 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DE,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_DE,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_DE,
       NULL,
@@ -8333,18 +9097,74 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_DE,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_DE,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_DE,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_DE,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_DE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_DE },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_DE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_DE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_DE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_DE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_DE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_DE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_DE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_DE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_DE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_DE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_DE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_DE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_DE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_DE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_DE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_DE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -8794,6 +9614,8 @@ struct retro_core_options_v2 options_de = {
 #define OPTION_VAL_HUC6280A_EL NULL
 #define PCE_RESAMP_QUALITY_LABEL_EL NULL
 #define PCE_RESAMP_QUALITY_INFO_0_EL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EL NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_EL "Ευαισθησία Ποντικιού"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_EL NULL
 #define OPTION_VAL_0_125_EL NULL
@@ -8827,8 +9649,18 @@ struct retro_core_options_v2 options_de = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_EL NULL
 #define PCE_MULTITAP_LABEL_EL NULL
 #define PCE_MULTITAP_INFO_0_EL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_EL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_EL NULL
+#define OPTION_VAL_2_BUTTONS_EL NULL
+#define OPTION_VAL_6_BUTTONS_EL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_EL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_EL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_EL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_EL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_EL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_EL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_EL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_EL NULL
 #define PCE_TURBO_TOGGLING_LABEL_EL NULL
 #define PCE_TURBO_TOGGLING_INFO_0_EL NULL
 #define OPTION_VAL_TOGGLE_EL NULL
@@ -9128,6 +9960,20 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EL,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EL,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_EL,
       NULL,
@@ -9207,18 +10053,74 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EL,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_EL,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EL,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_EL,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EL },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_EL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_EL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_EL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_EL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_EL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_EL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_EL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_EL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -9668,6 +10570,8 @@ struct retro_core_options_v2 options_el = {
 #define OPTION_VAL_HUC6280A_EN NULL
 #define PCE_RESAMP_QUALITY_LABEL_EN "Owl Re-sampler Quality"
 #define PCE_RESAMP_QUALITY_INFO_0_EN NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EN NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EN NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_EN NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_EN NULL
 #define OPTION_VAL_0_125_EN NULL
@@ -9701,8 +10605,18 @@ struct retro_core_options_v2 options_el = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_EN NULL
 #define PCE_MULTITAP_LABEL_EN "Multi-tap 5-port Controller"
 #define PCE_MULTITAP_INFO_0_EN "Enable up to 5-player multi-tap emulation. Disabling this is only needed in some cases (e.g. Cho Aniki)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EN NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EN "Show Multi-tap, Mouse, Turbo Buttons and advanced parameters. NOTE: You need to go back in game and re-enter the menu to refresh the list."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_EN NULL
+#define OPTION_VAL_2_BUTTONS_EN NULL
+#define OPTION_VAL_6_BUTTONS_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_EN NULL
 #define PCE_TURBO_TOGGLING_LABEL_EN NULL
 #define PCE_TURBO_TOGGLING_INFO_0_EN NULL
 #define OPTION_VAL_TOGGLE_EN NULL
@@ -10002,6 +10916,20 @@ struct retro_core_option_v2_definition option_defs_en[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EN,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EN,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_EN,
       NULL,
@@ -10081,18 +11009,74 @@ struct retro_core_option_v2_definition option_defs_en[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EN,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_EN,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EN,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_EN,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EN },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EN },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_EN,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_EN,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EN },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EN },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_EN,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_EN,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EN },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EN },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_EN,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_EN,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EN },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EN },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_EN,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_EN,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EN },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EN },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -10542,6 +11526,8 @@ struct retro_core_options_v2 options_en = {
 #define OPTION_VAL_HUC6280A_EO NULL
 #define PCE_RESAMP_QUALITY_LABEL_EO NULL
 #define PCE_RESAMP_QUALITY_INFO_0_EO NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EO NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EO NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_EO NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_EO NULL
 #define OPTION_VAL_0_125_EO NULL
@@ -10575,8 +11561,18 @@ struct retro_core_options_v2 options_en = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_EO NULL
 #define PCE_MULTITAP_LABEL_EO NULL
 #define PCE_MULTITAP_INFO_0_EO NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EO NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_EO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_EO NULL
+#define OPTION_VAL_2_BUTTONS_EO NULL
+#define OPTION_VAL_6_BUTTONS_EO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_EO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_EO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_EO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_EO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_EO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_EO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_EO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_EO NULL
 #define PCE_TURBO_TOGGLING_LABEL_EO NULL
 #define PCE_TURBO_TOGGLING_INFO_0_EO NULL
 #define OPTION_VAL_TOGGLE_EO NULL
@@ -10876,6 +11872,20 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EO,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EO,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_EO,
       NULL,
@@ -10955,18 +11965,74 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_EO,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_EO,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_EO,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_EO,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EO },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_EO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_EO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_EO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_EO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_EO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_EO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_EO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_EO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_EO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_EO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -11416,6 +12482,8 @@ struct retro_core_options_v2 options_eo = {
 #define OPTION_VAL_HUC6280A_ES NULL
 #define PCE_RESAMP_QUALITY_LABEL_ES "Calidad del remuestrador Owl"
 #define PCE_RESAMP_QUALITY_INFO_0_ES "Un valor alto producirá una mejor relación señal/ruido y conservará las frecuencias agudas, pero aumentará el coste de rendimiento y podría provocar una mayor latencia y ruidos si el volumen está demasiado alto."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ES "Mostrar ajustes avanzados de entrada/turbo"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ES "Muestra los ajustes del multitap, del ratón, de los botones turbo y otros parámetros avanzados. NOTA: podría ser necesario salir y volver a entrar del menú rápido para que este ajuste surta efecto."
 #define PCE_MOUSE_SENSITIVITY_LABEL_ES "Sensibilidad del ratón"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_ES "Un valor más alto hará que el cursor del ratón se desplace más rápido."
 #define OPTION_VAL_0_125_ES "0,125"
@@ -11449,8 +12517,18 @@ struct retro_core_options_v2 options_eo = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_ES "Cuando se pulsen a la vez los botones RUN y SELECT, esta opción desactivará los dos botones temporalmente en vez de provocar un reinicio del sistema."
 #define PCE_MULTITAP_LABEL_ES "Multitap para cinco mandos"
 #define PCE_MULTITAP_INFO_0_ES "Activa la emulación de un Multitap para hasta cinco jugadores. Solo es necesario desactivar esta opción en casos concretos (p. ej.: Cho Aniki)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ES "Mostrar ajustes avanzados de entrada/turbo"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ES "Muestra los ajustes del multitap, del ratón, de los botones turbo y otros parámetros avanzados. NOTA: es necesario salir y volver a entrar del menú rápido para que este ajuste surta efecto."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_ES "Tipo de mando predeterminado del J1"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_ES "Indica si el mando del puerto 1 debería ser uno de 2 o 6 botones por defecto. Esta opción se aplica únicamente al iniciar el núcleo: si deseas cambiar el tipo de mando mientras se esté ejecutando un contenido, debes usar el botón de cambio de modo. NOTA: los mandos de 6 botones pueden producir comportamientos extraños en juegos que no sean compatibles con este mando."
+#define OPTION_VAL_2_BUTTONS_ES "Dos botones"
+#define OPTION_VAL_6_BUTTONS_ES "Seis botones"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_ES "Tipo de mando predeterminado del J2"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_ES "Indica si el mando del puerto 2 debería ser uno de 2 o 6 botones por defecto. Esta opción se aplica únicamente al iniciar el núcleo: si deseas cambiar el tipo de mando mientras se esté ejecutando un contenido, debes usar el botón de cambio de modo. NOTA: los mandos de 6 botones pueden producir comportamientos extraños en juegos que no sean compatibles con este mando."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_ES "Tipo de mando predeterminado del J3"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_ES "Indica si el mando del puerto 3 debería ser uno de 2 o 6 botones por defecto. Esta opción se aplica únicamente al iniciar el núcleo: si deseas cambiar el tipo de mando mientras se esté ejecutando un contenido, debes usar el botón de cambio de modo. NOTA: los mandos de 6 botones pueden producir comportamientos extraños en juegos que no sean compatibles con este mando."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_ES "Tipo de mando predeterminado del J4"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_ES "Indica si el mando del puerto 4 debería ser uno de 2 o 6 botones por defecto. Esta opción se aplica únicamente al iniciar el núcleo: si deseas cambiar el tipo de mando mientras se esté ejecutando un contenido, debes usar el botón de cambio de modo. NOTA: los mandos de 6 botones pueden producir comportamientos extraños en juegos que no sean compatibles con este mando."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_ES "Tipo de mando predeterminado del J5"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_ES "Indica si el mando del puerto 5 debería ser uno de 2 o 6 botones por defecto. Esta opción se aplica únicamente al iniciar el núcleo: si deseas cambiar el tipo de mando mientras se esté ejecutando un contenido, debes usar el botón de cambio de modo. NOTA: los mandos de 6 botones pueden producir comportamientos extraños en juegos que no sean compatibles con este mando."
 #define PCE_TURBO_TOGGLING_LABEL_ES "Modo de la tecla rápida del turbo"
 #define PCE_TURBO_TOGGLING_INFO_0_ES "Activa los botones con turbo. Las teclas rápidas (los botones III y IV) pueden hacer de conmutadores o de botones de turbo dedicados (mantenlos pulsados para usarlos)."
 #define OPTION_VAL_TOGGLE_ES "Activación manual"
@@ -11750,6 +12828,20 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ES,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ES,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_ES,
       NULL,
@@ -11829,18 +12921,74 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ES,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_ES,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ES,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_ES,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_ES },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_ES },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_ES,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_ES,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_ES },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_ES },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_ES,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_ES,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_ES },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_ES },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_ES,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_ES,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_ES },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_ES },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_ES,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_ES,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_ES },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_ES },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -12290,6 +13438,8 @@ struct retro_core_options_v2 options_es = {
 #define OPTION_VAL_HUC6280A_FA NULL
 #define PCE_RESAMP_QUALITY_LABEL_FA NULL
 #define PCE_RESAMP_QUALITY_INFO_0_FA NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FA NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FA NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_FA NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_FA NULL
 #define OPTION_VAL_0_125_FA NULL
@@ -12323,8 +13473,18 @@ struct retro_core_options_v2 options_es = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_FA NULL
 #define PCE_MULTITAP_LABEL_FA NULL
 #define PCE_MULTITAP_INFO_0_FA NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FA NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_FA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_FA NULL
+#define OPTION_VAL_2_BUTTONS_FA NULL
+#define OPTION_VAL_6_BUTTONS_FA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_FA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_FA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_FA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_FA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_FA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_FA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_FA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_FA NULL
 #define PCE_TURBO_TOGGLING_LABEL_FA NULL
 #define PCE_TURBO_TOGGLING_INFO_0_FA NULL
 #define OPTION_VAL_TOGGLE_FA NULL
@@ -12624,6 +13784,20 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FA,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FA,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_FA,
       NULL,
@@ -12703,18 +13877,74 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FA,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_FA,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FA,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_FA,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FA },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_FA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_FA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_FA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_FA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_FA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_FA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_FA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_FA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -13164,6 +14394,8 @@ struct retro_core_options_v2 options_fa = {
 #define OPTION_VAL_HUC6280A_FI NULL
 #define PCE_RESAMP_QUALITY_LABEL_FI NULL
 #define PCE_RESAMP_QUALITY_INFO_0_FI NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FI NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FI NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_FI "Hiiren herkkyys"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_FI "Korkeammat arvot saavat hiiren kursorin liikkumaan nopeammin."
 #define OPTION_VAL_0_125_FI NULL
@@ -13197,8 +14429,18 @@ struct retro_core_options_v2 options_fa = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_FI "Kun RUN ja SELECT painetaan samanaikaisesti, poistetaan molemmat painikkeet käytöstä tilapäisesti soft resettaamisen sijaan."
 #define PCE_MULTITAP_LABEL_FI NULL
 #define PCE_MULTITAP_INFO_0_FI NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FI NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FI NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_FI NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_FI NULL
+#define OPTION_VAL_2_BUTTONS_FI NULL
+#define OPTION_VAL_6_BUTTONS_FI NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_FI NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_FI NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_FI NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_FI NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_FI NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_FI NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_FI NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_FI NULL
 #define PCE_TURBO_TOGGLING_LABEL_FI NULL
 #define PCE_TURBO_TOGGLING_INFO_0_FI NULL
 #define OPTION_VAL_TOGGLE_FI NULL
@@ -13498,6 +14740,20 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FI,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FI,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_FI,
       NULL,
@@ -13577,18 +14833,74 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FI,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_FI,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FI,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_FI,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FI },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FI },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_FI,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_FI,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FI },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FI },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_FI,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_FI,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FI },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FI },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_FI,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_FI,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FI },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FI },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_FI,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_FI,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FI },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FI },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -14038,6 +15350,8 @@ struct retro_core_options_v2 options_fi = {
 #define OPTION_VAL_HUC6280A_FR NULL
 #define PCE_RESAMP_QUALITY_LABEL_FR "Qualité du rééchantillonneur Owl"
 #define PCE_RESAMP_QUALITY_INFO_0_FR "Des valeurs plus élevées donnent un meilleur rapport de signal sur bruit et la préservation de fréquences plus élevées, mais augmentent le coût de calcul et peuvent entraîner une latence plus élevée et un écrêtement (clipping) si le volume est défini trop haut."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FR "Afficher options d'entrées/de turbo avancées"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FR "Afficher les paramètres de multitap, de souris, des touches turbo et les paramètres avancés. REMARQUE : Vous devrez peut-être revenir en jeu et réouvrir le menu pour actualiser la liste."
 #define PCE_MOUSE_SENSITIVITY_LABEL_FR "Sensibilité de la souris"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_FR "Des valeurs plus élevées rendront le curseur de la souris plus rapide."
 #define OPTION_VAL_0_125_FR "0,125"
@@ -14071,8 +15385,18 @@ struct retro_core_options_v2 options_fi = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_FR "Lorsque RUN et SELECT sont appuyés simultanément, désactiver temporairement les deux touches au lieu de réinitialiser."
 #define PCE_MULTITAP_LABEL_FR "Contrôleur multitap à 5 ports"
 #define PCE_MULTITAP_INFO_0_FR "Activer l'émulation multitap jusqu'à 5 joueurs. Désactiver ceci n'est nécessaire que dans certains cas (Cho Aniki par exemple)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FR "Afficher options d'entrées/de turbo avancées"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FR "Afficher les paramètres de multitap, de souris, des touches turbo et les paramètres avancés. REMARQUE : Vous devez revenir en jeu et réouvrir le menu pour actualiser la liste."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_FR "Type de manette par défaut pour le joueur 1"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_FR "Choisissez si la manette du port 1 doit avoir 2 ou 6 touches par défaut. Cette option n'est appliquée qu'au démarrage du cœur, si vous voulez changer de contenu lorsque du contenu est en cours d'exécution, utilisez la touche 'Mode Switch'. REMARQUE : Les manettes à 6 touches peuvent avoir des comportements bizarres dans des jeux non compatibles."
+#define OPTION_VAL_2_BUTTONS_FR "2 touches"
+#define OPTION_VAL_6_BUTTONS_FR "6 touches"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_FR "Type de manette par défaut pour le joueur 2"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_FR "Choisissez si la manette du port 2 doit avoir 2 ou 6 touches par défaut. Cette option n'est appliquée qu'au démarrage du cœur, si vous voulez changer de contenu lorsque du contenu est en cours d'exécution, utilisez la touche 'Mode Switch'. REMARQUE : Les manettes à 6 touches peuvent avoir des comportements bizarres dans des jeux non compatibles."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_FR "Type de manette par défaut pour le joueur 3"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_FR "Choisissez si la manette du port 3 doit avoir 2 ou 6 touches par défaut. Cette option n'est appliquée qu'au démarrage du cœur, si vous voulez changer de contenu lorsque du contenu est en cours d'exécution, utilisez la touche 'Mode Switch'. REMARQUE : Les manettes à 6 touches peuvent avoir des comportements bizarres dans des jeux non compatibles."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_FR "Type de manette par défaut pour le joueur 4"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_FR "Choisissez si la manette du port 4 doit avoir 2 ou 6 touches par défaut. Cette option n'est appliquée qu'au démarrage du cœur, si vous voulez changer de contenu lorsque du contenu est en cours d'exécution, utilisez la touche 'Mode Switch'. REMARQUE : Les manettes à 6 touches peuvent avoir des comportements bizarres dans des jeux non compatibles."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_FR "Type de manette par défaut pour le joueur 5"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_FR "Choisissez si la manette du port 5 doit avoir 2 ou 6 touches par défaut. Cette option n'est appliquée qu'au démarrage du cœur, si vous voulez changer de contenu lorsque du contenu est en cours d'exécution, utilisez la touche 'Mode Switch'. REMARQUE : Les manettes à 6 touches peuvent avoir des comportements bizarres dans des jeux non compatibles."
 #define PCE_TURBO_TOGGLING_LABEL_FR "Mode des touches de raccourci du turbo"
 #define PCE_TURBO_TOGGLING_INFO_0_FR "Activer les touches turbo. Les raccourcis (touches III et IV) peuvent se comporter comme des interrupteurs ou des touches turbo dédiées (maintenir enfoncées)."
 #define OPTION_VAL_TOGGLE_FR "Activer/désactiver"
@@ -14372,6 +15696,20 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FR,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FR,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_FR,
       NULL,
@@ -14451,18 +15789,74 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_FR,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_FR,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_FR,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_FR,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FR },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_FR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_FR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_FR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_FR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_FR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_FR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_FR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_FR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_FR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_FR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -14912,6 +16306,8 @@ struct retro_core_options_v2 options_fr = {
 #define OPTION_VAL_HUC6280A_GL NULL
 #define PCE_RESAMP_QUALITY_LABEL_GL NULL
 #define PCE_RESAMP_QUALITY_INFO_0_GL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_GL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_GL NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_GL NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_GL NULL
 #define OPTION_VAL_0_125_GL NULL
@@ -14945,8 +16341,18 @@ struct retro_core_options_v2 options_fr = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_GL NULL
 #define PCE_MULTITAP_LABEL_GL NULL
 #define PCE_MULTITAP_INFO_0_GL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_GL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_GL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_GL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_GL NULL
+#define OPTION_VAL_2_BUTTONS_GL NULL
+#define OPTION_VAL_6_BUTTONS_GL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_GL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_GL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_GL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_GL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_GL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_GL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_GL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_GL NULL
 #define PCE_TURBO_TOGGLING_LABEL_GL NULL
 #define PCE_TURBO_TOGGLING_INFO_0_GL NULL
 #define OPTION_VAL_TOGGLE_GL NULL
@@ -15246,6 +16652,20 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_GL,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_GL,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_GL,
       NULL,
@@ -15325,18 +16745,74 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_GL,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_GL,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_GL,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_GL,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_GL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_GL },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_GL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_GL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_GL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_GL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_GL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_GL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_GL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_GL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_GL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_GL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_GL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_GL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_GL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_GL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_GL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_GL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -15786,6 +17262,8 @@ struct retro_core_options_v2 options_gl = {
 #define OPTION_VAL_HUC6280A_HE NULL
 #define PCE_RESAMP_QUALITY_LABEL_HE NULL
 #define PCE_RESAMP_QUALITY_INFO_0_HE NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HE NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HE NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_HE NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_HE NULL
 #define OPTION_VAL_0_125_HE NULL
@@ -15819,8 +17297,18 @@ struct retro_core_options_v2 options_gl = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_HE NULL
 #define PCE_MULTITAP_LABEL_HE NULL
 #define PCE_MULTITAP_INFO_0_HE NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HE NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_HE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_HE NULL
+#define OPTION_VAL_2_BUTTONS_HE NULL
+#define OPTION_VAL_6_BUTTONS_HE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_HE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_HE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_HE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_HE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_HE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_HE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_HE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_HE NULL
 #define PCE_TURBO_TOGGLING_LABEL_HE NULL
 #define PCE_TURBO_TOGGLING_INFO_0_HE NULL
 #define OPTION_VAL_TOGGLE_HE NULL
@@ -16120,6 +17608,20 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HE,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HE,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_HE,
       NULL,
@@ -16199,18 +17701,74 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HE,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_HE,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HE,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_HE,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HE },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_HE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_HE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_HE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_HE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_HE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_HE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_HE,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_HE,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HE },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HE },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -16660,6 +18218,8 @@ struct retro_core_options_v2 options_he = {
 #define OPTION_VAL_HUC6280A_HR NULL
 #define PCE_RESAMP_QUALITY_LABEL_HR NULL
 #define PCE_RESAMP_QUALITY_INFO_0_HR NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HR NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HR NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_HR NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_HR NULL
 #define OPTION_VAL_0_125_HR NULL
@@ -16693,8 +18253,18 @@ struct retro_core_options_v2 options_he = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_HR NULL
 #define PCE_MULTITAP_LABEL_HR NULL
 #define PCE_MULTITAP_INFO_0_HR NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HR NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_HR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_HR NULL
+#define OPTION_VAL_2_BUTTONS_HR NULL
+#define OPTION_VAL_6_BUTTONS_HR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_HR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_HR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_HR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_HR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_HR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_HR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_HR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_HR NULL
 #define PCE_TURBO_TOGGLING_LABEL_HR NULL
 #define PCE_TURBO_TOGGLING_INFO_0_HR NULL
 #define OPTION_VAL_TOGGLE_HR NULL
@@ -16994,6 +18564,20 @@ struct retro_core_option_v2_definition option_defs_hr[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HR,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HR,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_HR,
       NULL,
@@ -17073,18 +18657,74 @@ struct retro_core_option_v2_definition option_defs_hr[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HR,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_HR,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HR,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_HR,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HR },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_HR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_HR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_HR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_HR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_HR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_HR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_HR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_HR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -17534,6 +19174,8 @@ struct retro_core_options_v2 options_hr = {
 #define OPTION_VAL_HUC6280A_HU NULL
 #define PCE_RESAMP_QUALITY_LABEL_HU "Az Owl újramintavételezés minősége"
 #define PCE_RESAMP_QUALITY_INFO_0_HU "Magasabb értékek jobb jel-zaj arányt eredményeznek és jobban megőrzik a magas frekvenciákat, de növelik a számításigényt és nagyobb késleltetést okozhatnak, illetve torzítást is, ha a hangerő túl magasra van állítva."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HU "Haladó bemenet / turbó beállítások megjelenítése"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HU NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_HU "Egér érzékenysége"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_HU "Magasabb értékek az egérkurzor gyorsabb mozgását eredményezik."
 #define OPTION_VAL_0_125_HU NULL
@@ -17567,8 +19209,18 @@ struct retro_core_options_v2 options_hr = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_HU "A RUN és SELECT gombok egyidejű megnyomásakor mindkét gomb ideiglenes letiltása, reset helyett."
 #define PCE_MULTITAP_LABEL_HU "Multitap 5 csatlakozós kontroller"
 #define PCE_MULTITAP_INFO_0_HU "Legfeljebb 5 játékos engedélyezése multitap emulációval. Csak néhány esetben szükséges kikapcsolni (pl. Cho Aniki)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HU "Haladó bemenet / turbó beállítások megjelenítése"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HU "A multitap, egér, turbó gombok, és haladó paraméterek megjelenítése. Figyelem: vissza kell lépni a játékba és újra belépni a menübe, hogy a lista frissüljön."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_HU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_HU NULL
+#define OPTION_VAL_2_BUTTONS_HU NULL
+#define OPTION_VAL_6_BUTTONS_HU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_HU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_HU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_HU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_HU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_HU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_HU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_HU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_HU NULL
 #define PCE_TURBO_TOGGLING_LABEL_HU "Turbó gyorsgomb mód"
 #define PCE_TURBO_TOGGLING_INFO_0_HU "Turbó gombok engedélyezése. A gyorsgombok (III és IV) váltógombként vagy kijelölt (nyomva tartással használható) turbó gombként működhetnek."
 #define OPTION_VAL_TOGGLE_HU "Váltógomb"
@@ -17868,6 +19520,20 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HU,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HU,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_HU,
       NULL,
@@ -17947,18 +19613,74 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HU,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_HU,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HU,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_HU,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HU },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HU },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_HU,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_HU,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HU },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HU },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_HU,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_HU,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HU },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HU },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_HU,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_HU,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HU },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HU },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_HU,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_HU,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_HU },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_HU },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -18408,6 +20130,8 @@ struct retro_core_options_v2 options_hu = {
 #define OPTION_VAL_HUC6280A_ID NULL
 #define PCE_RESAMP_QUALITY_LABEL_ID NULL
 #define PCE_RESAMP_QUALITY_INFO_0_ID NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ID "Tampilkan Lanjutan Pengaturan Masukan/Bertubi"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ID NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_ID "Sensivitas Mouse"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_ID NULL
 #define OPTION_VAL_0_125_ID NULL
@@ -18441,8 +20165,18 @@ struct retro_core_options_v2 options_hu = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_ID NULL
 #define PCE_MULTITAP_LABEL_ID NULL
 #define PCE_MULTITAP_INFO_0_ID NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ID "Tampilkan Lanjutan Pengaturan Masukan/Bertubi"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ID NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_ID NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_ID NULL
+#define OPTION_VAL_2_BUTTONS_ID NULL
+#define OPTION_VAL_6_BUTTONS_ID NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_ID NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_ID NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_ID NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_ID NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_ID NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_ID NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_ID NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_ID NULL
 #define PCE_TURBO_TOGGLING_LABEL_ID NULL
 #define PCE_TURBO_TOGGLING_INFO_0_ID NULL
 #define OPTION_VAL_TOGGLE_ID NULL
@@ -18742,6 +20476,20 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ID,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ID,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_ID,
       NULL,
@@ -18821,18 +20569,74 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ID,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_ID,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ID,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_ID,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_ID },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_ID },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_ID,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_ID,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_ID },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_ID },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_ID,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_ID,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_ID },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_ID },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_ID,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_ID,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_ID },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_ID },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_ID,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_ID,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_ID },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_ID },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -19282,6 +21086,8 @@ struct retro_core_options_v2 options_id = {
 #define OPTION_VAL_HUC6280A_IT NULL
 #define PCE_RESAMP_QUALITY_LABEL_IT "Qualità Del Owl Resampler"
 #define PCE_RESAMP_QUALITY_INFO_0_IT "Valori più alti danno un migliore rapporto segnale-rumore e la conservazione di frequenze più elevate, ma aumentano il costo di calcolo e possono causare una maggiore latenza e ritaglio se il volume è impostato troppo alto."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_IT "Mostra Impostazioni Avanzate Di Ingresso/Turbo"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_IT "Mostra Multitap, Mouse, Turbo Buttons e parametri avanzati. NOTA: Potrebbe essere necessario tornare in gioco e reinserire il menu per aggiornare l'elenco."
 #define PCE_MOUSE_SENSITIVITY_LABEL_IT "Sensibilità Mouse"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_IT "Valori più alti renderanno il cursore del mouse più veloce."
 #define OPTION_VAL_0_125_IT NULL
@@ -19315,8 +21121,18 @@ struct retro_core_options_v2 options_id = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_IT "Quando RUN e SELECT vengono premuti contemporaneamente, disabilitare temporaneamente entrambi i pulsanti invece di reimpostare."
 #define PCE_MULTITAP_LABEL_IT NULL
 #define PCE_MULTITAP_INFO_0_IT "Abilita l'emulazione multitap fino a 5 giocatori. Disabilitarla è necessaria solo in alcuni casi (ad esempio Cho Aniki)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_IT "Mostra Impostazioni Avanzate Di Ingresso/Turbo"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_IT "Mostra Multitap, Mouse, Turbo Buttons e parametri avanzati. NOTA: È necessario tornare in gioco e reinserire il menu per aggiornare l'elenco."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_IT "Tipo Joypad Predefinito P1"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_IT "Scegli se la porta 1 joypad deve essere 2 o 6 pulsanti per impostazione predefinita. Questa opzione viene applicata solo quando il core si avvia, se si desidera passare mentre il contenuto è in esecuzione, utilizzare il pulsante 'Commutatore di modalità'. NOTA: 6 pulsanti joypad possono avere comportamenti strani in giochi non compatibili."
+#define OPTION_VAL_2_BUTTONS_IT "2 Bottoni"
+#define OPTION_VAL_6_BUTTONS_IT "6 Bottoni"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_IT "Tipo Joypad Predefinito P2"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_IT "Scegli se la porta 2 joypad deve essere 2 o 6 pulsanti per impostazione predefinita. Questa opzione viene applicata solo quando il core si avvia, se si desidera passare mentre il contenuto è in esecuzione, utilizzare il pulsante 'Commutatore di modalità'. NOTA: 6 pulsanti joypad possono avere comportamenti strani in giochi non compatibili."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_IT "Tipo Joypad Predefinito P3"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_IT "Scegli se la porta 3 joypad dovrebbe essere 2 o 6 pulsanti per impostazione predefinita. Questa opzione viene applicata solo quando il core si avvia, se si desidera passare mentre il contenuto è in esecuzione, utilizzare il pulsante 'Commutatore di modalità'. NOTA: 6 pulsanti joypad possono avere comportamenti strani in giochi non compatibili."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_IT "Tipo Joypad Predefinito P4"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_IT "Scegli se la porta 4 joypad dovrebbe essere 2 o 6 pulsanti per impostazione predefinita. Questa opzione viene applicata solo quando il core si avvia, se si desidera passare mentre il contenuto è in esecuzione, utilizzare il pulsante 'Commutatore di modalità'. NOTA: 6 pulsanti joypad possono avere comportamenti strani in giochi non compatibili."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_IT "Tipo Joypad Predefinito P5"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_IT "Scegli se la porta 5 joypad dovrebbe essere 2 o 6 pulsanti per impostazione predefinita. Questa opzione viene applicata solo quando il core si avvia, se si desidera passare mentre il contenuto è in esecuzione, utilizzare il pulsante 'Commutatore di modalità'. NOTA: 6 pulsanti joypad possono avere comportamenti strani in giochi non compatibili."
 #define PCE_TURBO_TOGGLING_LABEL_IT "Modalità Scorciatoia Turbo"
 #define PCE_TURBO_TOGGLING_INFO_0_IT "Abilita i pulsanti turbo. I tasti di scelta rapida (pulsanti III e IV) possono comportarsi come interruttori o pulsanti turbo dedicati (tenere premuto per usare)."
 #define OPTION_VAL_TOGGLE_IT "Interrutore"
@@ -19616,6 +21432,20 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_IT,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_IT,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_IT,
       NULL,
@@ -19695,18 +21525,74 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_IT,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_IT,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_IT,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_IT,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_IT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_IT },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_IT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_IT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_IT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_IT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_IT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_IT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_IT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_IT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_IT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_IT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_IT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_IT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_IT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_IT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_IT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_IT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -20156,6 +22042,8 @@ struct retro_core_options_v2 options_it = {
 #define OPTION_VAL_HUC6280A_JA NULL
 #define PCE_RESAMP_QUALITY_LABEL_JA NULL
 #define PCE_RESAMP_QUALITY_INFO_0_JA NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_JA NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_JA NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_JA "マウス感度"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_JA "値を大きくすると、マウスカーソルがより速く移動します。"
 #define OPTION_VAL_0_125_JA NULL
@@ -20189,8 +22077,18 @@ struct retro_core_options_v2 options_it = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_JA "RUN と SELECT が同時に押された時に、リセットの代わりに一時的に両方のボタンを無効にします。"
 #define PCE_MULTITAP_LABEL_JA NULL
 #define PCE_MULTITAP_INFO_0_JA NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_JA NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_JA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_JA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_JA NULL
+#define OPTION_VAL_2_BUTTONS_JA NULL
+#define OPTION_VAL_6_BUTTONS_JA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_JA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_JA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_JA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_JA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_JA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_JA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_JA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_JA NULL
 #define PCE_TURBO_TOGGLING_LABEL_JA NULL
 #define PCE_TURBO_TOGGLING_INFO_0_JA NULL
 #define OPTION_VAL_TOGGLE_JA NULL
@@ -20490,6 +22388,20 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_JA,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_JA,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_JA,
       NULL,
@@ -20569,18 +22481,74 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_JA,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_JA,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_JA,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_JA,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_JA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_JA },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_JA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_JA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_JA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_JA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_JA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_JA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_JA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_JA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_JA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_JA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_JA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_JA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_JA,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_JA,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_JA },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_JA },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -21030,6 +22998,8 @@ struct retro_core_options_v2 options_ja = {
 #define OPTION_VAL_HUC6280A_KO NULL
 #define PCE_RESAMP_QUALITY_LABEL_KO "Owl 리샘플러 품질"
 #define PCE_RESAMP_QUALITY_INFO_0_KO "값이 높을수록 더 나은 신호 대비 잡음비를 제공하고 더 높은 주파수를 보존하지만 계산 비용이 증가하고 볼륨이 너무 높게 설정되면 더 높은 대기 시간과 클리핑이 발생할 수 있습니다."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_KO "고급 입력/터보 설정 표시"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_KO NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_KO "마우스 감도"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_KO "값이 높을수록 마우스 커서가 더 빠르게 움직입니다."
 #define OPTION_VAL_0_125_KO NULL
@@ -21063,8 +23033,18 @@ struct retro_core_options_v2 options_ja = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_KO "RUN과 SELECT를 동시에 누르면 리셋하는 대신 두 버튼을 일시적으로 비활성화합니다."
 #define PCE_MULTITAP_LABEL_KO "멀티탭 5포트 컨트롤러"
 #define PCE_MULTITAP_INFO_0_KO "최대 5인까지 지원하는 멀티탭 에뮬레이션을 활성화합니다. 비활성화는 일부 경우에만 필요합니다(예: Cho Aniki)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_KO "고급 입력/터보 설정 표시"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_KO "멀티탭, 마우스, 터보 버튼 및 고급 매개변수를 표시합니다. 참고: 목록을 새로 고치려면 게임으로 돌아간 후 다시 메뉴로 돌어와야합니다."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_KO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_KO NULL
+#define OPTION_VAL_2_BUTTONS_KO NULL
+#define OPTION_VAL_6_BUTTONS_KO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_KO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_KO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_KO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_KO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_KO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_KO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_KO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_KO NULL
 #define PCE_TURBO_TOGGLING_LABEL_KO "터포 핫키 모드"
 #define PCE_TURBO_TOGGLING_INFO_0_KO "터보 버튼을 활성화합니다. 핫키(버튼 III 및 IV)는 토글 스위치 또는 전용(길게 눌러 사용) 터보 버튼으로 작동할 수 있습니다."
 #define OPTION_VAL_TOGGLE_KO "토글"
@@ -21364,6 +23344,20 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_KO,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_KO,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_KO,
       NULL,
@@ -21443,18 +23437,74 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_KO,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_KO,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_KO,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_KO,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_KO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_KO },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_KO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_KO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_KO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_KO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_KO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_KO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_KO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_KO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_KO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_KO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_KO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_KO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_KO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_KO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_KO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_KO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -21904,6 +23954,8 @@ struct retro_core_options_v2 options_ko = {
 #define OPTION_VAL_HUC6280A_NL NULL
 #define PCE_RESAMP_QUALITY_LABEL_NL NULL
 #define PCE_RESAMP_QUALITY_INFO_0_NL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_NL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_NL NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_NL NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_NL NULL
 #define OPTION_VAL_0_125_NL NULL
@@ -21937,8 +23989,18 @@ struct retro_core_options_v2 options_ko = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_NL NULL
 #define PCE_MULTITAP_LABEL_NL NULL
 #define PCE_MULTITAP_INFO_0_NL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_NL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_NL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_NL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_NL NULL
+#define OPTION_VAL_2_BUTTONS_NL NULL
+#define OPTION_VAL_6_BUTTONS_NL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_NL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_NL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_NL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_NL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_NL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_NL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_NL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_NL NULL
 #define PCE_TURBO_TOGGLING_LABEL_NL NULL
 #define PCE_TURBO_TOGGLING_INFO_0_NL NULL
 #define OPTION_VAL_TOGGLE_NL NULL
@@ -22238,6 +24300,20 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_NL,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_NL,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_NL,
       NULL,
@@ -22317,18 +24393,74 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_NL,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_NL,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_NL,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_NL,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_NL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_NL },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_NL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_NL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_NL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_NL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_NL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_NL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_NL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_NL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_NL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_NL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_NL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_NL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_NL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_NL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_NL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_NL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -22778,6 +24910,8 @@ struct retro_core_options_v2 options_nl = {
 #define OPTION_VAL_HUC6280A_NO NULL
 #define PCE_RESAMP_QUALITY_LABEL_NO NULL
 #define PCE_RESAMP_QUALITY_INFO_0_NO NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_NO NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_NO NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_NO NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_NO NULL
 #define OPTION_VAL_0_125_NO NULL
@@ -22811,8 +24945,18 @@ struct retro_core_options_v2 options_nl = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_NO NULL
 #define PCE_MULTITAP_LABEL_NO NULL
 #define PCE_MULTITAP_INFO_0_NO NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_NO NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_NO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_NO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_NO NULL
+#define OPTION_VAL_2_BUTTONS_NO NULL
+#define OPTION_VAL_6_BUTTONS_NO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_NO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_NO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_NO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_NO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_NO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_NO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_NO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_NO NULL
 #define PCE_TURBO_TOGGLING_LABEL_NO NULL
 #define PCE_TURBO_TOGGLING_INFO_0_NO NULL
 #define OPTION_VAL_TOGGLE_NO NULL
@@ -23112,6 +25256,20 @@ struct retro_core_option_v2_definition option_defs_no[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_NO,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_NO,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_NO,
       NULL,
@@ -23191,18 +25349,74 @@ struct retro_core_option_v2_definition option_defs_no[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_NO,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_NO,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_NO,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_NO,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_NO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_NO },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_NO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_NO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_NO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_NO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_NO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_NO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_NO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_NO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_NO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_NO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_NO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_NO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_NO,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_NO,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_NO },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_NO },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -23652,6 +25866,8 @@ struct retro_core_options_v2 options_no = {
 #define OPTION_VAL_HUC6280A_PL NULL
 #define PCE_RESAMP_QUALITY_LABEL_PL NULL
 #define PCE_RESAMP_QUALITY_INFO_0_PL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PL "Pokaż zaawansowane ustawienia wejścia/Turbo"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PL NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_PL "Czułość myszy"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_PL "Wyższe wartości sprawią, że kursor myszy będzie się szybszy."
 #define OPTION_VAL_0_125_PL NULL
@@ -23685,8 +25901,18 @@ struct retro_core_options_v2 options_no = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_PL NULL
 #define PCE_MULTITAP_LABEL_PL NULL
 #define PCE_MULTITAP_INFO_0_PL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PL "Pokaż zaawansowane ustawienia wejścia/Turbo"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_PL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_PL NULL
+#define OPTION_VAL_2_BUTTONS_PL NULL
+#define OPTION_VAL_6_BUTTONS_PL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_PL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_PL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_PL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_PL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_PL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_PL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_PL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_PL NULL
 #define PCE_TURBO_TOGGLING_LABEL_PL NULL
 #define PCE_TURBO_TOGGLING_INFO_0_PL NULL
 #define OPTION_VAL_TOGGLE_PL "Przełącz"
@@ -23986,6 +26212,20 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PL,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PL,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_PL,
       NULL,
@@ -24065,18 +26305,74 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PL,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_PL,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PL,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_PL,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PL },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_PL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_PL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_PL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_PL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_PL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_PL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_PL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_PL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -24526,6 +26822,8 @@ struct retro_core_options_v2 options_pl = {
 #define OPTION_VAL_HUC6280A_PT_BR NULL
 #define PCE_RESAMP_QUALITY_LABEL_PT_BR "Qualidade da reamostragem Owl"
 #define PCE_RESAMP_QUALITY_INFO_0_PT_BR "Valores maiores melhoram a relação sinal-ruído e preservam as frequências maiores, mas aumentam o custo computacional e podem causar maior latência e recorte caso o volume seja configurado muito alto."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_BR "Mostrar as configurações avançadas de entrada e do turbo"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_BR NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_PT_BR "Sensibilidade do mouse"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_PT_BR "Valores maiores tornarão a movimentação do cursor do mouse mais rápida."
 #define OPTION_VAL_0_125_PT_BR "0,125"
@@ -24559,8 +26857,18 @@ struct retro_core_options_v2 options_pl = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_PT_BR "Ao pressionar RUN e SELECT simultaneamente, desativa ambos os botões temporariamente em vez de reinicializar."
 #define PCE_MULTITAP_LABEL_PT_BR "Multitap de 5 portas"
 #define PCE_MULTITAP_INFO_0_PT_BR "Ativa emulação de multitap de até 5 jogadores. A desativação é necessária em alguns casos (por ex. Cho Aniki)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_BR "Mostrar as configurações avançadas de entrada e do turbo"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_BR "Mostra as configurações do multitap, mouse, botões do turbo e outros parâmetros avançados. NOTA: você precisa voltar ao jogo e entrar novamente no menu para atualizar a lista."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_PT_BR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_PT_BR NULL
+#define OPTION_VAL_2_BUTTONS_PT_BR NULL
+#define OPTION_VAL_6_BUTTONS_PT_BR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_PT_BR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_PT_BR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_PT_BR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_PT_BR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_PT_BR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_PT_BR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_PT_BR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_PT_BR NULL
 #define PCE_TURBO_TOGGLING_LABEL_PT_BR "Modo de atalho do turbo"
 #define PCE_TURBO_TOGGLING_INFO_0_PT_BR "Habilita os botões turbo. Os atalhos (botões III e IV) podem comportar-se como interruptores ou como botões dedicados (segure para usar)."
 #define OPTION_VAL_TOGGLE_PT_BR "Interruptor"
@@ -24860,6 +27168,20 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_BR,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_BR,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_PT_BR,
       NULL,
@@ -24939,18 +27261,74 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_BR,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_PT_BR,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_BR,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_PT_BR,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PT_BR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PT_BR },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_PT_BR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_PT_BR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PT_BR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PT_BR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_PT_BR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_PT_BR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PT_BR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PT_BR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_PT_BR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_PT_BR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PT_BR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PT_BR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_PT_BR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_PT_BR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PT_BR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PT_BR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -25400,6 +27778,8 @@ struct retro_core_options_v2 options_pt_br = {
 #define OPTION_VAL_HUC6280A_PT_PT NULL
 #define PCE_RESAMP_QUALITY_LABEL_PT_PT NULL
 #define PCE_RESAMP_QUALITY_INFO_0_PT_PT NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_PT NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_PT NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_PT_PT NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_PT_PT NULL
 #define OPTION_VAL_0_125_PT_PT NULL
@@ -25433,8 +27813,18 @@ struct retro_core_options_v2 options_pt_br = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_PT_PT NULL
 #define PCE_MULTITAP_LABEL_PT_PT NULL
 #define PCE_MULTITAP_INFO_0_PT_PT NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_PT NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_PT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_PT_PT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_PT_PT NULL
+#define OPTION_VAL_2_BUTTONS_PT_PT NULL
+#define OPTION_VAL_6_BUTTONS_PT_PT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_PT_PT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_PT_PT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_PT_PT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_PT_PT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_PT_PT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_PT_PT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_PT_PT NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_PT_PT NULL
 #define PCE_TURBO_TOGGLING_LABEL_PT_PT NULL
 #define PCE_TURBO_TOGGLING_INFO_0_PT_PT NULL
 #define OPTION_VAL_TOGGLE_PT_PT NULL
@@ -25734,6 +28124,20 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_PT,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_PT,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_PT_PT,
       NULL,
@@ -25813,18 +28217,74 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_PT,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_PT_PT,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_PT,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_PT_PT,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PT_PT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PT_PT },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_PT_PT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_PT_PT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PT_PT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PT_PT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_PT_PT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_PT_PT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PT_PT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PT_PT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_PT_PT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_PT_PT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PT_PT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PT_PT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_PT_PT,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_PT_PT,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_PT_PT },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_PT_PT },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -26274,6 +28734,8 @@ struct retro_core_options_v2 options_pt_pt = {
 #define OPTION_VAL_HUC6280A_RU NULL
 #define PCE_RESAMP_QUALITY_LABEL_RU "Качество ресемплера Owl"
 #define PCE_RESAMP_QUALITY_INFO_0_RU "Более высокие значения улучшают соотношение сигнал-шум и сохраняют высокие частоты, но повышают сложность вычислений, могут увеличивать задержку и вызывать нелинейные искажения при завышении громкости."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU "Показывать расширенные настройки ввода/турбо"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RU NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_RU "Чувствительность мыши"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_RU "Более высокие значения повышают скорость перемещения курсора мыши."
 #define OPTION_VAL_0_125_RU NULL
@@ -26307,8 +28769,18 @@ struct retro_core_options_v2 options_pt_pt = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_RU "При одновременном нажатии RUN и SELECT вместо сброса обе кнопки будут временно отключаться."
 #define PCE_MULTITAP_LABEL_RU "Multitap на 5 контроллеров"
 #define PCE_MULTITAP_INFO_0_RU "Включает эмуляцию multitap до 5 игроков. Отключение настройки требуется лишь в отдельных случаях (напр. Cho Aniki)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU "Показывать расширенные настройки ввода/турбо"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RU "Показывать дополнительные параметры multitap, мыши и турбо-кнопок. Для применения настройки требуется вернуться в игру и повторно вызвать меню."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_RU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_RU NULL
+#define OPTION_VAL_2_BUTTONS_RU NULL
+#define OPTION_VAL_6_BUTTONS_RU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_RU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_RU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_RU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_RU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_RU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_RU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_RU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_RU NULL
 #define PCE_TURBO_TOGGLING_LABEL_RU "Режим турбо-кнопок"
 #define PCE_TURBO_TOGGLING_INFO_0_RU "Включение турбо-кнопок. Активаторы (кнопки III и IV) могут работать как переключатели или как выделенные кнопки, включаемые при удерживании."
 #define OPTION_VAL_TOGGLE_RU "Переключатели"
@@ -26608,6 +29080,20 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RU,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_RU,
       NULL,
@@ -26687,18 +29173,74 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_RU,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RU,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_RU,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_RU },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_RU },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_RU,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_RU,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_RU },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_RU },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_RU,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_RU,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_RU },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_RU },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_RU,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_RU,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_RU },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_RU },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_RU,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_RU,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_RU },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_RU },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -27148,6 +29690,8 @@ struct retro_core_options_v2 options_ru = {
 #define OPTION_VAL_HUC6280A_SK NULL
 #define PCE_RESAMP_QUALITY_LABEL_SK NULL
 #define PCE_RESAMP_QUALITY_INFO_0_SK NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SK NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SK NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_SK "Citlivosť myši"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_SK NULL
 #define OPTION_VAL_0_125_SK NULL
@@ -27181,8 +29725,18 @@ struct retro_core_options_v2 options_ru = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_SK NULL
 #define PCE_MULTITAP_LABEL_SK NULL
 #define PCE_MULTITAP_INFO_0_SK NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SK NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_SK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_SK NULL
+#define OPTION_VAL_2_BUTTONS_SK NULL
+#define OPTION_VAL_6_BUTTONS_SK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_SK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_SK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_SK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_SK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_SK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_SK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_SK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_SK NULL
 #define PCE_TURBO_TOGGLING_LABEL_SK NULL
 #define PCE_TURBO_TOGGLING_INFO_0_SK NULL
 #define OPTION_VAL_TOGGLE_SK "Prepnúť"
@@ -27482,6 +30036,20 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SK,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SK,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_SK,
       NULL,
@@ -27561,18 +30129,74 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SK,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_SK,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SK,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_SK,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SK },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SK },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_SK,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_SK,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SK },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SK },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_SK,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_SK,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SK },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SK },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_SK,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_SK,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SK },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SK },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_SK,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_SK,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SK },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SK },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -28022,6 +30646,8 @@ struct retro_core_options_v2 options_sk = {
 #define OPTION_VAL_HUC6280A_SR NULL
 #define PCE_RESAMP_QUALITY_LABEL_SR NULL
 #define PCE_RESAMP_QUALITY_INFO_0_SR NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SR NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SR NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_SR NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_SR NULL
 #define OPTION_VAL_0_125_SR NULL
@@ -28055,8 +30681,18 @@ struct retro_core_options_v2 options_sk = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_SR NULL
 #define PCE_MULTITAP_LABEL_SR NULL
 #define PCE_MULTITAP_INFO_0_SR NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SR NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_SR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_SR NULL
+#define OPTION_VAL_2_BUTTONS_SR NULL
+#define OPTION_VAL_6_BUTTONS_SR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_SR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_SR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_SR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_SR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_SR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_SR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_SR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_SR NULL
 #define PCE_TURBO_TOGGLING_LABEL_SR NULL
 #define PCE_TURBO_TOGGLING_INFO_0_SR NULL
 #define OPTION_VAL_TOGGLE_SR NULL
@@ -28356,6 +30992,20 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SR,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SR,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_SR,
       NULL,
@@ -28435,18 +31085,74 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SR,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_SR,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SR,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_SR,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SR },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_SR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_SR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_SR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_SR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_SR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_SR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_SR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_SR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -28896,6 +31602,8 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_HUC6280A_SV NULL
 #define PCE_RESAMP_QUALITY_LABEL_SV NULL
 #define PCE_RESAMP_QUALITY_INFO_0_SV NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SV NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SV NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_SV NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_SV NULL
 #define OPTION_VAL_0_125_SV NULL
@@ -28929,8 +31637,18 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_SV NULL
 #define PCE_MULTITAP_LABEL_SV NULL
 #define PCE_MULTITAP_INFO_0_SV NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SV NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SV NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_SV NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_SV NULL
+#define OPTION_VAL_2_BUTTONS_SV "2 knappar"
+#define OPTION_VAL_6_BUTTONS_SV "6 knappar"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_SV NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_SV NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_SV NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_SV NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_SV NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_SV NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_SV NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_SV NULL
 #define PCE_TURBO_TOGGLING_LABEL_SV NULL
 #define PCE_TURBO_TOGGLING_INFO_0_SV NULL
 #define OPTION_VAL_TOGGLE_SV "Växla"
@@ -29230,6 +31948,20 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SV,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SV,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_SV,
       NULL,
@@ -29309,18 +32041,74 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SV,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_SV,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SV,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_SV,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SV },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SV },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_SV,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_SV,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SV },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SV },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_SV,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_SV,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SV },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SV },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_SV,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_SV,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SV },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SV },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_SV,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_SV,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_SV },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_SV },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -29770,6 +32558,8 @@ struct retro_core_options_v2 options_sv = {
 #define OPTION_VAL_HUC6280A_TR NULL
 #define PCE_RESAMP_QUALITY_LABEL_TR "Owl Örnekleyici Kalitesi"
 #define PCE_RESAMP_QUALITY_INFO_0_TR "Daha yüksek değerler, daha iyi sinyal-gürültü oranı ve daha yüksek frekansların korunmasını sağlar, ancak hesaplama süresini artırır ve ses seviyesi çok yüksek ayarlanırsa daha yüksek gecikmeye ve kırpılmaya neden olabilir."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_TR "Gelişmiş Giriş/Turbo Ayarlarını Göster"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_TR "Multitap, Fare, Turbo Düğmeleri ve gelişmiş parametreleri gösterin. NOT: Listeyi yenilemek için oyuna geri dönüp menüye tekrar girmeniz gerekebilir."
 #define PCE_MOUSE_SENSITIVITY_LABEL_TR "Fare Hassasiyeti"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_TR "Daha yüksek değerler, fare imlecinin daha hızlı hareket etmesini sağlar."
 #define OPTION_VAL_0_125_TR NULL
@@ -29803,8 +32593,18 @@ struct retro_core_options_v2 options_sv = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_TR "RUN ve SELECT tuşlarına aynı anda basıldığında, yeniden başlatmak yerine iki tuşu da geçici olarak devre dışı bırak."
 #define PCE_MULTITAP_LABEL_TR "Multitap 5-port Kontrolcü"
 #define PCE_MULTITAP_INFO_0_TR "5 oyuncuya kadar çoklu kontrolcü desteğini etkinleştirin. Bunu devre dışı bırakmak bazı durumlarda gereklidir (örnek. Cho Aniki)."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_TR "Gelişmiş Giriş/Turbo Ayarlarını Göster"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_TR "Çoklu Dokunma, Fare, Turbo Düğmeleri ve gelişmiş parametreleri göster. NOT: Listeyi yenilemek için oyuna geri dönmeniz ve menüye tekrar girmeniz gerekmektedir."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_TR "P1 Varsayılan Joypad Tipi"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_TR "Port 1 joypad varsayılan olarak 2 veya 6 düğme olması gerekip gerekmediğini seçin. Bu seçenek yalnızca çekirdek başladığında uygulanır, içerik çalışırken geçiş yapmak istiyorsanız, 'Mod Değiştir' düğmesini kullanın. NOT: 6 düğmeli joypad, uyumlu olmayan oyunlarda garip davranışlara sahip olabilir."
+#define OPTION_VAL_2_BUTTONS_TR "2 Düğmeli"
+#define OPTION_VAL_6_BUTTONS_TR "6 Düğmeli"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_TR "P2 Varsayılan Joypad Tipi"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_TR "Port 2 joypad varsayılan olarak 2 veya 6 düğme olması gerekip gerekmediğini seçin. Bu seçenek yalnızca çekirdek başladığında uygulanır, içerik çalışırken geçiş yapmak istiyorsanız, 'Mod Değiştir' düğmesini kullanın. NOT: 6 düğmeli joypad, uyumlu olmayan oyunlarda garip davranışlara sahip olabilir."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_TR "P3 Varsayılan Joypad Tipi"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_TR "Port 3 joypad varsayılan olarak 2 veya 6 düğme olması gerekip gerekmediğini seçin. Bu seçenek yalnızca çekirdek başladığında uygulanır, içerik çalışırken geçiş yapmak istiyorsanız, 'Mod Değiştir' düğmesini kullanın. NOT: 6 düğmeli joypad, uyumlu olmayan oyunlarda garip davranışlara sahip olabilir."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_TR "P4 Varsayılan Joypad Tipi"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_TR "Port 4 joypad varsayılan olarak 2 veya 6 düğme olması gerekip gerekmediğini seçin. Bu seçenek yalnızca çekirdek başladığında uygulanır, içerik çalışırken geçiş yapmak istiyorsanız, 'Mod Değiştir' düğmesini kullanın. NOT: 6 düğmeli joypad, uyumlu olmayan oyunlarda garip davranışlara sahip olabilir."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_TR "P5 Varsayılan Joypad Tipi"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_TR "Port 5 joypad varsayılan olarak 2 veya 6 düğme olması gerekip gerekmediğini seçin. Bu seçenek yalnızca çekirdek başladığında uygulanır, içerik çalışırken geçiş yapmak istiyorsanız, 'Mod Değiştir' düğmesini kullanın. NOT: 6 düğmeli joypad, uyumlu olmayan oyunlarda garip davranışlara sahip olabilir."
 #define PCE_TURBO_TOGGLING_LABEL_TR "Turbo Kısayol Tuşu Kipi"
 #define PCE_TURBO_TOGGLING_INFO_0_TR "Turbo düğmelerini etkinleştirin. Kısayol tuşları (düğmeler III ve IV), geçiş anahtarı veya özel (kullanmak için basılı tutun) turbo düğmeleri gibi davranabilir."
 #define OPTION_VAL_TOGGLE_TR "Değiştir"
@@ -30104,6 +32904,20 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_TR,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_TR,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_TR,
       NULL,
@@ -30183,18 +32997,74 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_TR,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_TR,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_TR,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_TR,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_TR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_TR },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_TR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_TR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_TR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_TR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_TR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_TR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_TR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_TR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_TR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_TR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_TR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_TR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_TR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_TR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_TR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_TR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -30644,6 +33514,8 @@ struct retro_core_options_v2 options_tr = {
 #define OPTION_VAL_HUC6280A_UK NULL
 #define PCE_RESAMP_QUALITY_LABEL_UK NULL
 #define PCE_RESAMP_QUALITY_INFO_0_UK NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_UK NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_UK NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_UK "Чутливість миші"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_UK "Великі значення змусять курсор миші рухатися швидше."
 #define OPTION_VAL_0_125_UK NULL
@@ -30677,8 +33549,18 @@ struct retro_core_options_v2 options_tr = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_UK "Коли РУХ та ВИБІР одночасно натиснуто, тимчасово вимкнуться обидві кнопки замість скидання."
 #define PCE_MULTITAP_LABEL_UK NULL
 #define PCE_MULTITAP_INFO_0_UK NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_UK NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_UK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_UK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_UK NULL
+#define OPTION_VAL_2_BUTTONS_UK NULL
+#define OPTION_VAL_6_BUTTONS_UK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_UK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_UK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_UK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_UK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_UK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_UK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_UK NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_UK NULL
 #define PCE_TURBO_TOGGLING_LABEL_UK "Турборежим гарячих клавіш"
 #define PCE_TURBO_TOGGLING_INFO_0_UK "Увімкнути турбокнопки. Гарячі клавіші (кнопки III та IV) можуть поводити себе як перемикачі або виділені (утримування) турбокнопки."
 #define OPTION_VAL_TOGGLE_UK "Перемикач"
@@ -30978,6 +33860,20 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_UK,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_UK,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_UK,
       NULL,
@@ -31057,18 +33953,74 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_UK,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_UK,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_UK,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_UK,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_UK },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_UK },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_UK,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_UK,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_UK },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_UK },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_UK,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_UK,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_UK },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_UK },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_UK,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_UK,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_UK },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_UK },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_UK,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_UK,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_UK },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_UK },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -31518,6 +34470,8 @@ struct retro_core_options_v2 options_uk = {
 #define OPTION_VAL_HUC6280A_VAL NULL
 #define PCE_RESAMP_QUALITY_LABEL_VAL NULL
 #define PCE_RESAMP_QUALITY_INFO_0_VAL "Els valors alts donen una millor proporció i preservació d'altes freqüències de relació senyal-soroll, però augmenta el cost de recursos i pot causar major latència i retallada d'imatge si el volum es posa massa alt."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VAL NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VAL NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_VAL NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_VAL NULL
 #define OPTION_VAL_0_125_VAL "0,125"
@@ -31551,8 +34505,18 @@ struct retro_core_options_v2 options_uk = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_VAL NULL
 #define PCE_MULTITAP_LABEL_VAL NULL
 #define PCE_MULTITAP_INFO_0_VAL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VAL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VAL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_VAL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_VAL NULL
+#define OPTION_VAL_2_BUTTONS_VAL NULL
+#define OPTION_VAL_6_BUTTONS_VAL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_VAL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_VAL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_VAL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_VAL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_VAL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_VAL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_VAL NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_VAL NULL
 #define PCE_TURBO_TOGGLING_LABEL_VAL NULL
 #define PCE_TURBO_TOGGLING_INFO_0_VAL NULL
 #define OPTION_VAL_TOGGLE_VAL NULL
@@ -31852,6 +34816,20 @@ struct retro_core_option_v2_definition option_defs_val[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VAL,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VAL,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_VAL,
       NULL,
@@ -31931,18 +34909,74 @@ struct retro_core_option_v2_definition option_defs_val[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VAL,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_VAL,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VAL,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_VAL,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_VAL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_VAL },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_VAL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_VAL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_VAL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_VAL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_VAL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_VAL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_VAL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_VAL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_VAL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_VAL,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_VAL,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_VAL },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_VAL },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
@@ -32392,6 +35426,8 @@ struct retro_core_options_v2 options_val = {
 #define OPTION_VAL_HUC6280A_VN NULL
 #define PCE_RESAMP_QUALITY_LABEL_VN NULL
 #define PCE_RESAMP_QUALITY_INFO_0_VN NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VN NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VN NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_VN NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_VN NULL
 #define OPTION_VAL_0_125_VN NULL
@@ -32425,8 +35461,18 @@ struct retro_core_options_v2 options_val = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_VN NULL
 #define PCE_MULTITAP_LABEL_VN NULL
 #define PCE_MULTITAP_INFO_0_VN NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VN NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_VN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_VN NULL
+#define OPTION_VAL_2_BUTTONS_VN NULL
+#define OPTION_VAL_6_BUTTONS_VN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_VN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_VN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_VN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_VN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_VN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_VN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_VN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_VN NULL
 #define PCE_TURBO_TOGGLING_LABEL_VN NULL
 #define PCE_TURBO_TOGGLING_INFO_0_VN NULL
 #define OPTION_VAL_TOGGLE_VN NULL
@@ -32726,6 +35772,20 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       "3"
    },
    {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VN,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VN,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
       "pce_mouse_sensitivity",
       PCE_MOUSE_SENSITIVITY_LABEL_VN,
       NULL,
@@ -32805,18 +35865,74 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       "enabled"
    },
    {
-      "pce_show_advanced_input_settings",
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_VN,
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_VN,
       NULL,
-      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_VN,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_VN,
       NULL,
-      NULL,
+      "input",
       {
-         { "enabled",  NULL },
-         { "disabled", NULL },
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_VN },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_VN },
          { NULL, NULL},
       },
-      "disabled"
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_VN,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_VN,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_VN },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_VN },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_VN,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_VN,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_VN },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_VN },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_VN,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_VN,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_VN },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_VN },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_VN,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_VN,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_VN },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_VN },
+         { NULL, NULL},
+      },
+      "2 Buttons"
    },
    {
       "pce_Turbo_Toggling",
