@@ -1847,12 +1847,13 @@ void retro_get_system_av_info(struct retro_system_av_info *info)
 
 void retro_deinit()
 {
-   if (surf->pixels)
-      free(surf->pixels);
-   surf->pixels = NULL;
-
    if (surf)
+   {
+      if (surf->pixels)
+         free(surf->pixels);
+      surf->pixels = NULL;
       free(surf);
+   }
    surf = NULL;
 
    if (log_cb)
