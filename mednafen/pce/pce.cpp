@@ -449,7 +449,10 @@ MDFN_COLD int PCE_LoadCD(std::vector<CDIF *> *CDInterfaces)
 
 	MDFNFILE *fp = file_open(bios_path.c_str());
 	if (!fp)
+	{
+		MDFN_DispMessage("Firmware not found: '%s'", bios_path.c_str());
 		return 0;
+	}
 
 	bool disable_bram_cd = MDFN_GetSettingB("pce.disable_bram_cd");
 
