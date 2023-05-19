@@ -1930,7 +1930,7 @@ struct retro_core_options_v2 options_ast = {
 #define CATEGORY_VIDEO_INFO_0_BE NULL
 #define CATEGORY_AUDIO_LABEL_BE "Аўдыё"
 #define CATEGORY_AUDIO_INFO_0_BE NULL
-#define CATEGORY_INPUT_LABEL_BE NULL
+#define CATEGORY_INPUT_LABEL_BE "Увод"
 #define CATEGORY_INPUT_INFO_0_BE NULL
 #define CATEGORY_HACKS_LABEL_BE NULL
 #define CATEGORY_HACKS_INFO_0_BE NULL
@@ -1940,7 +1940,7 @@ struct retro_core_options_v2 options_ast = {
 #define PCE_PALETTE_INFO_0_BE NULL
 #define OPTION_VAL_RGB_BE NULL
 #define OPTION_VAL_COMPOSITE_BE NULL
-#define PCE_ASPECT_RATIO_LABEL_BE NULL
+#define PCE_ASPECT_RATIO_LABEL_BE "Суадносіны бакоў"
 #define PCE_ASPECT_RATIO_INFO_0_BE NULL
 #define OPTION_VAL_AUTO_BE NULL
 #define OPTION_VAL_6_5_BE NULL
@@ -5791,7 +5791,7 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_RESAMP_QUALITY_LABEL_CS "Kvalita Sovího Převzorkování"
 #define PCE_RESAMP_QUALITY_INFO_0_CS "Vyšší hodnoty poskytují lepší odstup signálu od šumu a zachování vyšších frekvencí, ale zvyšují náklady na výpočet a mohou způsobit vyšší latenci a oříznutí, pokud je hlasitost nastavena příliš vysoko."
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CS "Zobrazit Pokročilá Nastavení Vstupu/Turba"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CS NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CS "Zobrazení tlačítek Multitap, Myš, Turbo a pokročilých parametrů. POZNÁMKA: Pro obnovení seznamu se možná budete muset vrátit do hry a znovu vstoupit do menu."
 #define PCE_MOUSE_SENSITIVITY_LABEL_CS "Citlivost Myší"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_CS "Při vyšších hodnotách se kurzor myši pohybuje rychleji."
 #define OPTION_VAL_0_125_CS NULL
@@ -5825,18 +5825,18 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_CS "Při současném stisknutí tlačítek RUN a SELECT se místo resetování dočasně vypnou obě tlačítka."
 #define PCE_MULTITAP_LABEL_CS "Multitap 5-portový Ovladač"
 #define PCE_MULTITAP_INFO_0_CS "Umožňuje emulaci až 5 hráčů ve více lidech. Vypnutí této funkce je nutné pouze v některých případech (např. Cho Aniki)."
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CS NULL
-#define OPTION_VAL_2_BUTTONS_CS NULL
-#define OPTION_VAL_6_BUTTONS_CS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CS "P1 Výchozí typ joypadu"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CS "Zvolte, zda má mít joypad port 1 ve výchozím nastavení 2 nebo 6 tlačítek. Tato volba se použije pouze při spuštění jádra, pokud chcete přepínat za běhu obsahu, použijte tlačítko \"Přepínač režimů\". POZNÁMKA: 6tlačítkový joypad může mít v nekompatibilních hrách podivné chování."
+#define OPTION_VAL_2_BUTTONS_CS "2 Tlačítka"
+#define OPTION_VAL_6_BUTTONS_CS "6 Tlačítek"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CS "P2 Výchozí typ joypadu"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CS "Vyberte, zda má mít joypad port 2 ve výchozím nastavení 2 nebo 6 tlačítek. Tato volba se použije pouze při spuštění jádra, pokud chcete přepínat za běhu obsahu, použijte tlačítko \"Přepínač režimů\". POZNÁMKA: 6tlačítkový joypad může mít v nekompatibilních hrách podivné chování."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CS "P3 Výchozí typ joypadu"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CS "Zvolte, zda má mít joypad port 3 ve výchozím nastavení 2 nebo 6 tlačítek. Tato volba se použije pouze při spuštění jádra, pokud chcete přepínat za běhu obsahu, použijte tlačítko \"Přepínač režimů\". POZNÁMKA: 6tlačítkový joypad může mít v nekompatibilních hrách podivné chování."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CS "P4 Výchozí typ joypadu"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CS "Zvolte, zda má mít joypad port 4 ve výchozím nastavení 2 nebo 6 tlačítek. Tato volba se použije pouze při spuštění jádra, pokud chcete přepínat za běhu obsahu, použijte tlačítko \"Přepínač režimů\". POZNÁMKA: 6tlačítkový joypad může mít v nekompatibilních hrách podivné chování."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CS "P5 Výchozí typ joypadu"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CS "Zvolte, zda má mít joypad port 5 ve výchozím nastavení 2 nebo 6 tlačítek. Tato volba se použije pouze při spuštění jádra, pokud chcete přepínat za běhu obsahu, použijte tlačítko \"Přepínač režimů\". POZNÁMKA: 6tlačítkový joypad může mít v nekompatibilních hrách podivné chování."
 #define PCE_TURBO_TOGGLING_LABEL_CS "Režim Turbo Hotkey"
 #define PCE_TURBO_TOGGLING_INFO_0_CS "Povolení turbo tlačítek. Klávesové zkratky (tlačítka III a IV) se mohou chovat jako přepínače nebo jako vyhrazená turbo tlačítka (pro použití je třeba je podržet)."
 #define OPTION_VAL_TOGGLE_CS "Přepínač"
@@ -25822,6 +25822,962 @@ struct retro_core_option_v2_definition option_defs_no[] = {
 struct retro_core_options_v2 options_no = {
    option_cats_no,
    option_defs_no
+};
+
+/* RETRO_LANGUAGE_OR */
+
+#define CATEGORY_VIDEO_LABEL_OR "ଵିଡ଼ିଓ"
+#define CATEGORY_VIDEO_INFO_0_OR NULL
+#define CATEGORY_AUDIO_LABEL_OR "ଅଡ଼ିଓ"
+#define CATEGORY_AUDIO_INFO_0_OR NULL
+#define CATEGORY_INPUT_LABEL_OR NULL
+#define CATEGORY_INPUT_INFO_0_OR NULL
+#define CATEGORY_HACKS_LABEL_OR NULL
+#define CATEGORY_HACKS_INFO_0_OR NULL
+#define CATEGORY_CD_LABEL_OR NULL
+#define CATEGORY_CD_INFO_0_OR NULL
+#define PCE_PALETTE_LABEL_OR NULL
+#define PCE_PALETTE_INFO_0_OR NULL
+#define OPTION_VAL_RGB_OR NULL
+#define OPTION_VAL_COMPOSITE_OR NULL
+#define PCE_ASPECT_RATIO_LABEL_OR NULL
+#define PCE_ASPECT_RATIO_INFO_0_OR NULL
+#define OPTION_VAL_AUTO_OR NULL
+#define OPTION_VAL_6_5_OR NULL
+#define OPTION_VAL_4_3_OR NULL
+#define OPTION_VAL_UNCORRECTED_OR NULL
+#define PCE_SCALING_LABEL_OR NULL
+#define PCE_SCALING_INFO_0_OR NULL
+#define OPTION_VAL_LORES_OR NULL
+#define OPTION_VAL_HIRES_OR NULL
+#define PCE_HIRES_BLEND_LABEL_OR NULL
+#define PCE_HIRES_BLEND_INFO_0_OR NULL
+#define PCE_H_OVERSCAN_LABEL_OR NULL
+#define PCE_H_OVERSCAN_INFO_0_OR NULL
+#define PCE_INITIAL_SCANLINE_LABEL_OR NULL
+#define PCE_INITIAL_SCANLINE_INFO_0_OR NULL
+#define OPTION_VAL_3_OR NULL
+#define PCE_LAST_SCANLINE_LABEL_OR NULL
+#define PCE_LAST_SCANLINE_INFO_0_OR NULL
+#define OPTION_VAL_242_OR NULL
+#define PCE_PSGREVISION_LABEL_OR NULL
+#define PCE_PSGREVISION_INFO_0_OR NULL
+#define OPTION_VAL_HUC6280_OR NULL
+#define OPTION_VAL_HUC6280A_OR NULL
+#define PCE_RESAMP_QUALITY_LABEL_OR NULL
+#define PCE_RESAMP_QUALITY_INFO_0_OR NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_OR NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_OR NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_OR NULL
+#define PCE_MOUSE_SENSITIVITY_INFO_0_OR NULL
+#define OPTION_VAL_0_125_OR NULL
+#define OPTION_VAL_0_250_OR NULL
+#define OPTION_VAL_0_375_OR NULL
+#define OPTION_VAL_0_500_OR NULL
+#define OPTION_VAL_0_625_OR NULL
+#define OPTION_VAL_0_750_OR NULL
+#define OPTION_VAL_0_875_OR NULL
+#define OPTION_VAL_1_000_OR NULL
+#define OPTION_VAL_1_125_OR NULL
+#define OPTION_VAL_1_25_OR NULL
+#define OPTION_VAL_1_50_OR NULL
+#define OPTION_VAL_1_75_OR NULL
+#define OPTION_VAL_2_00_OR NULL
+#define OPTION_VAL_2_25_OR NULL
+#define OPTION_VAL_2_50_OR NULL
+#define OPTION_VAL_2_75_OR NULL
+#define OPTION_VAL_3_00_OR NULL
+#define OPTION_VAL_3_25_OR NULL
+#define OPTION_VAL_3_50_OR NULL
+#define OPTION_VAL_3_75_OR NULL
+#define OPTION_VAL_4_00_OR NULL
+#define OPTION_VAL_4_25_OR NULL
+#define OPTION_VAL_4_50_OR NULL
+#define OPTION_VAL_4_75_OR NULL
+#define OPTION_VAL_5_00_OR NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_OR NULL
+#define PCE_UP_DOWN_ALLOWED_INFO_0_OR NULL
+#define PCE_DISABLE_SOFTRESET_LABEL_OR NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_OR NULL
+#define PCE_MULTITAP_LABEL_OR NULL
+#define PCE_MULTITAP_INFO_0_OR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_OR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_OR NULL
+#define OPTION_VAL_2_BUTTONS_OR NULL
+#define OPTION_VAL_6_BUTTONS_OR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_OR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_OR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_OR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_OR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_OR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_OR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_OR NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_OR NULL
+#define PCE_TURBO_TOGGLING_LABEL_OR NULL
+#define PCE_TURBO_TOGGLING_INFO_0_OR NULL
+#define OPTION_VAL_TOGGLE_OR NULL
+#define OPTION_VAL_ALWAYS_OR NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_OR NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_OR NULL
+#define PCE_TURBO_DELAY_LABEL_OR NULL
+#define PCE_TURBO_DELAY_INFO_0_OR NULL
+#define OPTION_VAL_FAST_OR NULL
+#define OPTION_VAL_MEDIUM_OR NULL
+#define OPTION_VAL_SLOW_OR NULL
+#define PCE_P0_TURBO_I_ENABLE_LABEL_OR NULL
+#define PCE_P0_TURBO_II_ENABLE_LABEL_OR NULL
+#define PCE_P1_TURBO_I_ENABLE_LABEL_OR NULL
+#define PCE_P1_TURBO_II_ENABLE_LABEL_OR NULL
+#define PCE_P2_TURBO_I_ENABLE_LABEL_OR NULL
+#define PCE_P2_TURBO_II_ENABLE_LABEL_OR NULL
+#define PCE_P3_TURBO_I_ENABLE_LABEL_OR NULL
+#define PCE_P3_TURBO_II_ENABLE_LABEL_OR NULL
+#define PCE_P4_TURBO_I_ENABLE_LABEL_OR NULL
+#define PCE_P4_TURBO_II_ENABLE_LABEL_OR NULL
+#define PCE_CDIMAGECACHE_LABEL_OR NULL
+#define PCE_CDIMAGECACHE_INFO_0_OR NULL
+#define PCE_CDBIOS_LABEL_OR NULL
+#define PCE_CDBIOS_INFO_0_OR NULL
+#define OPTION_VAL_GAMES_EXPRESS_OR NULL
+#define OPTION_VAL_SYSTEM_CARD_1_OR NULL
+#define OPTION_VAL_SYSTEM_CARD_2_OR NULL
+#define OPTION_VAL_SYSTEM_CARD_3_OR NULL
+#define OPTION_VAL_SYSTEM_CARD_2_US_OR NULL
+#define OPTION_VAL_SYSTEM_CARD_3_US_OR NULL
+#define PCE_ARCADECARD_LABEL_OR NULL
+#define PCE_ARCADECARD_INFO_0_OR NULL
+#define PCE_CDSPEED_LABEL_OR NULL
+#define PCE_CDSPEED_LABEL_CAT_OR NULL
+#define PCE_CDSPEED_INFO_0_OR NULL
+#define PCE_ADPCMEXTRAPREC_LABEL_OR NULL
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_OR NULL
+#define PCE_ADPCMEXTRAPREC_INFO_0_OR NULL
+#define OPTION_VAL_10_BIT_OR NULL
+#define OPTION_VAL_12_BIT_OR NULL
+#define PCE_ADPCMVOLUME_LABEL_OR NULL
+#define PCE_ADPCMVOLUME_LABEL_CAT_OR NULL
+#define PCE_ADPCMVOLUME_INFO_0_OR NULL
+#define PCE_ADPCMVOLUME_INFO_1_OR NULL
+#define PCE_CDDAVOLUME_LABEL_OR NULL
+#define PCE_CDDAVOLUME_LABEL_CAT_OR NULL
+#define PCE_CDPSGVOLUME_LABEL_OR NULL
+#define PCE_CDPSGVOLUME_LABEL_CAT_OR NULL
+#define PCE_NOSPRITELIMIT_LABEL_OR NULL
+#define PCE_NOSPRITELIMIT_INFO_0_OR NULL
+#define PCE_OCMULTIPLIER_LABEL_OR NULL
+#define PCE_OCMULTIPLIER_INFO_0_OR NULL
+
+struct retro_core_option_v2_category option_cats_or[] = {
+   {
+      "video",
+      CATEGORY_VIDEO_LABEL_OR,
+      CATEGORY_VIDEO_INFO_0_OR
+   },
+   {
+      "audio",
+      CATEGORY_AUDIO_LABEL_OR,
+      CATEGORY_AUDIO_INFO_0_OR
+   },
+   {
+      "input",
+      CATEGORY_INPUT_LABEL_OR,
+      CATEGORY_INPUT_INFO_0_OR
+   },
+   {
+      "hacks",
+      CATEGORY_HACKS_LABEL_OR,
+      CATEGORY_HACKS_INFO_0_OR
+   },
+   {
+      "cd",
+      CATEGORY_CD_LABEL_OR,
+      CATEGORY_CD_INFO_0_OR
+   },
+   { NULL, NULL, NULL },
+};
+struct retro_core_option_v2_definition option_defs_or[] = {
+   {
+      "pce_palette",
+      PCE_PALETTE_LABEL_OR,
+      NULL,
+      PCE_PALETTE_INFO_0_OR,
+      NULL,
+      "video",
+      {
+         { "RGB", OPTION_VAL_RGB_OR },
+         { "Composite", OPTION_VAL_COMPOSITE_OR },
+         { NULL, NULL},
+      },
+      "RGB"
+   },
+   {
+      "pce_aspect_ratio",
+      PCE_ASPECT_RATIO_LABEL_OR,
+      NULL,
+      PCE_ASPECT_RATIO_INFO_0_OR,
+      NULL, 
+      "video",
+      {
+         { "auto", OPTION_VAL_AUTO_OR },
+         { "6:5", OPTION_VAL_6_5_OR },
+         { "4:3", OPTION_VAL_4_3_OR },
+         { "uncorrected", OPTION_VAL_UNCORRECTED_OR },
+         { NULL, NULL},
+      },
+      "auto"
+   },
+   {
+      "pce_scaling",
+      PCE_SCALING_LABEL_OR,
+      NULL,
+      PCE_SCALING_INFO_0_OR,
+      NULL,
+      "video",
+      {
+         { "auto", OPTION_VAL_AUTO_OR },
+         { "lores", OPTION_VAL_LORES_OR },
+         { "hires", OPTION_VAL_HIRES_OR },
+         { NULL, NULL},
+      },
+      "auto"
+   },
+   {
+      "pce_hires_blend",
+      PCE_HIRES_BLEND_LABEL_OR,
+      NULL,
+      PCE_HIRES_BLEND_INFO_0_OR,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "1", NULL },
+         { "2", NULL },
+         { "3", NULL },
+         { "4", NULL },
+         { "5", NULL },
+         { "6", NULL },
+         { "7", NULL },
+         { "8", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_h_overscan",
+      PCE_H_OVERSCAN_LABEL_OR,
+      NULL,
+      PCE_H_OVERSCAN_INFO_0_OR,
+      NULL,
+      "video",
+      {
+         { "auto", OPTION_VAL_AUTO_OR },
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "auto"
+   },
+   {
+      "pce_initial_scanline",
+      PCE_INITIAL_SCANLINE_LABEL_OR,
+      NULL,
+      PCE_INITIAL_SCANLINE_INFO_0_OR,
+      NULL,
+      "video",
+      {
+         { "0", NULL },
+         { "1", NULL },
+         { "2", NULL },
+         { "3", OPTION_VAL_3_OR },
+         { "4", NULL },
+         { "5", NULL },
+         { "6", NULL },
+         { "7", NULL },
+         { "8", NULL },
+         { "9", NULL },
+         { "10", NULL },
+         { "11", NULL },
+         { "12", NULL },
+         { "13", NULL },
+         { "14", NULL },
+         { "15", NULL },
+         { "16", NULL },
+         { "17", NULL },
+         { "18", NULL },
+         { "19", NULL },
+         { "20", NULL },
+         { "21", NULL },
+         { "22", NULL },
+         { "23", NULL },
+         { "24", NULL },
+         { "25", NULL },
+         { "26", NULL },
+         { "27", NULL },
+         { "28", NULL },
+         { "29", NULL },
+         { "30", NULL },
+         { "31", NULL },
+         { "32", NULL },
+         { "33", NULL },
+         { "34", NULL },
+         { "35", NULL },
+         { "36", NULL },
+         { "37", NULL },
+         { "38", NULL },
+         { "39", NULL },
+         { "40", NULL },
+         { NULL, NULL},
+      },
+      "3"
+   },
+   {
+      "pce_last_scanline",
+      PCE_LAST_SCANLINE_LABEL_OR,
+      NULL,
+      PCE_LAST_SCANLINE_INFO_0_OR,
+      NULL,
+      "video",
+      {
+         { "208", NULL },
+         { "209", NULL },
+         { "210", NULL },
+         { "211", NULL },
+         { "212", NULL },
+         { "213", NULL },
+         { "214", NULL },
+         { "215", NULL },
+         { "216", NULL },
+         { "217", NULL },
+         { "218", NULL },
+         { "219", NULL },
+         { "220", NULL },
+         { "221", NULL },
+         { "222", NULL },
+         { "223", NULL },
+         { "224", NULL },
+         { "225", NULL },
+         { "226", NULL },
+         { "227", NULL },
+         { "228", NULL },
+         { "229", NULL },
+         { "230", NULL },
+         { "231", NULL },
+         { "232", NULL },
+         { "233", NULL },
+         { "234", NULL },
+         { "235", NULL },
+         { "236", NULL },
+         { "237", NULL },
+         { "238", NULL },
+         { "239", NULL },
+         { "240", NULL },
+         { "241", NULL },
+         { "242", OPTION_VAL_242_OR },
+         { NULL, NULL},
+      },
+      "242"
+   },
+   {
+      "pce_psgrevision",
+      PCE_PSGREVISION_LABEL_OR,
+      NULL,
+      PCE_PSGREVISION_INFO_0_OR,
+      NULL,
+      "audio",
+      {
+         { "HuC6280", OPTION_VAL_HUC6280_OR },
+         { "HuC6280A", OPTION_VAL_HUC6280A_OR },
+         { "auto", OPTION_VAL_AUTO_OR },
+         { NULL, NULL},
+      },
+      "HuC6280A"
+   },
+   {
+      "pce_resamp_quality",
+      PCE_RESAMP_QUALITY_LABEL_OR,
+      NULL,
+      PCE_RESAMP_QUALITY_INFO_0_OR,
+      NULL,
+      "audio",
+      {
+         { "0", NULL },
+         { "1", NULL },
+         { "2", NULL },
+         { "3", OPTION_VAL_3_OR },
+         { "4", NULL },
+         { "5", NULL },
+         { "6", NULL },
+         { NULL, NULL},
+      },
+      "3"
+   },
+   {
+      "pce_show_advanced_input_settings",
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_OR,
+      NULL,
+      PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_OR,
+      NULL,
+      NULL,
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_mouse_sensitivity",
+      PCE_MOUSE_SENSITIVITY_LABEL_OR,
+      NULL,
+      PCE_MOUSE_SENSITIVITY_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "0.125", OPTION_VAL_0_125_OR },
+         { "0.250", OPTION_VAL_0_250_OR },
+         { "0.375", OPTION_VAL_0_375_OR },
+         { "0.500", OPTION_VAL_0_500_OR },
+         { "0.625", OPTION_VAL_0_625_OR },
+         { "0.750", OPTION_VAL_0_750_OR },
+         { "0.875", OPTION_VAL_0_875_OR },
+         { "1.000", OPTION_VAL_1_000_OR },
+         { "1.125", OPTION_VAL_1_125_OR },
+         { "1.25", OPTION_VAL_1_25_OR },
+         { "1.50", OPTION_VAL_1_50_OR },
+         { "1.75", OPTION_VAL_1_75_OR },
+         { "2.00", OPTION_VAL_2_00_OR },
+         { "2.25", OPTION_VAL_2_25_OR },
+         { "2.50", OPTION_VAL_2_50_OR },
+         { "2.75", OPTION_VAL_2_75_OR },
+         { "3.00", OPTION_VAL_3_00_OR },
+         { "3.25", OPTION_VAL_3_25_OR },
+         { "3.50", OPTION_VAL_3_50_OR },
+         { "3.75", OPTION_VAL_3_75_OR },
+         { "4.00", OPTION_VAL_4_00_OR },
+         { "4.25", OPTION_VAL_4_25_OR },
+         { "4.50", OPTION_VAL_4_50_OR },
+         { "4.75", OPTION_VAL_4_75_OR },
+         { "5.00", OPTION_VAL_5_00_OR },
+         { NULL, NULL},
+      },
+      "1.25"
+   },
+   {
+      "pce_up_down_allowed",
+      PCE_UP_DOWN_ALLOWED_LABEL_OR,
+      NULL,
+      PCE_UP_DOWN_ALLOWED_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_disable_softreset",
+      PCE_DISABLE_SOFTRESET_LABEL_OR,
+      NULL,
+      PCE_DISABLE_SOFTRESET_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_multitap",
+      PCE_MULTITAP_LABEL_OR,
+      NULL,
+      PCE_MULTITAP_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
+      "pce_default_joypad_type_p1",
+      PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_OR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_OR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_OR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p2",
+      PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_OR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_OR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_OR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p3",
+      PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_OR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_OR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_OR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p4",
+      PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_OR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_OR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_OR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_default_joypad_type_p5",
+      PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_OR,
+      NULL,
+      PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "2 Buttons", OPTION_VAL_2_BUTTONS_OR },
+         { "6 Buttons", OPTION_VAL_6_BUTTONS_OR },
+         { NULL, NULL},
+      },
+      "2 Buttons"
+   },
+   {
+      "pce_Turbo_Toggling",
+      PCE_TURBO_TOGGLING_LABEL_OR,
+      NULL,
+      PCE_TURBO_TOGGLING_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "toggle", OPTION_VAL_TOGGLE_OR },
+         { "always", OPTION_VAL_ALWAYS_OR },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_turbo_toggle_hotkey",
+      PCE_TURBO_TOGGLE_HOTKEY_LABEL_OR,
+      NULL,
+      PCE_TURBO_TOGGLE_HOTKEY_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_Turbo_Delay",
+      PCE_TURBO_DELAY_LABEL_OR,
+      NULL,
+      PCE_TURBO_DELAY_INFO_0_OR,
+      NULL,
+      "input",
+      {
+         { "Fast", OPTION_VAL_FAST_OR },
+         { "Medium", OPTION_VAL_MEDIUM_OR },
+         { "Slow", OPTION_VAL_SLOW_OR },
+         { NULL, NULL},
+      },
+      "Fast"
+   },
+   {
+      "pce_p0_turbo_I_enable",
+      PCE_P0_TURBO_I_ENABLE_LABEL_OR,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p0_turbo_II_enable",
+      PCE_P0_TURBO_II_ENABLE_LABEL_OR,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p1_turbo_I_enable",
+      PCE_P1_TURBO_I_ENABLE_LABEL_OR,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p1_turbo_II_enable",
+      PCE_P1_TURBO_II_ENABLE_LABEL_OR,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p2_turbo_I_enable",
+      PCE_P2_TURBO_I_ENABLE_LABEL_OR,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p2_turbo_II_enable",
+      PCE_P2_TURBO_II_ENABLE_LABEL_OR,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p3_turbo_I_enable",
+      PCE_P3_TURBO_I_ENABLE_LABEL_OR,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p3_turbo_II_enable",
+      PCE_P3_TURBO_II_ENABLE_LABEL_OR,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p4_turbo_I_enable",
+      PCE_P4_TURBO_I_ENABLE_LABEL_OR,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_p4_turbo_II_enable",
+      PCE_P4_TURBO_II_ENABLE_LABEL_OR,
+      NULL,
+      NULL,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_cdimagecache",
+      PCE_CDIMAGECACHE_LABEL_OR,
+      NULL,
+      PCE_CDIMAGECACHE_INFO_0_OR,
+      NULL,
+      "cd",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_cdbios",
+      PCE_CDBIOS_LABEL_OR,
+      NULL,
+      PCE_CDBIOS_INFO_0_OR,
+      NULL,
+      "cd",
+      {
+         { "Games Express", OPTION_VAL_GAMES_EXPRESS_OR },
+         { "System Card 1", OPTION_VAL_SYSTEM_CARD_1_OR },
+         { "System Card 2", OPTION_VAL_SYSTEM_CARD_2_OR },
+         { "System Card 3", OPTION_VAL_SYSTEM_CARD_3_OR },
+         { "System Card 2 US", OPTION_VAL_SYSTEM_CARD_2_US_OR },
+         { "System Card 3 US", OPTION_VAL_SYSTEM_CARD_3_US_OR },
+         { NULL, NULL},
+      },
+      "System Card 3"
+   },
+   {
+      "pce_arcadecard",
+      PCE_ARCADECARD_LABEL_OR,
+      NULL,
+      PCE_ARCADECARD_INFO_0_OR,
+      NULL,
+      "cd",
+      {
+         { "enabled", NULL },
+         { "disabled", NULL },
+         { NULL, NULL},
+      },
+      "enabled"
+   },
+   {
+      "pce_cdspeed",
+      PCE_CDSPEED_LABEL_OR,
+      PCE_CDSPEED_LABEL_CAT_OR,
+      PCE_CDSPEED_INFO_0_OR,
+      NULL,
+      "cd",
+      {
+         { "1", NULL },
+         { "2", NULL },
+         { "4", NULL },
+         { "8", NULL },
+         { NULL, NULL},
+      },
+      "1"
+   },
+   {
+      "pce_adpcmextraprec",
+      PCE_ADPCMEXTRAPREC_LABEL_OR,
+      PCE_ADPCMEXTRAPREC_LABEL_CAT_OR,
+      PCE_ADPCMEXTRAPREC_INFO_0_OR,
+      NULL,
+      "cd",
+      {
+         { "10-bit", OPTION_VAL_10_BIT_OR },
+         { "12-bit", OPTION_VAL_12_BIT_OR },
+         { NULL, NULL},
+      },
+      "10-bit"
+   },
+   {
+      "pce_adpcmvolume",
+      PCE_ADPCMVOLUME_LABEL_OR,
+      PCE_ADPCMVOLUME_LABEL_CAT_OR,
+      PCE_ADPCMVOLUME_INFO_0_OR,
+      PCE_ADPCMVOLUME_INFO_1_OR,
+      "cd",
+      {
+         { "0", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { "60", NULL },
+         { "70", NULL },
+         { "80", NULL },
+         { "90", NULL },
+         { "100", NULL },
+         { "110", NULL },
+         { "120", NULL },
+         { "130", NULL },
+         { "140", NULL },
+         { "150", NULL },
+         { "160", NULL },
+         { "170", NULL },
+         { "180", NULL },
+         { "190", NULL },
+         { "200", NULL },
+         { NULL, NULL},
+      },
+      "100"
+   },
+   {
+      "pce_cddavolume",
+      PCE_CDDAVOLUME_LABEL_OR,
+      PCE_CDDAVOLUME_LABEL_CAT_OR,
+      PCE_ADPCMVOLUME_INFO_0_OR,
+      PCE_ADPCMVOLUME_INFO_1_OR,
+      "cd",
+      {
+         { "0", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { "60", NULL },
+         { "70", NULL },
+         { "80", NULL },
+         { "90", NULL },
+         { "100", NULL },
+         { "110", NULL },
+         { "120", NULL },
+         { "130", NULL },
+         { "140", NULL },
+         { "150", NULL },
+         { "160", NULL },
+         { "170", NULL },
+         { "180", NULL },
+         { "190", NULL },
+         { "200", NULL },
+         { NULL, NULL},
+      },
+      "100"
+   },
+   {
+      "pce_cdpsgvolume",
+      PCE_CDPSGVOLUME_LABEL_OR,
+      PCE_CDPSGVOLUME_LABEL_CAT_OR,
+      PCE_ADPCMVOLUME_INFO_0_OR,
+      PCE_ADPCMVOLUME_INFO_1_OR,
+      "cd",
+      {
+         { "0", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { "60", NULL },
+         { "70", NULL },
+         { "80", NULL },
+         { "90", NULL },
+         { "100", NULL },
+         { "110", NULL },
+         { "120", NULL },
+         { "130", NULL },
+         { "140", NULL },
+         { "150", NULL },
+         { "160", NULL },
+         { "170", NULL },
+         { "180", NULL },
+         { "190", NULL },
+         { "200", NULL },
+         { NULL, NULL},
+      },
+      "100"
+   },
+   {
+      "pce_nospritelimit",
+      PCE_NOSPRITELIMIT_LABEL_OR,
+      NULL,
+      PCE_NOSPRITELIMIT_INFO_0_OR,
+      NULL,
+      "hacks",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL},
+      },
+      "disabled"
+   },
+   {
+      "pce_ocmultiplier",
+      PCE_OCMULTIPLIER_LABEL_OR,
+      NULL,
+      PCE_OCMULTIPLIER_INFO_0_OR,
+      NULL,
+      "hacks",
+      {
+         { "1", NULL },
+         { "2", NULL },
+         { "3", NULL },
+         { "4", NULL },
+         { "5", NULL },
+         { "6", NULL },
+         { "7", NULL },
+         { "8", NULL },
+         { "9", NULL },
+         { "10", NULL },
+         { "20", NULL },
+         { "30", NULL },
+         { "40", NULL },
+         { "50", NULL },
+         { NULL, NULL},
+      },
+      "1"
+   },
+   { NULL, NULL, NULL, NULL, NULL, NULL, {{0}}, NULL },
+};
+struct retro_core_options_v2 options_or = {
+   option_cats_or,
+   option_defs_or
 };
 
 /* RETRO_LANGUAGE_PL */
