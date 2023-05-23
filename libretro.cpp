@@ -1091,9 +1091,9 @@ static void check_variables(bool loaded)
          snprintf(key, sizeof(key), "pce_default_joypad_type_p%d", i + 1);
          if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
          {
-            if(strcmp(var.value, "2 Buttons") == 0)
+            if (strcmp(var.value, "2 Buttons") == 0)
                avpad6_enable[i] = 0;
-            else if(strcmp(var.value, "6 Buttons") == 0)
+            else if (strcmp(var.value, "6 Buttons") == 0)
                avpad6_enable[i] ^= (1 << 12);
          }
       }
