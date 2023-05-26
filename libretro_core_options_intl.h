@@ -1942,7 +1942,7 @@ struct retro_core_options_v2 options_ast = {
 #define OPTION_VAL_COMPOSITE_BE NULL
 #define PCE_ASPECT_RATIO_LABEL_BE "Суадносіны бакоў"
 #define PCE_ASPECT_RATIO_INFO_0_BE NULL
-#define OPTION_VAL_AUTO_BE NULL
+#define OPTION_VAL_AUTO_BE "Аўта"
 #define OPTION_VAL_6_5_BE NULL
 #define OPTION_VAL_4_3_BE NULL
 #define OPTION_VAL_UNCORRECTED_BE NULL
@@ -19175,7 +19175,7 @@ struct retro_core_options_v2 options_hr = {
 #define PCE_RESAMP_QUALITY_LABEL_HU "Az Owl újramintavételezés minősége"
 #define PCE_RESAMP_QUALITY_INFO_0_HU "Magasabb értékek jobb jel-zaj arányt eredményeznek és jobban megőrzik a magas frekvenciákat, de növelik a számításigényt és nagyobb késleltetést okozhatnak, illetve torzítást is, ha a hangerő túl magasra van állítva."
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_HU "Haladó bemenet / turbó beállítások megjelenítése"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HU NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_HU "A multitap, egér, turbó gombok, és haladó paraméterek megjelenítése. Figyelem: vissza kell lépni a játékba és újra belépni a menübe, hogy a lista frissüljön."
 #define PCE_MOUSE_SENSITIVITY_LABEL_HU "Egér érzékenysége"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_HU "Magasabb értékek az egérkurzor gyorsabb mozgását eredményezik."
 #define OPTION_VAL_0_125_HU NULL
@@ -19209,18 +19209,18 @@ struct retro_core_options_v2 options_hr = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_HU "A RUN és SELECT gombok egyidejű megnyomásakor mindkét gomb ideiglenes letiltása, reset helyett."
 #define PCE_MULTITAP_LABEL_HU "Multitap 5 csatlakozós kontroller"
 #define PCE_MULTITAP_INFO_0_HU "Legfeljebb 5 játékos engedélyezése multitap emulációval. Csak néhány esetben szükséges kikapcsolni (pl. Cho Aniki)."
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_HU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_HU NULL
-#define OPTION_VAL_2_BUTTONS_HU NULL
-#define OPTION_VAL_6_BUTTONS_HU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_HU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_HU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_HU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_HU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_HU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_HU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_HU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_HU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_HU "1. joypad alapértelmezett típusa"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_HU "Az 1. csatlakozó induláskor 2 vagy 6 gombos-e. Ez a beállítás csak a mag elindításakor jut érvényre, tartalom futtatása közben a \"Módváltás\" gomb használható. Figyelem: a 6 gombos joypadnak furcsa hatása lehet az azzal nem kompatibilis játékokra."
+#define OPTION_VAL_2_BUTTONS_HU "2 gomb"
+#define OPTION_VAL_6_BUTTONS_HU "6 gomb"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_HU "2. joypad alapértelmezett típusa"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_HU "A 2. csatlakozó induláskor 2 vagy 6 gombos-e. Ez a beállítás csak a mag elindításakor jut érvényre, tartalom futtatása közben a \"Módváltás\" gomb használható. Figyelem: a 6 gombos joypadnak furcsa hatása lehet az azzal nem kompatibilis játékokra."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_HU "3. joypad alapértelmezett típusa"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_HU "A 3. csatlakozó induláskor 2 vagy 6 gombos-e. Ez a beállítás csak a mag elindításakor jut érvényre, tartalom futtatása közben a \"Módváltás\" gomb használható. Figyelem: a 6 gombos joypadnak furcsa hatása lehet az azzal nem kompatibilis játékokra."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_HU "4. joypad alapértelmezett típusa"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_HU "A 4. csatlakozó induláskor 2 vagy 6 gombos-e. Ez a beállítás csak a mag elindításakor jut érvényre, tartalom futtatása közben a \"Módváltás\" gomb használható. Figyelem: a 6 gombos joypadnak furcsa hatása lehet az azzal nem kompatibilis játékokra."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_HU "5. joypad alapértelmezett típusa"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_HU "Az 5. csatlakozó induláskor 2 vagy 6 gombos-e. Ez a beállítás csak a mag elindításakor jut érvényre, tartalom futtatása közben a \"Módváltás\" gomb használható. Figyelem: a 6 gombos joypadnak furcsa hatása lehet az azzal nem kompatibilis játékokra."
 #define PCE_TURBO_TOGGLING_LABEL_HU "Turbó gyorsgomb mód"
 #define PCE_TURBO_TOGGLING_INFO_0_HU "Turbó gombok engedélyezése. A gyorsgombok (III és IV) váltógombként vagy kijelölt (nyomva tartással használható) turbó gombként működhetnek."
 #define OPTION_VAL_TOGGLE_HU "Váltógomb"
