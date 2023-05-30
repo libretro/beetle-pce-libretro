@@ -602,7 +602,7 @@ static void MDFN_printf(const char *format, ...)
    }
 
    // Length + NULL character, duh
-   format_temp = (char *)malloc(newlen + 1); 
+   format_temp = (char *)malloc(newlen + 1);
    // Now, construct our format_temp string
    lastchar    = lastchar_backup; // Restore lastchar
 
@@ -631,7 +631,6 @@ static void MDFN_printf(const char *format, ...)
    va_end(ap);
 }
 #endif
-
 
 static void ReadM3U(std::vector<std::string> &file_list, std::string path, unsigned depth = 0)
 {
@@ -883,7 +882,7 @@ void retro_init(void)
    const char *dir = NULL;
    if (environ_cb(RETRO_ENVIRONMENT_GET_LOG_INTERFACE, &log))
       log_cb = log.log;
-   else 
+   else
       log_cb = NULL;
 
    CDUtility_Init();
@@ -906,7 +905,7 @@ void retro_init(void)
          log_cb(RETRO_LOG_WARN, "System directory is not defined. Fallback on using same dir as ROM for system directory later ...\n");
       failed_init = true;
    }
-   
+
 #if defined(WANT_16BPP) && defined(FRONTEND_SUPPORTS_RGB565)
    enum retro_pixel_format rgb565 = RETRO_PIXEL_FORMAT_RGB565;
    if (environ_cb(RETRO_ENVIRONMENT_SET_PIXEL_FORMAT, &rgb565) && log_cb)
@@ -928,7 +927,7 @@ void retro_init(void)
 
    bool yes = true;
    environ_cb(RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS, &yes);
-   
+
    setting_pce_initial_scanline = 0;
    setting_pce_last_scanline = 242;
 
@@ -1083,11 +1082,10 @@ static void check_variables(bool loaded)
             setting_pce_psgrevision = 1;
       }
 
-      char key[256];
-      key[0] = '\0';
+      char key[64] = {0};
 
-      var.key = key ;
-      for (int i = 0 ; i < MAX_PLAYERS ; i++)
+      var.key = key;
+      for (int i = 0; i < MAX_PLAYERS; i++)
       {
          snprintf(key, sizeof(key), "pce_default_joypad_type_p%d", i + 1);
          if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
@@ -1095,13 +1093,13 @@ static void check_variables(bool loaded)
             if (strcmp(var.value, "2 Buttons") == 0)
                avpad6_enable[i] = 0;
             else if (strcmp(var.value, "6 Buttons") == 0)
-               avpad6_enable[i] ^= (1 << 12);
+               avpad6_enable[i] = (1 << RETRO_DEVICE_ID_JOYPAD_L2);
          }
       }
    }
 
    var.key = "pce_nospritelimit";
-   
+
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
       setting_pce_nospritelimit = (strcmp(var.value, "enabled") == 0);
@@ -1198,30 +1196,30 @@ static void check_variables(bool loaded)
    }
 
    var.key = "pce_adpcmextraprec";
-   
+
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
       setting_pce_adpcmextraprec = (strcmp(var.value, "12-bit") == 0);
    }
 
    var.key = "pce_resamp_quality";
-   
+
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
       setting_pce_resamp_quality = atoi(var.value);
 
       last_sound_rate = 0;
    }
-   
+
    var.key = "pce_multitap";
-   
+
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
       setting_pce_multitap = (strcmp(var.value, "enabled") == 0);
    }
 
    var.key = "pce_scaling";
-   
+
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
       if(strcmp(var.value, "auto") == 0)
@@ -1244,7 +1242,6 @@ static void check_variables(bool loaded)
       else if(strcmp(var.value, "always") == 0)
          Turbo_Toggling = 2;
 
-
       int mode = (Turbo_Toggling == 2);
       for(int lcv = 0; lcv < MAX_PLAYERS; lcv++)
       {
@@ -1253,7 +1250,7 @@ static void check_variables(bool loaded)
       }
    }
 
-   // Set TURBO_DELAY 
+   // Set TURBO_DELAY
    var.key = "pce_Turbo_Delay";
 
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
@@ -1274,7 +1271,7 @@ static void check_variables(bool loaded)
       turbo_toggle_alt = (strcmp(var.value, "enabled") == 0);
    }
 
-   // Enable turbo for each player's I+II buttons   
+   // Enable turbo for each player's I+II buttons
    var.key = "pce_p0_turbo_I_enable";
 
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
@@ -1344,7 +1341,7 @@ static void check_variables(bool loaded)
    {
       turbo_enable[4][1] = (strcmp(var.value, "enabled") == 0);
    }
-   
+
    var.key = "pce_mouse_sensitivity";
 
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
@@ -1520,7 +1517,7 @@ static void update_input(void)
       if (libretro_supports_bitmasks)
          joy_bits[j] = input_state_cb(j, RETRO_DEVICE_JOYPAD, 0, RETRO_DEVICE_ID_JOYPAD_MASK);
       else
-	  {
+      {
          for (i = 0; i < (RETRO_DEVICE_ID_JOYPAD_R3+1); i++)
             joy_bits[j] |= input_state_cb(j, RETRO_DEVICE_JOYPAD, 0, i) ? (1 << i) : 0;
       }
@@ -1562,19 +1559,18 @@ static void update_input(void)
                   }
                }
                else
-                  turbo_toggle_down[j][i] = 0;   
+                  turbo_toggle_down[j][i] = 0;
             }
-            else if(i == 12)
+            else if(i == RETRO_DEVICE_ID_JOYPAD_L2)
             {
                if(input_state_cb(j, RETRO_DEVICE_JOYPAD, 0, map[i]))
                {
                   if (avpad6_toggle_down[j] == 0)
                   {
                      avpad6_toggle_down[j] = 1;
-                     avpad6_enable[j] ^= (1 << 12);
+                     avpad6_enable[j] ^= (1 << RETRO_DEVICE_ID_JOYPAD_L2);
 
                      MDFN_DispMessage("Pad %i %s", j + 1, avpad6_enable[j] ? "6-buttons" : "2-buttons" );
-
 
                      int mode = !avpad6_enable[j] && (Turbo_Toggling == 2);
                      for(int lcv = 0; lcv < MAX_PLAYERS; lcv++)
@@ -1652,7 +1648,7 @@ static float get_aspect_ratio(unsigned width, unsigned height)
          case 3: par /= 10738635.0; break;
          case 4: par /= 21477270.0; break;
       }
-      
+
       return (float) width / (float) height * par;
    }
    else if(aspect_ratio == 1)
@@ -1800,7 +1796,7 @@ void retro_run(void)
 
    video_width  = spec.DisplayRect.w;
    video_height = spec.DisplayRect.h;
-   
+
    bpp_t *fb = surf->pixels + spec.DisplayRect.x + surf->pitch * spec.DisplayRect.y;
    
    hires_blending(fb, video_width, video_height, FB_WIDTH_ALIGN);
@@ -1890,13 +1886,13 @@ void retro_set_controller_port_device(unsigned in_port, unsigned device)
    if (in_port < MAX_PLAYERS)
    {
       input_type[in_port] = device;
-      
+
       switch(device)
       {
          case RETRO_DEVICE_JOYPAD:
             PCEINPUT_SetInput(in_port, "gamepad", &input_buf[in_port][0]);
             break;
-   
+
          case RETRO_DEVICE_MOUSE:
             PCEINPUT_SetInput(in_port, "mouse", (uint8_t *) &mousedata[in_port][0]);
             break;
@@ -2137,8 +2133,8 @@ std::string MDFN_MakeFName(MakeFName_Type type, int id1, const char *cd1)
       sanitize_path(ret); // Because Windows path handling is mongoloid.
 #endif
       break;
-     
-   default:     
+
+   default:
       break;
    }
 
