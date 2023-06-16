@@ -22999,7 +22999,7 @@ struct retro_core_options_v2 options_ja = {
 #define PCE_RESAMP_QUALITY_LABEL_KO "Owl 리샘플러 품질"
 #define PCE_RESAMP_QUALITY_INFO_0_KO "값이 높을수록 더 나은 신호 대비 잡음비를 제공하고 더 높은 주파수를 보존하지만 계산 비용이 증가하고 볼륨이 너무 높게 설정되면 더 높은 대기 시간과 클리핑이 발생할 수 있습니다."
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_KO "고급 입력/터보 설정 표시"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_KO NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_KO "멀티탭, 마우스, 터보 버튼, 고급 매개변수 표시합니다. 참고: 목록을 새로 고치려면 게임으로 돌아가서 메뉴에 다시 들어가야 할 수 있습니다."
 #define PCE_MOUSE_SENSITIVITY_LABEL_KO "마우스 감도"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_KO "값이 높을수록 마우스 커서가 더 빠르게 움직입니다."
 #define OPTION_VAL_0_125_KO NULL
@@ -23033,18 +23033,18 @@ struct retro_core_options_v2 options_ja = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_KO "RUN과 SELECT를 동시에 누르면 리셋하는 대신 두 버튼을 일시적으로 비활성화합니다."
 #define PCE_MULTITAP_LABEL_KO "멀티탭 5포트 컨트롤러"
 #define PCE_MULTITAP_INFO_0_KO "최대 5인까지 지원하는 멀티탭 에뮬레이션을 활성화합니다. 비활성화는 일부 경우에만 필요합니다(예: Cho Aniki)."
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_KO NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_KO NULL
-#define OPTION_VAL_2_BUTTONS_KO NULL
-#define OPTION_VAL_6_BUTTONS_KO NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_KO NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_KO NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_KO NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_KO NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_KO NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_KO NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_KO NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_KO NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_KO "P1 기본 조이패드 유형"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_KO "포트 1 조이패드를 기본적으로 2개 또는 6개 버튼으로 할지 선택합니다. 이 옵션은 코어가 시작될 때만 적용되며, 콘텐츠가 실행 중일 때 전환하려면 '모드 전환' 버튼을 사용하세요. 참고: 6버튼 조이패드는 호환되지 않는 게임에서 이상한 동작을 일으킬 수 있습니다."
+#define OPTION_VAL_2_BUTTONS_KO "2 버튼"
+#define OPTION_VAL_6_BUTTONS_KO "6 버튼"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_KO "P2 기본 조이패드 유형"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_KO "포트 2 조이패드를 기본적으로 2개 또는 6개 버튼으로 할지 선택합니다. 이 옵션은 코어가 시작될 때만 적용되며, 콘텐츠가 실행 중일 때 전환하려면 '모드 전환' 버튼을 사용하세요. 참고: 6버튼 조이패드는 호환되지 않는 게임에서 이상한 동작을 일으킬 수 있습니다."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_KO "P3 기본 조이패드 유형"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_KO "포트 3 조이패드를 기본적으로 2개 또는 6개 버튼으로 할지 선택합니다. 이 옵션은 코어가 시작될 때만 적용되며, 콘텐츠가 실행 중일 때 전환하려면 '모드 전환' 버튼을 사용하세요. 참고: 6버튼 조이패드는 호환되지 않는 게임에서 이상한 동작을 일으킬 수 있습니다."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_KO "P4 기본 조이패드 유형"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_KO "포트 4 조이패드를 기본적으로 2개 또는 6개 버튼으로 할지 선택합니다. 이 옵션은 코어가 시작될 때만 적용되며, 콘텐츠가 실행 중일 때 전환하려면 '모드 전환' 버튼을 사용하세요. 참고: 6버튼 조이패드는 호환되지 않는 게임에서 이상한 동작을 일으킬 수 있습니다."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_KO "P5 기본 조이패드 유형"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_KO "포트 5 조이패드를 기본적으로 2개 또는 6개 버튼으로 할지 선택합니다. 이 옵션은 코어가 시작될 때만 적용되며, 콘텐츠가 실행 중일 때 전환하려면 '모드 전환' 버튼을 사용하세요. 참고: 6버튼 조이패드는 호환되지 않는 게임에서 이상한 동작을 일으킬 수 있습니다."
 #define PCE_TURBO_TOGGLING_LABEL_KO "터포 핫키 모드"
 #define PCE_TURBO_TOGGLING_INFO_0_KO "터보 버튼을 활성화합니다. 핫키(버튼 III 및 IV)는 토글 스위치 또는 전용(길게 눌러 사용) 터보 버튼으로 작동할 수 있습니다."
 #define OPTION_VAL_TOGGLE_KO "토글"
