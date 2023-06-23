@@ -10606,17 +10606,17 @@ struct retro_core_options_v2 options_el = {
 #define PCE_MULTITAP_LABEL_EN "Multi-tap 5-port Controller"
 #define PCE_MULTITAP_INFO_0_EN "Enable up to 5-player multi-tap emulation. Disabling this is only needed in some cases (e.g. Cho Aniki)."
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_EN NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_EN "Choose if port 1 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviours in non-compatible games."
 #define OPTION_VAL_2_BUTTONS_EN NULL
 #define OPTION_VAL_6_BUTTONS_EN NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_EN NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_EN "Choose if port 2 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviours in non-compatible games."
 #define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_EN NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_EN "Choose if port 3 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviours in non-compatible games."
 #define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_EN NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_EN "Choose if port 4 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviours in non-compatible games."
 #define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_EN NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_EN NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_EN "Choose if port 5 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviours in non-compatible games."
 #define PCE_TURBO_TOGGLING_LABEL_EN NULL
 #define PCE_TURBO_TOGGLING_INFO_0_EN NULL
 #define OPTION_VAL_TOGGLE_EN NULL
@@ -30683,8 +30683,8 @@ struct retro_core_options_v2 options_ru = {
 #define PCE_MULTITAP_INFO_0_SK NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_SK NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_SK NULL
-#define OPTION_VAL_2_BUTTONS_SK NULL
-#define OPTION_VAL_6_BUTTONS_SK NULL
+#define OPTION_VAL_2_BUTTONS_SK "2 tlačidlá"
+#define OPTION_VAL_6_BUTTONS_SK "6 tlačidiel"
 #define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_SK NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_SK NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_SK NULL
