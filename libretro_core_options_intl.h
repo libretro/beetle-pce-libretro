@@ -8633,7 +8633,7 @@ struct retro_core_options_v2 options_da = {
 #define OPTION_VAL_RGB_DE NULL
 #define OPTION_VAL_COMPOSITE_DE NULL
 #define PCE_ASPECT_RATIO_LABEL_DE "Bildseitenverhältnis"
-#define PCE_ASPECT_RATIO_INFO_0_DE "Das bevorzugte Seitenverhältnis des Inhalts auswählen. Dies wird nur angewendet, wenn das Seitenverhältnis von RetroArch in den Videoeinstellungen auf \"Core-bestimmtes Seitenverhältnis\" eingestellt ist."
+#define PCE_ASPECT_RATIO_INFO_0_DE "Das bevorzugte Seitenverhältnis des Inhalts auswählen. Dies wird nur angewendet, wenn das Seitenverhältnis von RetroArch in den Videoeinstellungen auf \"Wie von Core vorgesehen\" eingestellt ist."
 #define OPTION_VAL_AUTO_DE "Automatisch"
 #define OPTION_VAL_6_5_DE NULL
 #define OPTION_VAL_4_3_DE NULL
@@ -8710,7 +8710,7 @@ struct retro_core_options_v2 options_da = {
 #define OPTION_VAL_TOGGLE_DE "Umschalten"
 #define OPTION_VAL_ALWAYS_DE "Dediziert"
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_DE "Alternative Turbo-Hotkeys"
-#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_DE "RetroPads L3/R3-Tasten als Turbo-Hotkeys anstelle der Tasten III und IV zuweisen. Funktioniert nur im „Toggle“-Modus und nur, solange den L3/R3-Tasten nichts zugewiesen ist. Damit die Belegung der Tasten III und IV vermieden werden, wenn in den 6-Tasten-Controller-Modus gewechselt wird."
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_DE "RetroPads L3/R3-Tasten als Turbo-Hotkeys anstelle der Tasten III und IV zuweisen. Funktioniert nur im „Umschalten“-Modus und nur, solange den L3/R3-Tasten nichts zugewiesen ist. Damit die Belegung der Tasten III und IV vermieden werden, wenn in den 6-Tasten-Controller-Modus gewechselt wird."
 #define PCE_TURBO_DELAY_LABEL_DE "Turbogeschwindigkeit"
 #define PCE_TURBO_DELAY_INFO_0_DE "Auswählen, wie schnell Tastenbetätigungen wiederholt werden."
 #define OPTION_VAL_FAST_DE "Schnell"
