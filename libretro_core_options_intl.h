@@ -29690,7 +29690,7 @@ struct retro_core_options_v2 options_pt_pt = {
 #define OPTION_VAL_HUC6280A_RU NULL
 #define PCE_RESAMP_QUALITY_LABEL_RU "Качество ресемплера Owl"
 #define PCE_RESAMP_QUALITY_INFO_0_RU "Более высокие значения улучшают соотношение сигнал-шум и сохраняют высокие частоты, но повышают сложность вычислений, могут увеличивать задержку и вызывать нелинейные искажения при завышении громкости."
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU "Показывать расширенные настройки ввода/турбо"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU "Отображение расширенных настроек ввода/турбо-кнопок"
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RU NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_RU "Чувствительность мыши"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_RU "Более высокие значения повышают скорость перемещения курсора мыши."
@@ -32525,11 +32525,11 @@ struct retro_core_options_v2 options_sr = {
 #define CATEGORY_INPUT_LABEL_SV "Inmatning"
 #define CATEGORY_INPUT_INFO_0_SV NULL
 #define CATEGORY_HACKS_LABEL_SV NULL
-#define CATEGORY_HACKS_INFO_0_SV NULL
+#define CATEGORY_HACKS_INFO_0_SV "Konfigurera processorns överklockning och emuleringsnoggrannhetsparametrar som påverkar prestanda och kompatibilitet på låg nivå."
 #define CATEGORY_CD_LABEL_SV NULL
 #define CATEGORY_CD_INFO_0_SV NULL
 #define PCE_PALETTE_LABEL_SV "Färgpalett"
-#define PCE_PALETTE_INFO_0_SV NULL
+#define PCE_PALETTE_INFO_0_SV "Composite försöker återskapa den ursprungliga konsolens utmatning och kan visa fler detaljer i vissa spel."
 #define OPTION_VAL_RGB_SV NULL
 #define OPTION_VAL_COMPOSITE_SV "Komposit"
 #define PCE_ASPECT_RATIO_LABEL_SV "Bildförhållande"
@@ -32548,10 +32548,10 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_H_OVERSCAN_INFO_0_SV NULL
 #define PCE_INITIAL_SCANLINE_LABEL_SV NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_SV NULL
-#define OPTION_VAL_3_SV NULL
+#define OPTION_VAL_3_SV "3 (Standard)"
 #define PCE_LAST_SCANLINE_LABEL_SV NULL
 #define PCE_LAST_SCANLINE_INFO_0_SV NULL
-#define OPTION_VAL_242_SV NULL
+#define OPTION_VAL_242_SV "242 (Standard)"
 #define PCE_PSGREVISION_LABEL_SV NULL
 #define PCE_PSGREVISION_INFO_0_SV NULL
 #define OPTION_VAL_HUC6280_SV NULL
@@ -32588,11 +32588,11 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_4_75_SV NULL
 #define OPTION_VAL_5_00_SV NULL
 #define PCE_UP_DOWN_ALLOWED_LABEL_SV NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_SV NULL
+#define PCE_UP_DOWN_ALLOWED_INFO_0_SV "Genom att aktivera detta tillåts att trycka på / snabbt alternera / hålla ned både vänster och höger (eller upp och ned) riktningar samtidigt. Detta kan orsaka rörelsebaserade fel."
 #define PCE_DISABLE_SOFTRESET_LABEL_SV NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_SV NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_SV "När RUN och SELECT trycks ned samtidigt, inaktiveras båda knapparna tillfälligt istället för att återställa dem."
 #define PCE_MULTITAP_LABEL_SV NULL
-#define PCE_MULTITAP_INFO_0_SV NULL
+#define PCE_MULTITAP_INFO_0_SV "Aktivera emulering av flerspelar-adapter upp till 5-spelare. Att inaktivera detta krävs endast i vissa fall (t.ex. Cho Aniki)."
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_SV NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_SV NULL
 #define OPTION_VAL_2_BUTTONS_SV "2 knappar"
@@ -32605,12 +32605,12 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_SV NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_SV NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_SV NULL
-#define PCE_TURBO_TOGGLING_LABEL_SV NULL
-#define PCE_TURBO_TOGGLING_INFO_0_SV NULL
+#define PCE_TURBO_TOGGLING_LABEL_SV "Turbo snabbtangent-läge"
+#define PCE_TURBO_TOGGLING_INFO_0_SV "Aktivera turboknappar. Snabbtangenter (knapparna III och IV) kan bete sig som antingen växla eller dedikerade (håll för att använda) turboknappar."
 #define OPTION_VAL_TOGGLE_SV "Växla"
-#define OPTION_VAL_ALWAYS_SV NULL
+#define OPTION_VAL_ALWAYS_SV "Dedikerad"
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_SV NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SV NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_SV "Tilldela RetroPads L3/R3-knappar som snabbtangenter för turbo-läge istället för knappar III och IV. Fungerar endast i \"Växel\"-läget och endast så länge inget är tilldelat L3/R3-knapparna. Du kan undvika omkartläggning av knappar III och IV när du växlar till 6-knapps kontrollläge med detta."
 #define PCE_TURBO_DELAY_LABEL_SV "Turbo-hastighet"
 #define PCE_TURBO_DELAY_INFO_0_SV NULL
 #define OPTION_VAL_FAST_SV NULL
@@ -32626,8 +32626,8 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_SV NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_SV NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_SV NULL
-#define PCE_CDIMAGECACHE_LABEL_SV NULL
-#define PCE_CDIMAGECACHE_INFO_0_SV NULL
+#define PCE_CDIMAGECACHE_LABEL_SV "CD-bildcache (Omstart krävs)"
+#define PCE_CDIMAGECACHE_INFO_0_SV "Ladda in hela bilden i minnet vid start. Kan potentiellt minska laddningstiderna till förmån för en ökad starttid."
 #define PCE_CDBIOS_LABEL_SV NULL
 #define PCE_CDBIOS_INFO_0_SV NULL
 #define OPTION_VAL_GAMES_EXPRESS_SV NULL
@@ -32648,8 +32648,8 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_12_BIT_SV NULL
 #define PCE_ADPCMVOLUME_LABEL_SV "(CD) ADPCM Volym %"
 #define PCE_ADPCMVOLUME_LABEL_CAT_SV NULL
-#define PCE_ADPCMVOLUME_INFO_0_SV NULL
-#define PCE_ADPCMVOLUME_INFO_1_SV NULL
+#define PCE_ADPCMVOLUME_INFO_0_SV "Endast CD-spel. Ifall du ställer in volymen för högt kan ljudkvaliten försämras och leda till samplingsklippning."
+#define PCE_ADPCMVOLUME_INFO_1_SV "Ifall du ställer in volymen för högt kan ljudkvaliten försämras och leda till samplingsklippning."
 #define PCE_CDDAVOLUME_LABEL_SV "(CD) CDDA Volym %"
 #define PCE_CDDAVOLUME_LABEL_CAT_SV NULL
 #define PCE_CDPSGVOLUME_LABEL_SV "(CD) CD PSG Volym %"
