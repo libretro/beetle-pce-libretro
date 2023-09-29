@@ -29659,7 +29659,7 @@ struct retro_core_options_v2 options_pt_pt = {
 #define CATEGORY_HACKS_LABEL_RU "Хаки эмуляции"
 #define CATEGORY_HACKS_INFO_0_RU "Настройка разгона процессора и параметров точности эмуляции, влияющих на производительность и совместимость."
 #define CATEGORY_CD_LABEL_RU NULL
-#define CATEGORY_CD_INFO_0_RU "Настройка параметров, относящихся к эмуляции PC Engine CD."
+#define CATEGORY_CD_INFO_0_RU "Настройка параметров эмуляции PC Engine CD."
 #define PCE_PALETTE_LABEL_RU "Цветовая палитра"
 #define PCE_PALETTE_INFO_0_RU "Композит пытается воссоздать оригинальное изображение консоли и может повышать детализацию в некоторых играх."
 #define OPTION_VAL_RGB_RU NULL
@@ -29669,7 +29669,7 @@ struct retro_core_options_v2 options_pt_pt = {
 #define OPTION_VAL_AUTO_RU "Авто"
 #define OPTION_VAL_6_5_RU NULL
 #define OPTION_VAL_4_3_RU NULL
-#define OPTION_VAL_UNCORRECTED_RU "Нескорректированное"
+#define OPTION_VAL_UNCORRECTED_RU "Без коррекции"
 #define PCE_SCALING_LABEL_RU "Масштабирование разрешения"
 #define PCE_SCALING_INFO_0_RU "'Авто' разрешает изменение разрешения. 'Низкое разрешение' может искажать пиксели. 'Высокое разрешение' поддерживает максимальную ширину."
 #define OPTION_VAL_LORES_RU "Низкое разрешение"
@@ -29691,7 +29691,7 @@ struct retro_core_options_v2 options_pt_pt = {
 #define PCE_RESAMP_QUALITY_LABEL_RU "Качество ресемплера Owl"
 #define PCE_RESAMP_QUALITY_INFO_0_RU "Более высокие значения улучшают соотношение сигнал-шум и сохраняют высокие частоты, но повышают сложность вычислений, могут увеличивать задержку и вызывать нелинейные искажения при завышении громкости."
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_RU "Отображение расширенных настроек ввода/турбо-кнопок"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RU NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_RU "Показывать расширенные параметры, включая мультитап, мышь и турбо-кнопки. Для применения изменений может потребоваться повторно вызвать меню."
 #define PCE_MOUSE_SENSITIVITY_LABEL_RU "Чувствительность мыши"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_RU "Более высокие значения повышают скорость перемещения курсора мыши."
 #define OPTION_VAL_0_125_RU NULL
@@ -29725,20 +29725,20 @@ struct retro_core_options_v2 options_pt_pt = {
 #define PCE_DISABLE_SOFTRESET_INFO_0_RU "При одновременном нажатии RUN и SELECT вместо сброса обе кнопки будут временно отключаться."
 #define PCE_MULTITAP_LABEL_RU "Multitap на 5 контроллеров"
 #define PCE_MULTITAP_INFO_0_RU "Включает эмуляцию multitap до 5 игроков. Отключение настройки требуется лишь в отдельных случаях (напр. Cho Aniki)."
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_RU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_RU NULL
-#define OPTION_VAL_2_BUTTONS_RU NULL
-#define OPTION_VAL_6_BUTTONS_RU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_RU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_RU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_RU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_RU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_RU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_RU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_RU NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_RU NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_RU "Тип джойстика Игрока 1"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_RU "Выбор 2- или 6-ти кнопочного контроллера по умолчанию для порта 1. Данная опция применяется только при запуске ядра. Для переключения на лету используйте кнопку 'Сменить режим'. ВНИМАНИЕ: в несовместимых играх 6-кнопочный геймпад может вызывать баги управления."
+#define OPTION_VAL_2_BUTTONS_RU "2-кнопочный"
+#define OPTION_VAL_6_BUTTONS_RU "6-кнопочный"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_RU "Тип джойстика Игрока 2"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_RU "Выбор 2- или 6-ти кнопочного контроллера по умолчанию для порта 2. Данная опция применяется только при запуске ядра. Для переключения на лету используйте кнопку 'Сменить режим'. ВНИМАНИЕ: в несовместимых играх 6-кнопочный геймпад может вызывать баги управления."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_RU "Тип джойстика Игрока 3"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_RU "Выбор 2- или 6-ти кнопочного контроллера по умолчанию для порта 3. Данная опция применяется только при запуске ядра. Для переключения на лету используйте кнопку 'Сменить режим'. ВНИМАНИЕ: в несовместимых играх 6-кнопочный геймпад может вызывать баги управления."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_RU "Тип джойстика Игрока 4"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_RU "Выбор 2- или 6-ти кнопочного контроллера по умолчанию для порта 4. Данная опция применяется только при запуске ядра. Для переключения на лету используйте кнопку 'Сменить режим'. ВНИМАНИЕ: в несовместимых играх 6-кнопочный геймпад может вызывать баги управления."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_RU "Тип джойстика Игрока 5"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_RU "Выбор 2- или 6-ти кнопочного контроллера по умолчанию для порта 5. Данная опция применяется только при запуске ядра. Для переключения на лету используйте кнопку 'Сменить режим'. ВНИМАНИЕ: в несовместимых играх 6-кнопочный геймпад может вызывать баги управления."
 #define PCE_TURBO_TOGGLING_LABEL_RU "Режим турбо-кнопок"
-#define PCE_TURBO_TOGGLING_INFO_0_RU "Включение турбо-кнопок. Активаторы (кнопки III и IV) могут работать как переключатели или как выделенные кнопки, включаемые при удерживании."
+#define PCE_TURBO_TOGGLING_INFO_0_RU "Включение турбо-кнопок. Активаторы (кнопки III и IV) могут работать как переключатели или как выделенные кнопки, включаемые при удержании."
 #define OPTION_VAL_TOGGLE_RU "Переключатели"
 #define OPTION_VAL_ALWAYS_RU "Выделенные"
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_RU "Альтернативное включение турбо"
@@ -29760,7 +29760,7 @@ struct retro_core_options_v2 options_pt_pt = {
 #define PCE_P4_TURBO_II_ENABLE_LABEL_RU "Игрок 5 Турбо II"
 #define PCE_CDIMAGECACHE_LABEL_RU "Кэшировать образ CD (требуется перезапуск)"
 #define PCE_CDIMAGECACHE_INFO_0_RU "При запуске загружать полный образ диска в память. Может снижать время загрузок, но увеличивает время запуска."
-#define PCE_CDBIOS_LABEL_RU "CD Bios (требуется перезапуск)"
+#define PCE_CDBIOS_LABEL_RU "BIOS CD (требуется перезапуск)"
 #define PCE_CDBIOS_INFO_0_RU "Большинство игр запускаются с 'System Card 3'. 'Games Express' требуется для некоторых нелицензированных игр."
 #define OPTION_VAL_GAMES_EXPRESS_RU NULL
 #define OPTION_VAL_SYSTEM_CARD_1_RU NULL
@@ -29781,7 +29781,7 @@ struct retro_core_options_v2 options_pt_pt = {
 #define PCE_ADPCMVOLUME_LABEL_RU "(CD) Громкость ADPCM"
 #define PCE_ADPCMVOLUME_LABEL_CAT_RU "Громкость ADPCM (%)"
 #define PCE_ADPCMVOLUME_INFO_0_RU "Только для CD-игр. Слишком высокие значения могут приводить к искажениям звука."
-#define PCE_ADPCMVOLUME_INFO_1_RU "Слишком высокие значения могут приводить к искажениям звука."
+#define PCE_ADPCMVOLUME_INFO_1_RU "Установка слишком высоких значений может вызывать искажения звука."
 #define PCE_CDDAVOLUME_LABEL_RU "(CD) Громкость CDDA"
 #define PCE_CDDAVOLUME_LABEL_CAT_RU "Громкость CDDA (%)"
 #define PCE_CDPSGVOLUME_LABEL_RU "(CD) Громкость CD PSG %"
