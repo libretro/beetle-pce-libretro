@@ -22003,11 +22003,11 @@ struct retro_core_options_v2 options_it = {
 /* RETRO_LANGUAGE_JA */
 
 #define CATEGORY_VIDEO_LABEL_JA "ビデオのドライバ"
-#define CATEGORY_VIDEO_INFO_0_JA NULL
+#define CATEGORY_VIDEO_INFO_0_JA "アスペクト比、表示トリミング、および他の画像出力パラメータを設定します。"
 #define CATEGORY_AUDIO_LABEL_JA "オーディオのドライバ"
-#define CATEGORY_AUDIO_INFO_0_JA NULL
+#define CATEGORY_AUDIO_INFO_0_JA "エミュレートされたオーディオデバイスを設定します。"
 #define CATEGORY_INPUT_LABEL_JA "入力"
-#define CATEGORY_INPUT_INFO_0_JA NULL
+#define CATEGORY_INPUT_INFO_0_JA "ライトガン、マウス、コントローラーの入力を設定します。"
 #define CATEGORY_HACKS_LABEL_JA "エミュレーションハック"
 #define CATEGORY_HACKS_INFO_0_JA NULL
 #define CATEGORY_CD_LABEL_JA "PCエンジン CD"
