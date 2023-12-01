@@ -5846,7 +5846,7 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_TURBO_DELAY_LABEL_CS "Turbo Rychlost"
 #define PCE_TURBO_DELAY_INFO_0_CS "Zvolte, jak rychle se budou opakovat stisky tlačítek."
 #define OPTION_VAL_FAST_CS "Rychle"
-#define OPTION_VAL_MEDIUM_CS "Středně"
+#define OPTION_VAL_MEDIUM_CS "Střední"
 #define OPTION_VAL_SLOW_CS "Pomalu"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_CS NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_CS NULL
@@ -32519,7 +32519,7 @@ struct retro_core_options_v2 options_sr = {
 /* RETRO_LANGUAGE_SV */
 
 #define CATEGORY_VIDEO_LABEL_SV "Bild"
-#define CATEGORY_VIDEO_INFO_0_SV "Konfigurera bildförhållande, beskärning av skärmen och andra bildutdatainställningar."
+#define CATEGORY_VIDEO_INFO_0_SV "Konfigurera bildformat, beskärning av skärmen och andra bildutdatainställningar."
 #define CATEGORY_AUDIO_LABEL_SV "Ljud"
 #define CATEGORY_AUDIO_INFO_0_SV "Konfigurera emulerade ljudenheter."
 #define CATEGORY_INPUT_LABEL_SV "Inmatning"
@@ -32532,9 +32532,9 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_PALETTE_INFO_0_SV "Composite försöker återskapa den ursprungliga konsolens utmatning och kan visa fler detaljer i vissa spel."
 #define OPTION_VAL_RGB_SV NULL
 #define OPTION_VAL_COMPOSITE_SV "Komposit"
-#define PCE_ASPECT_RATIO_LABEL_SV "Bildförhållande"
-#define PCE_ASPECT_RATIO_INFO_0_SV "Välj önskad innehållsbildförhållande. Detta gäller endast när RetroArchs bildförhållande är inställd på \"Kärnspecifikt\" i Videoinställningarna."
-#define OPTION_VAL_AUTO_SV "Automatiskt"
+#define PCE_ASPECT_RATIO_LABEL_SV "Bildformat"
+#define PCE_ASPECT_RATIO_INFO_0_SV "Välj föredraget bildformat för innehåll. Detta kommer endast att tillämpas när RetroArchs bildformat är inställt på \"Kärnspecifikt\" i Video-inställningarna."
+#define OPTION_VAL_AUTO_SV NULL
 #define OPTION_VAL_6_5_SV NULL
 #define OPTION_VAL_4_3_SV NULL
 #define OPTION_VAL_UNCORRECTED_SV "Okorrigerad"
@@ -32626,8 +32626,8 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_SV "Spelare (P4) Turbo II"
 #define PCE_P4_TURBO_I_ENABLE_LABEL_SV "Spelare (P5) Turbo I"
 #define PCE_P4_TURBO_II_ENABLE_LABEL_SV "Spelare (P5) Turbo II"
-#define PCE_CDIMAGECACHE_LABEL_SV "CD-bildcache (Omstart krävs)"
-#define PCE_CDIMAGECACHE_INFO_0_SV "Ladda in hela bilden i minnet vid start. Kan potentiellt minska laddningstiderna till förmån för en ökad starttid."
+#define PCE_CDIMAGECACHE_LABEL_SV "Skivavbildningscache (omstart krävs)"
+#define PCE_CDIMAGECACHE_INFO_0_SV "Ladda in hela avbilden i minnet vid start. Kan potentiellt minska laddningstiderna till förmån för en ökad starttid."
 #define PCE_CDBIOS_LABEL_SV "CD-BIOS (Omstart krävs)"
 #define PCE_CDBIOS_INFO_0_SV "De flesta spel kan köras på \"Systemkort 3\". \"Games Express\" krävs för flera olicensierade spel."
 #define OPTION_VAL_GAMES_EXPRESS_SV NULL
