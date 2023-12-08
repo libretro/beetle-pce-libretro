@@ -5758,7 +5758,7 @@ struct retro_core_options_v2 options_cht = {
 #define CATEGORY_INPUT_INFO_0_CS "Konfigurace vstupu světelné pistole, myši a ovladače."
 #define CATEGORY_HACKS_LABEL_CS "Emulace Hacků"
 #define CATEGORY_HACKS_INFO_0_CS "Konfigurace parametrů přetaktování procesoru a přesnosti emulace ovlivňujících výkon a kompatibilitu na nízké úrovni."
-#define CATEGORY_CD_LABEL_CS "PC Motor CD"
+#define CATEGORY_CD_LABEL_CS NULL
 #define CATEGORY_CD_INFO_0_CS "Konfigurace nastavení týkajících se emulace disku CD PC Engine."
 #define PCE_PALETTE_LABEL_CS "Paleta barev"
 #define PCE_PALETTE_INFO_0_CS "Kompozitně se snaží obnovit původní výstup z konzole a v některých hrách může zobrazit více detailů."
@@ -5778,10 +5778,10 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_HIRES_BLEND_INFO_0_CS "Prolínání pixelů v režimu vysokého rozlišení. Vyšší hodnoty obraz více rozostří."
 #define PCE_H_OVERSCAN_LABEL_CS "Zobrazit Horizontální Overscan"
 #define PCE_H_OVERSCAN_INFO_0_CS "Režim 'Auto' se pokusí přizpůsobit hrám a ořízne prázdné oblasti."
-#define PCE_INITIAL_SCANLINE_LABEL_CS "Počáteční Skenovací Linie"
+#define PCE_INITIAL_SCANLINE_LABEL_CS "Počáteční skenovací linie"
 #define PCE_INITIAL_SCANLINE_INFO_0_CS "První vykreslená skenovací linie. Vyšší hodnoty oříznou horní část obrázku."
 #define OPTION_VAL_3_CS "3 (Výchozí)"
-#define PCE_LAST_SCANLINE_LABEL_CS "Poslední Skenovací Linie"
+#define PCE_LAST_SCANLINE_LABEL_CS "Poslední skenovací linie"
 #define PCE_LAST_SCANLINE_INFO_0_CS "Poslední vykreslená skenovací linie. Nižší hodnoty oříznou spodní část obrázku."
 #define OPTION_VAL_242_CS "242 (Výchozí)"
 #define PCE_PSGREVISION_LABEL_CS "Zvukový Čip PSG (Nutný Restart)"
@@ -5858,7 +5858,7 @@ struct retro_core_options_v2 options_cht = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_CS NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_CS NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_CS NULL
-#define PCE_CDIMAGECACHE_LABEL_CS "Vyrovnávací Paměť Obrazu CD (Nutný Restart)"
+#define PCE_CDIMAGECACHE_LABEL_CS "Vyrovnávací paměť obrazu CD (nutný restart)"
 #define PCE_CDIMAGECACHE_INFO_0_CS "Načíst kompletní obraz do paměti při spuštění. Může potenciálně zkrátit dobu načítání za cenu prodloužení doby spouštění."
 #define PCE_CDBIOS_LABEL_CS "CD Bios (Nutný Restart)"
 #define PCE_CDBIOS_INFO_0_CS "Většinu her lze spustit na 'Systémová Karta 3'. Pro některé nelicencované hry je zapotřebí 'Games Express'."
@@ -32518,13 +32518,13 @@ struct retro_core_options_v2 options_sr = {
 
 /* RETRO_LANGUAGE_SV */
 
-#define CATEGORY_VIDEO_LABEL_SV "Bild"
+#define CATEGORY_VIDEO_LABEL_SV NULL
 #define CATEGORY_VIDEO_INFO_0_SV "Konfigurera bildformat, beskärning av skärmen och andra bildutdatainställningar."
 #define CATEGORY_AUDIO_LABEL_SV "Ljud"
 #define CATEGORY_AUDIO_INFO_0_SV "Konfigurera emulerade ljudenheter."
 #define CATEGORY_INPUT_LABEL_SV "Inmatning"
 #define CATEGORY_INPUT_INFO_0_SV "Konfigurera ljuspistol, mus och kontrollinmatning."
-#define CATEGORY_HACKS_LABEL_SV "Emuleringshackning"
+#define CATEGORY_HACKS_LABEL_SV "Emulator Hacks"
 #define CATEGORY_HACKS_INFO_0_SV "Konfigurera processorns överklockning och emuleringsnoggrannhetsparametrar som påverkar prestanda och kompatibilitet på låg nivå."
 #define CATEGORY_CD_LABEL_SV NULL
 #define CATEGORY_CD_INFO_0_SV "Konfigurera inställningar relaterade till PC Engine CD-emulering."
@@ -32533,7 +32533,7 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_RGB_SV NULL
 #define OPTION_VAL_COMPOSITE_SV "Komposit"
 #define PCE_ASPECT_RATIO_LABEL_SV "Bildformat"
-#define PCE_ASPECT_RATIO_INFO_0_SV "Välj föredraget bildformat för innehåll. Detta kommer endast att tillämpas när RetroArchs bildformat är inställt på \"Kärnspecifikt\" i Video-inställningarna."
+#define PCE_ASPECT_RATIO_INFO_0_SV "Välj det föredragna bildformatet för Innehållet. Detta kommer endast att tillämpas när RetroArchs bildformat är inställt på \"Kärnspecifikt\" i Video-inställningarna."
 #define OPTION_VAL_AUTO_SV NULL
 #define OPTION_VAL_6_5_SV NULL
 #define OPTION_VAL_4_3_SV NULL
@@ -32560,7 +32560,7 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_RESAMP_QUALITY_INFO_0_SV "Högre värden ger bättre signal till brusförhållande och bevarande av högre frekvenser, men ökar beräkningskostnaden och kan orsaka högre latens och ljudklippning om volymen är inställd för högt."
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SV "Visa avancerade inställningar för indata/turbo"
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SV "Visa multitap-flerspelaradaptern, mus, turbo-knappar och avancerade parametrar. OBS!: Du kanske behöver gå tillbaka i spelet och återgå till menyn för att uppdatera listan."
-#define PCE_MOUSE_SENSITIVITY_LABEL_SV "Muskänslighet"
+#define PCE_MOUSE_SENSITIVITY_LABEL_SV NULL
 #define PCE_MOUSE_SENSITIVITY_INFO_0_SV "Högre värden kommer få muspekaren att röra sig snabbare."
 #define OPTION_VAL_0_125_SV NULL
 #define OPTION_VAL_0_250_SV NULL
@@ -32616,16 +32616,16 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_FAST_SV "Snabb"
 #define OPTION_VAL_MEDIUM_SV NULL
 #define OPTION_VAL_SLOW_SV "Långsam"
-#define PCE_P0_TURBO_I_ENABLE_LABEL_SV "Spelare (P1) Turbo I"
-#define PCE_P0_TURBO_II_ENABLE_LABEL_SV "Spelare (P1) Turbo II"
-#define PCE_P1_TURBO_I_ENABLE_LABEL_SV "Spelare (P2) Turbo I"
-#define PCE_P1_TURBO_II_ENABLE_LABEL_SV "Spelare (P2) Turbo II"
-#define PCE_P2_TURBO_I_ENABLE_LABEL_SV "Spelare (P3) Turbo I"
-#define PCE_P2_TURBO_II_ENABLE_LABEL_SV "Spelare (P3) Turbo II"
-#define PCE_P3_TURBO_I_ENABLE_LABEL_SV "Spelare (P4) Turbo I"
-#define PCE_P3_TURBO_II_ENABLE_LABEL_SV "Spelare (P4) Turbo II"
-#define PCE_P4_TURBO_I_ENABLE_LABEL_SV "Spelare (P5) Turbo I"
-#define PCE_P4_TURBO_II_ENABLE_LABEL_SV "Spelare (P5) Turbo II"
+#define PCE_P0_TURBO_I_ENABLE_LABEL_SV NULL
+#define PCE_P0_TURBO_II_ENABLE_LABEL_SV NULL
+#define PCE_P1_TURBO_I_ENABLE_LABEL_SV NULL
+#define PCE_P1_TURBO_II_ENABLE_LABEL_SV NULL
+#define PCE_P2_TURBO_I_ENABLE_LABEL_SV NULL
+#define PCE_P2_TURBO_II_ENABLE_LABEL_SV NULL
+#define PCE_P3_TURBO_I_ENABLE_LABEL_SV NULL
+#define PCE_P3_TURBO_II_ENABLE_LABEL_SV NULL
+#define PCE_P4_TURBO_I_ENABLE_LABEL_SV NULL
+#define PCE_P4_TURBO_II_ENABLE_LABEL_SV NULL
 #define PCE_CDIMAGECACHE_LABEL_SV "Skivavbildningscache (omstart krävs)"
 #define PCE_CDIMAGECACHE_INFO_0_SV "Ladda in hela avbilden i minnet vid start. Kan potentiellt minska laddningstiderna till förmån för en ökad starttid."
 #define PCE_CDBIOS_LABEL_SV "CD-BIOS (Omstart krävs)"
@@ -32654,7 +32654,7 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_CDDAVOLUME_LABEL_CAT_SV "Volym för CDDA %"
 #define PCE_CDPSGVOLUME_LABEL_SV "(CD) CD PSG Volym %"
 #define PCE_CDPSGVOLUME_LABEL_CAT_SV "Volym för CD PSG %"
-#define PCE_NOSPRITELIMIT_LABEL_SV "Ingen sprit-begränsning"
+#define PCE_NOSPRITELIMIT_LABEL_SV NULL
 #define PCE_NOSPRITELIMIT_INFO_0_SV "Ta bort hårdvarubegränsningen på 16 sprites per skanlinje. VARNING!: Kan orsaka grafikfel i vissa spel (som exempelvis Bloody Wolf)."
 #define PCE_OCMULTIPLIER_LABEL_SV "CPU-överklockningsmultiplikator"
 #define PCE_OCMULTIPLIER_INFO_0_SV "Högre värden kan minska inbromsningar i spel. VARNING!: Kan orsaka fel och krascher."
