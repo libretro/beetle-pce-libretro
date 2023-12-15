@@ -18180,7 +18180,7 @@ struct retro_core_options_v2 options_he = {
 
 #define CATEGORY_VIDEO_LABEL_HR NULL
 #define CATEGORY_VIDEO_INFO_0_HR NULL
-#define CATEGORY_AUDIO_LABEL_HR NULL
+#define CATEGORY_AUDIO_LABEL_HR "Zvuk"
 #define CATEGORY_AUDIO_INFO_0_HR NULL
 #define CATEGORY_INPUT_LABEL_HR NULL
 #define CATEGORY_INPUT_INFO_0_HR NULL
@@ -32560,7 +32560,7 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_RESAMP_QUALITY_INFO_0_SV "Högre värden ger bättre signal till brusförhållande och bevarande av högre frekvenser, men ökar beräkningskostnaden och kan orsaka högre latens och ljudklippning om volymen är inställd för högt."
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_SV "Visa avancerade inställningar för indata/turbo"
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_SV "Visa multitap-flerspelaradaptern, mus, turbo-knappar och avancerade parametrar. OBS!: Du kanske behöver gå tillbaka i spelet och återgå till menyn för att uppdatera listan."
-#define PCE_MOUSE_SENSITIVITY_LABEL_SV NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_SV "Muskänslighet"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_SV "Högre värden kommer få muspekaren att röra sig snabbare."
 #define OPTION_VAL_0_125_SV NULL
 #define OPTION_VAL_0_250_SV NULL
@@ -32654,7 +32654,7 @@ struct retro_core_options_v2 options_sr = {
 #define PCE_CDDAVOLUME_LABEL_CAT_SV "Volym för CDDA %"
 #define PCE_CDPSGVOLUME_LABEL_SV "(CD) CD PSG Volym %"
 #define PCE_CDPSGVOLUME_LABEL_CAT_SV "Volym för CD PSG %"
-#define PCE_NOSPRITELIMIT_LABEL_SV NULL
+#define PCE_NOSPRITELIMIT_LABEL_SV "Ingen blockfigursgräns"
 #define PCE_NOSPRITELIMIT_INFO_0_SV "Ta bort hårdvarubegränsningen på 16 sprites per skanlinje. VARNING!: Kan orsaka grafikfel i vissa spel (som exempelvis Bloody Wolf)."
 #define PCE_OCMULTIPLIER_LABEL_SV "CPU-överklockningsmultiplikator"
 #define PCE_OCMULTIPLIER_INFO_0_SV "Högre värden kan minska inbromsningar i spel. VARNING!: Kan orsaka fel och krascher."
