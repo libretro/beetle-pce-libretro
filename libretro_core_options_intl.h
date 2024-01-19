@@ -22003,11 +22003,11 @@ struct retro_core_options_v2 options_it = {
 /* RETRO_LANGUAGE_JA */
 
 #define CATEGORY_VIDEO_LABEL_JA "ビデオ"
-#define CATEGORY_VIDEO_INFO_0_JA "アスペクト比、表示トリミング、および他の画像出力パラメータを設定します。"
+#define CATEGORY_VIDEO_INFO_0_JA "アスペクト比、ディスプレイのトリミングおよび他の画像出力パラメータを設定します。"
 #define CATEGORY_AUDIO_LABEL_JA "オーディオ"
 #define CATEGORY_AUDIO_INFO_0_JA "エミュレートされたオーディオデバイスを設定します。"
 #define CATEGORY_INPUT_LABEL_JA "入力"
-#define CATEGORY_INPUT_INFO_0_JA "ライトガン、マウス、コントローラーの入力を設定します。"
+#define CATEGORY_INPUT_INFO_0_JA "ライトガン、マウスおよびコントローラーの入力を構成します。"
 #define CATEGORY_HACKS_LABEL_JA "エミュレーションハック"
 #define CATEGORY_HACKS_INFO_0_JA "低水準パフォーマンスと互換性に影響を与えるプロセッサのオーバークロックとエミュレーション精度のパラメータを構成します。"
 #define CATEGORY_CD_LABEL_JA "PCエンジン CD"
@@ -22017,7 +22017,7 @@ struct retro_core_options_v2 options_it = {
 #define OPTION_VAL_RGB_JA NULL
 #define OPTION_VAL_COMPOSITE_JA "コンポジット"
 #define PCE_ASPECT_RATIO_LABEL_JA "アスペクト比"
-#define PCE_ASPECT_RATIO_INFO_0_JA "優先されるコンテンツのアスペクト比を選択します。RetroArch のアスペクト比がビデオ設定で [コア提供] に設定されている場合にのみ適用されます。"
+#define PCE_ASPECT_RATIO_INFO_0_JA "コンテンツの優先アスペクト比を選択します。RetroArch のアスペクト比がビデオ設定で [コア提供] に設定されている場合にのみ適用されます。"
 #define OPTION_VAL_AUTO_JA "自動"
 #define OPTION_VAL_6_5_JA NULL
 #define OPTION_VAL_4_3_JA NULL
@@ -22071,7 +22071,7 @@ struct retro_core_options_v2 options_it = {
 #define OPTION_VAL_4_50_JA NULL
 #define OPTION_VAL_4_75_JA NULL
 #define OPTION_VAL_5_00_JA NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_JA "反対方向を許可"
+#define PCE_UP_DOWN_ALLOWED_LABEL_JA "逆方向入力を許可"
 #define PCE_UP_DOWN_ALLOWED_INFO_0_JA "有効にすると、左右 (または上下) 方向の同時押し / 高速交互押し / 長押しが可能になります。動作に不具合が生じる場合があります。"
 #define PCE_DISABLE_SOFTRESET_LABEL_JA "ソフトリセットを無効にする (RUN+SELECT)"
 #define PCE_DISABLE_SOFTRESET_INFO_0_JA "RUN と SELECT が同時に押された時に、リセットの代わりに一時的に両方のボタンを無効にします。"
