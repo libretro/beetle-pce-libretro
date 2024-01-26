@@ -22003,15 +22003,15 @@ struct retro_core_options_v2 options_it = {
 /* RETRO_LANGUAGE_JA */
 
 #define CATEGORY_VIDEO_LABEL_JA "ビデオ"
-#define CATEGORY_VIDEO_INFO_0_JA "アスペクト比、ディスプレイのトリミングおよび他の画像出力パラメータを設定します。"
+#define CATEGORY_VIDEO_INFO_0_JA "アスペクト比、画面のトリミングおよび他の画像出力パラメータを設定します。"
 #define CATEGORY_AUDIO_LABEL_JA "オーディオ"
 #define CATEGORY_AUDIO_INFO_0_JA "エミュレートされたオーディオデバイスを設定します。"
 #define CATEGORY_INPUT_LABEL_JA "入力"
-#define CATEGORY_INPUT_INFO_0_JA "ライトガン、マウスおよびコントローラーの入力を構成します。"
+#define CATEGORY_INPUT_INFO_0_JA "ライトガン、マウスおよびコントローラーの入力を設定します。"
 #define CATEGORY_HACKS_LABEL_JA "エミュレーションハック"
-#define CATEGORY_HACKS_INFO_0_JA "低水準パフォーマンスと互換性に影響を与えるプロセッサのオーバークロックとエミュレーション精度のパラメータを構成します。"
+#define CATEGORY_HACKS_INFO_0_JA "低水準パフォーマンスと互換性に影響を与えるプロセッサのオーバークロックとエミュレーション精度のパラメータを設定します。"
 #define CATEGORY_CD_LABEL_JA "PCエンジン CD"
-#define CATEGORY_CD_INFO_0_JA "PCエンジン CD のエミュレーションに関連する設定を構成します。"
+#define CATEGORY_CD_INFO_0_JA "PC エンジン CD のエミュレーションに関連する設定を変更します。"
 #define PCE_PALETTE_LABEL_JA "カラーパレット"
 #define PCE_PALETTE_INFO_0_JA "コンポジットはオリジナルのコンソール出力の再現を試み、一部のゲームでさらなるディテールを表示することができます。"
 #define OPTION_VAL_RGB_JA NULL
@@ -22031,10 +22031,10 @@ struct retro_core_options_v2 options_it = {
 #define PCE_H_OVERSCAN_LABEL_JA "水平オーバースキャンを表示"
 #define PCE_H_OVERSCAN_INFO_0_JA NULL
 #define PCE_INITIAL_SCANLINE_LABEL_JA "初期スキャンライン"
-#define PCE_INITIAL_SCANLINE_INFO_0_JA "描画開始スキャンライン。大きい値ほど画面上部の表示が欠けます。"
+#define PCE_INITIAL_SCANLINE_INFO_0_JA "最初に描画されるスキャンラインです。値を大きくするほどイメージの上部がトリミングされます。"
 #define OPTION_VAL_3_JA "3 (デフォルト)"
 #define PCE_LAST_SCANLINE_LABEL_JA "最終スキャンライン"
-#define PCE_LAST_SCANLINE_INFO_0_JA "最終描画スキャンライン。小さい値ほど画面下部の表示が欠けます。"
+#define PCE_LAST_SCANLINE_INFO_0_JA "最後に描画されるスキャンラインです。値を小さくするほどイメージの下部がトリミングされます。"
 #define OPTION_VAL_242_JA "242 (デフォルト)"
 #define PCE_PSGREVISION_LABEL_JA NULL
 #define PCE_PSGREVISION_INFO_0_JA NULL
@@ -22045,7 +22045,7 @@ struct retro_core_options_v2 options_it = {
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_JA "高度な入力/ターボ設定を表示"
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_JA NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_JA "マウス感度"
-#define PCE_MOUSE_SENSITIVITY_INFO_0_JA "値を大きくすると、マウスカーソルがより速く移動します。"
+#define PCE_MOUSE_SENSITIVITY_INFO_0_JA "値を大きくするほどマウスカーソルの動きが速くなります。"
 #define OPTION_VAL_0_125_JA NULL
 #define OPTION_VAL_0_250_JA NULL
 #define OPTION_VAL_0_375_JA NULL
@@ -22093,8 +22093,8 @@ struct retro_core_options_v2 options_it = {
 #define PCE_TURBO_TOGGLING_INFO_0_JA NULL
 #define OPTION_VAL_TOGGLE_JA "切り替え"
 #define OPTION_VAL_ALWAYS_JA NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_JA NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_JA NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_JA "代替ターボホットキー"
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_JA "ボタン III と IV ではなく、レトロパッドの L3/R3 ボタンにターボホットキーを割り当てます。 [切り替え] モードかつ、L3/R3 に何も割り当てられていない場合にのみ動作します。これにより、6 ボタンコントローラーモードに切り替えた際、ボタン II および IV へのリマップを回避することができます。"
 #define PCE_TURBO_DELAY_LABEL_JA "ターボ速度"
 #define PCE_TURBO_DELAY_INFO_0_JA NULL
 #define OPTION_VAL_FAST_JA "高速"
@@ -22124,7 +22124,7 @@ struct retro_core_options_v2 options_it = {
 #define PCE_ARCADECARD_INFO_0_JA "ACD 対応SCD ゲームのACDモードを許可するには、このオプションを有効にしておきます。"
 #define PCE_CDSPEED_LABEL_JA "(CD) CD 速度"
 #define PCE_CDSPEED_LABEL_CAT_JA "CD 速度"
-#define PCE_CDSPEED_INFO_0_JA "値が高いほど読み込み時間が速くなりますが、いくつかのゲームで問題が発生する可能性があります。"
+#define PCE_CDSPEED_INFO_0_JA "値を大きくするほど読み込み時間を高速化できますが、いくつかのゲームで問題が発生する可能性があります。"
 #define PCE_ADPCMEXTRAPREC_LABEL_JA "(CD) ADPCM 精度"
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_JA "ADPCM 精度"
 #define PCE_ADPCMEXTRAPREC_INFO_0_JA NULL
@@ -22132,7 +22132,7 @@ struct retro_core_options_v2 options_it = {
 #define OPTION_VAL_12_BIT_JA NULL
 #define PCE_ADPCMVOLUME_LABEL_JA "(CD) ADPCM 音量 %"
 #define PCE_ADPCMVOLUME_LABEL_CAT_JA "ADPCM 音量 %"
-#define PCE_ADPCMVOLUME_INFO_0_JA NULL
+#define PCE_ADPCMVOLUME_INFO_0_JA "CD ゲームのみです。この音量を高く設定しすぎるとサンプルクリッピングが発生する可能性があります。"
 #define PCE_ADPCMVOLUME_INFO_1_JA NULL
 #define PCE_CDDAVOLUME_LABEL_JA "(CD) CDDA 音量 %"
 #define PCE_CDDAVOLUME_LABEL_CAT_JA "CD-DA 音量 %"
@@ -22141,7 +22141,7 @@ struct retro_core_options_v2 options_it = {
 #define PCE_NOSPRITELIMIT_LABEL_JA "スプライト制限なし"
 #define PCE_NOSPRITELIMIT_INFO_0_JA "スキャンラインあたりの16スプライトのハードウェア制限を削除します。警告: ゲームによってはグラフィックが乱れる可能性があります。(ブラッディーウルフなど)"
 #define PCE_OCMULTIPLIER_LABEL_JA "CPUオーバークロック倍率"
-#define PCE_OCMULTIPLIER_INFO_0_JA "値を大きくするとゲームのスローダウンが減ります。警告：不具合やクラッシュを引き起こす可能性があります。"
+#define PCE_OCMULTIPLIER_INFO_0_JA "値を大きくするほどゲームの実行速度の低下を軽減できます。警告: 不具合やクラッシュを引き起こす可能性があります。"
 
 struct retro_core_option_v2_category option_cats_ja[] = {
    {
