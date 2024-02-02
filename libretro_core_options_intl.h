@@ -22009,8 +22009,8 @@ struct retro_core_options_v2 options_it = {
 #define CATEGORY_INPUT_LABEL_JA "入力"
 #define CATEGORY_INPUT_INFO_0_JA "ライトガン、マウスおよびコントローラーの入力を設定します。"
 #define CATEGORY_HACKS_LABEL_JA "エミュレーションハック"
-#define CATEGORY_HACKS_INFO_0_JA "低水準パフォーマンスと互換性に影響を与えるプロセッサのオーバークロックとエミュレーション精度のパラメータを設定します。"
-#define CATEGORY_CD_LABEL_JA "PCエンジン CD"
+#define CATEGORY_HACKS_INFO_0_JA "低レベルパフォーマンスと互換性に影響を与えるプロセッサのオーバークロックとエミュレーション精度のパラメータを設定します。"
+#define CATEGORY_CD_LABEL_JA "PC エンジン CD"
 #define CATEGORY_CD_INFO_0_JA "PC エンジン CD のエミュレーションに関連する設定を変更します。"
 #define PCE_PALETTE_LABEL_JA "カラーパレット"
 #define PCE_PALETTE_INFO_0_JA "コンポジットはオリジナルのコンソール出力の再現を試み、一部のゲームでさらなるディテールを表示することができます。"
@@ -22036,8 +22036,8 @@ struct retro_core_options_v2 options_it = {
 #define PCE_LAST_SCANLINE_LABEL_JA "最終スキャンライン"
 #define PCE_LAST_SCANLINE_INFO_0_JA "最後に描画されるスキャンラインです。値を小さくするほどイメージの下部がトリミングされます。"
 #define OPTION_VAL_242_JA "242 (デフォルト)"
-#define PCE_PSGREVISION_LABEL_JA NULL
-#define PCE_PSGREVISION_INFO_0_JA NULL
+#define PCE_PSGREVISION_LABEL_JA "PSG オーディオチップ (再起動が必要)"
+#define PCE_PSGREVISION_INFO_0_JA "HuC6280 はオリジナルの PC エンジンを、HuC6280A はスーパーグラフィックスおよびコアグラフィックス I を表します。"
 #define OPTION_VAL_HUC6280_JA NULL
 #define OPTION_VAL_HUC6280A_JA NULL
 #define PCE_RESAMP_QUALITY_LABEL_JA NULL
@@ -22089,7 +22089,7 @@ struct retro_core_options_v2 options_it = {
 #define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_JA "ポート 4 のジョイパッドをデフォルトで 2 または 6 ボタンにするかどうかを選択します。このオプションはコアの開始時にのみ適用されます。コンテンツの実行中に切り替えたい場合は、[モード切り替え] ボタンを使用してください。注意: 6 ボタンジョイパッドは互換性のないゲームで奇妙な動作をすることがあります。"
 #define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_JA "P5 デフォルトジョイパッドの種類"
 #define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_JA "ポート 5 のジョイパッドをデフォルトで 2 または 6 ボタンにするかどうかを選択します。このオプションはコアの開始時にのみ適用されます。コンテンツの実行中に切り替えたい場合は、[モード切り替え] ボタンを使用してください。注意: 6 ボタンジョイパッドは互換性のないゲームで奇妙な動作をすることがあります。"
-#define PCE_TURBO_TOGGLING_LABEL_JA NULL
+#define PCE_TURBO_TOGGLING_LABEL_JA "ターボホットキーモード"
 #define PCE_TURBO_TOGGLING_INFO_0_JA NULL
 #define OPTION_VAL_TOGGLE_JA "切り替え"
 #define OPTION_VAL_ALWAYS_JA NULL
@@ -22099,7 +22099,7 @@ struct retro_core_options_v2 options_it = {
 #define PCE_TURBO_DELAY_INFO_0_JA NULL
 #define OPTION_VAL_FAST_JA "高速"
 #define OPTION_VAL_MEDIUM_JA "中"
-#define OPTION_VAL_SLOW_JA NULL
+#define OPTION_VAL_SLOW_JA "遅い"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_JA "P1 ターボ I"
 #define PCE_P0_TURBO_II_ENABLE_LABEL_JA "P1 ターボ II"
 #define PCE_P1_TURBO_I_ENABLE_LABEL_JA "P2 ターボ I"
