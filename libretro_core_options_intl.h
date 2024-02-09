@@ -22022,28 +22022,28 @@ struct retro_core_options_v2 options_it = {
 #define OPTION_VAL_6_5_JA NULL
 #define OPTION_VAL_4_3_JA NULL
 #define OPTION_VAL_UNCORRECTED_JA "補正なし"
-#define PCE_SCALING_LABEL_JA NULL
-#define PCE_SCALING_INFO_0_JA NULL
+#define PCE_SCALING_LABEL_JA "解像度倍率"
+#define PCE_SCALING_INFO_0_JA "[自動] は解像度の変更を許可します。[低解像度] はピクセルを押しつぶすことができます。[高解像度] は最大幅に留まります。"
 #define OPTION_VAL_LORES_JA "低解像度"
 #define OPTION_VAL_HIRES_JA "高解像度"
-#define PCE_HIRES_BLEND_LABEL_JA NULL
-#define PCE_HIRES_BLEND_INFO_0_JA NULL
+#define PCE_HIRES_BLEND_LABEL_JA "高解像度ブレンディングの強さ"
+#define PCE_HIRES_BLEND_INFO_0_JA "高解像度モードを使用している場合、隣り合うピクセルをブレンドします。値を大きくするほど、画像がぼやけます。"
 #define PCE_H_OVERSCAN_LABEL_JA "水平オーバースキャンを表示"
-#define PCE_H_OVERSCAN_INFO_0_JA NULL
-#define PCE_INITIAL_SCANLINE_LABEL_JA "初期スキャンライン"
+#define PCE_H_OVERSCAN_INFO_0_JA "[自動] に設定すると、ゲームに応じて空白領域をトリミングします。"
+#define PCE_INITIAL_SCANLINE_LABEL_JA "開始スキャンライン"
 #define PCE_INITIAL_SCANLINE_INFO_0_JA "最初に描画されるスキャンラインです。値を大きくするほどイメージの上部がトリミングされます。"
 #define OPTION_VAL_3_JA "3 (デフォルト)"
-#define PCE_LAST_SCANLINE_LABEL_JA "最終スキャンライン"
+#define PCE_LAST_SCANLINE_LABEL_JA "終了スキャンライン"
 #define PCE_LAST_SCANLINE_INFO_0_JA "最後に描画されるスキャンラインです。値を小さくするほどイメージの下部がトリミングされます。"
 #define OPTION_VAL_242_JA "242 (デフォルト)"
 #define PCE_PSGREVISION_LABEL_JA "PSG オーディオチップ (再起動が必要)"
 #define PCE_PSGREVISION_INFO_0_JA "HuC6280 はオリジナルの PC エンジンを、HuC6280A はスーパーグラフィックスおよびコアグラフィックス I を表します。"
 #define OPTION_VAL_HUC6280_JA NULL
 #define OPTION_VAL_HUC6280A_JA NULL
-#define PCE_RESAMP_QUALITY_LABEL_JA NULL
-#define PCE_RESAMP_QUALITY_INFO_0_JA NULL
+#define PCE_RESAMP_QUALITY_LABEL_JA "Owl リサンプラー品質"
+#define PCE_RESAMP_QUALITY_INFO_0_JA "値を大きくするほど、S/N 比が向上し高音域を維持できますが、計算量が増加します。また、音量を高くしすぎるとレイテンシの増加と音割れが発生する可能性があります。"
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_JA "高度な入力/ターボ設定を表示"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_JA NULL
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_JA "マルチタップ、マウス、ターボボタンおよび高度なパラーメータを表示します。注意: リストを更新するには、ゲームに戻ってメニューを開き直す必要があります。"
 #define PCE_MOUSE_SENSITIVITY_LABEL_JA "マウス感度"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_JA "値を大きくするほどマウスカーソルの動きが速くなります。"
 #define OPTION_VAL_0_125_JA NULL
@@ -22076,7 +22076,7 @@ struct retro_core_options_v2 options_it = {
 #define PCE_DISABLE_SOFTRESET_LABEL_JA "ソフトリセットを無効にする (RUN+SELECT)"
 #define PCE_DISABLE_SOFTRESET_INFO_0_JA "RUN と SELECT が同時に押された時に、リセットの代わりに一時的に両方のボタンを無効にします。"
 #define PCE_MULTITAP_LABEL_JA "マルチタップ 5 ポートコントローラー"
-#define PCE_MULTITAP_INFO_0_JA NULL
+#define PCE_MULTITAP_INFO_0_JA "最大 5 人までのマルチタップエミュレーションを有効にします。一部の例外 (超兄貴など) を除いて、無効にする必要はありません。"
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_JA "P1 デフォルトジョイパッドの種類"
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_JA "ポート 1 のジョイパッドをデフォルトで 2 または 6 ボタンにするかどうかを選択します。このオプションはコアの開始時にのみ適用されます。コンテンツの実行中に切り替えたい場合は、[モード切り替え] ボタンを使用してください。注意: 6 ボタンジョイパッドは互換性のないゲームで奇妙な動作をすることがあります。"
 #define OPTION_VAL_2_BUTTONS_JA "2 ボタン"
@@ -22090,13 +22090,13 @@ struct retro_core_options_v2 options_it = {
 #define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_JA "P5 デフォルトジョイパッドの種類"
 #define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_JA "ポート 5 のジョイパッドをデフォルトで 2 または 6 ボタンにするかどうかを選択します。このオプションはコアの開始時にのみ適用されます。コンテンツの実行中に切り替えたい場合は、[モード切り替え] ボタンを使用してください。注意: 6 ボタンジョイパッドは互換性のないゲームで奇妙な動作をすることがあります。"
 #define PCE_TURBO_TOGGLING_LABEL_JA "ターボホットキーモード"
-#define PCE_TURBO_TOGGLING_INFO_0_JA NULL
+#define PCE_TURBO_TOGGLING_INFO_0_JA "ターボボタンを有効にします。ホットキー (ボタン III と IV) は、通常レトロパッドの A/B ボタンに割り当てられる ボタン I および ボタン II のターボのオン/オフ、またはボタン I/II の専用ターボボタンとして動作します。"
 #define OPTION_VAL_TOGGLE_JA "切り替え"
-#define OPTION_VAL_ALWAYS_JA NULL
+#define OPTION_VAL_ALWAYS_JA "長押し"
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_JA "代替ターボホットキー"
 #define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_JA "ボタン III と IV ではなく、レトロパッドの L3/R3 ボタンにターボホットキーを割り当てます。 [切り替え] モードかつ、L3/R3 に何も割り当てられていない場合にのみ動作します。これにより、6 ボタンコントローラーモードに切り替えた際、ボタン II および IV へのリマップを回避することができます。"
 #define PCE_TURBO_DELAY_LABEL_JA "ターボ速度"
-#define PCE_TURBO_DELAY_INFO_0_JA NULL
+#define PCE_TURBO_DELAY_INFO_0_JA "ボタンの連続入力の速さを選択します。"
 #define OPTION_VAL_FAST_JA "高速"
 #define OPTION_VAL_MEDIUM_JA "中"
 #define OPTION_VAL_SLOW_JA "遅い"
@@ -22127,20 +22127,20 @@ struct retro_core_options_v2 options_it = {
 #define PCE_CDSPEED_INFO_0_JA "値を大きくするほど読み込み時間を高速化できますが、いくつかのゲームで問題が発生する可能性があります。"
 #define PCE_ADPCMEXTRAPREC_LABEL_JA "(CD) ADPCM 精度"
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_JA "ADPCM 精度"
-#define PCE_ADPCMEXTRAPREC_INFO_0_JA NULL
+#define PCE_ADPCMEXTRAPREC_INFO_0_JA "MSM5205 ADPCM プレディクタを 12 ビットのフル精度でエミュレートすることで、ADPCM 再生時のヒスノイズを抑えることができます。"
 #define OPTION_VAL_10_BIT_JA NULL
 #define OPTION_VAL_12_BIT_JA NULL
 #define PCE_ADPCMVOLUME_LABEL_JA "(CD) ADPCM 音量 %"
 #define PCE_ADPCMVOLUME_LABEL_CAT_JA "ADPCM 音量 %"
 #define PCE_ADPCMVOLUME_INFO_0_JA "CD ゲームのみです。この音量を高く設定しすぎるとサンプルクリッピングが発生する可能性があります。"
-#define PCE_ADPCMVOLUME_INFO_1_JA NULL
+#define PCE_ADPCMVOLUME_INFO_1_JA "この音量を高く設定しすぎるとサンプルクリッピングが発生する可能性があります。"
 #define PCE_CDDAVOLUME_LABEL_JA "(CD) CDDA 音量 %"
 #define PCE_CDDAVOLUME_LABEL_CAT_JA "CD-DA 音量 %"
 #define PCE_CDPSGVOLUME_LABEL_JA "(CD) CD PSG 音量 %"
 #define PCE_CDPSGVOLUME_LABEL_CAT_JA "CD PSG 音量 %"
 #define PCE_NOSPRITELIMIT_LABEL_JA "スプライト制限なし"
 #define PCE_NOSPRITELIMIT_INFO_0_JA "スキャンラインあたりの16スプライトのハードウェア制限を削除します。警告: ゲームによってはグラフィックが乱れる可能性があります。(ブラッディーウルフなど)"
-#define PCE_OCMULTIPLIER_LABEL_JA "CPUオーバークロック倍率"
+#define PCE_OCMULTIPLIER_LABEL_JA "CPU オーバークロック倍率"
 #define PCE_OCMULTIPLIER_INFO_0_JA "値を大きくするほどゲームの実行速度の低下を軽減できます。警告: 不具合やクラッシュを引き起こす可能性があります。"
 
 struct retro_core_option_v2_category option_cats_ja[] = {
