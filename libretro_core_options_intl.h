@@ -27766,10 +27766,10 @@ struct retro_core_options_v2 options_pl = {
 #define PCE_HIRES_BLEND_INFO_0_PT_BR "Mescla pixeis no modo de alta resolução. Valores maiores borrarão mais a imagem."
 #define PCE_H_OVERSCAN_LABEL_PT_BR "Mostrar overscan horizontal"
 #define PCE_H_OVERSCAN_INFO_0_PT_BR "\"Automática\" tentará se adaptar aos jogos, cortando áreas vazias."
-#define PCE_INITIAL_SCANLINE_LABEL_PT_BR "Linha de verificação inicial"
+#define PCE_INITIAL_SCANLINE_LABEL_PT_BR "Linha de varredura inicial"
 #define PCE_INITIAL_SCANLINE_INFO_0_PT_BR "Primeira linha de verificação renderizada. Valores maiores cortarão a parte superior da imagem."
 #define OPTION_VAL_3_PT_BR "3 (padrão)"
-#define PCE_LAST_SCANLINE_LABEL_PT_BR "Linha de verificação final"
+#define PCE_LAST_SCANLINE_LABEL_PT_BR "Linha de varredura final"
 #define PCE_LAST_SCANLINE_INFO_0_PT_BR "Última linha de verificação renderizada. Valores menores cortarão a parte inferior da imagem."
 #define OPTION_VAL_242_PT_BR "242 (padrão)"
 #define PCE_PSGREVISION_LABEL_PT_BR "Chip de áudio PSG (requer reinício)"
@@ -27815,8 +27815,8 @@ struct retro_core_options_v2 options_pl = {
 #define PCE_MULTITAP_INFO_0_PT_BR "Ativa emulação de multitap de até 5 jogadores. A desativação é necessária em alguns casos (por ex. Cho Aniki)."
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_PT_BR NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_PT_BR NULL
-#define OPTION_VAL_2_BUTTONS_PT_BR NULL
-#define OPTION_VAL_6_BUTTONS_PT_BR NULL
+#define OPTION_VAL_2_BUTTONS_PT_BR "2 botões"
+#define OPTION_VAL_6_BUTTONS_PT_BR "6 botões"
 #define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_PT_BR NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_PT_BR NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_PT_BR NULL
