@@ -22023,7 +22023,7 @@ struct retro_core_options_v2 options_it = {
 #define OPTION_VAL_4_3_JA NULL
 #define OPTION_VAL_UNCORRECTED_JA "補正なし"
 #define PCE_SCALING_LABEL_JA "解像度倍率"
-#define PCE_SCALING_INFO_0_JA "[自動] は解像度の変更を許可します。[低解像度] はピクセルを押しつぶすことができます。[高解像度] は最大幅に留まります。"
+#define PCE_SCALING_INFO_0_JA "[自動] に設定すると、解像度の変更を許可します。[低解像度] はピクセルを押し縮めることができます。[高解像度] は最大幅を維持します。"
 #define OPTION_VAL_LORES_JA "低解像度"
 #define OPTION_VAL_HIRES_JA "高解像度"
 #define PCE_HIRES_BLEND_LABEL_JA "高解像度ブレンディングの強さ"
@@ -22139,7 +22139,7 @@ struct retro_core_options_v2 options_it = {
 #define PCE_CDPSGVOLUME_LABEL_JA "(CD) CD PSG 音量 %"
 #define PCE_CDPSGVOLUME_LABEL_CAT_JA "CD PSG 音量 %"
 #define PCE_NOSPRITELIMIT_LABEL_JA "スプライト制限なし"
-#define PCE_NOSPRITELIMIT_INFO_0_JA "スキャンラインあたりの16スプライトのハードウェア制限を削除します。警告: ゲームによってはグラフィックが乱れる可能性があります。(ブラッディーウルフなど)"
+#define PCE_NOSPRITELIMIT_INFO_0_JA "16 スプライト/スキャンラインのハードウェア制限を解除します。警告: ゲームによってはグラフィックが乱れる可能性があります (ブラッディウルフなど)。"
 #define PCE_OCMULTIPLIER_LABEL_JA "CPU オーバークロック倍率"
 #define PCE_OCMULTIPLIER_INFO_0_JA "値を大きくするほどゲームの実行速度の低下を軽減できます。警告: 不具合やクラッシュを引き起こす可能性があります。"
 
