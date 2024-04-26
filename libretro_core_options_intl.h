@@ -4795,15 +4795,15 @@ struct retro_core_options_v2 options_ca = {
 /* RETRO_LANGUAGE_CHS */
 
 #define CATEGORY_VIDEO_LABEL_CHS "视频"
-#define CATEGORY_VIDEO_INFO_0_CHS NULL
+#define CATEGORY_VIDEO_INFO_0_CHS "配置宽高比、显示裁剪和其他图像输出参数。"
 #define CATEGORY_AUDIO_LABEL_CHS "音频"
-#define CATEGORY_AUDIO_INFO_0_CHS NULL
+#define CATEGORY_AUDIO_INFO_0_CHS "配置模拟音频设备"
 #define CATEGORY_INPUT_LABEL_CHS "输入"
-#define CATEGORY_INPUT_INFO_0_CHS NULL
+#define CATEGORY_INPUT_INFO_0_CHS "配置光枪、鼠标和控制器输入。"
 #define CATEGORY_HACKS_LABEL_CHS "模拟修改"
 #define CATEGORY_HACKS_INFO_0_CHS "配置处理器超时和模拟精确参数，影响低级性能和兼容性。"
 #define CATEGORY_CD_LABEL_CHS NULL
-#define CATEGORY_CD_INFO_0_CHS NULL
+#define CATEGORY_CD_INFO_0_CHS "配置与 PC Engine CD 仿真相关的设置。"
 #define PCE_PALETTE_LABEL_CHS "色板"
 #define PCE_PALETTE_INFO_0_CHS "使用复合设计模式尝试复现原始的控制台显示，在部分游戏中可以显示更多细节"
 #define OPTION_VAL_RGB_CHS NULL
@@ -4813,8 +4813,8 @@ struct retro_core_options_v2 options_ca = {
 #define OPTION_VAL_AUTO_CHS "自动"
 #define OPTION_VAL_6_5_CHS NULL
 #define OPTION_VAL_4_3_CHS NULL
-#define OPTION_VAL_UNCORRECTED_CHS NULL
-#define PCE_SCALING_LABEL_CHS NULL
+#define OPTION_VAL_UNCORRECTED_CHS "未校正"
+#define PCE_SCALING_LABEL_CHS "分辨率缩放"
 #define PCE_SCALING_INFO_0_CHS NULL
 #define OPTION_VAL_LORES_CHS NULL
 #define OPTION_VAL_HIRES_CHS "高分辨率"
