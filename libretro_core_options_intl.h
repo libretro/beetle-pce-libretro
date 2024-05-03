@@ -17223,49 +17223,49 @@ struct retro_core_options_v2 options_fr = {
 /* RETRO_LANGUAGE_GL */
 
 #define CATEGORY_VIDEO_LABEL_GL "Vídeo"
-#define CATEGORY_VIDEO_INFO_0_GL NULL
+#define CATEGORY_VIDEO_INFO_0_GL "Configura a relación de aspecto, o recorte da pantalla e outros parámetros de saída da imaxe."
 #define CATEGORY_AUDIO_LABEL_GL "Son"
-#define CATEGORY_AUDIO_INFO_0_GL NULL
+#define CATEGORY_AUDIO_INFO_0_GL "Configurar dispositivos de audio emulados."
 #define CATEGORY_INPUT_LABEL_GL "Entrada"
-#define CATEGORY_INPUT_INFO_0_GL NULL
+#define CATEGORY_INPUT_INFO_0_GL "Configura a entrada de pistola, rato e controlador."
 #define CATEGORY_HACKS_LABEL_GL "Hacks de emulación"
 #define CATEGORY_HACKS_INFO_0_GL "Configurar os parámetros do overclocking e a precisión da emulación do procesador que afecten ó rendemento e á compatibilidade de baixo nivel."
-#define CATEGORY_CD_LABEL_GL NULL
-#define CATEGORY_CD_INFO_0_GL NULL
-#define PCE_PALETTE_LABEL_GL NULL
-#define PCE_PALETTE_INFO_0_GL NULL
+#define CATEGORY_CD_LABEL_GL "CD de PC Engine"
+#define CATEGORY_CD_INFO_0_GL "Configure os axustes relacionados coa emulación de CD de PC Engine."
+#define PCE_PALETTE_LABEL_GL "Paleta de cores"
+#define PCE_PALETTE_INFO_0_GL "Composto tenta recrear a saída orixinal da consola e pode mostrar máis detalles nalgúns xogos."
 #define OPTION_VAL_RGB_GL NULL
-#define OPTION_VAL_COMPOSITE_GL NULL
-#define PCE_ASPECT_RATIO_LABEL_GL NULL
-#define PCE_ASPECT_RATIO_INFO_0_GL NULL
+#define OPTION_VAL_COMPOSITE_GL "Composto"
+#define PCE_ASPECT_RATIO_LABEL_GL "Relación de aspecto"
+#define PCE_ASPECT_RATIO_INFO_0_GL "Escolla a relación de aspecto do contido preferida. Isto só se aplicará cando a relación de aspecto de RetroArch estea definida como \"Núcleo proporcionado\" na configuración de vídeo."
 #define OPTION_VAL_AUTO_GL NULL
 #define OPTION_VAL_6_5_GL NULL
 #define OPTION_VAL_4_3_GL NULL
-#define OPTION_VAL_UNCORRECTED_GL NULL
-#define PCE_SCALING_LABEL_GL NULL
-#define PCE_SCALING_INFO_0_GL NULL
-#define OPTION_VAL_LORES_GL NULL
-#define OPTION_VAL_HIRES_GL NULL
-#define PCE_HIRES_BLEND_LABEL_GL NULL
-#define PCE_HIRES_BLEND_INFO_0_GL NULL
-#define PCE_H_OVERSCAN_LABEL_GL NULL
-#define PCE_H_OVERSCAN_INFO_0_GL NULL
-#define PCE_INITIAL_SCANLINE_LABEL_GL NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_GL NULL
-#define OPTION_VAL_3_GL NULL
-#define PCE_LAST_SCANLINE_LABEL_GL NULL
-#define PCE_LAST_SCANLINE_INFO_0_GL NULL
-#define OPTION_VAL_242_GL NULL
-#define PCE_PSGREVISION_LABEL_GL NULL
-#define PCE_PSGREVISION_INFO_0_GL NULL
+#define OPTION_VAL_UNCORRECTED_GL "Sen corrixir"
+#define PCE_SCALING_LABEL_GL "Escalado de resolución"
+#define PCE_SCALING_INFO_0_GL "\"Automático\" permitirá que a resolución cambie. A 'baixa resolución' pode esmagar píxeles. \"Alta resolución\" permanecerá no ancho máximo."
+#define OPTION_VAL_LORES_GL "Baixa resolución"
+#define OPTION_VAL_HIRES_GL "Alta resolución"
+#define PCE_HIRES_BLEND_LABEL_GL "Forza de mestura de alta resolución"
+#define PCE_HIRES_BLEND_INFO_0_GL "Combina píxeles cando estás en modo de alta resolución. Os valores máis altos desenfocarán máis a imaxe."
+#define PCE_H_OVERSCAN_LABEL_GL "Mostrar Overscan horizontal"
+#define PCE_H_OVERSCAN_INFO_0_GL "'Auto' tentará adaptarse aos xogos, recortando áreas baleiras."
+#define PCE_INITIAL_SCANLINE_LABEL_GL "Liña de exploración inicial"
+#define PCE_INITIAL_SCANLINE_INFO_0_GL "Primeira liña de escaneo renderizada. Os valores máis altos recortarán a parte superior da imaxe."
+#define OPTION_VAL_3_GL "3 (predeterminado)"
+#define PCE_LAST_SCANLINE_LABEL_GL "Última liña de exploración"
+#define PCE_LAST_SCANLINE_INFO_0_GL "Última liña de exploración renderizada. Os valores máis baixos recortarán a parte inferior da imaxe."
+#define OPTION_VAL_242_GL "242 (predeterminado)"
+#define PCE_PSGREVISION_LABEL_GL "Chip de audio do PSG (necesario reiniciar)"
+#define PCE_PSGREVISION_INFO_0_GL "HuC6280 representa o PC Engine orixinal, HuC6280A o SuperGrafx e CoreGrafx I."
 #define OPTION_VAL_HUC6280_GL NULL
 #define OPTION_VAL_HUC6280A_GL NULL
-#define PCE_RESAMP_QUALITY_LABEL_GL NULL
-#define PCE_RESAMP_QUALITY_INFO_0_GL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_GL NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_GL NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_GL NULL
-#define PCE_MOUSE_SENSITIVITY_INFO_0_GL NULL
+#define PCE_RESAMP_QUALITY_LABEL_GL "Calidade do remuestreador de curuxa"
+#define PCE_RESAMP_QUALITY_INFO_0_GL "Os valores máis altos proporcionan unha mellor relación sinal-ruído e preservan as frecuencias máis altas, pero aumentan o custo de cálculo e poden provocar unha maior latencia e recorte se o volume se configura demasiado alto."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_GL "Mostrar configuración avanzada de entrada/turbo"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_GL "Mostrar Multitap, Mouse, Turbo Buttons e parámetros avanzados. NOTA: É posible que teñas que volver ao xogo e volver entrar no menú para actualizar a lista."
+#define PCE_MOUSE_SENSITIVITY_LABEL_GL "Sensibilidade do rato"
+#define PCE_MOUSE_SENSITIVITY_INFO_0_GL "Os valores máis altos farán que o cursor do rato se mova máis rápido."
 #define OPTION_VAL_0_125_GL NULL
 #define OPTION_VAL_0_250_GL NULL
 #define OPTION_VAL_0_375_GL NULL
@@ -17291,35 +17291,35 @@ struct retro_core_options_v2 options_fr = {
 #define OPTION_VAL_4_50_GL NULL
 #define OPTION_VAL_4_75_GL NULL
 #define OPTION_VAL_5_00_GL NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_GL NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_GL NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_GL NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_GL NULL
-#define PCE_MULTITAP_LABEL_GL NULL
-#define PCE_MULTITAP_INFO_0_GL NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_GL NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_GL NULL
-#define OPTION_VAL_2_BUTTONS_GL NULL
-#define OPTION_VAL_6_BUTTONS_GL NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_GL NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_GL NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_GL NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_GL NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_GL NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_GL NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_GL NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_GL NULL
-#define PCE_TURBO_TOGGLING_LABEL_GL NULL
-#define PCE_TURBO_TOGGLING_INFO_0_GL NULL
-#define OPTION_VAL_TOGGLE_GL NULL
-#define OPTION_VAL_ALWAYS_GL NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_GL NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_GL NULL
-#define PCE_TURBO_DELAY_LABEL_GL NULL
-#define PCE_TURBO_DELAY_INFO_0_GL NULL
-#define OPTION_VAL_FAST_GL NULL
-#define OPTION_VAL_MEDIUM_GL NULL
-#define OPTION_VAL_SLOW_GL NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_GL "Permitir direccións opostas"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_GL "Activar isto permitirá premer / alternar rapidamente / manter as dúas direccións esquerda e dereita (ou arriba e abaixo) ao mesmo tempo. Isto pode causar fallos baseados no movemento."
+#define PCE_DISABLE_SOFTRESET_LABEL_GL "Desactivar reinicio suave (RUN+SELECT)"
+#define PCE_DISABLE_SOFTRESET_INFO_0_GL "Cando se preme RUN e SELECT simultaneamente, desactive os dous botóns temporalmente en lugar de restablecer."
+#define PCE_MULTITAP_LABEL_GL "Controlador multitap de 5 portos"
+#define PCE_MULTITAP_INFO_0_GL "Activa a emulación multitap de ata 5 xogadores. Desactivar isto só é necesario nalgúns casos (por exemplo, Cho Aniki)."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_GL "P1 Tipo de Joypad predeterminado"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_GL "Escolla se o mando do porto 1 debe ser de 2 ou 6 botóns por defecto. Esta opción só se aplica cando se inicia o núcleo, se queres cambiar mentres o contido está en execución, usa o botón \"Cambio de modo\". NOTA: O mando de 6 botóns pode ter comportamentos estraños en xogos non compatibles."
+#define OPTION_VAL_2_BUTTONS_GL "2 Botóns"
+#define OPTION_VAL_6_BUTTONS_GL "6 Botóns"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_GL "P2 Tipo de Joypad predeterminado"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_GL "Escolla se o mando do porto 2 debe ter 2 ou 6 botóns por defecto. Esta opción só se aplica cando se inicia o núcleo, se queres cambiar mentres o contido está en execución, usa o botón \"Cambio de modo\". NOTA: O mando de 6 botóns pode ter comportamentos estraños en xogos non compatibles."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_GL "P3 Tipo de Joypad predeterminado"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_GL "Escolla se o mando do porto 3 debe ter 2 ou 6 botóns por defecto. Esta opción só se aplica cando se inicia o núcleo, se queres cambiar mentres o contido está en execución, usa o botón \"Cambio de modo\". NOTA: O mando de 6 botóns pode ter comportamentos estraños en xogos non compatibles."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_GL "P4 Tipo de Joypad predeterminado"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_GL "Escolla se o mando do porto 4 debe ter 2 ou 6 botóns por defecto. Esta opción só se aplica cando se inicia o núcleo, se queres cambiar mentres o contido está en execución, usa o botón \"Cambio de modo\". NOTA: O mando de 6 botóns pode ter comportamentos estraños en xogos non compatibles."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_GL "P5 Tipo de Joypad predeterminado"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_GL "Escolla se o mando do porto 5 debe ter 2 ou 6 botóns por defecto. Esta opción só se aplica cando se inicia o núcleo, se queres cambiar mentres o contido está en execución, usa o botón \"Cambio de modo\". NOTA: O mando de 6 botóns pode ter comportamentos estraños en xogos non compatibles."
+#define PCE_TURBO_TOGGLING_LABEL_GL "Modo de teclas rápidas Turbo"
+#define PCE_TURBO_TOGGLING_INFO_0_GL "Activa os botóns turbo. As teclas de acceso rápido (botóns III e IV) poden comportarse como interruptores de conmutación ou como botóns turbo dedicados (manteña para usar)."
+#define OPTION_VAL_TOGGLE_GL "Alternar"
+#define OPTION_VAL_ALWAYS_GL "Dedicado"
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_GL "Tecla de acceso rápido Turbo alternativa"
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_GL "Asigne os botóns L3/R3 de RetroPad como teclas de acceso rápido turbo en lugar dos botóns III e IV. Funciona só no modo \"Alterar\" e só sempre que non teña nada asignado aos botóns L3/R3. Con isto, pode evitar reasignar os botóns III e IV ao cambiar ao modo de controlador de 6 botóns."
+#define PCE_TURBO_DELAY_LABEL_GL "Velocidade turbo"
+#define PCE_TURBO_DELAY_INFO_0_GL "Escolla a rapidez con que se repiten as pulsacións dos botóns."
+#define OPTION_VAL_FAST_GL "Rápido"
+#define OPTION_VAL_MEDIUM_GL "Medio"
+#define OPTION_VAL_SLOW_GL "Lento"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_GL NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_GL NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_GL NULL
@@ -17330,38 +17330,38 @@ struct retro_core_options_v2 options_fr = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_GL NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_GL NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_GL NULL
-#define PCE_CDIMAGECACHE_LABEL_GL NULL
-#define PCE_CDIMAGECACHE_INFO_0_GL NULL
-#define PCE_CDBIOS_LABEL_GL NULL
-#define PCE_CDBIOS_INFO_0_GL NULL
-#define OPTION_VAL_GAMES_EXPRESS_GL NULL
-#define OPTION_VAL_SYSTEM_CARD_1_GL NULL
-#define OPTION_VAL_SYSTEM_CARD_2_GL NULL
-#define OPTION_VAL_SYSTEM_CARD_3_GL NULL
-#define OPTION_VAL_SYSTEM_CARD_2_US_GL NULL
-#define OPTION_VAL_SYSTEM_CARD_3_US_GL NULL
-#define PCE_ARCADECARD_LABEL_GL NULL
-#define PCE_ARCADECARD_INFO_0_GL NULL
-#define PCE_CDSPEED_LABEL_GL NULL
-#define PCE_CDSPEED_LABEL_CAT_GL NULL
-#define PCE_CDSPEED_INFO_0_GL NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_GL NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CAT_GL NULL
-#define PCE_ADPCMEXTRAPREC_INFO_0_GL NULL
+#define PCE_CDIMAGECACHE_LABEL_GL "Caché de imaxes de CD (necesario reiniciar)"
+#define PCE_CDIMAGECACHE_INFO_0_GL "Carga a imaxe completa na memoria ao iniciar. Pode diminuír os tempos de carga a costa dun aumento do tempo de inicio."
+#define PCE_CDBIOS_LABEL_GL "Bios do CD (reinicio necesario)"
+#define PCE_CDBIOS_INFO_0_GL "A maioría dos xogos poden executarse na \"Tarxeta do sistema 3\". Necesítase 'Games Express' para varios xogos sen licenza."
+#define OPTION_VAL_GAMES_EXPRESS_GL "Xogos Express"
+#define OPTION_VAL_SYSTEM_CARD_1_GL "Tarxeta do sistema 1"
+#define OPTION_VAL_SYSTEM_CARD_2_GL "Tarxeta do sistema 2"
+#define OPTION_VAL_SYSTEM_CARD_3_GL "Tarxeta do sistema 3"
+#define OPTION_VAL_SYSTEM_CARD_2_US_GL "Tarxeta do sistema 2 US"
+#define OPTION_VAL_SYSTEM_CARD_3_US_GL "Tarxeta do sistema 3 US"
+#define PCE_ARCADECARD_LABEL_GL "Tarxeta Arcade (reinicio necesario)"
+#define PCE_ARCADECARD_INFO_0_GL "Deixa esta opción activada para permitir os modos mellorados dos xogos SCD mellorados con ACD."
+#define PCE_CDSPEED_LABEL_GL "(CD) Velocidade do CD"
+#define PCE_CDSPEED_LABEL_CAT_GL "Velocidade do CD"
+#define PCE_CDSPEED_INFO_0_GL "Os valores máis altos permiten tempos de carga máis rápidos, pero poden causar problemas con un par de xogos."
+#define PCE_ADPCMEXTRAPREC_LABEL_GL "(CD) Precisión ADPCM"
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_GL "Precisión ADPCM"
+#define PCE_ADPCMEXTRAPREC_INFO_0_GL "A precisión total de 12 bits para o predictor ADPCM MSM5205 pode reducir o ruído de queixo durante a reprodución ADPCM."
 #define OPTION_VAL_10_BIT_GL NULL
 #define OPTION_VAL_12_BIT_GL NULL
-#define PCE_ADPCMVOLUME_LABEL_GL NULL
-#define PCE_ADPCMVOLUME_LABEL_CAT_GL NULL
-#define PCE_ADPCMVOLUME_INFO_0_GL NULL
-#define PCE_ADPCMVOLUME_INFO_1_GL NULL
-#define PCE_CDDAVOLUME_LABEL_GL NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_GL NULL
-#define PCE_CDPSGVOLUME_LABEL_GL NULL
-#define PCE_CDPSGVOLUME_LABEL_CAT_GL NULL
-#define PCE_NOSPRITELIMIT_LABEL_GL NULL
-#define PCE_NOSPRITELIMIT_INFO_0_GL NULL
-#define PCE_OCMULTIPLIER_LABEL_GL NULL
-#define PCE_OCMULTIPLIER_INFO_0_GL NULL
+#define PCE_ADPCMVOLUME_LABEL_GL "(CD) % volume ADPCM"
+#define PCE_ADPCMVOLUME_LABEL_CAT_GL "% volume ADPCM"
+#define PCE_ADPCMVOLUME_INFO_0_GL "Só xogo en CD. Axustar este control de volume demasiado alto pode provocar recortes de mostra."
+#define PCE_ADPCMVOLUME_INFO_1_GL "Axustar este control de volume demasiado alto pode provocar recortes de mostra."
+#define PCE_CDDAVOLUME_LABEL_GL "(CD) CDDA % volume"
+#define PCE_CDDAVOLUME_LABEL_CAT_GL "% volume CDDA"
+#define PCE_CDPSGVOLUME_LABEL_GL "(CD) CD PSG % volume"
+#define PCE_CDPSGVOLUME_LABEL_CAT_GL "% volume do CD PSG"
+#define PCE_NOSPRITELIMIT_LABEL_GL "Sen límite de sprites"
+#define PCE_NOSPRITELIMIT_INFO_0_GL "Elimina o límite de hardware de 16 sprites por liña de exploración. ADVERTENCIA: pode provocar fallos gráficos nalgúns xogos (como Bloody Wolf)."
+#define PCE_OCMULTIPLIER_LABEL_GL "Multiplicador de overclock da CPU"
+#define PCE_OCMULTIPLIER_INFO_0_GL "Os valores máis altos poden reducir as desaceleracións nos xogos. AVISO: pode causar fallos e fallos."
 
 struct retro_core_option_v2_category option_cats_gl[] = {
    {
