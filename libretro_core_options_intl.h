@@ -21080,7 +21080,7 @@ struct retro_core_options_v2 options_hu = {
 #define PCE_LAST_SCANLINE_LABEL_ID NULL
 #define PCE_LAST_SCANLINE_INFO_0_ID NULL
 #define OPTION_VAL_242_ID NULL
-#define PCE_PSGREVISION_LABEL_ID NULL
+#define PCE_PSGREVISION_LABEL_ID "Cip Audio PSG (Perlu Mulai Ulang)"
 #define PCE_PSGREVISION_INFO_0_ID NULL
 #define OPTION_VAL_HUC6280_ID NULL
 #define OPTION_VAL_HUC6280A_ID NULL
@@ -21154,9 +21154,9 @@ struct retro_core_options_v2 options_hu = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_ID NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_ID NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_ID NULL
-#define PCE_CDIMAGECACHE_LABEL_ID NULL
+#define PCE_CDIMAGECACHE_LABEL_ID "Tembolok Citra CD (Perlu Mulai Ulang)"
 #define PCE_CDIMAGECACHE_INFO_0_ID NULL
-#define PCE_CDBIOS_LABEL_ID NULL
+#define PCE_CDBIOS_LABEL_ID "Bios CD (Perlu Mulai Ulang)"
 #define PCE_CDBIOS_INFO_0_ID NULL
 #define OPTION_VAL_GAMES_EXPRESS_ID NULL
 #define OPTION_VAL_SYSTEM_CARD_1_ID NULL
@@ -21164,7 +21164,7 @@ struct retro_core_options_v2 options_hu = {
 #define OPTION_VAL_SYSTEM_CARD_3_ID NULL
 #define OPTION_VAL_SYSTEM_CARD_2_US_ID NULL
 #define OPTION_VAL_SYSTEM_CARD_3_US_ID NULL
-#define PCE_ARCADECARD_LABEL_ID NULL
+#define PCE_ARCADECARD_LABEL_ID "Arcade Card (Perlu Mulai Ulang)"
 #define PCE_ARCADECARD_INFO_0_ID NULL
 #define PCE_CDSPEED_LABEL_ID NULL
 #define PCE_CDSPEED_LABEL_CAT_ID NULL
@@ -21183,7 +21183,7 @@ struct retro_core_options_v2 options_hu = {
 #define PCE_CDPSGVOLUME_LABEL_ID NULL
 #define PCE_CDPSGVOLUME_LABEL_CAT_ID NULL
 #define PCE_NOSPRITELIMIT_LABEL_ID NULL
-#define PCE_NOSPRITELIMIT_INFO_0_ID NULL
+#define PCE_NOSPRITELIMIT_INFO_0_ID "Melepas batas 16 sprite tiap garis pindai peranti keras. PERINGATAN: Beberapa permainan akan kacau grafis (contohnya Bloody Wolf)."
 #define PCE_OCMULTIPLIER_LABEL_ID NULL
 #define PCE_OCMULTIPLIER_INFO_0_ID NULL
 
