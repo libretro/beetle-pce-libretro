@@ -1933,11 +1933,11 @@ struct retro_core_options_v2 options_ast = {
 #define CATEGORY_INPUT_LABEL_BE "Увод"
 #define CATEGORY_INPUT_INFO_0_BE NULL
 #define CATEGORY_HACKS_LABEL_BE NULL
-#define CATEGORY_HACKS_INFO_0_BE NULL
+#define CATEGORY_HACKS_INFO_0_BE "Налада разгону працэсара і параметраў дакладнасці эмуляцыі, якія ўплываюць на прадукцыйнасць і сумяшчальнасць."
 #define CATEGORY_CD_LABEL_BE NULL
 #define CATEGORY_CD_INFO_0_BE NULL
 #define PCE_PALETTE_LABEL_BE NULL
-#define PCE_PALETTE_INFO_0_BE NULL
+#define PCE_PALETTE_INFO_0_BE "Кампазітны рэжым імітуе арыгінальны малюнак з кансолі і павялічвае дэталізацыю для некаторых гульняў."
 #define OPTION_VAL_RGB_BE NULL
 #define OPTION_VAL_COMPOSITE_BE NULL
 #define PCE_ASPECT_RATIO_LABEL_BE "Суадносіны бакоў"
@@ -1956,10 +1956,10 @@ struct retro_core_options_v2 options_ast = {
 #define PCE_H_OVERSCAN_INFO_0_BE NULL
 #define PCE_INITIAL_SCANLINE_LABEL_BE NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_BE NULL
-#define OPTION_VAL_3_BE NULL
+#define OPTION_VAL_3_BE "3 % (прадвызначана)"
 #define PCE_LAST_SCANLINE_LABEL_BE NULL
 #define PCE_LAST_SCANLINE_INFO_0_BE NULL
-#define OPTION_VAL_242_BE NULL
+#define OPTION_VAL_242_BE "242 % (прадвызначана)"
 #define PCE_PSGREVISION_LABEL_BE NULL
 #define PCE_PSGREVISION_INFO_0_BE NULL
 #define OPTION_VAL_HUC6280_BE NULL
@@ -2002,21 +2002,21 @@ struct retro_core_options_v2 options_ast = {
 #define PCE_MULTITAP_LABEL_BE NULL
 #define PCE_MULTITAP_INFO_0_BE NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_BE NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_BE NULL
-#define OPTION_VAL_2_BUTTONS_BE NULL
-#define OPTION_VAL_6_BUTTONS_BE NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_BE NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_BE NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_BE NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_BE NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_BE NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_BE NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_BE NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_BE NULL
-#define PCE_TURBO_TOGGLING_LABEL_BE NULL
-#define PCE_TURBO_TOGGLING_INFO_0_BE NULL
-#define OPTION_VAL_TOGGLE_BE NULL
-#define OPTION_VAL_ALWAYS_BE NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_BE "Выбар 2- ці 6-ці кнопкавага кантролера па змаўчанні для парта 1. Дадзеная опцыя ўжываецца толькі пры запуску ядра. Для пераключэння на ляту выкарыстоўвайце кнопку 'Змяніць рэжым'. УВАГА: у несумяшчальных гульнях 6-кнопкавы геймпад можа выклікаць багі кіравання."
+#define OPTION_VAL_2_BUTTONS_BE "2-кнопкавы"
+#define OPTION_VAL_6_BUTTONS_BE "6-кнопкавы"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_BE "Тып джойсціка Гульца 2"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_BE "Выбар 2- ці 6-ці кнопкавага кантролера па змаўчанні для парта 2. Дадзеная опцыя ўжываецца толькі пры запуску ядра. Для пераключэння на ляту выкарыстоўвайце кнопку 'Змяніць рэжым'. УВАГА: у несумяшчальных гульнях 6-кнопкавы геймпад можа выклікаць багі кіравання."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_BE "Тып джойсціка Гульца 3"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_BE "Выбар 2- ці 6-ці кнопкавага кантролера па змаўчанні для парта 3. Дадзеная опцыя ўжываецца толькі пры запуску ядра. Для пераключэння на ляту выкарыстоўвайце кнопку 'Змяніць рэжым'. УВАГА: у несумяшчальных гульнях 6-кнопкавы геймпад можа выклікаць багі кіравання."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_BE "Тып джойсціка Гульца 4"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_BE "Выбар 2- ці 6-ці кнопкавага кантролера па змаўчанні для парта 4. Дадзеная опцыя ўжываецца толькі пры запуску ядра. Для пераключэння на ляту выкарыстоўвайце кнопку 'Змяніць рэжым'. УВАГА: у несумяшчальных гульнях 6-кнопкавы геймпад можа выклікаць багі кіравання."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_BE "Тып джойсціка Гульца 5"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_BE "Выбар 2- ці 6-ці кнопкавага кантролера па змаўчанні для парта 5. Дадзеная опцыя ўжываецца толькі пры запуску ядра. Для пераключэння на ляту выкарыстоўвайце кнопку 'Змяніць рэжым'. УВАГА: у несумяшчальных гульнях 6-кнопкавы геймпад можа выклікаць багі кіравання."
+#define PCE_TURBO_TOGGLING_LABEL_BE "Рэжым турба-кнопак"
+#define PCE_TURBO_TOGGLING_INFO_0_BE "Уключэнне турба-кнопак. Актыватары (кнопкі III і IV) могуць працаваць як пераключальнікі або як вылучаныя кнопкі, якія( ўключаюцца пры ўтрыманні)."
+#define OPTION_VAL_TOGGLE_BE "Пераключальнікі"
+#define OPTION_VAL_ALWAYS_BE "Вылучаныя"
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_BE NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_BE NULL
 #define PCE_TURBO_DELAY_LABEL_BE NULL
@@ -2034,8 +2034,8 @@ struct retro_core_options_v2 options_ast = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_BE NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_BE NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_BE NULL
-#define PCE_CDIMAGECACHE_LABEL_BE NULL
-#define PCE_CDIMAGECACHE_INFO_0_BE NULL
+#define PCE_CDIMAGECACHE_LABEL_BE "Кэшаваць выяву CD (патрабуецца перазапуск)"
+#define PCE_CDIMAGECACHE_INFO_0_BE "Пры запуску выява дыска цалкам загружаецца ў памяць. Паскарае загрузку, але павялічвае час запуску."
 #define PCE_CDBIOS_LABEL_BE NULL
 #define PCE_CDBIOS_INFO_0_BE NULL
 #define OPTION_VAL_GAMES_EXPRESS_BE NULL
@@ -2060,12 +2060,12 @@ struct retro_core_options_v2 options_ast = {
 #define PCE_ADPCMVOLUME_INFO_1_BE NULL
 #define PCE_CDDAVOLUME_LABEL_BE NULL
 #define PCE_CDDAVOLUME_LABEL_CAT_BE NULL
-#define PCE_CDPSGVOLUME_LABEL_BE NULL
-#define PCE_CDPSGVOLUME_LABEL_CAT_BE NULL
-#define PCE_NOSPRITELIMIT_LABEL_BE NULL
-#define PCE_NOSPRITELIMIT_INFO_0_BE NULL
-#define PCE_OCMULTIPLIER_LABEL_BE NULL
-#define PCE_OCMULTIPLIER_INFO_0_BE NULL
+#define PCE_CDPSGVOLUME_LABEL_BE "(CD) Гучнасць PSG %"
+#define PCE_CDPSGVOLUME_LABEL_CAT_BE "CD Гучнасць PSG %"
+#define PCE_NOSPRITELIMIT_LABEL_BE "Без абмежавання спрайтаў"
+#define PCE_NOSPRITELIMIT_INFO_0_BE "Здымае апаратнае абмежаванне ў 16 спрайтаў на лініі разгорткі. УВАГА: у некаторых гульнях можа выклікаць графічныя багі (напрыклад Bloody Wolf)."
+#define PCE_OCMULTIPLIER_LABEL_BE "Множнік разгону CPU"
+#define PCE_OCMULTIPLIER_INFO_0_BE "Вышэйшыя значэнні памяншаюць запаволенні ў гульнях. УВАГА: можа прыводзіць да багам і вылетам."
 
 struct retro_core_option_v2_category option_cats_be[] = {
    {
