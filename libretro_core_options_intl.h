@@ -4804,7 +4804,7 @@ struct retro_core_options_v2 options_ca = {
 #define CATEGORY_HACKS_INFO_0_CHS "配置处理器超时和模拟精确参数，影响低级性能和兼容性。"
 #define CATEGORY_CD_LABEL_CHS NULL
 #define CATEGORY_CD_INFO_0_CHS "配置与 PC Engine CD 仿真相关的设置。"
-#define PCE_PALETTE_LABEL_CHS "色板"
+#define PCE_PALETTE_LABEL_CHS "调色板"
 #define PCE_PALETTE_INFO_0_CHS "使用复合设计模式尝试复现原始的控制台显示，在部分游戏中可以显示更多细节"
 #define OPTION_VAL_RGB_CHS NULL
 #define OPTION_VAL_COMPOSITE_CHS "合成"
@@ -4821,12 +4821,12 @@ struct retro_core_options_v2 options_ca = {
 #define PCE_HIRES_BLEND_LABEL_CHS NULL
 #define PCE_HIRES_BLEND_INFO_0_CHS NULL
 #define PCE_H_OVERSCAN_LABEL_CHS NULL
-#define PCE_H_OVERSCAN_INFO_0_CHS NULL
+#define PCE_H_OVERSCAN_INFO_0_CHS "“自动”将尝试适应游戏，裁剪空白区域。"
 #define PCE_INITIAL_SCANLINE_LABEL_CHS NULL
 #define PCE_INITIAL_SCANLINE_INFO_0_CHS NULL
 #define OPTION_VAL_3_CHS "3 (默认)"
 #define PCE_LAST_SCANLINE_LABEL_CHS NULL
-#define PCE_LAST_SCANLINE_INFO_0_CHS NULL
+#define PCE_LAST_SCANLINE_INFO_0_CHS ""
 #define OPTION_VAL_242_CHS "242 (默认)"
 #define PCE_PSGREVISION_LABEL_CHS NULL
 #define PCE_PSGREVISION_INFO_0_CHS NULL
@@ -4837,7 +4837,7 @@ struct retro_core_options_v2 options_ca = {
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHS NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHS NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_CHS "鼠标灵敏度"
-#define PCE_MOUSE_SENSITIVITY_INFO_0_CHS NULL
+#define PCE_MOUSE_SENSITIVITY_INFO_0_CHS "更高的值将使鼠标光标移动更快。"
 #define OPTION_VAL_0_125_CHS NULL
 #define OPTION_VAL_0_250_CHS NULL
 #define OPTION_VAL_0_375_CHS NULL
@@ -4874,7 +4874,7 @@ struct retro_core_options_v2 options_ca = {
 #define OPTION_VAL_2_BUTTONS_CHS NULL
 #define OPTION_VAL_6_BUTTONS_CHS NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CHS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CHS "选择端口 2 手柄默认为 2 或 6 按钮。此选项仅在核心启动时应用，如果您想在内容运行时切换，请使用 \"模式切换 \"按钮。注意：在不兼容的游戏中，6 按钮手柄可能会有奇怪的行为。"
 #define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CHS NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CHS NULL
 #define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CHS NULL
@@ -4885,7 +4885,7 @@ struct retro_core_options_v2 options_ca = {
 #define PCE_TURBO_TOGGLING_INFO_0_CHS NULL
 #define OPTION_VAL_TOGGLE_CHS "切换"
 #define OPTION_VAL_ALWAYS_CHS NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CHS NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CHS "备用连发热键"
 #define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CHS NULL
 #define PCE_TURBO_DELAY_LABEL_CHS NULL
 #define PCE_TURBO_DELAY_INFO_0_CHS NULL
