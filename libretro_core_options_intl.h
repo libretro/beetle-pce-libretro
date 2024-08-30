@@ -28802,8 +28802,8 @@ struct retro_core_options_v2 options_pl = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_PT_BR "Turbo II do J4"
 #define PCE_P4_TURBO_I_ENABLE_LABEL_PT_BR "Turbo I do J5"
 #define PCE_P4_TURBO_II_ENABLE_LABEL_PT_BR "Turbo II do J5"
-#define PCE_CDIMAGECACHE_LABEL_PT_BR "Cache de imagens do CD (requer reinício)"
-#define PCE_CDIMAGECACHE_INFO_0_PT_BR "Carrega a imagem completa na memória na inicialização. Eventualmente, pode diminuir o tempo de carregamento ao custo de um tempo de inicialização maior."
+#define PCE_CDIMAGECACHE_LABEL_PT_BR "Cache de imagem do CD (requer reinício)"
+#define PCE_CDIMAGECACHE_INFO_0_PT_BR "Carrega a imagem completa na memória ao iniciar. Eventualmente, pode diminuir o tempo de carregamento ao custo de um tempo de inicialização maior."
 #define PCE_CDBIOS_LABEL_PT_BR "BIOS de CD (requer reinício)"
 #define PCE_CDBIOS_INFO_0_PT_BR "A maioria dos jogos podem rodar em \"System Card 3\". \"Games Express\" é necessário para vários jogos não licenciados."
 #define OPTION_VAL_GAMES_EXPRESS_PT_BR NULL
@@ -35386,9 +35386,9 @@ struct retro_core_options_v2 options_tr = {
 
 /* RETRO_LANGUAGE_TT */
 
-#define CATEGORY_VIDEO_LABEL_TT NULL
+#define CATEGORY_VIDEO_LABEL_TT "Видео"
 #define CATEGORY_VIDEO_INFO_0_TT NULL
-#define CATEGORY_AUDIO_LABEL_TT NULL
+#define CATEGORY_AUDIO_LABEL_TT "Аудио"
 #define CATEGORY_AUDIO_INFO_0_TT NULL
 #define CATEGORY_INPUT_LABEL_TT NULL
 #define CATEGORY_INPUT_INFO_0_TT NULL
@@ -35402,7 +35402,7 @@ struct retro_core_options_v2 options_tr = {
 #define OPTION_VAL_COMPOSITE_TT NULL
 #define PCE_ASPECT_RATIO_LABEL_TT NULL
 #define PCE_ASPECT_RATIO_INFO_0_TT NULL
-#define OPTION_VAL_AUTO_TT NULL
+#define OPTION_VAL_AUTO_TT "Автоматик"
 #define OPTION_VAL_6_5_TT NULL
 #define OPTION_VAL_4_3_TT NULL
 #define OPTION_VAL_UNCORRECTED_TT NULL
