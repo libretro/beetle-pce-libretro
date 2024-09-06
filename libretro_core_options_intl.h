@@ -4815,25 +4815,25 @@ struct retro_core_options_v2 options_ca = {
 #define OPTION_VAL_4_3_CHS NULL
 #define OPTION_VAL_UNCORRECTED_CHS "未校正"
 #define PCE_SCALING_LABEL_CHS "分辨率缩放"
-#define PCE_SCALING_INFO_0_CHS NULL
-#define OPTION_VAL_LORES_CHS NULL
+#define PCE_SCALING_INFO_0_CHS "“自动”允许改变分辨率。“低分辨率”可以压缩像素。“高分辨率”将保持最大宽度。"
+#define OPTION_VAL_LORES_CHS "低分辨率"
 #define OPTION_VAL_HIRES_CHS "高分辨率"
 #define PCE_HIRES_BLEND_LABEL_CHS NULL
-#define PCE_HIRES_BLEND_INFO_0_CHS NULL
-#define PCE_H_OVERSCAN_LABEL_CHS NULL
+#define PCE_HIRES_BLEND_INFO_0_CHS "在高分辨率模式下，将像素混合在一起。数值越高，图片越模糊。"
+#define PCE_H_OVERSCAN_LABEL_CHS "显示水平过扫描"
 #define PCE_H_OVERSCAN_INFO_0_CHS "“自动”将尝试适应游戏，裁剪空白区域。"
-#define PCE_INITIAL_SCANLINE_LABEL_CHS NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_CHS NULL
+#define PCE_INITIAL_SCANLINE_LABEL_CHS "初始扫描线"
+#define PCE_INITIAL_SCANLINE_INFO_0_CHS "扫描线渲染的上界，超出设定值的部分将从图像顶部被裁剪"
 #define OPTION_VAL_3_CHS "3 (默认)"
-#define PCE_LAST_SCANLINE_LABEL_CHS NULL
-#define PCE_LAST_SCANLINE_INFO_0_CHS ""
+#define PCE_LAST_SCANLINE_LABEL_CHS "终末扫描线"
+#define PCE_LAST_SCANLINE_INFO_0_CHS "扫描线渲染的下界，超出设定值的部分将从图像底部被裁剪。"
 #define OPTION_VAL_242_CHS "242 (默认)"
-#define PCE_PSGREVISION_LABEL_CHS NULL
+#define PCE_PSGREVISION_LABEL_CHS "PSG 音频芯片(需要重启)"
 #define PCE_PSGREVISION_INFO_0_CHS NULL
 #define OPTION_VAL_HUC6280_CHS NULL
 #define OPTION_VAL_HUC6280A_CHS NULL
 #define PCE_RESAMP_QUALITY_LABEL_CHS NULL
-#define PCE_RESAMP_QUALITY_INFO_0_CHS NULL
+#define PCE_RESAMP_QUALITY_INFO_0_CHS "数值越大，信噪比越好，频率越高，但计算成本也越高，如果音量设置过高，可能会导致更高的延迟和削波。"
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CHS NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CHS NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_CHS "鼠标灵敏度"
@@ -4863,32 +4863,32 @@ struct retro_core_options_v2 options_ca = {
 #define OPTION_VAL_4_50_CHS NULL
 #define OPTION_VAL_4_75_CHS NULL
 #define OPTION_VAL_5_00_CHS NULL
-#define PCE_UP_DOWN_ALLOWED_LABEL_CHS NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_CHS NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_CHS NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_CHS NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_CHS "允许相反方向的输入"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_CHS "启用此功能将允许同时按下/快速交替/按住左右(或上下)两个方向。这可能会导致基于移动的故障。"
+#define PCE_DISABLE_SOFTRESET_LABEL_CHS "禁用软重置 (RUN+SELECT)"
+#define PCE_DISABLE_SOFTRESET_INFO_0_CHS "当同时按下 RUN 和 SELECT 两个按键时，暂时禁用两个按键而不是触发软重置。"
 #define PCE_MULTITAP_LABEL_CHS NULL
 #define PCE_MULTITAP_INFO_0_CHS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CHS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CHS NULL
-#define OPTION_VAL_2_BUTTONS_CHS NULL
-#define OPTION_VAL_6_BUTTONS_CHS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CHS "P1 默认手柄类型"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CHS "选择端口 1 手柄默认为 2 键或 6 键。 此选项仅在核心启动时应用，如果您想要在内容运行时切换，请使用“模式切换”按钮。 注意：6 键手柄在不兼容的游戏中可能会有一些意想不到的行为。"
+#define OPTION_VAL_2_BUTTONS_CHS "2 键"
+#define OPTION_VAL_6_BUTTONS_CHS "6 键"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CHS "P2 默认手柄类型"
 #define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CHS "选择端口 2 手柄默认为 2 或 6 按钮。此选项仅在核心启动时应用，如果您想在内容运行时切换，请使用 \"模式切换 \"按钮。注意：在不兼容的游戏中，6 按钮手柄可能会有奇怪的行为。"
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CHS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CHS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CHS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CHS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CHS NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CHS NULL
-#define PCE_TURBO_TOGGLING_LABEL_CHS NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CHS "P3 默认手柄类型"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CHS "选择端口 3 手柄默认为 2 键还是 6 键。此选项仅在核心启动时应用，如果您想要在内容运行时切换，请使用“模式切换”按钮。 注意：6 键手柄在不兼容的游戏中可能会有一些意想不到的行为。"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CHS "P4 默认手柄类型"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CHS "选择端口 4 手柄默认为 2 键还是 6 键。此选项仅在核心启动时应用，如果您想要在内容运行时切换，请使用“模式切换”按钮。 注意：6 键手柄在不兼容的游戏中可能会有一些意想不到的行为。"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CHS "P5 默认手柄类型"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CHS "选择端口 5 手柄默认为 2 键还是 6 键。此选项仅在核心启动时应用，如果您想要在内容运行时切换，请使用“模式切换”按钮。 注意：6 键手柄在不兼容的游戏中可能会有一些意想不到的行为。"
+#define PCE_TURBO_TOGGLING_LABEL_CHS "Turbo 热键模式"
 #define PCE_TURBO_TOGGLING_INFO_0_CHS NULL
 #define OPTION_VAL_TOGGLE_CHS "切换"
 #define OPTION_VAL_ALWAYS_CHS NULL
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CHS "备用连发热键"
 #define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CHS NULL
 #define PCE_TURBO_DELAY_LABEL_CHS NULL
-#define PCE_TURBO_DELAY_INFO_0_CHS NULL
+#define PCE_TURBO_DELAY_INFO_0_CHS "选择重复按键的速度。"
 #define OPTION_VAL_FAST_CHS "快"
 #define OPTION_VAL_MEDIUM_CHS "中等"
 #define OPTION_VAL_SLOW_CHS "慢"
@@ -4904,36 +4904,36 @@ struct retro_core_options_v2 options_ca = {
 #define PCE_P4_TURBO_II_ENABLE_LABEL_CHS NULL
 #define PCE_CDIMAGECACHE_LABEL_CHS "启用CD光盘缓存（重启以生效）"
 #define PCE_CDIMAGECACHE_INFO_0_CHS "在启动时将完整的镜像加载到内存中，以增加启动时间为代价，或许能减少游戏中的加载时间。"
-#define PCE_CDBIOS_LABEL_CHS NULL
-#define PCE_CDBIOS_INFO_0_CHS NULL
+#define PCE_CDBIOS_LABEL_CHS "设置CD的BIOS (需要重启)"
+#define PCE_CDBIOS_INFO_0_CHS "大部分的游戏可以在BIOS“System Card 3”上运行，但是一些未经授权的游戏需要“Games Express”。"
 #define OPTION_VAL_GAMES_EXPRESS_CHS NULL
 #define OPTION_VAL_SYSTEM_CARD_1_CHS NULL
 #define OPTION_VAL_SYSTEM_CARD_2_CHS NULL
 #define OPTION_VAL_SYSTEM_CARD_3_CHS NULL
 #define OPTION_VAL_SYSTEM_CARD_2_US_CHS NULL
 #define OPTION_VAL_SYSTEM_CARD_3_US_CHS NULL
-#define PCE_ARCADECARD_LABEL_CHS NULL
+#define PCE_ARCADECARD_LABEL_CHS "街机卡 (需要重启)"
 #define PCE_ARCADECARD_INFO_0_CHS NULL
-#define PCE_CDSPEED_LABEL_CHS NULL
-#define PCE_CDSPEED_LABEL_CAT_CHS NULL
-#define PCE_CDSPEED_INFO_0_CHS NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CHS NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CAT_CHS NULL
-#define PCE_ADPCMEXTRAPREC_INFO_0_CHS NULL
+#define PCE_CDSPEED_LABEL_CHS "(CD) CD 加载速度"
+#define PCE_CDSPEED_LABEL_CAT_CHS "CD 加载速度"
+#define PCE_CDSPEED_INFO_0_CHS "较高的数值可以加快加载速度，但会使一些游戏出现问题。"
+#define PCE_ADPCMEXTRAPREC_LABEL_CHS "(CD) ADPCM 精度"
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_CHS "ADPCM 精度"
+#define PCE_ADPCMEXTRAPREC_INFO_0_CHS "MSM5205 ADPCM 预测器的全精度为 12 位，可减少 ADPCM 播放时的啸叫噪音。"
 #define OPTION_VAL_10_BIT_CHS "10 位"
 #define OPTION_VAL_12_BIT_CHS "12 位"
-#define PCE_ADPCMVOLUME_LABEL_CHS NULL
-#define PCE_ADPCMVOLUME_LABEL_CAT_CHS NULL
-#define PCE_ADPCMVOLUME_INFO_0_CHS NULL
-#define PCE_ADPCMVOLUME_INFO_1_CHS NULL
-#define PCE_CDDAVOLUME_LABEL_CHS NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_CHS NULL
-#define PCE_CDPSGVOLUME_LABEL_CHS NULL
-#define PCE_CDPSGVOLUME_LABEL_CAT_CHS NULL
-#define PCE_NOSPRITELIMIT_LABEL_CHS NULL
-#define PCE_NOSPRITELIMIT_INFO_0_CHS NULL
-#define PCE_OCMULTIPLIER_LABEL_CHS NULL
-#define PCE_OCMULTIPLIER_INFO_0_CHS NULL
+#define PCE_ADPCMVOLUME_LABEL_CHS "(CD) ADPCM 音量百分比"
+#define PCE_ADPCMVOLUME_LABEL_CAT_CHS "ADPCM 音量百分比"
+#define PCE_ADPCMVOLUME_INFO_0_CHS "仅CD游戏生效。将此音量控制设置得太高可能会导致采样削波。"
+#define PCE_ADPCMVOLUME_INFO_1_CHS "将此音量控制设置得太高可能会导致采样削波。"
+#define PCE_CDDAVOLUME_LABEL_CHS "(CD) CDDA 音量百分比"
+#define PCE_CDDAVOLUME_LABEL_CAT_CHS "CDDA 音量百分比"
+#define PCE_CDPSGVOLUME_LABEL_CHS "(CD) CD PSG 音量百分比"
+#define PCE_CDPSGVOLUME_LABEL_CAT_CHS "PSG 音量百分比"
+#define PCE_NOSPRITELIMIT_LABEL_CHS "无 Sprite 限制"
+#define PCE_NOSPRITELIMIT_INFO_0_CHS "移除每条扫描线16个符号的硬件限制。警告！可能会导致某些游戏的显示问题(如 Bloody Wolf)。"
+#define PCE_OCMULTIPLIER_LABEL_CHS "CPU 超频倍数"
+#define PCE_OCMULTIPLIER_INFO_0_CHS "更高的值可以减少游戏中的降速。注意！可能导致故障和崩溃。"
 
 struct retro_core_option_v2_category option_cats_chs[] = {
    {
