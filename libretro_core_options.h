@@ -292,7 +292,7 @@ struct retro_core_option_v2_definition option_defs_us[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
