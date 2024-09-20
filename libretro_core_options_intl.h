@@ -13439,7 +13439,7 @@ struct retro_core_options_v2 options_eo = {
 #define PCE_RESAMP_QUALITY_LABEL_ES "Calidad del remuestrador Owl"
 #define PCE_RESAMP_QUALITY_INFO_0_ES "Un valor alto producirá una mejor relación señal/ruido y conservará las frecuencias agudas, pero aumentará el coste de rendimiento y podría provocar una mayor latencia y ruidos si el volumen está demasiado alto."
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ES "Mostrar ajustes avanzados de entrada/turbo"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ES "Muestra los ajustes del multitap, del ratón, de los botones turbo y otros parámetros avanzados. NOTA: podría ser necesario salir y volver a entrar del menú rápido para que este ajuste surta efecto."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ES "Muestra Multitap, Ratón, Botones Turbo y parámetros avanzados. NOTA: podría ser necesario ir de vuelta al juego y volver a entrar al menú para refrescar la lista."
 #define PCE_MOUSE_SENSITIVITY_LABEL_ES "Sensibilidad del ratón"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_ES "Un valor más alto hará que el cursor del ratón se desplace más rápido."
 #define OPTION_VAL_0_125_ES "0,125"
