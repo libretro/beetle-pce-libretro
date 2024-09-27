@@ -397,7 +397,7 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -1353,7 +1353,7 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -2309,7 +2309,7 @@ struct retro_core_option_v2_definition option_defs_be[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -3265,7 +3265,7 @@ struct retro_core_option_v2_definition option_defs_bg[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -4221,7 +4221,7 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -5177,7 +5177,7 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -6133,7 +6133,7 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -7089,7 +7089,7 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -8045,7 +8045,7 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -9001,7 +9001,7 @@ struct retro_core_option_v2_definition option_defs_da[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -9957,7 +9957,7 @@ struct retro_core_option_v2_definition option_defs_de[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -10913,7 +10913,7 @@ struct retro_core_option_v2_definition option_defs_el[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -11869,7 +11869,7 @@ struct retro_core_option_v2_definition option_defs_en[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -12825,7 +12825,7 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -13439,7 +13439,7 @@ struct retro_core_options_v2 options_eo = {
 #define PCE_RESAMP_QUALITY_LABEL_ES "Calidad del remuestrador Owl"
 #define PCE_RESAMP_QUALITY_INFO_0_ES "Un valor alto producirá una mejor relación señal/ruido y conservará las frecuencias agudas, pero aumentará el coste de rendimiento y podría provocar una mayor latencia y ruidos si el volumen está demasiado alto."
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_ES "Mostrar ajustes avanzados de entrada/turbo"
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ES "Muestra Multitap, Ratón, Botones Turbo y parámetros avanzados. NOTA: podría ser necesario ir de vuelta al juego y volver a entrar al menú para refrescar la lista."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_ES "Muestra los ajustes del multitap, del ratón, de los botones turbo y otros parámetros avanzados. NOTA: es posible que tengas que volver al juego y luego al menú rápido para que este ajuste surta efecto."
 #define PCE_MOUSE_SENSITIVITY_LABEL_ES "Sensibilidad del ratón"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_ES "Un valor más alto hará que el cursor del ratón se desplace más rápido."
 #define OPTION_VAL_0_125_ES "0,125"
@@ -13781,7 +13781,7 @@ struct retro_core_option_v2_definition option_defs_es[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -14737,7 +14737,7 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -15693,7 +15693,7 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -16649,7 +16649,7 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -17605,7 +17605,7 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -18561,7 +18561,7 @@ struct retro_core_option_v2_definition option_defs_he[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -19517,7 +19517,7 @@ struct retro_core_option_v2_definition option_defs_hr[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -20473,7 +20473,7 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -21429,7 +21429,7 @@ struct retro_core_option_v2_definition option_defs_id[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -22385,7 +22385,7 @@ struct retro_core_option_v2_definition option_defs_it[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -23341,7 +23341,7 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -24297,7 +24297,7 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -25253,7 +25253,7 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -26209,7 +26209,7 @@ struct retro_core_option_v2_definition option_defs_no[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -27165,7 +27165,7 @@ struct retro_core_option_v2_definition option_defs_or[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -28121,7 +28121,7 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -29077,7 +29077,7 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -30033,7 +30033,7 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -30989,7 +30989,7 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -31945,7 +31945,7 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -32901,7 +32901,7 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -33857,7 +33857,7 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -34813,7 +34813,7 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -35769,7 +35769,7 @@ struct retro_core_option_v2_definition option_defs_tt[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -36725,7 +36725,7 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -37681,7 +37681,7 @@ struct retro_core_option_v2_definition option_defs_val[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
@@ -38637,7 +38637,7 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
          { "6", NULL },
          { NULL, NULL},
       },
-      "3"
+      "0"
    },
    {
       "pce_show_advanced_input_settings",
