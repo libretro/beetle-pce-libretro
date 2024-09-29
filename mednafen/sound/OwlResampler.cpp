@@ -648,7 +648,7 @@ OwlResampler::OwlResampler(double input_rate, double output_rate, double rate_er
  // As far as filter frequency response design goes, we clamp the output rate parameter
  // to keep PCE CD and PC-FX CD-DA sample amplitudes from going wild since we're not resampling CD-DA totally properly.
  //
-#define OWLRESAMP_FCALC_RATE_CLAMP 128000.0 //192000.0 //96000.0 //48000.0
+#define OWLRESAMP_FCALC_RATE_CLAMP 48000.0 //128000.0 //192000.0 //96000.0
 
  // A little SOMETHING to widen the transition band a bit to reduce computational complexity with higher output rates.
  const double something = min_T<double>(OWLRESAMP_FCALC_RATE_CLAMP, (48000.0 + min_T<double>(OWLRESAMP_FCALC_RATE_CLAMP, output_rate)) / 2 / QualityTable[quality].obw);
