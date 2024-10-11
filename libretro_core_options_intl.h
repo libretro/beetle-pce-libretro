@@ -28737,7 +28737,7 @@ struct retro_core_options_v2 options_pl = {
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_PT_BR "Mostrar configurações avançadas de entrada/Turbo"
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_PT_BR NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_PT_BR "Sensibilidade do mouse"
-#define PCE_MOUSE_SENSITIVITY_INFO_0_PT_BR "Valores maiores tornarão a movimentação do cursor do mouse mais rápida."
+#define PCE_MOUSE_SENSITIVITY_INFO_0_PT_BR "Define a velocidade do mouse."
 #define OPTION_VAL_0_125_PT_BR "0,125"
 #define OPTION_VAL_0_250_PT_BR "0,250"
 #define OPTION_VAL_0_375_PT_BR "0,375"
