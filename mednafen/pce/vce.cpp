@@ -47,7 +47,7 @@ static struct
 
 	int rate;
 	int line;
-} scanline_info[10];
+} scanline_info[16];
 
 static int scanline_info_count;
 
