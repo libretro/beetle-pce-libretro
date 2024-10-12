@@ -32,12 +32,11 @@
 #define MEDNAFEN_CORE_TIMING_FPS 7159090.90909090 / 455.0 / 263.0
 #define MEDNAFEN_CORE_GEOMETRY_BASE_W 256
 #define MEDNAFEN_CORE_GEOMETRY_BASE_H 224
-#define MEDNAFEN_CORE_GEOMETRY_MAX_W 1365
-#define MEDNAFEN_CORE_GEOMETRY_MAX_H 270
+#define MEDNAFEN_CORE_GEOMETRY_MAX_W 2048
+#define MEDNAFEN_CORE_GEOMETRY_MAX_H 264
 #define MEDNAFEN_CORE_GEOMETRY_ASPECT_RATIO 6.0 / 5.0
-#define FB_WIDTH 1365
-#define FB_HEIGHT 270
-#define FB_WIDTH_ALIGN 1368
+#define FB_WIDTH 2048
+#define FB_HEIGHT 264
 
 static bool cdimagecache = false;
 static bool show_advanced_input_settings = true;
@@ -1455,8 +1454,8 @@ bool retro_load_game(const struct retro_game_info *info)
 
    surf->width  = FB_WIDTH;
    surf->height = FB_HEIGHT;
-   surf->pitch  = FB_WIDTH_ALIGN;
-   surf->pixels = (bpp_t*) calloc(sizeof(bpp_t), FB_WIDTH_ALIGN * FB_HEIGHT);
+   surf->pitch  = FB_WIDTH;
+   surf->pixels = (bpp_t*) calloc(sizeof(bpp_t), FB_WIDTH * FB_HEIGHT);
 
    if (!surf->pixels)
    {
@@ -1799,9 +1798,9 @@ void retro_run(void)
 
    bpp_t *fb = surf->pixels + spec.DisplayRect.x + surf->pitch * spec.DisplayRect.y;
    
-   hires_blending(fb, video_width, video_height, FB_WIDTH_ALIGN);
+   hires_blending(fb, video_width, video_height, FB_WIDTH);
 
-   video_cb(fb, video_width, video_height, FB_WIDTH_ALIGN * sizeof(bpp_t));
+   video_cb(fb, video_width, video_height, FB_WIDTH * sizeof(bpp_t));
    audio_batch_cb(spec.SoundBuf, spec.SoundBufSize);
 
    bool updated = false;
