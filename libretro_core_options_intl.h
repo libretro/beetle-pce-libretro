@@ -3839,49 +3839,49 @@ struct retro_core_options_v2 options_bg = {
 /* RETRO_LANGUAGE_CA */
 
 #define CATEGORY_VIDEO_LABEL_CA "Vídeo"
-#define CATEGORY_VIDEO_INFO_0_CA NULL
+#define CATEGORY_VIDEO_INFO_0_CA "Canvia les opcions de relació d'aspecte, omissió de fotogrames i altres ajustaments de la sortida d'imatge."
 #define CATEGORY_AUDIO_LABEL_CA "Àudio"
 #define CATEGORY_AUDIO_INFO_0_CA NULL
 #define CATEGORY_INPUT_LABEL_CA "Dispositius de joc"
 #define CATEGORY_INPUT_INFO_0_CA NULL
-#define CATEGORY_HACKS_LABEL_CA NULL
-#define CATEGORY_HACKS_INFO_0_CA NULL
+#define CATEGORY_HACKS_LABEL_CA "Correccions de l'emulació"
+#define CATEGORY_HACKS_INFO_0_CA "Canvia les opcions de velocitats del processador i de precisió de l'emulador que afecten el rendiment a baix nivell i la compatibilitat."
 #define CATEGORY_CD_LABEL_CA NULL
-#define CATEGORY_CD_INFO_0_CA NULL
-#define PCE_PALETTE_LABEL_CA NULL
-#define PCE_PALETTE_INFO_0_CA NULL
+#define CATEGORY_CD_INFO_0_CA "Canvia la configuració relacionada amb el lector de CD per a PC Engine."
+#define PCE_PALETTE_LABEL_CA "Paleta de colors"
+#define PCE_PALETTE_INFO_0_CA "Vídeo compost intenta recrear la sortida de vídeo original de la consola i pot mostrar més detalls en alguns jocs."
 #define OPTION_VAL_RGB_CA NULL
-#define OPTION_VAL_COMPOSITE_CA NULL
+#define OPTION_VAL_COMPOSITE_CA "Composició"
 #define PCE_ASPECT_RATIO_LABEL_CA "Relació d'aspecte"
-#define PCE_ASPECT_RATIO_INFO_0_CA NULL
+#define PCE_ASPECT_RATIO_INFO_0_CA "Escull la relació d'aspecte preferida. Aquesta relació d'aspecte només s'aplicarà si la relació d'aspecte a RetroArch està fixada a 'Core provided' en la configuració de vídeo."
 #define OPTION_VAL_AUTO_CA "Automàtic"
 #define OPTION_VAL_6_5_CA NULL
 #define OPTION_VAL_4_3_CA NULL
-#define OPTION_VAL_UNCORRECTED_CA NULL
-#define PCE_SCALING_LABEL_CA NULL
+#define OPTION_VAL_UNCORRECTED_CA "Sense corregir"
+#define PCE_SCALING_LABEL_CA "Escalat de la resolució"
 #define PCE_SCALING_INFO_0_CA NULL
-#define OPTION_VAL_LORES_CA NULL
-#define OPTION_VAL_HIRES_CA NULL
+#define OPTION_VAL_LORES_CA "Resolució baixa"
+#define OPTION_VAL_HIRES_CA "Alta resolució"
 #define PCE_HIRES_BLEND_LABEL_CA NULL
 #define PCE_HIRES_BLEND_INFO_0_CA NULL
 #define PCE_H_OVERSCAN_LABEL_CA NULL
 #define PCE_H_OVERSCAN_INFO_0_CA NULL
-#define PCE_INITIAL_SCANLINE_LABEL_CA NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_CA NULL
-#define OPTION_VAL_3_CA NULL
-#define PCE_LAST_SCANLINE_LABEL_CA NULL
-#define PCE_LAST_SCANLINE_INFO_0_CA NULL
-#define OPTION_VAL_242_CA NULL
+#define PCE_INITIAL_SCANLINE_LABEL_CA "Línia de dibuixat inicial"
+#define PCE_INITIAL_SCANLINE_INFO_0_CA "Indica la primera línia d'escombrat que es renderitzarà. Valors molt alts poden retallar la part superior de la imatge."
+#define OPTION_VAL_3_CA "3 (Per defecte)"
+#define PCE_LAST_SCANLINE_LABEL_CA "Línia de dibuixat final"
+#define PCE_LAST_SCANLINE_INFO_0_CA "Indica l'última línia d'escombrat que es renderitzarà. Valors molt baixos poden retallar la part inferior de la imatge."
+#define OPTION_VAL_242_CA "242 (Per defecte)"
 #define PCE_PSGREVISION_LABEL_CA NULL
 #define PCE_PSGREVISION_INFO_0_CA NULL
 #define OPTION_VAL_HUC6280_CA NULL
 #define OPTION_VAL_HUC6280A_CA NULL
-#define PCE_RESAMP_QUALITY_LABEL_CA NULL
+#define PCE_RESAMP_QUALITY_LABEL_CA "Qualitat del resampler Owl"
 #define PCE_RESAMP_QUALITY_INFO_0_CA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CA NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CA NULL
-#define PCE_MOUSE_SENSITIVITY_LABEL_CA NULL
-#define PCE_MOUSE_SENSITIVITY_INFO_0_CA NULL
+#define PCE_MOUSE_SENSITIVITY_LABEL_CA "Sensibilitat del ratolí"
+#define PCE_MOUSE_SENSITIVITY_INFO_0_CA "Valors més alts faran que el ratolí es mogui més ràpidament."
 #define OPTION_VAL_0_125_CA "0,125"
 #define OPTION_VAL_0_250_CA "0,250"
 #define OPTION_VAL_0_375_CA "0,375"
@@ -3910,32 +3910,32 @@ struct retro_core_options_v2 options_bg = {
 #define PCE_UP_DOWN_ALLOWED_LABEL_CA NULL
 #define PCE_UP_DOWN_ALLOWED_INFO_0_CA NULL
 #define PCE_DISABLE_SOFTRESET_LABEL_CA NULL
-#define PCE_DISABLE_SOFTRESET_INFO_0_CA NULL
+#define PCE_DISABLE_SOFTRESET_INFO_0_CA "En prémer RUN i SELECT de manera simultània, es desactivaran els dos botons en comptes de provocar un reinici del sistema."
 #define PCE_MULTITAP_LABEL_CA NULL
 #define PCE_MULTITAP_INFO_0_CA NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CA NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CA NULL
-#define OPTION_VAL_2_BUTTONS_CA NULL
-#define OPTION_VAL_6_BUTTONS_CA NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CA NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CA NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CA NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CA NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CA NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CA NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CA NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CA NULL
-#define PCE_TURBO_TOGGLING_LABEL_CA NULL
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CA "Tipus de controlador predeterminat del J1"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CA "Indica si el controlador del port 1 ha de tenir 2 o 6 botons per defecte. Aquesta opció només s'aplica en iniciar el nucli: si vols canviar el tipus de controlador amb el joc en funcionament, cal utilitzar el botó de canvi de mode. NOTA: Els controladors de 6 botons poden produir comportaments estranys en jocs que no siguin compatibles."
+#define OPTION_VAL_2_BUTTONS_CA "2 Botons"
+#define OPTION_VAL_6_BUTTONS_CA "6 Botons"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_CA "Tipus de controlador predeterminat del J2"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_CA "Indica si el controlador del port 2 ha de tenir 2 o 6 botons per defecte. Aquesta opció només s'aplica en iniciar el nucli: si vols canviar el tipus de controlador amb el joc en funcionament, cal utilitzar el botó de canvi de mode. NOTA: Els controladors de 6 botons poden produir comportaments estranys en jocs que no siguin compatibles."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_CA "Tipus de controlador predeterminat del J3"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_CA "Indica si el controlador del port 3 ha de tenir 2 o 6 botons per defecte. Aquesta opció només s'aplica en iniciar el nucli: si vols canviar el tipus de controlador amb el joc en funcionament, cal utilitzar el botó de canvi de mode. NOTA: Els controladors de 6 botons poden produir comportaments estranys en jocs que no siguin compatibles."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_CA "Tipus de controlador predeterminat del J4"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_CA "Indica si el controlador del port 4 ha de tenir 2 o 6 botons per defecte. Aquesta opció només s'aplica en iniciar el nucli: si vols canviar el tipus de controlador amb el joc en funcionament, cal utilitzar el botó de canvi de mode. NOTA: Els controladors de 6 botons poden produir comportaments estranys en jocs que no siguin compatibles."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CA "Tipus de controlador predeterminat del J5"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CA "Indica si el controlador del port 5 ha de tenir 2 o 6 botons per defecte. Aquesta opció només s'aplica en iniciar el nucli: si vols canviar el tipus de controlador amb el joc en funcionament, cal utilitzar el botó de canvi de mode. NOTA: Els controladors de 6 botons poden produir comportaments estranys en jocs que no siguin compatibles."
+#define PCE_TURBO_TOGGLING_LABEL_CA "Mode de tecla d'accés ràpid del turbo"
 #define PCE_TURBO_TOGGLING_INFO_0_CA NULL
-#define OPTION_VAL_TOGGLE_CA NULL
-#define OPTION_VAL_ALWAYS_CA NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CA NULL
-#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CA NULL
-#define PCE_TURBO_DELAY_LABEL_CA NULL
+#define OPTION_VAL_TOGGLE_CA "Alternar"
+#define OPTION_VAL_ALWAYS_CA "Dedicat"
+#define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CA "Tecles d'accés ràpid alternatives pel turbo"
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CA "Assigna els botons L3/R3 del RetroPad com a tecla d'accés ràpid per activar/desactivar el turbo en comptes dels botons III i IV. Només funciona si no hi ha una altra funció assignada als botons R3/L3. Amb aquesta opció, no caldrà tornar a assignar els botons III i IV al canviar al controlador de 6 botons."
+#define PCE_TURBO_DELAY_LABEL_CA "Velocitat del turbo"
 #define PCE_TURBO_DELAY_INFO_0_CA NULL
 #define OPTION_VAL_FAST_CA "Ràpida"
-#define OPTION_VAL_MEDIUM_CA NULL
-#define OPTION_VAL_SLOW_CA NULL
+#define OPTION_VAL_MEDIUM_CA "Mig"
+#define OPTION_VAL_SLOW_CA "Lent"
 #define PCE_P0_TURBO_I_ENABLE_LABEL_CA NULL
 #define PCE_P0_TURBO_II_ENABLE_LABEL_CA NULL
 #define PCE_P1_TURBO_I_ENABLE_LABEL_CA NULL
@@ -3946,38 +3946,38 @@ struct retro_core_options_v2 options_bg = {
 #define PCE_P3_TURBO_II_ENABLE_LABEL_CA NULL
 #define PCE_P4_TURBO_I_ENABLE_LABEL_CA NULL
 #define PCE_P4_TURBO_II_ENABLE_LABEL_CA NULL
-#define PCE_CDIMAGECACHE_LABEL_CA NULL
-#define PCE_CDIMAGECACHE_INFO_0_CA NULL
+#define PCE_CDIMAGECACHE_LABEL_CA "Memòria intermèdia de la imatge de disc (Es requereix reinici)"
+#define PCE_CDIMAGECACHE_INFO_0_CA "Carrega la imatge completa en memòria en iniciar. Pot reduir el temps de càrrega amb el cost d'augmentar el temps d'arrencada."
 #define PCE_CDBIOS_LABEL_CA NULL
-#define PCE_CDBIOS_INFO_0_CA NULL
+#define PCE_CDBIOS_INFO_0_CA "La majoria de jocs poden funcionar amb la targeta de sistema 3. Games Express és necessari per a alguns jocs sense llicència."
 #define OPTION_VAL_GAMES_EXPRESS_CA NULL
-#define OPTION_VAL_SYSTEM_CARD_1_CA NULL
-#define OPTION_VAL_SYSTEM_CARD_2_CA NULL
-#define OPTION_VAL_SYSTEM_CARD_3_CA NULL
-#define OPTION_VAL_SYSTEM_CARD_2_US_CA NULL
-#define OPTION_VAL_SYSTEM_CARD_3_US_CA NULL
+#define OPTION_VAL_SYSTEM_CARD_1_CA "Targeta sistema 1"
+#define OPTION_VAL_SYSTEM_CARD_2_CA "Targeta sistema 2"
+#define OPTION_VAL_SYSTEM_CARD_3_CA "Targeta sistema 3"
+#define OPTION_VAL_SYSTEM_CARD_2_US_CA "Targeta del sistema 2 US"
+#define OPTION_VAL_SYSTEM_CARD_3_US_CA "Targeta del sistema 3 US"
 #define PCE_ARCADECARD_LABEL_CA NULL
 #define PCE_ARCADECARD_INFO_0_CA NULL
-#define PCE_CDSPEED_LABEL_CA NULL
-#define PCE_CDSPEED_LABEL_CAT_CA NULL
-#define PCE_CDSPEED_INFO_0_CA NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CA NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CAT_CA NULL
+#define PCE_CDSPEED_LABEL_CA "Velocitat del CD (CD)"
+#define PCE_CDSPEED_LABEL_CAT_CA "Velocitat de CD"
+#define PCE_CDSPEED_INFO_0_CA "Valors alts acceleren els temps de càrrega del joc però pot causar problemes en alguns jocs."
+#define PCE_ADPCMEXTRAPREC_LABEL_CA "Precisió ADPCM CD"
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_CA "Precisió ADPCM"
 #define PCE_ADPCMEXTRAPREC_INFO_0_CA NULL
-#define OPTION_VAL_10_BIT_CA NULL
-#define OPTION_VAL_12_BIT_CA NULL
-#define PCE_ADPCMVOLUME_LABEL_CA NULL
-#define PCE_ADPCMVOLUME_LABEL_CAT_CA NULL
-#define PCE_ADPCMVOLUME_INFO_0_CA NULL
-#define PCE_ADPCMVOLUME_INFO_1_CA NULL
-#define PCE_CDDAVOLUME_LABEL_CA NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_CA NULL
-#define PCE_CDPSGVOLUME_LABEL_CA NULL
-#define PCE_CDPSGVOLUME_LABEL_CAT_CA NULL
-#define PCE_NOSPRITELIMIT_LABEL_CA NULL
-#define PCE_NOSPRITELIMIT_INFO_0_CA NULL
+#define OPTION_VAL_10_BIT_CA "10 bits"
+#define OPTION_VAL_12_BIT_CA "12 bits"
+#define PCE_ADPCMVOLUME_LABEL_CA "Volum CD ADPCM %"
+#define PCE_ADPCMVOLUME_LABEL_CAT_CA "Volum de ADPCM %"
+#define PCE_ADPCMVOLUME_INFO_0_CA "Només per jocs en CD. Un volum molt alt pot saturar la sortida d'àudio."
+#define PCE_ADPCMVOLUME_INFO_1_CA "Ajustar el volum molt alt pot saturar la sortida d'àudio."
+#define PCE_CDDAVOLUME_LABEL_CA "Volum CD CDDA %"
+#define PCE_CDDAVOLUME_LABEL_CAT_CA "Volum de CDDA %"
+#define PCE_CDPSGVOLUME_LABEL_CA "Volum PSG CD %"
+#define PCE_CDPSGVOLUME_LABEL_CAT_CA "Volum CD PSG %"
+#define PCE_NOSPRITELIMIT_LABEL_CA "Desactivar límit de sprites"
+#define PCE_NOSPRITELIMIT_INFO_0_CA "Elimina el límit de 16 sprites per línia en cada escombrat. AVÍS: Pot causar errors gràfics en alguns jocs (com a Bloody Wolf)."
 #define PCE_OCMULTIPLIER_LABEL_CA NULL
-#define PCE_OCMULTIPLIER_INFO_0_CA NULL
+#define PCE_OCMULTIPLIER_INFO_0_CA "Valors alts poden reduir els alentiments en els jocs. AVÍS: Pot produir errors gràfics i fallides."
 
 struct retro_core_option_v2_category option_cats_ca[] = {
    {
