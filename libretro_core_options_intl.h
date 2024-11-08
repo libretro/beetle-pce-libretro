@@ -2882,11 +2882,11 @@ struct retro_core_options_v2 options_be = {
 
 /* RETRO_LANGUAGE_BG */
 
-#define CATEGORY_VIDEO_LABEL_BG NULL
+#define CATEGORY_VIDEO_LABEL_BG "Видео"
 #define CATEGORY_VIDEO_INFO_0_BG NULL
-#define CATEGORY_AUDIO_LABEL_BG NULL
+#define CATEGORY_AUDIO_LABEL_BG "Звук"
 #define CATEGORY_AUDIO_INFO_0_BG NULL
-#define CATEGORY_INPUT_LABEL_BG NULL
+#define CATEGORY_INPUT_LABEL_BG "Вход"
 #define CATEGORY_INPUT_INFO_0_BG NULL
 #define CATEGORY_HACKS_LABEL_BG NULL
 #define CATEGORY_HACKS_INFO_0_BG NULL
@@ -2911,7 +2911,7 @@ struct retro_core_options_v2 options_be = {
 #define PCE_H_OVERSCAN_LABEL_BG NULL
 #define PCE_H_OVERSCAN_INFO_0_BG NULL
 #define PCE_INITIAL_SCANLINE_LABEL_BG NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_BG NULL
+#define PCE_INITIAL_SCANLINE_INFO_0_BG ""
 #define OPTION_VAL_3_BG NULL
 #define PCE_LAST_SCANLINE_LABEL_BG NULL
 #define PCE_LAST_SCANLINE_INFO_0_BG NULL
@@ -2925,7 +2925,7 @@ struct retro_core_options_v2 options_be = {
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_BG NULL
 #define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_BG NULL
 #define PCE_MOUSE_SENSITIVITY_LABEL_BG NULL
-#define PCE_MOUSE_SENSITIVITY_INFO_0_BG NULL
+#define PCE_MOUSE_SENSITIVITY_INFO_0_BG "По-високите стойности ще накарат курсора на мишката да се движи по-бързо."
 #define OPTION_VAL_0_125_BG NULL
 #define OPTION_VAL_0_250_BG NULL
 #define OPTION_VAL_0_375_BG NULL
@@ -3841,9 +3841,9 @@ struct retro_core_options_v2 options_bg = {
 #define CATEGORY_VIDEO_LABEL_CA "Vídeo"
 #define CATEGORY_VIDEO_INFO_0_CA "Canvia les opcions de relació d'aspecte, omissió de fotogrames i altres ajustaments de la sortida d'imatge."
 #define CATEGORY_AUDIO_LABEL_CA "Àudio"
-#define CATEGORY_AUDIO_INFO_0_CA NULL
+#define CATEGORY_AUDIO_INFO_0_CA "Configura els dispositius d'àudio emulats."
 #define CATEGORY_INPUT_LABEL_CA "Dispositius de joc"
-#define CATEGORY_INPUT_INFO_0_CA NULL
+#define CATEGORY_INPUT_INFO_0_CA "Configurar el senyal d'entrada de la pistola de llum, del ratolí i del controlador."
 #define CATEGORY_HACKS_LABEL_CA "Correccions de l'emulació"
 #define CATEGORY_HACKS_INFO_0_CA "Canvia les opcions de velocitats del processador i de precisió de l'emulador que afecten el rendiment a baix nivell i la compatibilitat."
 #define CATEGORY_CD_LABEL_CA NULL
@@ -3859,27 +3859,27 @@ struct retro_core_options_v2 options_bg = {
 #define OPTION_VAL_4_3_CA NULL
 #define OPTION_VAL_UNCORRECTED_CA "Sense corregir"
 #define PCE_SCALING_LABEL_CA "Escalat de la resolució"
-#define PCE_SCALING_INFO_0_CA NULL
+#define PCE_SCALING_INFO_0_CA "'Automàtic' permet canviar la resolució. 'Baixa resolució' pot provocar pèrdua de píxels. 'Alta resolució' mantindrà l'amplada màxima."
 #define OPTION_VAL_LORES_CA "Resolució baixa"
 #define OPTION_VAL_HIRES_CA "Alta resolució"
-#define PCE_HIRES_BLEND_LABEL_CA NULL
-#define PCE_HIRES_BLEND_INFO_0_CA NULL
-#define PCE_H_OVERSCAN_LABEL_CA NULL
-#define PCE_H_OVERSCAN_INFO_0_CA NULL
+#define PCE_HIRES_BLEND_LABEL_CA "Força la fusió en alta resolució"
+#define PCE_HIRES_BLEND_INFO_0_CA "Fusiona els píxels entre ells en fer servir el mode d'alta resolució. Un valor alt difumina més la imatge."
+#define PCE_H_OVERSCAN_LABEL_CA "Mostra sobreescaneig horitzontal"
+#define PCE_H_OVERSCAN_INFO_0_CA "'Automàtic' intentarà adaptar la visualització dels jocs, retallant zones buides."
 #define PCE_INITIAL_SCANLINE_LABEL_CA "Línia de dibuixat inicial"
 #define PCE_INITIAL_SCANLINE_INFO_0_CA "Indica la primera línia d'escombrat que es renderitzarà. Valors molt alts poden retallar la part superior de la imatge."
 #define OPTION_VAL_3_CA "3 (Per defecte)"
 #define PCE_LAST_SCANLINE_LABEL_CA "Línia de dibuixat final"
 #define PCE_LAST_SCANLINE_INFO_0_CA "Indica l'última línia d'escombrat que es renderitzarà. Valors molt baixos poden retallar la part inferior de la imatge."
 #define OPTION_VAL_242_CA "242 (Per defecte)"
-#define PCE_PSGREVISION_LABEL_CA NULL
-#define PCE_PSGREVISION_INFO_0_CA NULL
+#define PCE_PSGREVISION_LABEL_CA "Xip d'àudio PSG (Es requereix reinici)"
+#define PCE_PSGREVISION_INFO_0_CA "HuC6280 representa el PC Engine original, HuC6280A el SuperGrafx i CoreGrafx I."
 #define OPTION_VAL_HUC6280_CA NULL
 #define OPTION_VAL_HUC6280A_CA NULL
 #define PCE_RESAMP_QUALITY_LABEL_CA "Qualitat del resampler Owl"
-#define PCE_RESAMP_QUALITY_INFO_0_CA NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CA NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CA NULL
+#define PCE_RESAMP_QUALITY_INFO_0_CA "Valors alts produeixen una millor relació senyal/soroll i manté les freqüències agudes, per augmenta el cost del rendiment i pot provocar més latència i sorolls si el volum està massa alt."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_CA "Mostra configuració avançada de l'entrada/Turbo"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_CA "Mostra els ajustaments de Multitap, del ratolí, dels botons turbo i altres paràmetres avançats. NOTA: És possible que calgui tornar al joc i després al menú ràpid perquè funcioni."
 #define PCE_MOUSE_SENSITIVITY_LABEL_CA "Sensibilitat del ratolí"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_CA "Valors més alts faran que el ratolí es mogui més ràpidament."
 #define OPTION_VAL_0_125_CA "0,125"
@@ -3907,12 +3907,12 @@ struct retro_core_options_v2 options_bg = {
 #define OPTION_VAL_4_50_CA "4,50"
 #define OPTION_VAL_4_75_CA "4,75"
 #define OPTION_VAL_5_00_CA "5,00"
-#define PCE_UP_DOWN_ALLOWED_LABEL_CA NULL
-#define PCE_UP_DOWN_ALLOWED_INFO_0_CA NULL
-#define PCE_DISABLE_SOFTRESET_LABEL_CA NULL
+#define PCE_UP_DOWN_ALLOWED_LABEL_CA "Permet direccions oposades"
+#define PCE_UP_DOWN_ALLOWED_INFO_0_CA "Habilita aquesta opció per permetre alternar o mantenir les direccions esquerra i dreta (o amunt i avall) al mateix temps. Pot provocar errors en el moviment."
+#define PCE_DISABLE_SOFTRESET_LABEL_CA "Deshabilitar reinici per programari (RUN+SELECT)"
 #define PCE_DISABLE_SOFTRESET_INFO_0_CA "En prémer RUN i SELECT de manera simultània, es desactivaran els dos botons en comptes de provocar un reinici del sistema."
-#define PCE_MULTITAP_LABEL_CA NULL
-#define PCE_MULTITAP_INFO_0_CA NULL
+#define PCE_MULTITAP_LABEL_CA "Controlador multitap per 5 controladors"
+#define PCE_MULTITAP_INFO_0_CA "Habilita l'emulació fins a 5 jugadors. Deshabilitar aquesta opció només és necessari en alguns casos (per exemple Cho Aniki)."
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_CA "Tipus de controlador predeterminat del J1"
 #define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_CA "Indica si el controlador del port 1 ha de tenir 2 o 6 botons per defecte. Aquesta opció només s'aplica en iniciar el nucli: si vols canviar el tipus de controlador amb el joc en funcionament, cal utilitzar el botó de canvi de mode. NOTA: Els controladors de 6 botons poden produir comportaments estranys en jocs que no siguin compatibles."
 #define OPTION_VAL_2_BUTTONS_CA "2 Botons"
@@ -3926,13 +3926,13 @@ struct retro_core_options_v2 options_bg = {
 #define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_CA "Tipus de controlador predeterminat del J5"
 #define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_CA "Indica si el controlador del port 5 ha de tenir 2 o 6 botons per defecte. Aquesta opció només s'aplica en iniciar el nucli: si vols canviar el tipus de controlador amb el joc en funcionament, cal utilitzar el botó de canvi de mode. NOTA: Els controladors de 6 botons poden produir comportaments estranys en jocs que no siguin compatibles."
 #define PCE_TURBO_TOGGLING_LABEL_CA "Mode de tecla d'accés ràpid del turbo"
-#define PCE_TURBO_TOGGLING_INFO_0_CA NULL
+#define PCE_TURBO_TOGGLING_INFO_0_CA "Habilita els botons turbo. Les tecles d'accés ràpid (botons III i IV) poden fer de commutadors o de botons de turbo (si es mantenen clicats)."
 #define OPTION_VAL_TOGGLE_CA "Alternar"
 #define OPTION_VAL_ALWAYS_CA "Dedicat"
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_CA "Tecles d'accés ràpid alternatives pel turbo"
 #define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_CA "Assigna els botons L3/R3 del RetroPad com a tecla d'accés ràpid per activar/desactivar el turbo en comptes dels botons III i IV. Només funciona si no hi ha una altra funció assignada als botons R3/L3. Amb aquesta opció, no caldrà tornar a assignar els botons III i IV al canviar al controlador de 6 botons."
 #define PCE_TURBO_DELAY_LABEL_CA "Velocitat del turbo"
-#define PCE_TURBO_DELAY_INFO_0_CA NULL
+#define PCE_TURBO_DELAY_INFO_0_CA "Configura la velocitat de repetició en prémer botons."
 #define OPTION_VAL_FAST_CA "Ràpida"
 #define OPTION_VAL_MEDIUM_CA "Mig"
 #define OPTION_VAL_SLOW_CA "Lent"
@@ -3948,7 +3948,7 @@ struct retro_core_options_v2 options_bg = {
 #define PCE_P4_TURBO_II_ENABLE_LABEL_CA NULL
 #define PCE_CDIMAGECACHE_LABEL_CA "Memòria intermèdia de la imatge de disc (Es requereix reinici)"
 #define PCE_CDIMAGECACHE_INFO_0_CA "Carrega la imatge completa en memòria en iniciar. Pot reduir el temps de càrrega amb el cost d'augmentar el temps d'arrencada."
-#define PCE_CDBIOS_LABEL_CA NULL
+#define PCE_CDBIOS_LABEL_CA "BIOS CD (Es requereix reinici)"
 #define PCE_CDBIOS_INFO_0_CA "La majoria de jocs poden funcionar amb la targeta de sistema 3. Games Express és necessari per a alguns jocs sense llicència."
 #define OPTION_VAL_GAMES_EXPRESS_CA NULL
 #define OPTION_VAL_SYSTEM_CARD_1_CA "Targeta sistema 1"
@@ -3956,14 +3956,14 @@ struct retro_core_options_v2 options_bg = {
 #define OPTION_VAL_SYSTEM_CARD_3_CA "Targeta sistema 3"
 #define OPTION_VAL_SYSTEM_CARD_2_US_CA "Targeta del sistema 2 US"
 #define OPTION_VAL_SYSTEM_CARD_3_US_CA "Targeta del sistema 3 US"
-#define PCE_ARCADECARD_LABEL_CA NULL
-#define PCE_ARCADECARD_INFO_0_CA NULL
+#define PCE_ARCADECARD_LABEL_CA "Targeta Arcade (Es requereix reinici)"
+#define PCE_ARCADECARD_INFO_0_CA "Deixa aquesta opció habilitada per permetre els modes millorats en jocs SCD (Super CD-ROM) amb suport per SCD (Arcade CD-ROM)."
 #define PCE_CDSPEED_LABEL_CA "Velocitat del CD (CD)"
 #define PCE_CDSPEED_LABEL_CAT_CA "Velocitat de CD"
 #define PCE_CDSPEED_INFO_0_CA "Valors alts acceleren els temps de càrrega del joc però pot causar problemes en alguns jocs."
 #define PCE_ADPCMEXTRAPREC_LABEL_CA "Precisió ADPCM CD"
 #define PCE_ADPCMEXTRAPREC_LABEL_CAT_CA "Precisió ADPCM"
-#define PCE_ADPCMEXTRAPREC_INFO_0_CA NULL
+#define PCE_ADPCMEXTRAPREC_INFO_0_CA "Activar l'alta precisió amb 12 bits pel sistema predictiu  ADPCM del MSM5202 pot reduir els sorolls en reproduir el so ADPCM."
 #define OPTION_VAL_10_BIT_CA "10 bits"
 #define OPTION_VAL_12_BIT_CA "12 bits"
 #define PCE_ADPCMVOLUME_LABEL_CA "Volum CD ADPCM %"
@@ -3976,7 +3976,7 @@ struct retro_core_options_v2 options_bg = {
 #define PCE_CDPSGVOLUME_LABEL_CAT_CA "Volum CD PSG %"
 #define PCE_NOSPRITELIMIT_LABEL_CA "Desactivar límit de sprites"
 #define PCE_NOSPRITELIMIT_INFO_0_CA "Elimina el límit de 16 sprites per línia en cada escombrat. AVÍS: Pot causar errors gràfics en alguns jocs (com a Bloody Wolf)."
-#define PCE_OCMULTIPLIER_LABEL_CA NULL
+#define PCE_OCMULTIPLIER_LABEL_CA "Multiplicador de velocitat de la CPU"
 #define PCE_OCMULTIPLIER_INFO_0_CA "Valors alts poden reduir els alentiments en els jocs. AVÍS: Pot produir errors gràfics i fallides."
 
 struct retro_core_option_v2_category option_cats_ca[] = {
@@ -30621,7 +30621,7 @@ struct retro_core_options_v2 options_pt_pt = {
 #define OPTION_VAL_RGB_RU NULL
 #define OPTION_VAL_COMPOSITE_RU "Композит"
 #define PCE_ASPECT_RATIO_LABEL_RU "Соотношение сторон"
-#define PCE_ASPECT_RATIO_INFO_0_RU "Выбор предпочтительного соотношения сторон контента. Применяется только при выборе режима соотношения сторон 'Настройка ядра' в настройках видео RetroArch."
+#define PCE_ASPECT_RATIO_INFO_0_RU "Выбор предпочтительного соотношения сторон контента. Применяется только в режиме соотношения сторон 'По выбору ядра' в настройках масштабирования RetroArch."
 #define OPTION_VAL_AUTO_RU "Авто"
 #define OPTION_VAL_6_5_RU NULL
 #define OPTION_VAL_4_3_RU NULL
