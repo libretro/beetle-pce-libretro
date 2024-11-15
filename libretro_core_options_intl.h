@@ -3842,7 +3842,7 @@ struct retro_core_options_v2 options_bg = {
 #define CATEGORY_VIDEO_INFO_0_CA "Canvia les opcions de relació d'aspecte, omissió de fotogrames i altres ajustaments de la sortida d'imatge."
 #define CATEGORY_AUDIO_LABEL_CA "Àudio"
 #define CATEGORY_AUDIO_INFO_0_CA "Configura els dispositius d'àudio emulats."
-#define CATEGORY_INPUT_LABEL_CA "Dispositius de joc"
+#define CATEGORY_INPUT_LABEL_CA "Entrada"
 #define CATEGORY_INPUT_INFO_0_CA "Configurar el senyal d'entrada de la pistola de llum, del ratolí i del controlador."
 #define CATEGORY_HACKS_LABEL_CA "Correccions de l'emulació"
 #define CATEGORY_HACKS_INFO_0_CA "Canvia les opcions de velocitats del processador i de precisió de l'emulador que afecten el rendiment a baix nivell i la compatibilitat."
@@ -36343,47 +36343,47 @@ struct retro_core_options_v2 options_tt = {
 /* RETRO_LANGUAGE_UK */
 
 #define CATEGORY_VIDEO_LABEL_UK "Відео"
-#define CATEGORY_VIDEO_INFO_0_UK NULL
+#define CATEGORY_VIDEO_INFO_0_UK "Налаштувати співвідношення сторінок, відображення обрізки та інші параметри виходу зображення."
 #define CATEGORY_AUDIO_LABEL_UK "Аудіо"
 #define CATEGORY_AUDIO_INFO_0_UK "Налаштування емуляції аудіопристроїв."
 #define CATEGORY_INPUT_LABEL_UK "Ввід"
-#define CATEGORY_INPUT_INFO_0_UK NULL
+#define CATEGORY_INPUT_INFO_0_UK "Налаштуйте світловий гармат, мишу та контроллер."
 #define CATEGORY_HACKS_LABEL_UK "Гаки емуляції"
 #define CATEGORY_HACKS_INFO_0_UK "Налаштування розгону процесора та точності емуляції, що впливають на низькорівневу продуктивність та сумісність."
-#define CATEGORY_CD_LABEL_UK NULL
-#define CATEGORY_CD_INFO_0_UK NULL
+#define CATEGORY_CD_LABEL_UK "CD комп'ютерних двигунів"
+#define CATEGORY_CD_INFO_0_UK "Налаштувати параметри, пов'язані з емуляцією CD двигуна ПК."
 #define PCE_PALETTE_LABEL_UK "Кольорова палітра"
 #define PCE_PALETTE_INFO_0_UK "Композитний намагається відтворити оригінальний вивід консолі та може показати більше деталей у деяких іграх."
 #define OPTION_VAL_RGB_UK NULL
 #define OPTION_VAL_COMPOSITE_UK "Композитний"
 #define PCE_ASPECT_RATIO_LABEL_UK "Співвідношення сторін"
-#define PCE_ASPECT_RATIO_INFO_0_UK NULL
+#define PCE_ASPECT_RATIO_INFO_0_UK "Виберіть бажане співвідношення сторін вмісту. Воно буде застосовано тільки коли в параметрах RetroArch's буде встановлено 'Core з параметрами."
 #define OPTION_VAL_AUTO_UK "Авто"
 #define OPTION_VAL_6_5_UK NULL
 #define OPTION_VAL_4_3_UK NULL
 #define OPTION_VAL_UNCORRECTED_UK "Не коректне"
-#define PCE_SCALING_LABEL_UK NULL
-#define PCE_SCALING_INFO_0_UK NULL
-#define OPTION_VAL_LORES_UK NULL
-#define OPTION_VAL_HIRES_UK NULL
-#define PCE_HIRES_BLEND_LABEL_UK NULL
-#define PCE_HIRES_BLEND_INFO_0_UK NULL
+#define PCE_SCALING_LABEL_UK "Масштабування роздільності"
+#define PCE_SCALING_INFO_0_UK "'Auto' дозволить змінювати роздільну здатність. 'Низька роздільна здатність' можуть чистити пікселі. 'Висока роздільна здатність' буде залишатися на максимальній ширині."
+#define OPTION_VAL_LORES_UK "Низька роздільна здатність"
+#define OPTION_VAL_HIRES_UK "Висока роздільна здатність"
+#define PCE_HIRES_BLEND_LABEL_UK "Висока роздільна здатність змішування"
+#define PCE_HIRES_BLEND_INFO_0_UK "Змішати пікселі, коли у режимі високої роздільної здатності. Чим вище значення, тим більше розмиватимуться зображення."
 #define PCE_H_OVERSCAN_LABEL_UK "Показати горизонтальну розгортку"
-#define PCE_H_OVERSCAN_INFO_0_UK NULL
-#define PCE_INITIAL_SCANLINE_LABEL_UK NULL
-#define PCE_INITIAL_SCANLINE_INFO_0_UK NULL
+#define PCE_H_OVERSCAN_INFO_0_UK "'Авто' намагатиметься адаптуватися до ігор, позбавляючи порожніх областей."
+#define PCE_INITIAL_SCANLINE_LABEL_UK "Початковий аналіз"
+#define PCE_INITIAL_SCANLINE_INFO_0_UK "Перший рендеринговий сканер. Вищі значення будуть обрізати верхній частині зображення."
 #define OPTION_VAL_3_UK "3 (за замовчуванням)"
-#define PCE_LAST_SCANLINE_LABEL_UK NULL
-#define PCE_LAST_SCANLINE_INFO_0_UK NULL
+#define PCE_LAST_SCANLINE_LABEL_UK "Останній рядок сканування"
+#define PCE_LAST_SCANLINE_INFO_0_UK "Остання візуальна сканера. Менші значення будуть обрізати нижній частині зображення."
 #define OPTION_VAL_242_UK "242 (за замовчуванням)"
-#define PCE_PSGREVISION_LABEL_UK NULL
-#define PCE_PSGREVISION_INFO_0_UK NULL
+#define PCE_PSGREVISION_LABEL_UK "PSG IP аудіо Chip (потрібен перезапуск)"
+#define PCE_PSGREVISION_INFO_0_UK "HuC6280 означає початковий комп'ютерний двигун, HuC6280A SuperGrafx та CoreGrafx I."
 #define OPTION_VAL_HUC6280_UK NULL
 #define OPTION_VAL_HUC6280A_UK NULL
-#define PCE_RESAMP_QUALITY_LABEL_UK NULL
-#define PCE_RESAMP_QUALITY_INFO_0_UK NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_UK NULL
-#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_UK NULL
+#define PCE_RESAMP_QUALITY_LABEL_UK "Якість ресемплера"
+#define PCE_RESAMP_QUALITY_INFO_0_UK "Вищі значення дають краще співвідношення співвідношення між сигналами та збереженням високих частот, але збільшують вартість обчислення та можуть спричинити вищу затримку та обрізку, якщо встановлений об'єм."
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_LABEL_UK "Показати додаткові параметри вводу/Турбо"
+#define PCE_SHOW_ADVANCED_INPUT_SETTINGS_INFO_0_UK "Показати мультитап, милю, Турбо кнопки та розширені параметри. ПРИМІТКА: може знадобитися повернутися до гри і повторно ввести меню для оновлення списку."
 #define PCE_MOUSE_SENSITIVITY_LABEL_UK "Чутливість миші"
 #define PCE_MOUSE_SENSITIVITY_INFO_0_UK "Великі значення змусять курсор миші рухатися швидше."
 #define OPTION_VAL_0_125_UK NULL
@@ -36415,73 +36415,73 @@ struct retro_core_options_v2 options_tt = {
 #define PCE_UP_DOWN_ALLOWED_INFO_0_UK "Увімкнення цього дозволить одночасно натискати / швидко чергувати/утримувати одночасно ліворуч та праворуч (чи донизу) напрямки. Це може спричинити глітчі руху."
 #define PCE_DISABLE_SOFTRESET_LABEL_UK "Вимкнути програмне скидання (РУХ+ВИБІР)"
 #define PCE_DISABLE_SOFTRESET_INFO_0_UK "Коли РУХ та ВИБІР одночасно натиснуто, тимчасово вимкнуться обидві кнопки замість скидання."
-#define PCE_MULTITAP_LABEL_UK NULL
-#define PCE_MULTITAP_INFO_0_UK NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_UK NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_UK NULL
-#define OPTION_VAL_2_BUTTONS_UK NULL
-#define OPTION_VAL_6_BUTTONS_UK NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_UK NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_UK NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_UK NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_UK NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_UK NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_UK NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_UK NULL
-#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_UK NULL
+#define PCE_MULTITAP_LABEL_UK "Multitap контролер портів 5"
+#define PCE_MULTITAP_INFO_0_UK "Увімкнути до мультитільної емуляції 5-плеєра. Вимкнення потрібно лише в деяких випадках (наприклад, Cho Aniki)."
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_LABEL_UK "P1 типовий тип Jypad"
+#define PCE_DEFAULT_JOYPAD_TYPE_P1_INFO_0_UK "Виберіть, якщо порт 1 joypad має бути 2 або 6 кнопок за замовчуванням. Цей параметр застосовується тільки тоді, коли запущено ядро, якщо ви хочете перемкнутися під час роботи вмісту, використовуйте кнопку 'Перемикач режиму'. ПРИМІТКА: 6 кнопок joypad може мати дивну поведінку в несумісних іграх."
+#define OPTION_VAL_2_BUTTONS_UK "2 кнопки"
+#define OPTION_VAL_6_BUTTONS_UK "6 кнопок"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_LABEL_UK "P2 за замовчуванням Jypad тип"
+#define PCE_DEFAULT_JOYPAD_TYPE_P2_INFO_0_UK "Виберіть, якщо порт 2 джойпада має бути 2 або 6 кнопок за замовчуванням. Цей параметр застосовується тільки тоді, коли запущено ядро, якщо ви хочете перемкнутися під час роботи вмісту, використовуйте кнопку 'Перемикач режиму'. ПРИМІТКА: 6 кнопок joypad може мати дивну поведінку в несумісних іграх."
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_LABEL_UK "P3 за замовчуванням Jypad тип"
+#define PCE_DEFAULT_JOYPAD_TYPE_P3_INFO_0_UK "Виберіть, якщо порт 3 джойпада має бути 2 або 6 кнопок за замовчуванням. Цей параметр застосовується тільки тоді, коли запущено ядро, якщо ви хочете перемкнутися під час роботи вмісту, використовуйте кнопку 'Перемикач режиму'. ПРИМІТКА: 6 кнопок joypad може мати дивну поведінку в несумісних іграх."
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_LABEL_UK "Тип Jypad P4 за замовчуванням"
+#define PCE_DEFAULT_JOYPAD_TYPE_P4_INFO_0_UK "Оберіть, якщо порт 4 джойпада має бути 2 або 6 кнопок за замовчуванням. Цей параметр застосовується тільки тоді, коли запущено ядро, якщо ви хочете перемкнутися під час роботи вмісту, використовуйте кнопку 'Перемикач режиму'. ПРИМІТКА: 6 кнопок joypad може мати дивну поведінку в несумісних іграх."
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_LABEL_UK "P5 за замовчуванням Jypad тип"
+#define PCE_DEFAULT_JOYPAD_TYPE_P5_INFO_0_UK "Виберіть, якщо порт 5 джойпідів має бути 2 або 6 кнопок за замовчуванням. Цей параметр застосовується тільки тоді, коли запущено ядро, якщо ви хочете перемкнутися під час роботи вмісту, використовуйте кнопку 'Перемикач режиму'. ПРИМІТКА: 6 кнопок joypad може мати дивну поведінку в несумісних іграх."
 #define PCE_TURBO_TOGGLING_LABEL_UK "Турборежим гарячих клавіш"
 #define PCE_TURBO_TOGGLING_INFO_0_UK "Увімкнути турбокнопки. Гарячі клавіші (кнопки III та IV) можуть поводити себе як перемикачі або виділені (утримування) турбокнопки."
 #define OPTION_VAL_TOGGLE_UK "Перемикач"
 #define OPTION_VAL_ALWAYS_UK "Виділений"
 #define PCE_TURBO_TOGGLE_HOTKEY_LABEL_UK "Альтернативні турбокнопки"
-#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_UK NULL
-#define PCE_TURBO_DELAY_LABEL_UK NULL
-#define PCE_TURBO_DELAY_INFO_0_UK NULL
+#define PCE_TURBO_TOGGLE_HOTKEY_INFO_0_UK "Призначити кнопки RetroPad's L3/R3 як комбінації клавіш turbo замість кнопок III і IV. Працює тільки в режимі \"Увімкнути\" і тільки до тих пір, поки нічого не призначається на кнопку L3/R3. Ви можете уникнути перерахування кнопок III і IV при перемиканні в режим контролю 6-кнопки."
+#define PCE_TURBO_DELAY_LABEL_UK "Турбошвидкість"
+#define PCE_TURBO_DELAY_INFO_0_UK "Оберіть, як швидко натискають кнопки."
 #define OPTION_VAL_FAST_UK "Швидко"
-#define OPTION_VAL_MEDIUM_UK NULL
-#define OPTION_VAL_SLOW_UK NULL
-#define PCE_P0_TURBO_I_ENABLE_LABEL_UK NULL
-#define PCE_P0_TURBO_II_ENABLE_LABEL_UK NULL
-#define PCE_P1_TURBO_I_ENABLE_LABEL_UK NULL
-#define PCE_P1_TURBO_II_ENABLE_LABEL_UK NULL
-#define PCE_P2_TURBO_I_ENABLE_LABEL_UK NULL
-#define PCE_P2_TURBO_II_ENABLE_LABEL_UK NULL
-#define PCE_P3_TURBO_I_ENABLE_LABEL_UK NULL
-#define PCE_P3_TURBO_II_ENABLE_LABEL_UK NULL
-#define PCE_P4_TURBO_I_ENABLE_LABEL_UK NULL
-#define PCE_P4_TURBO_II_ENABLE_LABEL_UK NULL
+#define OPTION_VAL_MEDIUM_UK "Помірно"
+#define OPTION_VAL_SLOW_UK "Сповільнення"
+#define PCE_P0_TURBO_I_ENABLE_LABEL_UK "Турбо I P1"
+#define PCE_P0_TURBO_II_ENABLE_LABEL_UK "Турбо 1"
+#define PCE_P1_TURBO_I_ENABLE_LABEL_UK "Турбо I"
+#define PCE_P1_TURBO_II_ENABLE_LABEL_UK "Турбо 2"
+#define PCE_P2_TURBO_I_ENABLE_LABEL_UK "Турбо I"
+#define PCE_P2_TURBO_II_ENABLE_LABEL_UK "Турбо 2"
+#define PCE_P3_TURBO_I_ENABLE_LABEL_UK "Турбо I P4"
+#define PCE_P3_TURBO_II_ENABLE_LABEL_UK "Турбо 2"
+#define PCE_P4_TURBO_I_ENABLE_LABEL_UK "Турбо I P5"
+#define PCE_P4_TURBO_II_ENABLE_LABEL_UK "Турбо 2"
 #define PCE_CDIMAGECACHE_LABEL_UK "Кеш образу CD (потрібен перезапуск)"
 #define PCE_CDIMAGECACHE_INFO_0_UK "Завантажувати повне зображення в пам'ять під час запуску. Може зменшувати час завантаження за рахунок збільшення часу запуску."
-#define PCE_CDBIOS_LABEL_UK NULL
-#define PCE_CDBIOS_INFO_0_UK NULL
-#define OPTION_VAL_GAMES_EXPRESS_UK NULL
-#define OPTION_VAL_SYSTEM_CARD_1_UK NULL
-#define OPTION_VAL_SYSTEM_CARD_2_UK NULL
-#define OPTION_VAL_SYSTEM_CARD_3_UK NULL
-#define OPTION_VAL_SYSTEM_CARD_2_US_UK NULL
-#define OPTION_VAL_SYSTEM_CARD_3_US_UK NULL
-#define PCE_ARCADECARD_LABEL_UK NULL
-#define PCE_ARCADECARD_INFO_0_UK NULL
-#define PCE_CDSPEED_LABEL_UK NULL
-#define PCE_CDSPEED_LABEL_CAT_UK NULL
-#define PCE_CDSPEED_INFO_0_UK NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_UK NULL
-#define PCE_ADPCMEXTRAPREC_LABEL_CAT_UK NULL
-#define PCE_ADPCMEXTRAPREC_INFO_0_UK NULL
-#define OPTION_VAL_10_BIT_UK NULL
-#define OPTION_VAL_12_BIT_UK NULL
-#define PCE_ADPCMVOLUME_LABEL_UK NULL
-#define PCE_ADPCMVOLUME_LABEL_CAT_UK NULL
-#define PCE_ADPCMVOLUME_INFO_0_UK NULL
-#define PCE_ADPCMVOLUME_INFO_1_UK NULL
-#define PCE_CDDAVOLUME_LABEL_UK NULL
-#define PCE_CDDAVOLUME_LABEL_CAT_UK NULL
-#define PCE_CDPSGVOLUME_LABEL_UK NULL
-#define PCE_CDPSGVOLUME_LABEL_CAT_UK NULL
-#define PCE_NOSPRITELIMIT_LABEL_UK NULL
-#define PCE_NOSPRITELIMIT_INFO_0_UK NULL
-#define PCE_OCMULTIPLIER_LABEL_UK NULL
-#define PCE_OCMULTIPLIER_INFO_0_UK NULL
+#define PCE_CDBIOS_LABEL_UK "CD BIOS (потрібен перезапуск)"
+#define PCE_CDBIOS_INFO_0_UK "Більшість ігор може складатися на 'Системній карті 3'. 'Ігри Express' потрібно для декількох неліцензійних ігор."
+#define OPTION_VAL_GAMES_EXPRESS_UK "Ігри Експрес"
+#define OPTION_VAL_SYSTEM_CARD_1_UK "Системна картка 1"
+#define OPTION_VAL_SYSTEM_CARD_2_UK "Системна картка 2"
+#define OPTION_VAL_SYSTEM_CARD_3_UK "Системна картка 3"
+#define OPTION_VAL_SYSTEM_CARD_2_US_UK "Системна картка 2 US"
+#define OPTION_VAL_SYSTEM_CARD_3_US_UK "Системна картка 3 США"
+#define PCE_ARCADECARD_LABEL_UK "Картка Аркади (потрібен перезапуск)"
+#define PCE_ARCADECARD_INFO_0_UK "Залиште цю опцію ввімкненою, щоб дозволити розширені способи розширених ACD ігор."
+#define PCE_CDSPEED_LABEL_UK "(CD) Швидкість CD"
+#define PCE_CDSPEED_LABEL_CAT_UK "Швидкість CD"
+#define PCE_CDSPEED_INFO_0_UK "Більші значення активують швидше завантаження, але можуть викликати проблеми з кількома іграми."
+#define PCE_ADPCMEXTRAPREC_LABEL_UK "(CD) точність ADPCM"
+#define PCE_ADPCMEXTRAPREC_LABEL_CAT_UK "ADPCM точність"
+#define PCE_ADPCMEXTRAPREC_INFO_0_UK "Повна точність 12-бітів для MSM5205 ADPCM-продиктора може зменшити шум під час відтворення ADPCM."
+#define OPTION_VAL_10_BIT_UK "10-бітний"
+#define OPTION_VAL_12_BIT_UK "12-біт"
+#define PCE_ADPCMVOLUME_LABEL_UK "(CD) Гучність PSG %"
+#define PCE_ADPCMVOLUME_LABEL_CAT_UK "Гучність ADPCM %"
+#define PCE_ADPCMVOLUME_INFO_0_UK "Гра CD тільки встановили цей контроль гучності занадто високо може викликати обрізання вибірки."
+#define PCE_ADPCMVOLUME_INFO_1_UK "Якщо встановити цей контроль гучності занадто високий, це може призвести до відключення зразків."
+#define PCE_CDDAVOLUME_LABEL_UK "(CD) Гучність CDDA %"
+#define PCE_CDDAVOLUME_LABEL_CAT_UK "Гучність CDDA %"
+#define PCE_CDPSGVOLUME_LABEL_UK "(CD) CD PSG Об'єм %"
+#define PCE_CDPSGVOLUME_LABEL_CAT_UK "Гучність PSG %"
+#define PCE_NOSPRITELIMIT_LABEL_UK "Ліміт спрайтів немає"
+#define PCE_NOSPRITELIMIT_INFO_0_UK "Видалення апаратного обмеження 16-спрайтів по сканеру. УВАГА: Може призвести до того, що графіка блищить на деяких іграх (наприклад, Bloody Wolf)."
+#define PCE_OCMULTIPLIER_LABEL_UK "Мультиплікатор процесора"
+#define PCE_OCMULTIPLIER_INFO_0_UK "Вищі значення можуть зменшити уповільнення ігор. УВАГА: можуть призвести до збоїв та аварій."
 
 struct retro_core_option_v2_category option_cats_uk[] = {
    {
